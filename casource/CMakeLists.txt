@@ -285,16 +285,12 @@ ADD_CUSTOM_TARGET(includer
          COMMAND echo  '\#define GETCFLAGS \(\"\\' > ${INCFILE}
          COMMAND echo  'Build date: \\' >> ${INCFILE}
 	 COMMAND echo `date` '\\' >> ${INCFILE}
-         COMMAND echo  '\\nConfigure Username:\\t'$ENV{USER}'\\' >> ${INCFILE}
-         COMMAND echo  '\\nConfigure Host:\\t'$ENV{HOSTNAME}'\\' >> ${INCFILE}
-         COMMAND echo  '\\nCompiler Info:\\t' `${CMAKE_C_COMPILER} --version | head -1` '\\' >> ${INCFILE}
-         COMMAND echo  '\\nConfigure CFLAGS:\\t'${ALL_DEFS}'\\' >> ${INCFILE}
-         COMMAND echo  '\\nSVN Version:\\t' `svnversion ${uMatIC_SOURCE_DIR}` '\\'  >> ${INCFILE}
-         COMMAND echo  '\\n\"\)' >> ${INCFILE}
-         COMMAND echo  '\#define GETSVNINFO \(\"\\' >> ${INCFILE}
-         COMMAND echo  '\\nsvn status:\\n' `cd ${uMatIC_SOURCE_DIR} && svn status  | while read a\; do echo  $$a'\\n'\;done` '\\'  >> ${INCFILE}
-         COMMAND echo  '\\nsvn info:\\n' `cd ${uMatIC_SOURCE_DIR} && svn info | while read a\; do echo $$a'\\n'\;done` '\\' >> ${INCFILE}
-         COMMAND echo  '\\n\"\)' >> ${INCFILE}
+         COMMAND echo  'Configure Username:\\t'$ENV{USER}'\\' >> ${INCFILE}
+         COMMAND echo  'Configure Host:\\t'$ENV{HOSTNAME}'\\' >> ${INCFILE}
+         COMMAND echo  'Compiler Info:\\t' `${CMAKE_C_COMPILER} --version | head -1` '\\' >> ${INCFILE}
+         COMMAND echo  'Configure CFLAGS:\\t'${ALL_DEFS}'\\' >> ${INCFILE}
+         COMMAND echo  'SVN Version:\\t' `svnversion ${uMatIC_SOURCE_DIR}` '\\'  >> ${INCFILE}
+         COMMAND echo  '\"\)' >> ${INCFILE}
 )
 
 MESSAGE("Info: The CFLAGS environment variable is listed on the following

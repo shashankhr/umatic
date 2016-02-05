@@ -1,0 +1,425 @@
+Scanning dependencies of target readlist
+[  0%] Building C object read_list/CMakeFiles/readlist.dir/convert.o
+[  1%] Building C object read_list/CMakeFiles/readlist.dir/debin.o
+[  2%] Building C object read_list/CMakeFiles/readlist.dir/findvals.o
+[  3%] Building C object read_list/CMakeFiles/readlist.dir/freecsv.o
+[  4%] Building C object read_list/CMakeFiles/readlist.dir/init.o
+[  5%] Building C object read_list/CMakeFiles/readlist.dir/qsort_csv.o
+[  6%] Building C object read_list/CMakeFiles/readlist.dir/read_fg_list.o
+[  7%] Building C object read_list/CMakeFiles/readlist.dir/readwrite.o
+[  8%] Building C object read_list/CMakeFiles/readlist.dir/readwrite_data.o
+[  8%] Building C object read_list/CMakeFiles/readlist.dir/readwrite_fg.o
+/Users/shashankhr/GitHub/umatic/casource/read_list/readwrite_fg.c:188:71: warning: format specifies type 'int' but the argument has type 'unsigned long' [-Wformat]
+         fprintf(stderr,"CA_FLOAT size: file: %i program: %i\n",fsize,sizeof(CA_FLOAT));
+                                                          ~~          ^~~~~~~~~~~~~~~~
+                                                          %lu
+/Users/shashankhr/GitHub/umatic/casource/read_list/readwrite_fg.c:196:45: warning: format specifies type 'int' but the argument has type 'long' [-Wformat]
+    fprintf(stderr,"Location of data: %i\n",data_pos);
+                                      ~~    ^~~~~~~~
+                                      %li
+/Users/shashankhr/GitHub/umatic/casource/read_list/readwrite_fg.c:205:62: warning: format specifies type 'int' but the argument has type 'unsigned long' [-Wformat]
+             fprintf(stderr,"fg struct size: %i %i\n",fgsize,sizeof(FGrid_str));
+                                                ~~           ^~~~~~~~~~~~~~~~~
+                                                %lu
+3 warnings generated.
+[  9%] Building C object read_list/CMakeFiles/readlist.dir/unit_conv.o
+[ 10%] Linking C static library libreadlist.a
+[ 10%] Built target readlist
+Scanning dependencies of target includer
+Configured with: --prefix=/Library/Developer/CommandLineTools/usr --with-gxx-include-dir=/usr/include/c++/4.2.1
+svn: E155036: Working copy '/Users/shashankhr/GitHub/umatic/casource' is too old (format 8, created by Subversion 1.4)
+svn: E155036: Please see the 'svn upgrade' command
+svn: E155036: Working copy '/Users/shashankhr/GitHub/umatic/casource' is too old (format 8, created by Subversion 1.4)
+svn: E155036: Please see the 'svn upgrade' command
+svn: E155036: Working copy '/Users/shashankhr/GitHub/umatic/casource' is too old (format 8, created by Subversion 1.4)
+[ 10%] Built target includer
+Scanning dependencies of target umatic
+[ 11%] Building C object CMakeFiles/umatic.dir/alloc_bb.o
+/Users/shashankhr/GitHub/umatic/casource/alloc_bb.c:293:72: warning: format specifies type 'char *' but the argument has type 'int' [-Wformat]
+      fprintf (stderr, "ERROR: calloc failed in %s at %s\n", __func__, __LINE__);
+                                                      ~~               ^~~~~~~~
+                                                      %d
+<scratch space>:239:1: note: expanded from here
+293
+^~~
+/Users/shashankhr/GitHub/umatic/casource/alloc_bb.c:297:74: warning: format specifies type 'char *' but the argument has type 'int' [-Wformat]
+        fprintf (stderr, "ERROR: calloc failed in %s at %s\n", __func__, __LINE__);
+                                                        ~~               ^~~~~~~~
+                                                        %d
+<scratch space>:239:1: note: expanded from here
+297
+^~~
+/Users/shashankhr/GitHub/umatic/casource/alloc_bb.c:304:72: warning: format specifies type 'char *' but the argument has type 'int' [-Wformat]
+      fprintf (stderr, "ERROR: calloc failed in %s at %s\n", __func__, __LINE__);
+                                                      ~~               ^~~~~~~~
+                                                      %d
+<scratch space>:239:1: note: expanded from here
+304
+^~~
+/Users/shashankhr/GitHub/umatic/casource/alloc_bb.c:308:74: warning: format specifies type 'char *' but the argument has type 'int' [-Wformat]
+        fprintf (stderr, "ERROR: calloc failed in %s at %s\n", __func__, __LINE__);
+                                                        ~~               ^~~~~~~~
+                                                        %d
+<scratch space>:239:1: note: expanded from here
+308
+^~~
+/Users/shashankhr/GitHub/umatic/casource/alloc_bb.c:325:72: warning: format specifies type 'char *' but the argument has type 'int' [-Wformat]
+      fprintf (stderr, "ERROR: calloc failed in %s at %s\n", __func__, __LINE__);
+                                                      ~~               ^~~~~~~~
+                                                      %d
+<scratch space>:239:1: note: expanded from here
+325
+^~~
+/Users/shashankhr/GitHub/umatic/casource/alloc_bb.c:329:74: warning: format specifies type 'char *' but the argument has type 'int' [-Wformat]
+        fprintf (stderr, "ERROR: calloc failed in %s at %s\n", __func__, __LINE__);
+                                                        ~~               ^~~~~~~~
+                                                        %d
+<scratch space>:239:1: note: expanded from here
+329
+^~~
+6 warnings generated.
+[ 12%] Building C object CMakeFiles/umatic.dir/alloc_multicomp.o
+[ 13%] Building C object CMakeFiles/umatic.dir/alloc_sb.o
+/Users/shashankhr/GitHub/umatic/casource/alloc_sb.c:135:70: warning: format specifies type 'char *' but the argument has type 'int' [-Wformat]
+        fprintf (stderr, "ERROR: %s: malloc failed at %s\n",__func__,__LINE__);
+                                                      ~~             ^~~~~~~~
+                                                      %d
+<scratch space>:225:1: note: expanded from here
+135
+^~~
+/Users/shashankhr/GitHub/umatic/casource/alloc_sb.c:322:32: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+      if ((bp->ctrl->block_nuc == TRUE )) { /*nuc threshold array*/
+           ~~~~~~~~~~~~~~~~~~~~^~~~~~~
+/Users/shashankhr/GitHub/umatic/casource/alloc_sb.c:322:32: note: remove extraneous parentheses around the comparison to silence this warning
+      if ((bp->ctrl->block_nuc == TRUE )) { /*nuc threshold array*/
+          ~                    ^       ~
+/Users/shashankhr/GitHub/umatic/casource/alloc_sb.c:322:32: note: use '=' to turn this equality comparison into an assignment
+      if ((bp->ctrl->block_nuc == TRUE )) { /*nuc threshold array*/
+                               ^~
+                               =
+/Users/shashankhr/GitHub/umatic/casource/alloc_sb.c:324:96: warning: format specifies type 'int' but the argument has type 'unsigned long' [-Wformat]
+              fprintf(stderr, "ERROR: alloc_sb: SB cell nuc thresh. array malloc failed, %i\n",nc*sizeof(CA_FLOAT));
+                                                                                         ~~    ^~~~~~~~~~~~~~~~~~~
+                                                                                         %lu
+/Users/shashankhr/GitHub/umatic/casource/alloc_sb.c:329:93: warning: format specifies type 'int' but the argument has type 'unsigned long' [-Wformat]
+          fprintf(stderr, "ERROR: alloc_sb: SB cell nat_sol_site array malloc failed, %i\n",nc*sizeof(CA_FLOAT));
+                                                                                      ~~    ^~~~~~~~~~~~~~~~~~~
+                                                                                      %lu
+4 warnings generated.
+[ 14%] Building C object CMakeFiles/umatic.dir/bigblock.o
+[ 14%] Building C object CMakeFiles/umatic.dir/ca_histo.o
+[ 15%] Building C object CMakeFiles/umatic.dir/calc_sb.o
+[ 16%] Building C object CMakeFiles/umatic.dir/ca_solid.o
+[ 17%] Building C object CMakeFiles/umatic.dir/castats.o
+[ 18%] Building C object CMakeFiles/umatic.dir/curvature.o
+[ 19%] Building C object CMakeFiles/umatic.dir/curvature_3D.o
+/Users/shashankhr/GitHub/umatic/casource/curvature_3D.c:564:11: warning: using integer absolute value function 'abs' when argument is of floating point type [-Wabsolute-value]
+             if (abs(curv_x) >= abs(curv_y) && abs(curv_x) >= abs(curv_z)){
+                 ^
+/Users/shashankhr/GitHub/umatic/casource/curvature_3D.c:564:11: note: use function 'fabs' instead
+             if (abs(curv_x) >= abs(curv_y) && abs(curv_x) >= abs(curv_z)){
+                 ^~~
+                 fabs
+/Users/shashankhr/GitHub/umatic/casource/curvature_3D.c:564:26: warning: using integer absolute value function 'abs' when argument is of floating point type [-Wabsolute-value]
+             if (abs(curv_x) >= abs(curv_y) && abs(curv_x) >= abs(curv_z)){
+                                ^
+/Users/shashankhr/GitHub/umatic/casource/curvature_3D.c:564:26: note: use function 'fabs' instead
+             if (abs(curv_x) >= abs(curv_y) && abs(curv_x) >= abs(curv_z)){
+                                ^~~
+                                fabs
+/Users/shashankhr/GitHub/umatic/casource/curvature_3D.c:564:41: warning: using integer absolute value function 'abs' when argument is of floating point type [-Wabsolute-value]
+             if (abs(curv_x) >= abs(curv_y) && abs(curv_x) >= abs(curv_z)){
+                                               ^
+/Users/shashankhr/GitHub/umatic/casource/curvature_3D.c:564:41: note: use function 'fabs' instead
+             if (abs(curv_x) >= abs(curv_y) && abs(curv_x) >= abs(curv_z)){
+                                               ^~~
+                                               fabs
+/Users/shashankhr/GitHub/umatic/casource/curvature_3D.c:564:56: warning: using integer absolute value function 'abs' when argument is of floating point type [-Wabsolute-value]
+             if (abs(curv_x) >= abs(curv_y) && abs(curv_x) >= abs(curv_z)){
+                                                              ^
+/Users/shashankhr/GitHub/umatic/casource/curvature_3D.c:564:56: note: use function 'fabs' instead
+             if (abs(curv_x) >= abs(curv_y) && abs(curv_x) >= abs(curv_z)){
+                                                              ^~~
+                                                              fabs
+/Users/shashankhr/GitHub/umatic/casource/curvature_3D.c:567:16: warning: using integer absolute value function 'abs' when argument is of floating point type [-Wabsolute-value]
+             else if (abs(curv_y) >= abs(curv_x) && abs(curv_y) >= abs(curv_z)){
+                      ^
+/Users/shashankhr/GitHub/umatic/casource/curvature_3D.c:567:16: note: use function 'fabs' instead
+             else if (abs(curv_y) >= abs(curv_x) && abs(curv_y) >= abs(curv_z)){
+                      ^~~
+                      fabs
+/Users/shashankhr/GitHub/umatic/casource/curvature_3D.c:567:31: warning: using integer absolute value function 'abs' when argument is of floating point type [-Wabsolute-value]
+             else if (abs(curv_y) >= abs(curv_x) && abs(curv_y) >= abs(curv_z)){
+                                     ^
+/Users/shashankhr/GitHub/umatic/casource/curvature_3D.c:567:31: note: use function 'fabs' instead
+             else if (abs(curv_y) >= abs(curv_x) && abs(curv_y) >= abs(curv_z)){
+                                     ^~~
+                                     fabs
+/Users/shashankhr/GitHub/umatic/casource/curvature_3D.c:567:46: warning: using integer absolute value function 'abs' when argument is of floating point type [-Wabsolute-value]
+             else if (abs(curv_y) >= abs(curv_x) && abs(curv_y) >= abs(curv_z)){
+                                                    ^
+/Users/shashankhr/GitHub/umatic/casource/curvature_3D.c:567:46: note: use function 'fabs' instead
+             else if (abs(curv_y) >= abs(curv_x) && abs(curv_y) >= abs(curv_z)){
+                                                    ^~~
+                                                    fabs
+/Users/shashankhr/GitHub/umatic/casource/curvature_3D.c:567:61: warning: using integer absolute value function 'abs' when argument is of floating point type [-Wabsolute-value]
+             else if (abs(curv_y) >= abs(curv_x) && abs(curv_y) >= abs(curv_z)){
+                                                                   ^
+/Users/shashankhr/GitHub/umatic/casource/curvature_3D.c:567:61: note: use function 'fabs' instead
+             else if (abs(curv_y) >= abs(curv_x) && abs(curv_y) >= abs(curv_z)){
+                                                                   ^~~
+                                                                   fabs
+/Users/shashankhr/GitHub/umatic/casource/curvature_3D.c:570:16: warning: using integer absolute value function 'abs' when argument is of floating point type [-Wabsolute-value]
+             else if (abs(curv_z) >= abs(curv_y) && abs(curv_z) >= abs(curv_x)){
+                      ^
+/Users/shashankhr/GitHub/umatic/casource/curvature_3D.c:570:16: note: use function 'fabs' instead
+             else if (abs(curv_z) >= abs(curv_y) && abs(curv_z) >= abs(curv_x)){
+                      ^~~
+                      fabs
+/Users/shashankhr/GitHub/umatic/casource/curvature_3D.c:570:31: warning: using integer absolute value function 'abs' when argument is of floating point type [-Wabsolute-value]
+             else if (abs(curv_z) >= abs(curv_y) && abs(curv_z) >= abs(curv_x)){
+                                     ^
+/Users/shashankhr/GitHub/umatic/casource/curvature_3D.c:570:31: note: use function 'fabs' instead
+             else if (abs(curv_z) >= abs(curv_y) && abs(curv_z) >= abs(curv_x)){
+                                     ^~~
+                                     fabs
+/Users/shashankhr/GitHub/umatic/casource/curvature_3D.c:570:46: warning: using integer absolute value function 'abs' when argument is of floating point type [-Wabsolute-value]
+             else if (abs(curv_z) >= abs(curv_y) && abs(curv_z) >= abs(curv_x)){
+                                                    ^
+/Users/shashankhr/GitHub/umatic/casource/curvature_3D.c:570:46: note: use function 'fabs' instead
+             else if (abs(curv_z) >= abs(curv_y) && abs(curv_z) >= abs(curv_x)){
+                                                    ^~~
+                                                    fabs
+/Users/shashankhr/GitHub/umatic/casource/curvature_3D.c:570:61: warning: using integer absolute value function 'abs' when argument is of floating point type [-Wabsolute-value]
+             else if (abs(curv_z) >= abs(curv_y) && abs(curv_z) >= abs(curv_x)){
+                                                                   ^
+/Users/shashankhr/GitHub/umatic/casource/curvature_3D.c:570:61: note: use function 'fabs' instead
+             else if (abs(curv_z) >= abs(curv_y) && abs(curv_z) >= abs(curv_x)){
+                                                                   ^~~
+                                                                   fabs
+12 warnings generated.
+[ 20%] Building C object CMakeFiles/umatic.dir/checkblock.o
+[ 21%] Building C object CMakeFiles/umatic.dir/checkgas.o
+[ 22%] Building C object CMakeFiles/umatic.dir/checks.o
+[ 23%] Building C object CMakeFiles/umatic.dir/close_sb.o
+[ 23%] Building C object CMakeFiles/umatic.dir/fcopymat.o
+[ 24%] Building C object CMakeFiles/umatic.dir/fg_read.o
+[ 25%] Building C object CMakeFiles/umatic.dir/fidap_interp_calc.o
+[ 26%] Building C object CMakeFiles/umatic.dir/find_max.o
+[ 27%] Building C object CMakeFiles/umatic.dir/find_nmols.o
+[ 28%] Building C object CMakeFiles/umatic.dir/findroot.o
+[ 29%] Building C object CMakeFiles/umatic.dir/freeblock.o
+/Users/shashankhr/GitHub/umatic/casource/freeblock.c:88:29: warning: format specifies type 'unsigned int' but the argument has type 'char *' [-Wformat]
+  fprintf (stderr, " %x\n", (cp->rgbp->g));
+                     ~~     ^~~~~~~~~~~~~
+                     %s
+/Users/shashankhr/GitHub/umatic/casource/freeblock.c:386:28: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+  if ((bp->ctrl->block_nuc == TRUE)) {
+       ~~~~~~~~~~~~~~~~~~~~^~~~~~~
+/Users/shashankhr/GitHub/umatic/casource/freeblock.c:386:28: note: remove extraneous parentheses around the comparison to silence this warning
+  if ((bp->ctrl->block_nuc == TRUE)) {
+      ~                    ^      ~
+/Users/shashankhr/GitHub/umatic/casource/freeblock.c:386:28: note: use '=' to turn this equality comparison into an assignment
+  if ((bp->ctrl->block_nuc == TRUE)) {
+                           ^~
+                           =
+2 warnings generated.
+[ 30%] Building C object CMakeFiles/umatic.dir/gaussdev.o
+[ 31%] Building C object CMakeFiles/umatic.dir/getxyz.o
+[ 31%] Building C object CMakeFiles/umatic.dir/grain_functions.o
+[ 32%] Building C object CMakeFiles/umatic.dir/handlers.o
+/Users/shashankhr/GitHub/umatic/casource/handlers.c:84:31: warning: more '%' conversions than data arguments [-Wformat]
+    printf ("\n%s: More than %i fpe errors detected. Exiting...\n",__func__);
+                             ~^
+/Users/shashankhr/GitHub/umatic/casource/handlers.c:121:57: warning: implicitly declaring library function 'strtok' with type 'char *(char *, const char *)'
+       if (line[0] == '%' || line[0] == '#' || (token = strtok (line, sep)) == NULL) {
+                                                        ^
+/Users/shashankhr/GitHub/umatic/casource/handlers.c:121:57: note: include the header <string.h> or explicitly provide a declaration for 'strtok'
+/Users/shashankhr/GitHub/umatic/casource/handlers.c:123:19: warning: implicitly declaring library function 'strcasecmp' with type 'int (const char *, const char *)'
+       } else if (strcasecmp (token, "NewStep") == 0) {
+                  ^
+/Users/shashankhr/GitHub/umatic/casource/handlers.c:123:19: note: include the header <strings.h> or explicitly provide a declaration for 'strcasecmp'
+3 warnings generated.
+[ 33%] Building C object CMakeFiles/umatic.dir/icopymat.o
+[ 34%] Building C object CMakeFiles/umatic.dir/initcube.o
+[ 35%] Building C object CMakeFiles/umatic.dir/initface.o
+[ 36%] Building C object CMakeFiles/umatic.dir/init_sb_neigh.o
+[ 37%] Building C object CMakeFiles/umatic.dir/init_nuc_mould.o
+[ 38%] Building C object CMakeFiles/umatic.dir/mould_sources.o
+[ 39%] Building C object CMakeFiles/umatic.dir/nbhd_def.o
+[ 39%] Building C object CMakeFiles/umatic.dir/nuc_functions.o
+[ 40%] Building C object CMakeFiles/umatic.dir/nuc_lookup.o
+[ 41%] Building C object CMakeFiles/umatic.dir/open_sb.o
+/Users/shashankhr/GitHub/umatic/casource/open_sb.c:137:4: warning: implicit declaration of function 'sb_get_surface_cells' is invalid in C99 [-Wimplicit-function-declaration]
+   sb_get_surface_cells (bp, sbnum);
+   ^
+/Users/shashankhr/GitHub/umatic/casource/open_sb.c:153:11: warning: implicit declaration of function 'init_nuc_thresh_poly' is invalid in C99 [-Wimplicit-function-declaration]
+    if (! init_nuc_thresh_poly(bp,sbnum) == 0 ){
+          ^
+2 warnings generated.
+[ 42%] Building C object CMakeFiles/umatic.dir/output_ex.o
+/Users/shashankhr/GitHub/umatic/casource/output_ex.c:567:37: warning: format specifies type 'double' but the argument has type 'S_struct' (aka 'struct sb_solprops') [-Wformat]
+          fprintf (fd_ex, ",%g,%g", bp->sb[sbnum]->Svals[GAS], bp->sb[sbnum]->Svals[GAS].t_addsol);
+                            ~~      ^~~~~~~~~~~~~~~~~~~~~~~~~
+1 warning generated.
+[ 43%] Building C object CMakeFiles/umatic.dir/output_img.o
+/Users/shashankhr/GitHub/umatic/casource/output_img.c:822:52: warning: format string contains '\0' within the string body [-Wformat]
+    sprintf (filename, "F_T_%s_sb%01ds%01dt%09d.bin\0", bp->ctrl->fn_base, sbnum, slice, bp->step);
+                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~
+/usr/include/secure/_stdio.h:47:56: note: expanded from macro 'sprintf'
+  __builtin___sprintf_chk (str, 0, __darwin_obsz(str), __VA_ARGS__)
+                                                       ^
+/Users/shashankhr/GitHub/umatic/casource/output_img.c:1812:29: warning: format specifies type 'unsigned int' but the argument has type 'char *' [-Wformat]
+  fprintf (stderr, " %x\n", (g));
+                     ~~     ^~~
+                     %s
+2 warnings generated.
+[ 44%] Building C object CMakeFiles/umatic.dir/p_growth.o
+[ 45%] Building C object CMakeFiles/umatic.dir/pnuc_function.o
+[ 46%] Building C object CMakeFiles/umatic.dir/pore_multi.o
+[ 47%] Building C object CMakeFiles/umatic.dir/pore_routines.o
+[ 48%] Building C object CMakeFiles/umatic.dir/pore_setup_multi.o
+[ 48%] Building C object CMakeFiles/umatic.dir/pr_lookup.o
+[ 49%] Building C object CMakeFiles/umatic.dir/props.o
+[ 50%] Building C object CMakeFiles/umatic.dir/rand_square.o
+[ 51%] Building C object CMakeFiles/umatic.dir/rand_step.o
+[ 52%] Building C object CMakeFiles/umatic.dir/rcs_id.o
+[ 53%] Building C object CMakeFiles/umatic.dir/read_blocks.o
+/Users/shashankhr/GitHub/umatic/casource/read_blocks.c:120:55: warning: format specifies type 'int' but the argument has type 'unsigned long' [-Wformat]
+  fprintf (stderr, "Read %i bytes for ctrl struct\n", nread * sizeof (Ctrl_str));
+                         ~~                           ^~~~~~~~~~~~~~~~~~~~~~~~~
+                         %lu
+/Users/shashankhr/GitHub/umatic/casource/read_blocks.c:181:67: warning: format specifies type 'int' but the argument has type 'long' [-Wformat]
+      fprintf (stderr, "ERROR: trad_pos does not match! %i %i\n", this_pos, (*trad_pos));
+                                                        ~~        ^~~~~~~~
+                                                        %li
+/Users/shashankhr/GitHub/umatic/casource/read_blocks.c:181:77: warning: format specifies type 'int' but the argument has type 'long' [-Wformat]
+      fprintf (stderr, "ERROR: trad_pos does not match! %i %i\n", this_pos, (*trad_pos));
+                                                           ~~               ^~~~~~~~~~~
+                                                           %li
+/Users/shashankhr/GitHub/umatic/casource/read_blocks.c:227:122: warning: format specifies type 'int' but the argument has type 'long' [-Wformat]
+      fprintf (stderr, "ERROR:read_f_bin_sb_pores: data position does not match for pore %i -- this:%i file:%i\n", pnum, this_pos,
+                                                                                                    ~~                   ^~~~~~~~
+                                                                                                    %li
+/Users/shashankhr/GitHub/umatic/casource/read_blocks.c:228:16: warning: format specifies type 'int' but the argument has type 'long' [-Wformat]
+               (pore_data_pos[pnum]));
+               ^~~~~~~~~~~~~~~~~~~~~
+/Users/shashankhr/GitHub/umatic/casource/read_blocks.c:428:28: warning: equality comparison with extraneous parentheses [-Wparentheses-equality]
+  if ((bp->ctrl->block_nuc == TRUE)) {  /*nuc threshold array */
+       ~~~~~~~~~~~~~~~~~~~~^~~~~~~
+/Users/shashankhr/GitHub/umatic/casource/read_blocks.c:428:28: note: remove extraneous parentheses around the comparison to silence this warning
+  if ((bp->ctrl->block_nuc == TRUE)) {  /*nuc threshold array */
+      ~                    ^      ~
+/Users/shashankhr/GitHub/umatic/casource/read_blocks.c:428:28: note: use '=' to turn this equality comparison into an assignment
+  if ((bp->ctrl->block_nuc == TRUE)) {  /*nuc threshold array */
+                           ^~
+                           =
+/Users/shashankhr/GitHub/umatic/casource/read_blocks.c:611:58: warning: format specifies type 'int' but the argument has type 'unsigned long' [-Wformat]
+  fprintf (stderr, "CA_FLOAT size: %i %i\n", bsz->fsize, sizeof (CA_FLOAT));
+                                      ~~                 ^~~~~~~~~~~~~~~~~
+                                      %lu
+/Users/shashankhr/GitHub/umatic/casource/read_blocks.c:617:59: warning: format specifies type 'int' but the argument has type 'unsigned long' [-Wformat]
+  fprintf (stderr, "bigblock size: %i %i\n", bsz->bbsize, sizeof (BB_struct));
+                                      ~~                  ^~~~~~~~~~~~~~~~~~
+                                      %lu
+/Users/shashankhr/GitHub/umatic/casource/read_blocks.c:623:59: warning: format specifies type 'int' but the argument has type 'unsigned long' [-Wformat]
+  fprintf (stderr, "subblock size: %i %i\n", bsz->sbsize, sizeof (SB_struct));
+                                      ~~                  ^~~~~~~~~~~~~~~~~~
+                                      %lu
+/Users/shashankhr/GitHub/umatic/casource/read_blocks.c:629:63: warning: format specifies type 'int' but the argument has type 'unsigned long' [-Wformat]
+  fprintf (stderr, "control block size: %i %i\n", bsz->csize, sizeof (Ctrl_str));
+                                           ~~                 ^~~~~~~~~~~~~~~~~
+                                           %lu
+/Users/shashankhr/GitHub/umatic/casource/read_blocks.c:635:62: warning: format specifies type 'int' but the argument has type 'unsigned long' [-Wformat]
+  fprintf (stderr, "grain struct size: %i %i\n", bsz->gsize, sizeof (Ind_grain));
+                                          ~~                 ^~~~~~~~~~~~~~~~~~
+                                          %lu
+/Users/shashankhr/GitHub/umatic/casource/read_blocks.c:640:66: warning: format specifies type 'int' but the argument has type 'unsigned long' [-Wformat]
+  fprintf (stderr, "poreprops struct size: %i %i\n", bsz->psize, sizeof (P_str));
+                                              ~~                 ^~~~~~~~~~~~~~
+                                              %lu
+/Users/shashankhr/GitHub/umatic/casource/read_blocks.c:645:65: warning: format specifies type 'int' but the argument has type 'unsigned long' [-Wformat]
+  fprintf (stderr, "pore struct size: %i %i\n", bsz->PORE_size, sizeof (PORE_str));
+                                         ~~                     ^~~~~~~~~~~~~~~~~
+                                         %lu
+/Users/shashankhr/GitHub/umatic/casource/read_blocks.c:650:68: warning: format specifies type 'int' but the argument has type 'unsigned long' [-Wformat]
+  fprintf (stderr, "pore list struct size: %i %i\n", bsz->pclsize, sizeof (p_c_list));
+                                              ~~                   ^~~~~~~~~~~~~~~~~
+                                              %lu
+/Users/shashankhr/GitHub/umatic/casource/read_blocks.c:655:68: warning: format specifies type 'int' but the argument has type 'unsigned long' [-Wformat]
+  fprintf (stderr, "pore node struct size: %i %i\n", bsz->pcnsize, sizeof (p_c_node));
+                                              ~~                   ^~~~~~~~~~~~~~~~~
+                                              %lu
+/Users/shashankhr/GitHub/umatic/casource/read_blocks.c:660:72: warning: format specifies type 'int' but the argument has type 'unsigned long' [-Wformat]
+  fprintf (stderr, "nucprops struct size: %i %i\n", bsz->nucpropssize, sizeof (Nuc_str));
+                                             ~~                        ^~~~~~~~~~~~~~~~
+                                             %lu
+/Users/shashankhr/GitHub/umatic/casource/read_blocks.c:754:8: warning: extra tokens at end of #endif directive [-Wextra-tokens]
+#endif TOC
+       ^
+       //
+17 warnings generated.
+[ 54%] Building C object CMakeFiles/umatic.dir/read_cap_ca.o
+[ 55%] Building C object CMakeFiles/umatic.dir/read_ca_procast.o
+[ 56%] Building C object CMakeFiles/umatic.dir/read_ctrl.o
+In file included from /Users/shashankhr/GitHub/umatic/casource/read_ctrl.c:78:
+/Users/shashankhr/GitHub/umatic/build/getcflags.h:1:20: warning: missing terminating '"' character [-Winvalid-pp-token]
+#define GETCFLAGS ("\
+                   ^
+/Users/shashankhr/GitHub/umatic/build/getcflags.h:5:1: error: unknown type name 'Configure'
+Configure Username:     shashankhr\
+^
+/Users/shashankhr/GitHub/umatic/build/getcflags.h:5:19: error: expected ';' after top level declarator
+Configure Username:     shashankhr\
+                  ^
+                  ;
+/Users/shashankhr/GitHub/umatic/build/getcflags.h:5:21: error: unknown type name 'shashankhr'
+Configure Username:     shashankhr\
+                        ^
+/Users/shashankhr/GitHub/umatic/build/getcflags.h:7:10: error: expected ';' after top level declarator
+Configure Host: \
+         ^
+         ;
+/Users/shashankhr/GitHub/umatic/build/getcflags.h:15:1: warning: missing terminating '"' character [-Winvalid-pp-token]
+")
+^
+/Users/shashankhr/GitHub/umatic/build/getcflags.h:16:21: warning: missing terminating '"' character [-Winvalid-pp-token]
+#define GETSVNINFO ("\
+                    ^
+/Users/shashankhr/GitHub/umatic/build/getcflags.h:24:1: warning: missing terminating '"' character [-Winvalid-pp-token]
+")
+^
+In file included from /Users/shashankhr/GitHub/umatic/casource/read_ctrl.c:80:
+In file included from /Users/shashankhr/GitHub/umatic/casource/machine.h:72:
+In file included from /usr/include/stdlib.h:65:
+/usr/include/sys/wait.h:251:22: error: unexpected type name 'id_t': expected identifier
+int     waitid(idtype_t, id_t, siginfo_t *, int) __DARWIN_ALIAS_C(waitid);
+                         ^
+/usr/include/sys/wait.h:251:28: error: unexpected type name 'siginfo_t': expected identifier
+int     waitid(idtype_t, id_t, siginfo_t *, int) __DARWIN_ALIAS_C(waitid);
+                               ^
+/usr/include/sys/wait.h:251:38: error: expected ')'
+int     waitid(idtype_t, id_t, siginfo_t *, int) __DARWIN_ALIAS_C(waitid);
+                                         ^
+/usr/include/sys/wait.h:251:11: note: to match this '('
+int     waitid(idtype_t, id_t, siginfo_t *, int) __DARWIN_ALIAS_C(waitid);
+              ^
+/usr/include/sys/wait.h:251:12: error: a parameter list without types is only allowed in a function definition
+int     waitid(idtype_t, id_t, siginfo_t *, int) __DARWIN_ALIAS_C(waitid);
+               ^
+/Users/shashankhr/GitHub/umatic/casource/read_ctrl.c:94:17: error: expected expression
+Cflags = strdup(GETCFLAGS);
+                ^
+/Users/shashankhr/GitHub/umatic/build/getcflags.h:1:20: note: expanded from macro 'GETCFLAGS'
+#define GETCFLAGS ("\
+                   ^
+/Users/shashankhr/GitHub/umatic/casource/read_ctrl.c:885:3: error: expected '}'
+*/
+  ^
+/Users/shashankhr/GitHub/umatic/casource/read_ctrl.c:89:1: note: to match this '{'
+{
+^
+4 warnings and 10 errors generated.
+make[2]: *** [CMakeFiles/umatic.dir/read_ctrl.o] Error 1
+make[1]: *** [CMakeFiles/umatic.dir/all] Error 2
+make: *** [all] Error 2

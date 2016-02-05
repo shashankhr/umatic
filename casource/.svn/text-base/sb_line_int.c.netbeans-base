@@ -59,7 +59,7 @@
 /*                                                              */
 /*                                                              */
 /****************************************************************/
-/*RCS ID: $Id: sb_line_int.c 1342 2008-07-23 15:45:00Z  $*/
+/*RCS ID: $Id$*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -85,7 +85,7 @@ int sb_line_int (CA_FLOAT * line_res, BB_struct * bp, int sbnum)
   CA_FLOAT linelen[4];
 
   if (bp->sb[sbnum]->open != SB_OPEN)
-    return -1;
+    return;
 
   sp = bp->sb[sbnum];
   gr = sp->gr;
@@ -159,7 +159,7 @@ int sb_line_int (CA_FLOAT * line_res, BB_struct * bp, int sbnum)
 /************************************************/
 char const *rcs_id_sb_line_int_c ()
 {
-  static char const rcsid[] = "$Id: sb_line_int.c 1342 2008-07-23 15:45:00Z  $";
+  static char const rcsid[] = "$Id$";
 
   return (rcsid);
 }

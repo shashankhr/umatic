@@ -1,0 +1,1 @@
+/Library/Developer/CommandLineTools/usr/bin/cc   -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/umat_run.dir/ca_wrapper.o  -o umat_run  -L./read_list  -lm -lz -lpng -lgd read_list/libreadlist.a libumatic.a read_list/libreadlist.a -Wl,-rpath,./read_list 

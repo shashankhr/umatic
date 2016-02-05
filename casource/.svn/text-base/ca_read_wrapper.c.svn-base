@@ -1,0 +1,780 @@
+
+/****************************************************************/
+/*      Copyright (c) 1993 Peter D Lee                          */
+/*      Copyright (c) 1998 Dept. of Materials, ICSTM            */
+/*      All Rights Reserved                                     */
+/*      The copyright notice above does not evidence any        */
+/*      actual or intended publication of such source code,     */
+/*      and is an unpublished work by Dept. of Materials, ICSTM.*/
+/*      continuing D Phil work from University of Oxford        */
+/****************************************************************/
+/* This code is part of the umats routines developed at in the  */
+/* Materials Processing Group, Dept. of Materials, ICSTM.       */
+/*      email p.d.lee or r.atwood @imperial.ac.uk for details   */
+/****************************************************************/
+
+/********************************************************************************/
+/*  This version is distributed under a BSD style public license, as follows:   */
+/*                                                                              */
+/*  Copyright (c) 2007, Dept. of Materials, Imperial College London             */
+/*  All rights reserved.                                                        */
+/*  Redistribution and use in source and binary forms, with or without          */
+/*  modification, are permitted provided that the following conditions          */
+/*  are met:                                                                    */
+/*                                                                              */
+/*  * Redistributions of source code must retain the above copyright            */
+/*  notice, this list of conditions and the following disclaimer.               */
+/*                                                                              */
+/*  * Redistributions in binary form must reproduce the above                   */
+/*  copyright notice, this list of conditions and the following                 */
+/*  disclaimer in the documentation and/or other materials provided             */
+/*  with the distribution.                                                      */
+/*                                                                              */
+/*  * Neither the name of the Dept. of Materials, Imperial College London, nor  */
+/*  the names of its contributors may be used to endorse or promote products    */
+/*  derived from this software without specific prior written permission.       */
+/*                                                                              */
+/*  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS         */
+/*  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT           */
+/*  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR       */
+/*  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT        */
+/*  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,       */
+/*  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED    */
+/*  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR      */
+/*  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF      */
+/*  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING        */
+/*  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS          */
+/*  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.                */
+/********************************************************************************/
+/*END of LICENSE NOTICE*/
+
+/* RCS Id:$Id: */
+/* include system headers */
+
+/* if specified, include the headers for dbmalloc debugging */
+#include <stdio.h>
+#include <math.h>
+#include <time.h>
+#include <setjmp.h>
+#include <sys/signal.h>
+#include <signal.h>
+#include <unistd.h>
+#include <string.h>
+/* the above header sets this flag, otherwise these funcitons are deactivated */
+
+/* include header files requred by subroutines */
+#include "machine.h"
+#include "read_ctrl.h"          /* included for def. of READ_CTRL subroutine */
+#include "blocks.h"             /* included for def. of INIT_BB, CALC_BB, FINISH_BB */
+#include "writeblocks.h"
+#include "handlers.h"
+#include "props.h"
+#include "getcflags.h"
+
+/*#define PRINT_RCS_ID
+#define SAVE_RCS_ID*/
+/*global for pressure - to be fixed*/
+CA_FLOAT global_pressure;
+
+extern void write_bb_values (FILE * fp, BB_struct * bp);
+extern int free_bb (BB_struct * bp);
+
+/* from step_output.c */
+extern void step_screen_out (BB_struct * bp, int step);
+extern void step_file_out (BB_struct * bp, int step);
+
+extern void read_bin_blocks (BB_struct * bp, const char *fname);
+
+/*function from rcs_id.c*/
+extern void print_rcs_id (FILE * outfile);
+
+/* functions used from read_cp->c */
+extern int read_ctrl (char *filename, Ctrl_str * cp);
+
+/* empty stub for a external function so that the non-external versionwill compile */
+void external_sb_set_cells (BB_struct * bp, int sbnum)
+{
+  return;
+}
+
+jmp_buf env;                    /*jump environment buffer for signal handler */
+int jflg = JFLG_END;            /* flag for behaviour of signal handler */
+int the_signo;                  /* signal that was received */
+int signal_change_freq = 0;     /* value to change output frequency */
+
+/**************************************************/
+/* get the undercooling at each cell */
+/**************************************************/
+CA_FLOAT *get_undercool (BB_struct * bp, int sbnum)
+{
+  SB_struct *sp;
+  Ctrl_str *cp;
+  int nxny, rsize, nx, ny, nz;
+  CA_FLOAT *ucp, *uc, *c_temp_p, *alloy, *fs;
+  CA_FLOAT Tliq, Tunder, umax, umin;
+  int i, j, k, index, imax, kmax, imin, jmax, jmin, kmin;
+  int flag = 0;
+
+  cp = bp->ctrl;
+  /* silently ignore for these options */
+  if (!(cp->diffuse_alloy))
+    return (0);
+
+  if (bp->sb[sbnum]->open == FALSE)
+    return (0);
+
+  if (cp->diffuse_alloy_multi == TRUE)
+    return (0);
+  sp = bp->sb[sbnum];
+  nx = bp->nc[0];
+  ny = bp->nc[1];
+  nz = bp->nc[2];
+  nxny = nx * ny;
+  /* bad option */
+  if (!(bp->ctrl->phase_diag_on)) {
+    fprintf (stderr, "WARNING: get_undercool: not used without phase_diag mode.\n");
+    return (NULL);
+  }
+
+  /* find the array beginning */
+  alloy = sp->c_sol_alloy;
+  fs = sp->c_fs;
+  c_temp_p = sp->c_temp;
+  index = 0;
+  ucp = uc = (CA_FLOAT *) malloc ((bp->ncsb) * sizeof (CA_FLOAT));
+  for (k = 0; k < nz; k++) {
+    for (j = 0; j < ny; j++) {
+      for (i = 0; i < nx; i++) {
+        if (*fs == NOT_CASTING) {
+          *ucp = 0;
+        } else {
+          /* find the liquidus and then the undercooling */
+          Tliq = cell_liq_calc (*alloy, &(bp->mprops));
+          Tunder = Tliq - *c_temp_p;
+          *ucp = Tunder;
+
+          /* start off the min/max at the first nonmould cell */
+          if (flag == 0) {
+            umax = umin = Tunder;
+            imax = imin = i;
+            jmax = jmin = j;
+            kmax = kmin = k;
+            flag = 1;
+          }
+
+          /* store the min/max value and location */
+          if (Tunder > umax) {
+            umax = Tunder;
+            imax = i;
+            jmax = j;
+            kmax = k;
+          }
+          if (Tunder < umin) {
+            umin = Tunder;
+            imin = i;
+            jmin = j;
+            kmin = k;
+          }
+
+        }
+        c_temp_p++;
+        ucp++;
+        alloy++;
+        fs++;
+      }
+    }
+  }
+
+  fprintf (stderr, "get_undercool: umax[%i,%i,%i],%.5g, umin[%i,%i,%i],%.5g\n", imax, jmax, kmax, umax, imin, jmin, kmin, umin);
+  return (uc);
+}
+
+/*******************************************/
+/* end of get_undercool ************/
+/*******************************************/
+
+unsigned char *float_byte_convert (CA_FLOAT * inptr, int ncsb)
+{
+  unsigned char *outptr;
+  int i;
+  outptr = (unsigned char *) calloc (ncsb, sizeof (unsigned short int));
+  for (i = 0; i < ncsb; i++) {
+    if (inptr[i] == 0) {
+      outptr[i] = (unsigned char) (1);
+    } else if (inptr[i] < 0) {
+      outptr[i] = (unsigned char) (0);
+    } else if (inptr[i] > 0) {
+      outptr[i] = (unsigned char) (0);
+    } else {
+      fprintf (stderr, "ERROR:float_byte_convert: impossible value!");
+      exit (0);
+    }
+  }
+  return (outptr);
+}
+
+char *byte_convert (int *inptr, int ncsb)
+{
+  char *outptr;
+  int i;
+  outptr = (char *) calloc (ncsb, sizeof (unsigned short int));
+  for (i = 0; i < ncsb; i++) {
+    if (inptr[i] == 0) {
+      outptr[i] = (char) (0);
+    } else if (inptr[i] < 0) {
+      outptr[i] = (char) (255);
+    } else {
+      outptr[i] = (char) ((inptr[i] % 253) + 1);
+    }
+  }
+  return (outptr);
+}
+
+unsigned short int *ushort_convert (int *inptr, int ncsb)
+{
+  unsigned short int *outptr;
+  static int warn = 0;
+  int i;
+  outptr = (unsigned short int *) calloc (ncsb, sizeof (unsigned short int));
+  for (i = 0; i < ncsb; i++) {
+    if (inptr[i] > 65535) {
+      if (warn != 0) {
+        fprintf (stderr, "WARNING:ushort_convert: grain number > ushort integer maximum  %i\n", inptr[i]);
+      }
+      warn++;
+    }
+    outptr[i] = (unsigned short int) (inptr[i]);
+  }
+  if (warn != 0) {
+    fprintf (stderr, "WARNING:ushort convert: %i grains > ushort integer maximum\n", warn);
+  }
+  return (outptr);
+}
+
+float *float_convert (CA_FLOAT * inptr, int ncsb)
+{
+  float *outptr;
+  int i;
+  outptr = (float *) calloc (ncsb, sizeof (float));
+  for (i = 0; i < ncsb; i++) {
+    outptr[i] = (float) (inptr[i]);
+  }
+  return (outptr);
+}
+
+void sb_write_raw_data (BB_struct * bp, int sbnum, const char type)
+{
+  /* write out a block of data for the selected variable */
+  char *fname;
+  FILE *fp;
+  void *rawptr;
+  float *outptr;
+  CA_FLOAT *umat_outptr;
+  int *intptr;
+  int i;
+  int nwrite = 0;
+
+  fname = (char *) calloc (MAX_STRING_LEN, sizeof (char));
+
+  snprintf (fname, MAX_STRING_LEN, "RAW_%c_%s_sb%it%09i.bin", type, bp->ctrl->fn_base, sbnum, bp->step);
+  switch (type) {
+/* leave as is */
+
+  case 'G':
+    if (!(bp->ctrl->diffuse))
+      break;
+    fp = fopen (fname, "w");
+    nwrite = fwrite (bp->sb[sbnum]->c_sol, sizeof (CA_FLOAT), bp->ncsb, fp);
+    fclose (fp);
+    break;
+/* leave as is */
+  case 'A':
+    if (!(bp->ctrl->diffuse_alloy))
+      break;
+    fp = fopen (fname, "w");
+    nwrite = fwrite (bp->sb[sbnum]->c_sol_alloy, sizeof (CA_FLOAT), bp->ncsb, fp);
+    fclose (fp);
+    break;
+/* leave as is */
+  case 'F':
+    fp = fopen (fname, "w");
+    nwrite = fwrite (bp->sb[sbnum]->c_fs, sizeof (CA_FLOAT), bp->ncsb, fp);
+    fclose (fp);
+    break;
+/* leave as is */
+  case 'T':
+    fp = fopen (fname, "w");
+    nwrite = fwrite (bp->sb[sbnum]->c_temp, sizeof (CA_FLOAT), bp->ncsb, fp);
+    fclose (fp);
+    break;
+/* leave as is */
+  case 'C':
+    fp = fopen (fname, "w");
+    nwrite = fwrite (bp->sb[sbnum]->c_eqv_alloy, sizeof (CA_FLOAT), bp->ncsb, fp);
+    fclose (fp);
+    break;
+/* leave as is */
+  case 'I':
+    fp = fopen (fname, "w");
+    nwrite = fwrite (bp->sb[sbnum]->gr, sizeof (int), bp->ncsb, fp);
+    fclose (fp);
+    break;
+
+
+/*Multicomponent THUINET 10/05 */
+
+   case 'M':
+      if (!((bp->ctrl->decentred_octahedron == TRUE)&&(bp->ctrl->diffuse_alloy_poly == TRUE))) break;
+      fp=fopen(fname,"w");
+      nwrite=fwrite(bp->sb[sbnum]->c_eqv_poly[0],sizeof(CA_FLOAT),bp->ncsb,fp);
+      fclose (fp);
+      break;
+
+   case 'N':
+      if (!((bp->ctrl->decentred_octahedron == TRUE)&&(bp->ctrl->diffuse_alloy_poly == TRUE))) break;
+      fp=fopen(fname,"w");
+      nwrite=fwrite(bp->sb[sbnum]->c_eqv_poly[1],sizeof(CA_FLOAT),bp->ncsb,fp);
+      fclose (fp);
+      break;
+
+   case 'K':
+      if (!((bp->ctrl->decentred_octahedron == TRUE)&&(bp->ctrl->diffuse_alloy_poly == TRUE))) break;
+      fp=fopen(fname,"w");
+      nwrite=fwrite(bp->sb[sbnum]->c_fs_poly[0],sizeof(CA_FLOAT),bp->ncsb,fp);
+      fclose (fp);
+      break;
+
+   case 'L':
+      if (!((bp->ctrl->decentred_octahedron == TRUE)&&(bp->ctrl->diffuse_alloy_poly == TRUE))) break;
+      fp=fopen(fname,"w");
+      nwrite=fwrite(bp->sb[sbnum]->c_fs_poly[1],sizeof(CA_FLOAT),bp->ncsb,fp);
+      fclose (fp);
+      break;
+
+/* convert eqv composition to float */
+   case 'm':
+      if (!((bp->ctrl->decentred_octahedron == TRUE)&&(bp->ctrl->diffuse_alloy_poly == TRUE))) break;
+      outptr = float_convert (bp->sb[sbnum]->c_eqv_poly[0], bp->ncsb);
+      fp=fopen(fname,"w");
+      nwrite=fwrite(outptr,sizeof(float),bp->ncsb,fp);
+      free (outptr);
+      fclose (fp);
+      break;
+
+   case 'n':
+      if (!((bp->ctrl->decentred_octahedron == TRUE)&&(bp->ctrl->diffuse_alloy_poly == TRUE))) break;
+      outptr = float_convert (bp->sb[sbnum]->c_eqv_poly[1], bp->ncsb);
+      fp=fopen(fname,"w");
+      nwrite=fwrite(outptr,sizeof(float),bp->ncsb,fp);
+      free (outptr);
+      fclose (fp);
+      break; 
+
+/* convert solid phases to float */
+   case 'k':
+      if (!((bp->ctrl->decentred_octahedron == TRUE)&&(bp->ctrl->diffuse_alloy_poly == TRUE))) break;
+      outptr = float_convert (bp->sb[sbnum]->c_fs_poly[0], bp->ncsb);
+      fp=fopen(fname,"w");
+      nwrite=fwrite(outptr,sizeof(float),bp->ncsb,fp);
+      free (outptr);
+      fclose (fp);
+      break;
+    
+   case 'l':
+      if (!((bp->ctrl->decentred_octahedron == TRUE)&&(bp->ctrl->diffuse_alloy_poly == TRUE))) break;
+      outptr = float_convert (bp->sb[sbnum]->c_fs_poly[1], bp->ncsb);
+      fp=fopen(fname,"w");
+      nwrite=fwrite(outptr,sizeof(float),bp->ncsb,fp);
+      free (outptr);
+      fclose (fp);
+      break;
+
+/*end multicomponent for THUINET*/
+
+/* calculate undercooling */
+  case 'U':
+    fp = fopen (fname, "w");
+    umat_outptr = get_undercool (bp, sbnum);
+    nwrite = fwrite (umat_outptr, sizeof (CA_FLOAT), bp->ncsb, fp);
+    fclose (fp);
+    free (umat_outptr);
+    break;
+
+/* calculate undercooling and*/
+/* convert undercooling to float */
+  case 'u':
+    fp = fopen (fname, "w");
+    umat_outptr = get_undercool (bp, sbnum);
+    outptr = float_convert (umat_outptr, bp->ncsb);
+    nwrite = fwrite (outptr, sizeof (float), bp->ncsb, fp);
+    fclose (fp);
+    free (umat_outptr);
+    free (outptr);
+    break;
+/* convert gas conc to float */
+  case 'g':
+    if (!(bp->ctrl->diffuse))
+      break;
+    outptr = float_convert (bp->sb[sbnum]->c_sol, bp->ncsb);
+    fp = fopen (fname, "w");
+    nwrite = fwrite (outptr, sizeof (float), bp->ncsb, fp);
+    free (outptr);
+    fclose (fp);
+    break;
+
+/* convert temperature to float */
+  case 't':
+    outptr = float_convert (bp->sb[sbnum]->c_temp, bp->ncsb);
+    fp = fopen (fname, "w");
+    nwrite = fwrite (outptr, sizeof (float), bp->ncsb, fp);
+    free (outptr);
+    fclose (fp);
+    break;
+
+/* convert alloy conc to float */
+  case 'a':
+    if (!(bp->ctrl->diffuse_alloy))
+      break;
+    outptr = float_convert (bp->sb[sbnum]->c_sol_alloy, bp->ncsb);
+    fp = fopen (fname, "w");
+    nwrite = fwrite (outptr, sizeof (float), bp->ncsb, fp);
+    free (outptr);
+    fclose (fp);
+    break;
+
+/* convert fraction solid to float */
+  case 'f':
+    outptr = float_convert (bp->sb[sbnum]->c_fs, bp->ncsb);
+    fp = fopen (fname, "w");
+    nwrite = fwrite (outptr, sizeof (float), bp->ncsb, fp);
+    free (outptr);
+    fclose (fp);
+    break;
+
+/* convert grain int to byte */
+  case 'b':
+    rawptr = byte_convert (bp->sb[sbnum]->gr, bp->ncsb);
+    fp = fopen (fname, "w");
+    nwrite = fwrite ((unsigned char *) rawptr, sizeof (unsigned char), bp->ncsb, fp);
+    free (rawptr);
+    fclose (fp);
+    break;
+
+/* convert fraction solid to byte */
+  case 's':
+    printf ("Creating solid data file \n");
+    rawptr = float_byte_convert (bp->sb[sbnum]->c_fs, bp->ncsb);
+    fp = fopen (fname, "w");
+    nwrite = fwrite ((unsigned char *) rawptr, sizeof (unsigned char), bp->ncsb, fp);
+    free (rawptr);
+    fclose (fp);
+    printf ("Finished.\n");
+    break;
+
+/* write pore data as byte */
+  case 'p':
+    /* currently, does not accept a file name so the default BL_P_ONLY* is used */
+    pore_write(bp);
+    break;
+
+/* convert grain int to ushort */
+  case 'i':
+    rawptr = ushort_convert (bp->sb[sbnum]->gr, bp->ncsb);
+    fp = fopen (fname, "w");
+    nwrite = fwrite ((unsigned short int *) (rawptr), sizeof (unsigned short int), bp->ncsb, fp);
+    free (rawptr);
+    fclose (fp);
+    break;
+  default:
+    fprintf (stderr, "ERROR:sb_write_raw_data: unrecognized type! %c \n", type);
+    break;
+  }
+
+  printf ("sb_write_raw_data: OUTFILE: %s Written: %i\n", fname, nwrite);
+  free (fname);
+  return;
+}
+
+void print_usage (char *prog_name)
+{                               /* print the usage message on error */
+
+  fprintf (stderr, "\n\n*************************************************\n");
+  fprintf (stderr, "*   %s: Read output file from the CA model\n", prog_name);
+  fprintf (stderr, "*\n*   Usage: %s -i input_file\n", prog_name);
+  fprintf (stderr, "*\tThe following command line options are allowed:\n");
+  fprintf (stderr, "*\t-i\t\t-> specify input file\n");
+  fprintf (stderr, "*\t-b\t\t-> specify subblock number and write a binary brick of bytes for that data\n");
+  fprintf (stderr, "*\t-q\t\t-> quiet mode\n");
+  fprintf (stderr, "*\t-f\t\t-> print compile-time options (cflags)\n");
+  fprintf (stderr, "*\t-v\t\t-> print version information\n");
+  fprintf (stderr, "*\t-t\t\t-> specify which data and type to write\n");
+  fprintf (stderr, "*\t  \t\t   for selected -b block:\n");
+  fprintf (stderr, "*\t  \t\tf\t   float, fraction solid\n");
+  fprintf (stderr, "*\t  \t\ta\t   float, alloy component\n");
+  fprintf (stderr, "*\t  \t\tg\t   float, gas component\n");
+  fprintf (stderr, "*\t  \t\tu\t   float, calculated undercooling\n");
+  fprintf (stderr, "*\t  \t\ti\t   unsigned short int, grain number\n");
+  fprintf (stderr, "*\t  \t\tb\t   byte (unsigned char), grain number (mod 256)\n");
+  fprintf (stderr, "*\t  \t\ts\t   byte (unsigned char), solid (yes/no) \n");
+  fprintf (stderr, "*\t  \t\tp\t   byte (unsigned char), pores (yes/no)\n");
+
+  fprintf (stderr, "*\t  \t\tF\t   CA_FLOAT, fraction solid\n");
+  fprintf (stderr, "*\t  \t\tA\t   CA_FLOAT, alloy component\n");
+  fprintf (stderr, "*\t  \t\tG\t   CA_FLOAT, gas component\n");
+  fprintf (stderr, "*\t  \t\tU\t   CA_FLOAT, calculated undercooling\n");
+  fprintf (stderr, "*\t  \t\tI\t   int, grain number\n");
+
+  fprintf (stderr, "*\t  \t\t   these options may be combined into a string, eg: -t FAb \n");
+
+  fprintf (stderr, "*\t-h\t\t-> print this message\n");
+  fprintf (stderr, "*\t\n");
+  fprintf (stderr, "*************************************************\n\n");
+}
+
+/****************************************************************/
+/* Beginning of the MAIN program!				*/
+/****************************************************************/
+
+int main (int argc, char *argv[])
+{
+
+  /* declare counters and output variables for main */
+  int i;
+  int sigvec = 0;
+  int stat_flag = -1;           /* stage in analysis: -1=before, 0=during, 1=final */
+  int bflag = 0, qflag = 0, sbnum = 0, sflag = 0, slnum = 0;    /* flag to write raw data for a subblock */
+
+  /* variables for input */
+  Ctrl_str *cp;
+  int cflg, errflg;
+  int finput = FALSE;           /* inquire control info from user as default */
+  int errors = 0, tries = 0;
+  char *inp_fname, *Cflags;
+  char *out_types = "f";
+
+  int step, pr_step;
+  CA_FLOAT ptime, del_ptime = 1.0;
+  CA_FLOAT time = 0.0;
+  CA_FLOAT delt = 1.0;
+  char *time_string;            /* local date/time in string */
+  FILE *rcs_id_file;
+  FILE *bbfile;
+  BB_struct bb;
+  sigset_t sigmask, newsig;
+
+#ifdef _DEBUG_MALLOC_INC
+  unsigned long oldsize;
+  unsigned long size1, size2;
+  unsigned long hist0, hist1, hist2;
+
+  oldsize = malloc_inuse (&(hist0));
+#endif /*_DEBUG_MALLOC_INC*/
+
+  cp = (Ctrl_str *) calloc (1, sizeof (Ctrl_str));
+
+#ifdef _DEBUG_MALLOC_INC
+  malloc_inuse (&(cp->hist[0]));
+#endif /*_DEBUG_MALLOC_INC*/
+
+  /* allow external script to write compilation info into a string */
+  /* Stored in Cflags variable */
+
+Cflags = strdup(GETCFLAGS);
+
+#ifdef PRINT_RCS_ID
+/*FIRST, print out all flags and rcs id strings*/
+  fprintf (stderr, "%s\n", Cflags);
+  print_rcs_id (stderr);
+#endif /*PRINT_RCS_ID */
+#define SAVE_RCS_ID
+#ifdef SAVE_RCS_ID
+/* and save to a file as well */
+  rcs_id_file = fopen ("rcs_id.txt", "w");
+  if (rcs_id_file == NULL) {
+    fprintf (stderr, "ERROR: could not open file rcs_id.txt\n");
+    exit (0);
+  }
+  fprintf (rcs_id_file, "%s\n", Cflags);
+  print_rcs_id (rcs_id_file);
+  fclose (rcs_id_file);
+#endif /*SAVE_RCS_ID */
+
+  /* Set up the signal handler to use SIGTERM */
+  signal (SIGTERM, catchit);
+  /* Set up the signal handler to use SIGXCPU (codine?) */
+  signal (SIGXCPU, catchit);
+  /* set up a signal handler to use SIGUSR1 (writeblock and exit) */
+  signal (SIGUSR1, catchit);
+
+/************************************************/
+/*      parse the options                       */
+/************************************************/
+  errflg = 0;
+  if (argc < 2)
+    errflg++;
+  while ((cflg = getopt (argc, argv, "ab:vi:t:s:fqh")) != -1) {
+    switch (cflg) {
+    case 'a':
+      fprintf (stderr, "%s: sorry, flag 'a' is not defined\n", argv[0]);
+      errflg++;
+      break;
+    case 't':
+      out_types = strdup (optarg);
+      break;
+
+    case 'b':                  /* write a binary brick of bytes for the data */
+      bflag = TRUE;
+      sbnum = atoi (optarg);
+      break;
+    case 's':                  /* write a binary slice */
+      sflag = TRUE;
+      slnum = atoi (optarg);
+      break;
+    case 'q':
+      qflag = TRUE;
+      break;
+      /*get ctrl file name */
+    case 'i':
+      finput = TRUE;
+      inp_fname = strdup (optarg);
+      break;
+      /* only print version of files and cflags */
+    case 'v':
+      print_rcs_id (stdout);
+      /* only print compilation flags */
+    case 'f':
+      printf ("%s\n", Cflags);
+      exit (0);
+      break;
+
+      /* print help message */
+    case 'h':
+    default:
+      errflg++;
+      break;
+    }
+  }
+  if (errflg) {
+    print_usage (argv[0]);
+    exit (0);
+  }
+  /* inp_fname = strdup(argv[optind]); */
+  fprintf (stderr, "input filename: %s.\n", inp_fname);
+
+/************************************************/
+/* call the initialization subroutines          */
+/************************************************/
+
+  fprintf (stderr, "alloy exponent %.10g\n", ALLOY_EXPONENT);
+  /* if no control input file was supplied,    */
+  /* as the user if one should be used.        */
+  if (!finput) {
+    char command[MAX_STRING_LEN], answer[MAX_STRING_LEN];
+    int echo = TRUE;
+    int i, j;                   /* tmp counters */
+    CA_FLOAT tmp;               /* tmp CA_FLOAT var. */
+
+    fprintf (stdout, "No input file name was given.\n");
+    fprintf (stdout, "Please enter the input filename:\n");
+    fprintf (stdout, "or 'help' for help\n");
+    fgets (command,MAX_STRING_LEN,stdin);
+      if (command[strlen (command) - 1] == '\n')
+        command[strlen (command) - 1] = 0;
+    if (strcasecmp (command, "help") == 0) {
+      print_usage (argv[0]);
+      exit (0);
+    }
+    inp_fname = strdup (command);
+  }
+
+  /* copy compilation info into ctrl structure */
+  cp->cflags = strdup (Cflags);
+#ifdef _DEBUG_MALLOC_INC
+  size1 = malloc_inuse (&hist1);
+#endif       /*_DEBUG_MALLOC_INC*/
+
+  /* set up the entry for signal handler */
+  if (setjmp (env) != 0) {
+    fprintf (stderr, "CA_READ_WRAPPER: Handling the signal %i.  Finishing BB\n", the_signo);
+  } else {                      /*signal not recieved! */
+
+  }                             /*end of setjmp condition */
+  /*program jumps to here if one of the  specified */
+  /* signals is received */
+
+  /* tell ca prgramme it has finished and to print out */
+
+  fprintf (stderr, "\nReading of bin block file %s\n", inp_fname);
+  read_bin_blocks (&bb, inp_fname);
+  bb.ctrl->external = 0;         /* disable the external mode for umat_read */
+  if (sflag) {
+    bb.ctrl->floatdump = 1;
+    bb.ctrl->slice[0][0] = sbnum;
+    bb.ctrl->slice[0][1] = slnum;
+    bb.ctrl->nsbslice = 1;
+  }
+
+  if (!(qflag)) {
+    write_bb_excel (RESTART_CALL, &bb);
+    write_bb_excel (STEP_CALL, &bb);
+    step_screen_out (&bb, 0);
+    step_file_out (&bb, 0);
+    write_bb_excel (LAST_CALL, &bb);
+    bbfile = fopen ("bb.txt", "w");
+    write_bb_values (bbfile, &bb);
+    fclose (bbfile);
+  }
+  if (bflag) {
+    for (i = 0; i < strlen (out_types); i++) {
+      sb_write_raw_data (&bb, sbnum, out_types[i]);
+    }
+  }
+
+  fflush (NULL);
+
+  if (!(qflag)) {
+    fprintf (stderr, "\n.. freeing block \n");
+  }
+  free_bb (&bb);
+  free (cp->cflags);
+  free (cp);
+   /************************************************/
+  /* close all open input/output files and exit   */
+   /************************************************/
+
+  free (Cflags);
+  free (inp_fname);
+#ifdef _DEBUG_MALLOC_INC
+  size2 = malloc_inuse (&hist2);
+  if (size2 != (oldsize)) {
+    fprintf (stderr, "ERROR: umat_wrapper: dbMalloc test of size of allocated memory\n");
+    fprintf (stderr, "\toldsize = %lu, size = %lu - should be %lu\n", oldsize, size2, oldsize);
+    fprintf (stderr, "First list \n");
+    malloc_list (2, hist0, hist1);
+    fprintf (stderr, "Second list \n");
+    malloc_list (2, hist0, hist2);
+    fprintf (stderr, "Finshed dbMalloc size check \n");
+  } else {
+    fprintf (stderr,
+             "\n\n!*!*!*!*!* :-) :-)  (-: (-: \nCONGRATULATIONS!\n There is no memory left over!\n A Miracle has Occurred!\n\n\n");
+  }
+#endif /*_DEBUG_MALLOC_INC*/
+
+  return(0);
+}                               /* end of main program, umat_wrapper */
+
+/************************************************/
+/* Little subroutine to get rcs id into the object code */
+/* so you can use ident on the compiled program  */
+/* also you can call this to print out or include the rcs id in a file*/
+/************************************************/
+char const *rcs_id_umat_wrapper_c ()
+{
+  static char const rcsid[] = "$Id$";
+
+  return (rcsid);
+}
+
+/* end of rcs_id_umat_wrapper_c subroutine */
+/*
+*/

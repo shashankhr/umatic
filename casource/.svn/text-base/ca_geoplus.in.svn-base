@@ -1,0 +1,106 @@
+# This is an input file for ca_solid giving all
+# of the geometry and output format data
+%# THIS FILE IS ONLY USED IF THE CA IS RUN BY ITSELF
+%#RCS ID:$Id$
+%# /*******************************************************/
+%# /* Define all of the default geometry values below     */
+%# /******************************************************/
+%###################################################################
+# define the block geometry
+NSubblocks 1 1 1            /* # sub-blocks in x,y,z   */
+
+#FOR THE EXAMPLE a very small block
+NCellsPerSB 25 25 25         /* NCellsTotal int int int   */
+FaceCtrl  1 1  1  1  1 1      /* 0 = wrap or 1 = pad each face */
+#        -x +x -y +y -z +z
+FSGrow  0.745   /*Fraction Solid which allows growth to next cell*/
+#
+# currently disused - overridden by cell size
+#BigBlockSize 5e-3 5e-3 3e-4     /* BigBlockSize float float float */
+#
+CellSize 100.0e-06             /*in METERS */
+# Time options
+#AutoFinishTime             /* Auto-calc. finish time       */
+FinishTime  2                  /* FinishTime float */
+TimeStep   1.0e-04              /* timestep (sec) float */
+#
+#Initial conditions -- see matprop for solute values.
+InitialTemperature 670.0    /* initial temperature C          */
+InitialPressure  1      /*Initial Pressure atm */
+#
+NumDimensions 3	          /* number of dimensions 3*/
+OctFactor 0.0               /* smooth orientation mode by oct.*/
+# if ConCast mode is TRUE and Fidap is FALSE
+# the following are used:
+#
+Gradient 3100       /* C degrees per METER */
+Velocity  4.00E-05    /* meters per second */
+GradSlope 0.0       /* deviation of right side from horizontal interface*/
+#
+#** The following commands automatically turn on the modes:
+#** Thermocouple trace filename */
+#
+#TCtraceTemp thermo.txt 
+#
+#** FidapTemp velocity Tmin Tmax filename flag(0=steady 1=transient) */
+#   for input of finite element data and grid 
+#FidapTemp 0.05 0.0 2000.0 newsource.dat 1
+#
+#
+# The RCS Log for this file...
+#
+#$Log$
+#Revision 11.1  2006/03/01 18:20:38  rcatwood
+#Merging polycomponent and gas with meltback
+#
+#Revision 10.2.2.1  2006/01/23 11:52:27  rcatwood
+#Corrected duplicate subroutines in sb_*_poly.c
+#
+#Revision 10.2  2005/12/01 14:38:01  rcatwood
+#Merged xly_05 changes into the main trunk
+#Primarily involving melt-back
+#
+#Revision 10.1.2.2  2005/11/23 18:18:52  rcatwood
+#Result of merging mould_source and xly meltback+curvature 2d versions
+#
+#Revision 10.1  2005/11/03 11:56:46  rcatwood
+#New version number -- using mould_src as base
+#
+#Revision 8.2.8.2  2005/11/02 11:55:05  rcatwood
+#Fixing up the revision nubmer after loss of repository
+#
+#Revision 9.5.4.2  2004/09/08 11:57:47  rcatwood
+#Changed verbose option in sb_diffues_alloy
+#
+#Revision 9.5.4.1  2004/05/24 18:21:01  rcatwood
+#Examples for mould_src branch with new component property files
+#
+#Revision 8.2.2.2  2003/01/15 19:02:00  rcatwood
+#*** empty log message ***
+#
+#Revision 8.1.6.1  2003/01/15 12:13:23  rcatwood
+#example control files from Ali
+#
+#Revision 7.0  2001/06/05 10:31:30  rcatwood
+#Example infiles for v7
+#
+#Revision 6.0  2000/09/26 15:02:19  rcatwood
+#Example infiles for 6.0
+#
+%#Revision 5.2  2000/03/06 14:25:03  rcatwood
+%#Improved commenting
+%#
+%#Revision 5.1  2000/03/06 13:59:53  rcatwood
+%#updated after merge and cleanup
+%#
+%#Revision 5.1  2000/03/06 13:58:05  rcatwood
+%#example ctrl updated after merge
+%#
+%#Revision 4.2  1999/12/23 18:08:28  rcatwood
+%#included grey flag for diff output
+%#
+%#Revision 4.1  1999/12/21 10:46:11  rcatwood
+%#Updated infiles.
+%#
+
+

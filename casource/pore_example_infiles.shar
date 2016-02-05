@@ -1,0 +1,623 @@
+#!/bin/sh
+# This is a shell archive (produced by GNU sharutils 4.2c).
+# To extract the files from this archive, save it to some FILE, remove
+# everything before the `!/bin/sh' line above, then type `sh FILE'.
+#
+# Made on 2005-12-02 19:49 GMT by <rcatwood@hive2>.
+# Source directory was `/home/rcatwood/ca_pore'.
+#
+# Existing files will *not* be overwritten unless `-c' is specified.
+#
+# This shar contains:
+# length mode       name
+# ------ ---------- ------------------------------------------
+#   4632 -rw-r--r-- ca_ctrl.in
+#   3575 -rw-r--r-- ca_geoplus.in
+#   5831 -rw-r--r-- ca_matprop.in
+#    707 -rw-r--r-- props_alloy.in
+#    487 -rw-r--r-- props_gas.in
+#
+save_IFS="${IFS}"
+IFS="${IFS}:"
+gettext_dir=FAILED
+locale_dir=FAILED
+first_param="$1"
+for dir in $PATH
+do
+  if test "$gettext_dir" = FAILED && test -f $dir/gettext \
+     && ($dir/gettext --version >/dev/null 2>&1)
+  then
+    set `$dir/gettext --version 2>&1`
+    if test "$3" = GNU
+    then
+      gettext_dir=$dir
+    fi
+  fi
+  if test "$locale_dir" = FAILED && test -f $dir/shar \
+     && ($dir/shar --print-text-domain-dir >/dev/null 2>&1)
+  then
+    locale_dir=`$dir/shar --print-text-domain-dir`
+  fi
+done
+IFS="$save_IFS"
+if test "$locale_dir" = FAILED || test "$gettext_dir" = FAILED
+then
+  echo=echo
+else
+  TEXTDOMAINDIR=$locale_dir
+  export TEXTDOMAINDIR
+  TEXTDOMAIN=sharutils
+  export TEXTDOMAIN
+  echo="$gettext_dir/gettext -s"
+fi
+if (echo "testing\c"; echo 1,2,3) | grep c >/dev/null; then
+  if (echo -n testing; echo 1,2,3) | sed s/-n/xn/ | grep xn >/dev/null; then
+    shar_n= shar_c='
+'
+  else
+    shar_n=-n shar_c=
+  fi
+else
+  shar_n= shar_c='\c'
+fi
+if touch -am -t 200112312359.59 $$.touch >/dev/null 2>&1 && test ! -f 200112312359.59 -a -f $$.touch; then
+  shar_touch='touch -am -t $1$2$3$4$5$6.$7 "$8"'
+elif touch -am 123123592001.59 $$.touch >/dev/null 2>&1 && test ! -f 123123592001.59 -a ! -f 123123592001.5 -a -f $$.touch; then
+  shar_touch='touch -am $3$4$5$6$1$2.$7 "$8"'
+elif touch -am 1231235901 $$.touch >/dev/null 2>&1 && test ! -f 1231235901 -a -f $$.touch; then
+  shar_touch='touch -am $3$4$5$6$2 "$8"'
+else
+  shar_touch=:
+  echo
+  $echo 'WARNING: not restoring timestamps.  Consider getting and'
+  $echo "installing GNU \`touch', distributed in GNU File Utilities..."
+  echo
+fi
+rm -f 200112312359.59 123123592001.59 123123592001.5 1231235901 $$.touch
+#
+$echo $shar_n 'x -' 'lock directory' "\`_sh02143': "$shar_c
+if mkdir _sh02143; then
+  $echo 'created'
+else
+  $echo 'failed to create'
+  exit 1
+fi
+# ============= ca_ctrl.in ==============
+if test -f 'ca_ctrl.in' && test "$first_param" != -c; then
+  $echo 'x -' SKIPPING 'ca_ctrl.in' '(file already exists)'
+else
+  $echo 'x -' extracting 'ca_ctrl.in' '(text)'
+  sed 's/^X//' << 'SHAR_EOF' > 'ca_ctrl.in' &&
+##%##############################################################
+# This is an input file for ca_solid giving all
+# of the control options
+# Version: 
+#RCS ID:$Id: pore_example_infiles.shar 887 2006-03-01 18:21:01Z rcatwood $
+#
+BaseFileName pore_test /*base filename*/ 
+GeoFileName ca_geoplus.in 	/* file to read geo from from */
+MatFileName ca_matprop.in	/* file to read mat prop from */
+#InpFileName xmould.inp  /* input the mould image file */
+GasPropsFile props_gas.in
+AlloyPropsFile props_alloy.in
+X
+#PhaDiaFileName ca_phadia.in     /* file to read the phase diagram */
+#
+#to be used only with uncoupled ca_procast
+PrLookup 0     /* 0=False, 1=True */ 
+RefPres 1.0	   /* reference pressure used to set the global pressure */
+TempLookup 0   /* 0=False, 1=True */
+#
+SoloMode 1     /* 0=False, 1=True */
+CAPMode 0      /* 0=False, 1=True */
+ConCastMode 0	/* 0=False, 1=True */
+N_Neighbours 6	          /* # of Neighbours to use: 6,8,10,26  */
+#
+PostProcessingMode 0     /* 0=False, 1=True */
+#
+PhaseDiagram  1          /* 0=false 1=true*/
+GlobalUndercooling 0
+ShowEutectic 0
+Decentred_octahedron 0 /* Decentered */
+Scheil 0                 /*Scheil=1 noschiel = 0 */
+Pore 1                   /*porosity?*/
+das_limrad 0             /* use limiting radius, based on das, for pore growth*/
+diffuse 1                /* Gas diffuse 1=yes 0=no */
+diffuseAlloy 1           /* Alloy diffusion */
+diffuse_step 1           /* number of diffusion steps per growth step */
+#
+Init_cont 0      /* 0=Intial, 1=continuing calculation*/ /*by Wei WANG 15-07-02*/
+Window_moving 0  /* 0=F, 1=T, moving window technique */ /*by Wei WANG 15-07-02*/
+#
+RandSeedVal  4337881154                     /* Random Seed Val for srand48 */
+#
+CoolingRate  0.1           /* fixed cooling rate K per S (neg=cooling)*/
+FsFinish 0.999 /*Fraction Solid Finish*/
+#
+#concentration display
+#for diffusion mode
+#
+RGBmode 0                /* GRAINS colour: 0 = random 1 = oriented */
+diff_rgbmode 1           /* CONC: 0= random colours 1=gradient of colours */
+RGBgrey 0                /* grey scale mode for outptu? */
+diff_log_disp 0          /* Diff. mode disp. logrithmic?*/
+diff_ratio_disp 0        /* Diff. mode disp. Ratio to max each step?*/
+gas_disp_max 1.5         /* Diff. mode disp. Fixed Max?           */
+alloy_disp_max 10        /* Diff. mode disp. Fixed Max?           */
+diff_disp_cap 0          /* Diff. mode disp. Cap colour at max? */
+#
+#output options
+#
+PrintExcel 1		       /* write an excel style output file? */
+ConcProfile 0 0 0       /*dump profile of conc. sb# slice# row# */
+PrintSlice 0 5		       /* dump a gif pic of sb #?, slice #? */
+PrintBBSlice 	1	       /* dump a gif pic of BB slice #? */
+TempSlice 1             /* pic of temp. at each cell? (only if bb slice on)*/
+SlicePFreq   1000       		       /* Frequency to write slices */
+ScreenPFreq  1000       	          /* Frequency to write output to screen and excel file */
+BlockPFreq   10000
+PoreDumpSb 0             /* output pores from sb#*/
+FsPrint 0.3
+FsPrint 0.5
+FsPrint 0.7
+BinDump 0                /* dump binary files for all selected options?*/
+# Below are fixed input options!*/
+#FixedNuc  x  y  z ang0 ang1 ang2
+#FixedNuc   5  5  5  20  20   20      
+%
+%
+%#FixedPore 20 10 10 1.4 
+%#FixedPore 10 10 10 1.4 
+%#FixedPore 70 70 0 4.1 
+%#
+%# And the RCS log for this file....
+%#
+%#$Log$
+%#Revision 11.1  2006/03/01 18:20:40  rcatwood
+%#Merging polycomponent and gas with meltback
+%#
+%#Revision 10.1  2005/12/02 19:50:43  rcatwood
+%#shell archive with pore example infiles
+%#
+%#Revision 10.2  2005/12/01 14:38:01  rcatwood
+%#Merged xly_05 changes into the main trunk
+%#Primarily involving melt-back
+%#
+%#Revision 10.1.2.2  2005/11/23 18:18:52  rcatwood
+%#Result of merging mould_source and xly meltback+curvature 2d versions
+%#
+%#Revision 10.1  2005/11/03 11:56:46  rcatwood
+%#New version number -- using mould_src as base
+%#
+%#Revision 8.1.14.2  2005/11/02 11:55:05  rcatwood
+%#Fixing up the revision nubmer after loss of repository
+%#
+%#Revision 9.5.4.3  2004/05/24 18:21:01  rcatwood
+%#Examples for mould_src branch with new component property files
+%#
+%#Revision 8.1.8.2  2003/01/15 19:02:00  rcatwood
+%#*** empty log message ***
+%#
+%#Revision 8.1.6.1  2003/01/15 12:13:23  rcatwood
+%#example control files from Ali
+%#
+%#Revision 7.0  2001/06/05 10:31:30  rcatwood
+%#Example infiles for v7
+%#
+%#Revision 6.0  2000/09/26 15:02:19  rcatwood
+%#Example infiles for 6.0
+%#
+%#Revision 5.2  2000/03/06 14:25:03  rcatwood
+%#Improved commenting
+%#
+%#Revision 5.1  2000/03/06 13:59:53  rcatwood
+%#updated after merge and cleanup
+%#
+%#Revision 5.1  2000/03/06 13:58:05  rcatwood
+%#example ctrl updated after merge
+%#
+%#Revision 4.2  1999/12/23 18:08:28  rcatwood
+%#included grey flag for diff output
+%#
+%#Revision 4.1  1999/12/21 10:46:11  rcatwood
+%#Updated infiles.
+%#
+X
+SHAR_EOF
+  (set 20 05 12 02 17 53 22 'ca_ctrl.in'; eval "$shar_touch") &&
+  chmod 0644 'ca_ctrl.in' ||
+  $echo 'restore of' 'ca_ctrl.in' 'failed'
+  if ( md5sum --help </dev/null 2>&1 | grep 'sage: md5sum \[' ) >/dev/null 2>&1 \
+  && ( md5sum --version </dev/null 2>&1 | grep -v 'textutils 1.12' ) >/dev/null; then
+    md5sum -c << SHAR_EOF >/dev/null 2>&1 \
+    || $echo 'ca_ctrl.in': 'MD5 check failed'
+10d2c847b9cf553094ec6c9ea60b9456  ca_ctrl.in
+SHAR_EOF
+  else
+    shar_count="`LC_ALL=C wc -c < 'ca_ctrl.in'`"
+    test 4632 -eq "$shar_count" ||
+    $echo 'ca_ctrl.in': 'original size' '4632,' 'current size' "$shar_count!"
+  fi
+fi
+# ============= ca_geoplus.in ==============
+if test -f 'ca_geoplus.in' && test "$first_param" != -c; then
+  $echo 'x -' SKIPPING 'ca_geoplus.in' '(file already exists)'
+else
+  $echo 'x -' extracting 'ca_geoplus.in' '(text)'
+  sed 's/^X//' << 'SHAR_EOF' > 'ca_geoplus.in' &&
+# This is an input file for ca_solid giving all
+# of the geometry and output format data
+%# THIS FILE IS ONLY USED IF THE CA IS RUN BY ITSELF
+%#RCS ID:$Id: pore_example_infiles.shar 887 2006-03-01 18:21:01Z rcatwood $
+%# /*******************************************************/
+%# /* Define all of the default geometry values below     */
+%# /******************************************************/
+%###################################################################
+# define the block geometry
+NSubblocks 1 1 1            /* # sub-blocks in x,y,z   */
+NCellsPerSB 10 10 100        /* NCellsTotal int int int   */
+FaceCtrl  0 0 0 0 0 0           /* 0 = wrap or 1 = pad each face */
+#        -x +x -y +y -z +z
+FSGrow  0.995   /*Fraction Solid which allows growth to next cell*/
+#
+# currently disused - overridden by cell size
+#BigBlockSize 5e-3 5e-3 3e-4     /* BigBlockSize float float float */
+#
+CellSize  1.00E-04               /*in METERS */
+# Time options
+#AutoFinishTime             /* Auto-calc. finish time       */
+FinishTime  500                  /* FinishTime float */
+TimeStep  0.2E-02                /* timestep (sec) float */
+#
+#Initial conditions -- see matprop for solute values.
+InitialTemperature 617.001    /* initial temperature C          */
+InitialPressure  0.2      /*Initial Pressure atm */
+#
+NumDimensions 3	          /* number of dimensions 3*/
+OctFactor 0.0               /* smooth orientation mode by oct.*/
+#
+Window_Velo 0        /* m/s window moving velocity */ /*by Wei WANG 15-07-02*/
+# if ConCast mode is TRUE and Fidap is FALSE
+# the following are used:
+#
+Gradient 1.2e4       /* K degrees per METER */
+Velocity 1.5e-4  /* meters per second */
+Iso_Coef_One 0.0  /* K/m */
+Iso_Coef_Two 0.0  /* K/m^2 */
+GradSlope 0.0       /* deviation of right side from horizontal interface*/
+#
+#** The following commands automatically turn on the modes:
+#** Thermocouple trace filename */
+#
+#TCtraceTemp thermo.txt 
+#
+#** FidapTemp velocity Tmin Tmax filename flag(0=steady 1=transient) */
+#   for input of finite element data and grid 
+#FidapTemp 0.05 0.0 2000.0 newsource.dat 1
+#
+#
+# The RCS Log for this file...
+#
+#$Log$
+#Revision 11.1  2006/03/01 18:20:40  rcatwood
+#Merging polycomponent and gas with meltback
+#
+#Revision 10.1  2005/12/02 19:50:43  rcatwood
+#shell archive with pore example infiles
+#
+#Revision 8.2  2002/11/07 16:55:59  ww1
+#curved isothermal:
+#
+#Revision 8.1  2002/10/17 17:01:00  rcatwood
+#New version number! for decentered/porosity merge! Alpha Version!
+#
+#Revision 7.2  2002/10/17 16:52:36  rcatwood
+#Merge from branch: combined Robert (porosity) and Wei (decentered octahedron) versions
+#
+#Revision 7.1.10.4  2002/10/17 16:15:13  rcatwood
+#in files for the merge_alpha version
+#
+#Revision 7.1.10.2  2002/09/03 13:31:58  rcatwood
+#Merged with reorganized allocation routines, and adjusted nucleation to compartmentalize
+#the grain information assignment.
+#
+#Revision 7.1.10.1  2002/08/22 15:13:43  ww1
+#Merge of Wei Wang's decentered octahedron/square method
+#
+#Revision 7.1  2002/01/30 17:01:56  rcatwood
+#Included grainslice option for intercept grain size
+#
+#Revision 7.0.4.1  2001/06/11 18:18:29  rcatwood
+#versions for no pore runs to look at grain nucleation
+#
+#Revision 7.0  2001/06/05 10:31:30  rcatwood
+#Example infiles for v7
+#
+#Revision 6.0  2000/09/26 15:02:19  rcatwood
+#Example infiles for 6.0
+#
+%#Revision 5.2  2000/03/06 14:25:03  rcatwood
+%#Improved commenting
+%#
+%#Revision 5.1  2000/03/06 13:59:53  rcatwood
+%#updated after merge and cleanup
+%#
+%#Revision 5.1  2000/03/06 13:58:05  rcatwood
+%#example ctrl updated after merge
+%#
+%#Revision 4.2  1999/12/23 18:08:28  rcatwood
+%#included grey flag for diff output
+%#
+%#Revision 4.1  1999/12/21 10:46:11  rcatwood
+%#Updated infiles.
+%#
+X
+X
+SHAR_EOF
+  (set 20 05 12 02 19 44 42 'ca_geoplus.in'; eval "$shar_touch") &&
+  chmod 0644 'ca_geoplus.in' ||
+  $echo 'restore of' 'ca_geoplus.in' 'failed'
+  if ( md5sum --help </dev/null 2>&1 | grep 'sage: md5sum \[' ) >/dev/null 2>&1 \
+  && ( md5sum --version </dev/null 2>&1 | grep -v 'textutils 1.12' ) >/dev/null; then
+    md5sum -c << SHAR_EOF >/dev/null 2>&1 \
+    || $echo 'ca_geoplus.in': 'MD5 check failed'
+ad913809b09cb88a91760ddb9ba7dfb1  ca_geoplus.in
+SHAR_EOF
+  else
+    shar_count="`LC_ALL=C wc -c < 'ca_geoplus.in'`"
+    test 3575 -eq "$shar_count" ||
+    $echo 'ca_geoplus.in': 'original size' '3575,' 'current size' "$shar_count!"
+  fi
+fi
+# ============= ca_matprop.in ==============
+if test -f 'ca_matprop.in' && test "$first_param" != -c; then
+  $echo 'x -' SKIPPING 'ca_matprop.in' '(file already exists)'
+else
+  $echo 'x -' extracting 'ca_matprop.in' '(text)'
+  sed 's/^X//' << 'SHAR_EOF' > 'ca_matprop.in' &&
+# This is an input file for ca_solid giving all
+# of the material property data
+#RCS ID:$Id: pore_example_infiles.shar 887 2006-03-01 18:21:01Z rcatwood $
+# Material properties
+LiquidusTemp 616.0      /* liquidus temperature [C]     */
+SolidusTemp 577.0         /* liquidus temperature [C]     */
+LatentHeat 0.1034e+9      /* latent heat [J/m^3]         */
+Density 2.600e+3          /* density [Kg/m^3]             */
+HeatCapcity 0.90e-3       /* Cp [J/g/K]                   */
+HeatFlux -0.00005         /* Heat flux [W/m^2]           */
+SurfaceTension 0.856      /* Surface tension [Pa m]         */
+#
+#Grain growth model parameters
+#
+GG_Constant 9.85e-5       /* grain growht const m/s/K     */
+GG_Cub      0
+#
+#Grain nucleation model parameters
+#
+MaxTotGrains 300000	     /* max number of grains in total (array size) */
+GNOriented 0	           /* turn on grain orientation? True/False 1/0  */
+NucModel 6                /* NucModel 1/2 - 1 Rappaz, 2 Het. */
+X                          /* 6 = block nuc */
+MaxGrainDensity  1.00E+11           /* max. grain density per [m^3]*/
+X
+#/***********Possible Random Generator Functions *************/
+#                         G_NUC_STEP 0  -- 2 parameters (bottom, width)
+#                         G_NUC_SQUARE 1 -- 3 parameters (bottom, width,power)
+#                                            defaults to 0.3333 for square power dist.
+#                         G_NUC_GAUSSDEV 2 -- 2 parameters (mean, stdev)
+#                         G_NUC_TWOSTEP 3  -- 4 parameters(bottom width1, width2, height-ratio)
+#/************************************************************/
+NucDistFunc  1               /* block-nuc: which nucleation fuction to use */
+X
+GNGaussCentre  3            /* centre of gaussian [K] or bottom       */
+GNGaussSigma  5            /* variation in gaussian [K] or width    */
+#GNParam2   0.25               
+#GNParam3  3
+#
+#First solute properties (hydrogen)
+#
+Dliq 1e-8                 /*liquid diff. coeff.USED IN TEST ONLY */
+Dsol 1e-13                /* solid diff. coeff USED IN TEST ONLY*/
+part_coef 0.1
+InitialConc  0.05           
+#
+#Second solute properties (alloy element)
+#
+DliqAlloy 1e-8            /*liquid diff. coeff. */
+DsolAlloy 0           /* solid diff. coeff */
+Surf_Tens_Alloy   1e-7   /* surface tension coef of alloy [Km] */ /*by Wei WANG 15-07-02*/
+InitialConcAlloy 7.0      /* wt % or consistant with phase diag. info */
+#Phase Diagram Info: 
+part_coef_Alloy 0.13      /*partition coefficient */
+m_alloy -7.1212
+T_pure 666 
+T_eut 400
+#Other stuff Currently #defined in constants.h
+#also coefficients used for SCHEIL mode are #defined there
+#eg: Eutectic point info.
+#
+#Pore nucleation properties
+#
+PnucMethod 1               /* see below for methods allowed */
+PGaussCentre   1.5                /* or LOWER END of step */
+PGaussSigma 0.5            /* or WIDTH of step */ 
+PMaxDensity  5.00E+10         /* TOTAL under step */
+P_limrad_perturb 5e-2      /* perturb lim-rad fractional amount */
+#*****************************   possible pnuc methods:
+# PNUC_GAUSS (0)
+# PNUC_STEP (1)
+# PNUC_TRUESTEP (2)
+# PNUC_FUNCTION (3)
+# PNUC_INPUT (4)
+# PNUC_GAUSSDEV (5)
+X
+#das limrad sensitivity factor
+das_factor  1              /* geometric factor multiply by das to get base limrad */
+#
+#
+PBinSize 0.001     /* saturation bin size for precalc. thresholds*/
+#                  /* not used for gaussdev or step functions    */
+#
+# Area of fixed nuclei (randomly scattered at start)
+#NucArea 1.0e11 0 0 0 0 24 24 24   /* dens sbnum llx lly llz urx ury urz */ 
+#NucArea 1.0 0 0 0 0 999 100 2 /* dens sbnum llx lly llz urx ury urz */ 
+%# Species 6   2.778e31 0.71e-3 35.0e3   /* Species Nmax A rad B */
+%# Species 10  2.778e31 0.65e-3 35.0e3   /* Species Nmax A rad B */
+%# Species 21  2.778e31 0.60e-3 35.0e3   /* Species Nmax A rad B */
+%# Species 35  2.778e31 0.54e-3 35.0e3   /* Species Nmax A rad B */
+%# Species 91  2.778e31 0.50e-3 35.0e3   /* Species Nmax A rad B */
+%# Species 159 2.778e31 0.45e-3 35.0e3   /* Species Nmax A rad B */
+%# Species 169 2.778e31 0.41e-3 35.0e3   /* Species Nmax A rad B */
+%# Species 199 2.778e31 0.38e-3 35.0e3   /* Species Nmax A rad B */
+%# Species 248 2.778e31 0.34e-3 35.0e3   /* Species Nmax A rad B */
+%# Species 253 2.778e31 0.31e-3 35.0e3   /* Species Nmax A rad B */
+%# Species 214 2.778e31 0.29e-3 35.0e3   /* Species Nmax A rad B */
+%# Species 199 2.778e31 0.26e-3 35.0e3   /* Species Nmax A rad B */
+%# Species 121 2.778e31 0.24e-3 35.0e3   /* Species Nmax A rad B */
+%# Species 80  2.778e31 0.22e-3 35.0e3   /* Species Nmax A rad B */
+%# Species 191 2.778e31 0.20e-3 35.0e3   /* Species Nmax A rad B */
+#$Log$
+#Revision 11.1  2006/03/01 18:20:40  rcatwood
+#Merging polycomponent and gas with meltback
+#
+#Revision 10.1  2005/12/02 19:50:43  rcatwood
+#shell archive with pore example infiles
+#
+#Revision 8.1  2002/10/17 17:01:00  rcatwood
+#New version number! for decentered/porosity merge! Alpha Version!
+#
+#Revision 7.2  2002/10/17 16:52:36  rcatwood
+#Merge from branch: combined Robert (porosity) and Wei (decentered octahedron) versions
+#
+#Revision 7.1.10.2  2002/10/17 16:15:13  rcatwood
+#in files for the merge_alpha version
+#
+#Revision 7.1.10.1  2002/08/22 15:13:43  ww1
+#Merge of Wei Wang's decentered octahedron/square method
+#
+#Revision 7.1  2002/01/30 17:01:56  rcatwood
+#Included grainslice option for intercept grain size
+#
+#Revision 7.0.4.1  2001/06/11 18:18:29  rcatwood
+#versions for no pore runs to look at grain nucleation
+#
+#Revision 7.0  2001/06/05 10:31:30  rcatwood
+#Example infiles for v7
+#
+#Revision 6.0  2000/09/26 15:02:19  rcatwood
+#Example infiles for 6.0
+#
+#Revision 5.2  2000/03/06 14:25:03  rcatwood
+#Improved commenting
+%#
+%#Revision 5.1  2000/03/06 13:59:53  rcatwood
+%#updated after merge and cleanup
+%#
+%#Revision 5.1  2000/03/06 13:58:05  rcatwood
+%#example ctrl updated after merge
+%#
+%#Revision 4.2  1999/12/23 18:08:28  rcatwood
+%#included grey flag for diff output
+%#
+%#Revision 4.1  1999/12/21 10:46:11  rcatwood
+%#Updated infiles.
+%#
+%# 
+SHAR_EOF
+  (set 20 05 12 02 17 53 22 'ca_matprop.in'; eval "$shar_touch") &&
+  chmod 0644 'ca_matprop.in' ||
+  $echo 'restore of' 'ca_matprop.in' 'failed'
+  if ( md5sum --help </dev/null 2>&1 | grep 'sage: md5sum \[' ) >/dev/null 2>&1 \
+  && ( md5sum --version </dev/null 2>&1 | grep -v 'textutils 1.12' ) >/dev/null; then
+    md5sum -c << SHAR_EOF >/dev/null 2>&1 \
+    || $echo 'ca_matprop.in': 'MD5 check failed'
+c9588df948f7f731f214d5921aa368a6  ca_matprop.in
+SHAR_EOF
+  else
+    shar_count="`LC_ALL=C wc -c < 'ca_matprop.in'`"
+    test 5831 -eq "$shar_count" ||
+    $echo 'ca_matprop.in': 'original size' '5831,' 'current size' "$shar_count!"
+  fi
+fi
+# ============= props_alloy.in ==============
+if test -f 'props_alloy.in' && test "$first_param" != -c; then
+  $echo 'x -' SKIPPING 'props_alloy.in' '(file already exists)'
+else
+  $echo 'x -' extracting 'props_alloy.in' '(text)'
+  sed 's/^X//' << 'SHAR_EOF' > 'props_alloy.in' &&
+Cinit                 7.0     /* CA_FLOAT Cinit */
+Dliq                 1e-8     /* CA_FLOAT Dliq */
+Dsol                 0    /* CA_FLOAT Dsol */
+X
+/* type of source - select the function */
+/* 0=NONE, 1=CONST, 2=DIFF, 3=PLIN 4=FLUX*/
+mould_src            0
+X
+/* multiplier for the source function */
+mould_source_value   1  /* CA_FLOAT mould_source_value */
+X
+mould_src_pert       0  /* int mould_src_pert */
+part_coef            0.13  /* CA_FLOAT part_coef */
+/* c_eut                1.0e-01  /* CA_FLOAT c_eut */
+T_eut                400.85  /* CA_FLOAT T_eut */
+T_pure               666.0   
+m_solute             -7.1212    /* CA_FLOAT m_solute */
+surf_tens_coef       0.6   /* CA_FLOAT surf_tens_coef */
+SHAR_EOF
+  (set 20 05 12 02 17 53 22 'props_alloy.in'; eval "$shar_touch") &&
+  chmod 0644 'props_alloy.in' ||
+  $echo 'restore of' 'props_alloy.in' 'failed'
+  if ( md5sum --help </dev/null 2>&1 | grep 'sage: md5sum \[' ) >/dev/null 2>&1 \
+  && ( md5sum --version </dev/null 2>&1 | grep -v 'textutils 1.12' ) >/dev/null; then
+    md5sum -c << SHAR_EOF >/dev/null 2>&1 \
+    || $echo 'props_alloy.in': 'MD5 check failed'
+8970ebd2f4d58e7552ef1e8c12989a6a  props_alloy.in
+SHAR_EOF
+  else
+    shar_count="`LC_ALL=C wc -c < 'props_alloy.in'`"
+    test 707 -eq "$shar_count" ||
+    $echo 'props_alloy.in': 'original size' '707,' 'current size' "$shar_count!"
+  fi
+fi
+# ============= props_gas.in ==============
+if test -f 'props_gas.in' && test "$first_param" != -c; then
+  $echo 'x -' SKIPPING 'props_gas.in' '(file already exists)'
+else
+  $echo 'x -' extracting 'props_gas.in' '(text)'
+  sed 's/^X//' << 'SHAR_EOF' > 'props_gas.in' &&
+Cinit                1  /* CA_FLOAT Cinit */
+DoLiq 3.8e-6
+QaLiq 19247
+DoSol 1.1e-5
+QaSol 40923
+mould_src 0
+mould_source_value   1e-6  /* CA_FLOAT mould_source_value */
+mould_src_pert       0  /* int mould_src_pert */
+part_coef            1.0e-01  /* CA_FLOAT part_coef */
+T_eut                1.0e-01  /* CA_FLOAT T_eut */
+Fs_eut               1.0e-01  /* CA_FLOAT Fs_eut */
+m_solute             0        /* CA_FLOAT m_solute */
+surf_tens_coef       0.856  /* CA_FLOAT surf_tens_coef */
+SHAR_EOF
+  (set 20 05 12 02 17 53 22 'props_gas.in'; eval "$shar_touch") &&
+  chmod 0644 'props_gas.in' ||
+  $echo 'restore of' 'props_gas.in' 'failed'
+  if ( md5sum --help </dev/null 2>&1 | grep 'sage: md5sum \[' ) >/dev/null 2>&1 \
+  && ( md5sum --version </dev/null 2>&1 | grep -v 'textutils 1.12' ) >/dev/null; then
+    md5sum -c << SHAR_EOF >/dev/null 2>&1 \
+    || $echo 'props_gas.in': 'MD5 check failed'
+1078b9d5df8e9374870d0cbb798a1a6a  props_gas.in
+SHAR_EOF
+  else
+    shar_count="`LC_ALL=C wc -c < 'props_gas.in'`"
+    test 487 -eq "$shar_count" ||
+    $echo 'props_gas.in': 'original size' '487,' 'current size' "$shar_count!"
+  fi
+fi
+$echo $shar_n 'x -' 'lock directory' "\`_sh02143': " $shar_c
+if rm -fr _sh02143; then
+  $echo 'removed'
+else
+  $echo 'failed to remove'
+fi
+exit 0

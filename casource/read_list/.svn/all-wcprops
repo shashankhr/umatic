@@ -1,0 +1,173 @@
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/ca_svn/!svn/ver/1402/branches/GE_ongoing/casource/read_list
+END
+safeopen.c
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/read_list/safeopen.c
+END
+csv.h
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/read_list/csv.h
+END
+readwrite_fg.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/read_list/readwrite_fg.c
+END
+freecsv.h
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/read_list/freecsv.h
+END
+init.c
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/read_list/init.c
+END
+unit_conv.c
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/read_list/unit_conv.c
+END
+findvals_old.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/read_list/findvals_old.c
+END
+safeopen.h
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/read_list/safeopen.h
+END
+read_list.c
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/read_list/read_list.c
+END
+findvals.c
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/read_list/findvals.c
+END
+readwrite_fg.h
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/read_list/readwrite_fg.h
+END
+init.h
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/read_list/init.h
+END
+findvals.h
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/read_list/findvals.h
+END
+readwrite_data.c
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/read_list/readwrite_data.c
+END
+convert.c
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/read_list/convert.c
+END
+debin.c
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/read_list/debin.c
+END
+read_fg_list.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/read_list/read_fg_list.c
+END
+qsort_csv.c
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/read_list/qsort_csv.c
+END
+convert.h
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/read_list/convert.h
+END
+debin.h
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/read_list/debin.h
+END
+read_csv.c
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/read_list/read_csv.c
+END
+readwrite.c
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/read_list/readwrite.c
+END
+read_fg_list.h
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/read_list/read_fg_list.h
+END
+qsort_csv.h
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/read_list/qsort_csv.h
+END
+readwrite.h
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/read_list/readwrite.h
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/ca_svn/!svn/ver/1402/branches/GE_ongoing/casource/read_list/Makefile
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/ca_svn/!svn/ver/1402/branches/GE_ongoing/casource/read_list/CMakeLists.txt
+END
+freecsv.c
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/read_list/freecsv.c
+END

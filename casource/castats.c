@@ -1,0 +1,122 @@
+
+/****************************************************************/
+/*      Copyright (c) 1993 Peter D Lee                          */
+/*      Copyright (c) 1998 Dept. of Materials, ICSTM            */
+/*      All Rights Reserved                                     */
+/*      The copyright notice above does not evidence any        */
+/*      actual or intended publication of such source code,     */
+/*      and is an unpublished work by Dept. of Materials, ICSTM.*/
+/*      continuing D Phil work from University of Oxford        */
+/****************************************************************/
+/* This code is part of the umats routines developed at in the  */
+/* Materials Processing Group, Dept. of Materials, ICSTM.       */
+/*      email p.d.lee or r.atwood @imperial.ac.uk for details   */
+/****************************************************************/
+
+/********************************************************************************/
+/*  This version is distributed under a BSD style public license, as follows:   */
+/*                                                                              */
+/*  Copyright (c) 2007, Dept. of Materials, Imperial College London             */
+/*  All rights reserved.                                                        */
+/*  Redistribution and use in source and binary forms, with or without          */
+/*  modification, are permitted provided that the following conditions          */
+/*  are met:                                                                    */
+/*                                                                              */
+/*  * Redistributions of source code must retain the above copyright            */
+/*  notice, this list of conditions and the following disclaimer.               */
+/*                                                                              */
+/*  * Redistributions in binary form must reproduce the above                   */
+/*  copyright notice, this list of conditions and the following                 */
+/*  disclaimer in the documentation and/or other materials provided             */
+/*  with the distribution.                                                      */
+/*                                                                              */
+/*  * Neither the name of the Dept. of Materials, Imperial College London, nor  */
+/*  the names of its contributors may be used to endorse or promote products    */
+/*  derived from this software without specific prior written permission.       */
+/*                                                                              */
+/*  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS         */
+/*  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT           */
+/*  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR       */
+/*  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT        */
+/*  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,       */
+/*  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED    */
+/*  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR      */
+/*  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF      */
+/*  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING        */
+/*  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS          */
+/*  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.                */
+/********************************************************************************/
+/*END of LICENSE NOTICE*/
+
+#include <stdio.h>
+#include <math.h>
+#include "machine.h"
+
+/********************************************************/
+/********************************************************/
+/* init_stat_val                                       	*/
+/*    initialise an array for holding stat values.      */
+/********************************************************/
+/********************************************************/
+/* stat[] should be an array of 4 (0-3) CA_FLOAT */
+/* It will hold the sum, min,max, and sumsq */
+/* after calc_stat_val is applied, it will hold */
+/* the mean, min, max, and stdev of the values input */
+void init_stat_val (CA_FLOAT stat[])
+{
+  stat[0] = stat[2] = stat[3] = 0.0;
+  stat[1] = LARGE;
+}
+
+/********************************************************/
+/********************************************************/
+/* add_stat_val                                       	*/
+/*    add a single values to the stats array.           */
+/********************************************************/
+/********************************************************/
+void add_stat_val (CA_FLOAT stat[], CA_FLOAT val)
+{
+  stat[0] += val;
+  stat[1] = MIN (stat[1], val);
+  stat[2] = MAX (stat[2], val);
+  stat[3] += (val * val);
+}
+
+/********************************************************/
+/********************************************************/
+/* calc_stat_val                                       	*/
+/*    Calculate the stat values after all inst's. added.*/
+/********************************************************/
+/********************************************************/
+void calc_stat_val (CA_FLOAT stat[], CA_FLOAT dn)
+{
+  double dval;
+
+  if (dn > 1.01) {
+    stat[0] /= dn;
+    dval = stat[0] * stat[0];
+    if (dn * dval > stat[3]) {
+      fprintf (stderr, "stddev of neg: ss=%g; dn*avg^2=%g;dn=%g;avg=%g\n", stat[3], dn * dval, dn, stat[0]);
+      stat[3] = 0.0;
+    } else {
+      dval = (stat[3] - dn * dval) / (dn - 1.0);
+      stat[3] = sqrt (dval);
+    }
+  } else                        /* only one sample so no deviation */
+    stat[3] = 0.0;
+
+  if (stat[1] >= (0.5 * LARGE))
+    stat[1] = 0;
+}
+
+/* Little subroutine to get rcs id into the object code */
+/* so you can use ident on the compiled program  */
+/* also you can call this to print out or include the rcs id in a file */
+char const *rcs_id_castats_c ()
+{
+  static char const rcsid[] = "$Id: castats.c 1339 2008-07-23 13:58:29Z  $";
+
+  return (rcsid);
+}
+
+/* end of rcs_id_subroutine */

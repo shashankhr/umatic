@@ -1,0 +1,307 @@
+/* MAIN program file for read_csv project */
+/*RCS Id:$Id$*/
+
+
+#include <stdio.h>
+#include <string.h>
+#include <getopt.h>
+#include "safeopen.h"
+#include "debin.h"
+
+#include "../machine.h"
+#include "../constants.h"
+
+
+#include "csv.h"
+#include "../fidap.h"
+#include "read_fg_list.h"
+#include "readwrite.h"
+#include "readwrite_fg.h"
+#include "init.h"
+#include "convert.h"
+#include "findvals.h"
+#include "freecsv.h"
+#include "../write_fidap_struct.h"
+
+extern void qsort_csv(CsvFloat * the_data, int r_col, int z_col);
+extern void readwrite_data(const Flags flags,  Fg_row * fgrow, int rfield, int zfield, int tfield);
+extern int read_listfile(const char * listfilename, FGrid_list_str * fgl);
+void print_usage(char * prog_name)      /* print the usage message on error */
+{
+
+   fprintf(stderr, "\n\n*************************************************\n");
+   fprintf (stderr,"%s \n",prog_name);
+   fprintf(stderr, "*\tFilter to read comma-separated file and\n");
+   fprintf(stderr, "*\textract the necessary information\n");
+   fprintf(stderr, "\n*\tThe following command line options are allowed:\n");
+   fprintf(stderr, "*\t-d\t\t-> specify the solution mode: 0 for steady and 1 for transient\n");
+   fprintf(stderr, "*\t-e\t\t-> specify input file extension(default .csv)\n");
+   fprintf(stderr, "*\t-i\t\t-> specify input file\n");
+   fprintf(stderr, "*\t-o\t\t-> specify output file\n");
+   fprintf(stderr, "*\t-z\t\t-> specify column for z data\n");
+   fprintf(stderr, "*\t-Z\t\t-> specify initial z offset \n");
+   fprintf(stderr, "*\t-r\t\t-> specify column for r data\n");
+   fprintf(stderr, "*\t-c\t\t-> specify column for data\n");
+   fprintf(stderr, "*\t-t\t\t-> write a tecplot file of original data\n");
+   fprintf(stderr, "*\t-f\t\t-> flip the z values in the fg structure\n");
+   fprintf(stderr, "*\t-V\t\t-> Verbose mode (lots of messages and output files)\n");
+   fprintf(stderr, "*\t-u\t\t-> change unit system(1:cm->m; 2:cm->m & F->C; 3:in->m & F->C)\n");
+   fprintf(stderr, "*\t-n\t\t-> specify number of header lines\n");
+   fprintf(stderr, "*\t-h\t\t-> print this message\n");
+   fprintf(stderr, "*\t\n");
+   fprintf(stderr, "*************************************************\n");
+   fprintf(stderr,"Compiled FLOAT size: %i \n ", sizeof(CA_FLOAT));
+}
+
+int main (int argc, char* argv[]){
+
+   CsvData data;
+   CsvFloat floatdata;
+   FGrid_list_str fgl;
+   Fg_row steady_data;
+   int errflg=0, cflg;
+   CA_FLOAT init_z_off=0;
+   Flags flags; /* structure holding the option flags*/
+   char * infilename;
+   char * listfilename;
+   char * outfilename ;
+   char * outfilebin = "fg_temp.bin";
+   char * basefilename;
+   char * inputfile;
+   int zfield = 2,rfield=1,tfield=7;
+   FILE * fstructp;
+   int j, n_files=0;
+#ifdef _DEBUG_MALLOC_INC
+  	unsigned long		  oldsize;
+	unsigned long		  size1,size2;
+   unsigned long  hist0, hist1,hist2;
+   oldsize = malloc_inuse( &(hist0));
+#endif /*_DEBUG_MALLOC_INC*/
+  flags.i = 0;
+  flags.c = 0;
+  flags.o = 0;
+  flags.d = 0;
+  flags.V = 0;
+  flags.u = 0;
+  flags.t = 0;
+  flags.f = 0; 
+  flags.nh = 1;
+  sprintf(flags.ext,".csv");
+
+   basefilename = (char *) calloc(255,sizeof(char));
+   infilename = (char *) calloc(255,sizeof(char));
+   listfilename = (char *) calloc(255,sizeof(char));
+   outfilename = (char *) calloc(255,sizeof(char));
+   sprintf(outfilename,"tempout.csv");
+
+   sprintf(infilename,"test.csv");
+   sprintf(basefilename,"testout");
+   fgl.nheaders_list = 1;
+
+   /*******************************************/
+   /* get the command line optinos            */
+   /*******************************************/
+   errflg=0;
+   if (argc < 1) errflg++;
+   while ((cflg = getopt(argc, argv, "ad:e:i:o:Z:z:r:c:n:u:fthV")) != -1) {
+      switch (cflg) {
+      case 'a':
+	      fprintf(stderr,"%s: sorry,flags.  'a' is not defined\n",argv[0]);
+         break;
+      /*get data option*/
+      case 'd':       
+        flags.d = atoi(optarg); /* 1 for transient solution */
+         break;
+      /*get input file name*/
+      case 'i':       
+         sprintf(infilename,"%s",optarg);
+        flags.i = 1;
+         break;
+      case 'e':       
+         sprintf(flags.ext,".%s",optarg);
+         break;
+      /*get output file name*/
+      case 'o':       
+         sprintf(basefilename,"%s",optarg);
+        flags.o = 1;
+         break;
+      /* initial z offset */
+      case 'Z':
+         init_z_off = (CA_FLOAT)(atof(optarg));
+         break;
+      /* get the column numbers for processing or use default */
+      case 'z':
+         zfield = atoi(optarg);
+         break;
+      case 'r':
+         rfield = atoi(optarg);
+         break;
+      case 'c':
+         tfield = atoi(optarg);
+         break;
+      /* number of header lines */
+      case 'n':
+         flags.nh = atoi(optarg);
+         break;
+     /* change unit system */ 
+      case 'u':
+         flags.u = atoi(optarg);
+         break;
+      /* Tecplot file mode */
+      case 't':
+        flags.t = 1;
+         break;
+       /* Flip the z values */
+      case 'f':
+        flags.f = 1;
+         break;
+     /* Verbose mode */
+      case 'V':
+        flags.V = 1;
+         break;
+      /* print help message */
+      case 'h':
+      default:
+         errflg++;
+      break;
+      }
+   }
+   if (errflg) {
+      print_usage(argv[0]);
+      exit(0);
+   }
+
+   /* generate the base file from input file if unspecified */
+   if (flags.i && !(flags.o)){
+      debin(basefilename,infilename);
+   }
+
+
+   if (flags.V){
+      fprintf(stderr,"input filename: %s\n",infilename);
+      fprintf(stderr,"output base filename: %s\n",basefilename);
+   fprintf(stderr,"z column %i, r column %i, data column %i\n",zfield,rfield,tfield);
+   }
+
+
+/* test for steady state or transient version */
+   switch(flags.d){
+   case 0: /* steady state solution (default), reading one data file */
+      steady_data.filename = basefilename;
+      steady_data.z_offset = init_z_off;
+      steady_data.time = 0;
+      readwrite_data(flags, &steady_data, rfield, zfield, tfield);	
+      break; 
+   case 1: /* transient solution, reading a list of data files ... */ 
+      n_files=read_listfile(infilename, &fgl);
+      for(j=0; j<n_files; j++){
+           fgl.rows[j]->z_offset += init_z_off;
+           if(flags.V) fprintf(stderr,"Calling readwrite data for %s \n",fgl.rows[j]->filename);
+           readwrite_data(flags,fgl.rows[j], rfield, zfield, tfield);	   
+      }	    	
+      free_fg_list(&fgl);
+      
+      break;
+   default:
+      break;
+   }/* end of steady / transient */
+ 
+
+/* free the string pointers */ 
+   free(listfilename);
+   free(basefilename);
+   free(infilename);
+   free(outfilename);
+
+#ifdef _DEBUG_MALLOC_INC
+  	size2 = malloc_inuse(&hist2 );
+	if( size2 != (oldsize))
+	{
+		fprintf(stderr,"ERROR: ca_wrapper: dbMalloc test of size of allocated memory\n");
+		fprintf(stderr,"\toldsize = %lu, size = %lu - should be %lu\n",
+			oldsize, size2, oldsize);
+			fprintf(stderr,"Malloc list \n");
+			malloc_list(2,hist0,hist2);
+			fprintf(stderr,"Finshed dbMalloc size check \n");
+	}
+	else
+	{
+		fprintf(stderr,"dbMalloc size check: OK\n");
+	}
+#endif /*_DEBUG_MALLOC_INC*/
+return(0);
+}/* end of MAIN procedure */
+
+
+/*
+RCS Log:$Log$
+RCS Log:Revision 11.1  2006/03/01 18:21:00  rcatwood
+RCS Log:Merging polycomponent and gas with meltback
+RCS Log:
+RCS Log:Revision 10.2  2005/12/01 14:38:02  rcatwood
+RCS Log:Merged xly_05 changes into the main trunk
+RCS Log:Primarily involving melt-back
+RCS Log:
+RCS Log:Revision 10.1.2.2  2005/11/23 18:19:10  rcatwood
+RCS Log:Result of merging mould_source and xly meltback+curvature 2d versions
+RCS Log:
+RCS Log:Revision 10.1  2005/11/03 11:56:48  rcatwood
+RCS Log:New version number -- using mould_src as base
+RCS Log:
+RCS Log:Revision 1.1.4.2  2005/11/02 11:50:56  rcatwood
+RCS Log:Read list files
+RCS Log:
+RCS Log:Revision 9.2  2003/12/10 17:36:23  kerman
+RCS Log:added unit conversions & fixed for counting number of fields from the header
+RCS Log:
+RCS Log:Revision 1.1.4.5  2003/05/16 16:13:41  kerman
+RCS Log:Change the unit conversion routine and the location where the number of fields
+RCS Log:are being read from the data header files
+RCS Log:
+RCS Log:Revision 1.1.4.4  2003/02/25 12:25:22  kerman
+RCS Log:change unit system from BS to SI as it's necessary for decentred square
+RCS Log:
+RCS Log:Revision 1.1.4.3  2003/02/17 15:21:23  kerman
+RCS Log:flip the z values in the fg structure
+RCS Log:
+RCS Log:Revision 1.1.4.2  2003/02/16 21:25:00  kerman
+RCS Log:changing unit system from BS to CGS if necessary.:
+RCS Log:
+RCS Log:Revision 1.1.4.1  2003/01/22 16:51:05  rcatwood
+RCS Log:added read_list main program file
+RCS Log:
+RCS Log:Revision 1.1.2.2  2003/01/09 16:26:30  rcatwood
+RCS Log:Sorted out several memory prblems.
+RCS Log:Modified to handle allvac's data as well as fluent data
+RCS Log:
+RCS Log:Revision 1.1.2.1  2003/01/08 17:38:57  rcatwood
+RCS Log:adding new files neede for readin gthe list of files
+RCS Log:
+RCS Log:Revision 2.1.2.1  2003/01/08 16:00:34  rcatwood
+RCS Log:Ahmad version with sorting and input list of files to process.
+RCS Log:
+RCS Log:Revision 2.1  2002/10/17 16:56:01  rcatwood
+RCS Log:*** empty log message ***
+RCS Log:
+RCS Log:Revision 1.8  2002/09/12 11:34:19  rcatwood
+RCS Log:added profile loop to repeat routine for speed check
+RCS Log:
+RCS Log:Revision 1.7  2002/09/06 14:55:47  rcatwood
+RCS Log:Removed all lint warnings
+RCS Log:
+RCS Log:Revision 1.6  2002/09/06 12:52:36  rcatwood
+RCS Log:Cured all memory allocation problems .. I hope.
+RCS Log:
+RCS Log:Revision 1.5  2002/09/05 18:05:44  rcatwood
+RCS Log:Included convert, read and write fg binary, and tested. It seems to work.
+RCS Log:
+RCS Log:Revision 1.4  2002/09/04 18:40:06  rcatwood
+RCS Log:included FGrid_str structure from ca code , added routine to find number of nodes from input file
+RCS Log:
+RCS Log:Revision 1.3  2002/09/04 14:58:33  rcatwood
+RCS Log:First working version -- reads and writes CSV files (no conversion)
+RCS Log:
+RCS Log:Revision 1.2  2002/09/04 10:41:07  rcatwood
+RCS Log:Added id and log msg
+RCS Log:
+*/

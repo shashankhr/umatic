@@ -1,0 +1,287 @@
+
+/****************************************************************/
+/*      Copyright (c) 1993 Peter D Lee                          */
+/*      Copyright (c) 1998 Dept. of Materials, ICSTM            */
+/*      All Rights Reserved                                     */
+/*      The copyright notice above does not evidence any        */
+/*      actual or intended publication of such source code,     */
+/*      and is an unpublished work by Dept. of Materials, ICSTM.*/
+/*      continuing D Phil work from University of Oxford        */
+/****************************************************************/
+/* This code is part of the umats routines developed at in the  */
+/* Materials Processing Group, Dept. of Materials, ICSTM.       */
+/*      email p.d.lee or r.atwood @imperial.ac.uk for details   */
+/****************************************************************/
+
+/********************************************************************************/
+/*  This version is distributed under a BSD style public license, as follows:   */
+/*                                                                              */
+/*  Copyright (c) 2007, Dept. of Materials, Imperial College London             */
+/*  All rights reserved.                                                        */
+/*  Redistribution and use in source and binary forms, with or without          */
+/*  modification, are permitted provided that the following conditions          */
+/*  are met:                                                                    */
+/*                                                                              */
+/*  * Redistributions of source code must retain the above copyright            */
+/*  notice, this list of conditions and the following disclaimer.               */
+/*                                                                              */
+/*  * Redistributions in binary form must reproduce the above                   */
+/*  copyright notice, this list of conditions and the following                 */
+/*  disclaimer in the documentation and/or other materials provided             */
+/*  with the distribution.                                                      */
+/*                                                                              */
+/*  * Neither the name of the Dept. of Materials, Imperial College London, nor  */
+/*  the names of its contributors may be used to endorse or promote products    */
+/*  derived from this software without specific prior written permission.       */
+/*                                                                              */
+/*  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS         */
+/*  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT           */
+/*  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR       */
+/*  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT        */
+/*  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,       */
+/*  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED    */
+/*  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR      */
+/*  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF      */
+/*  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING        */
+/*  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS          */
+/*  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.                */
+/********************************************************************************/
+/*END of LICENSE NOTICE*/
+
+/*RCS Id:$Id$*/
+#include <stdio.h>
+#include <math.h>
+#include <string.h>
+#include "blocks.h"
+#include "machine.h"
+#include "umat_matrix.h"
+#include "sb_diffuse.h"
+#include "mould_sources.h"
+
+#define EUTECTIC  ((*newfs > 0.0 && *newfs < 1.0) && (*op >= mp->c_eut) && (*c_temp_p < mp->T_eut))
+
+extern CA_FLOAT get_dl (CA_FLOAT temp);
+extern CA_FLOAT get_ds (CA_FLOAT temp);
+extern CA_FLOAT getav_d (CA_FLOAT dl, CA_FLOAT ds, CA_FLOAT fs);
+
+int sb_diffuse_alloy (BB_struct * bp, int sbnum)
+{
+  int dumb = 0;
+  int errflg = 0;
+  int nx, ny, nz, tsteps, neut = 0;
+  static int wmess = 0, emess = 0, courant_messg = 0;
+  int *oni, *onip, *onend;
+  SB_struct *sp;
+  Solute_props *mp;
+  int t, i, j, k;
+  CA_FLOAT fs_av, Cinit, fsdiff;
+  CA_FLOAT **sol_alloy_values;
+  CA_FLOAT old_alpha, new_alpha, alpha_ratio, conc, f_ratio, f_l;       /*readability variables */
+  CA_FLOAT *c_temp_p;
+  CA_FLOAT *np, *op, nbconc, *nsol, *osol, nbsum;
+  CA_FLOAT *oldfs, *oldfs_start, *newfs, *newfs_start;
+  CA_FLOAT rmax, rmin, fstot, nbfs;
+  CA_FLOAT r, rs, rl, rsrl, dtx;        /*solid, liquid */
+  CA_FLOAT Clim, ClimInv, kmClimInv, fixfs;
+
+  /** \todo Implement polycomponent when not using decentered-octahedron */
+
+  if (bp->ctrl->diffuse_alloy_poly != FALSE){
+     fprintf(stderr,"ERROR:%s: Poly-component not implemented for non-directional\n",__func__);
+     exit(0);
+  }
+
+  rmin = 1;
+  rmax = 0;
+
+/* set up local neighbourhood */
+/* use 6cell only for now     */
+  fstot = 0;
+  oni = bp->nbhd.onq;           /*padded */
+  onip = oni;
+  onend = oni + 6;
+
+  nx = bp->nc[0];
+  ny = bp->nc[1];
+  nz = bp->nc[2];
+
+/* set up local values and pointers */
+  sp = bp->sb[sbnum];
+  bp->cubeptr.curr = sbnum;
+  mp = &(bp->mprops.alloyprops[0]);
+
+  op = osol = bp->ftmp_two;
+  np = nsol = sp->c_sol_alloy;
+  sol_alloy_values = bp->c_sol_alloy_values->block_array;
+  c_temp_p = sp->c_temp;        /* temperature of cell */
+  Cinit = sp->Svals[ALLOY].Cinit;
+
+  newfs = newfs_start = bp->ftmp_one;
+  oldfs = oldfs_start = sp->c_fs;
+
+  r = 0;
+/*set up parameter values*/
+
+  dtx = (bp->delt / (bp->size_c[0] * bp->size_c[0]));
+  rs = (mp->Dsol[0] * dtx);
+  rl = (mp->Dliq * dtx);
+  rsrl = rs * rl;               /* precalc to save time in loop */
+
+/* check courant stability*/
+  if (rs > COURANT_LIMIT || rl > COURANT_LIMIT) {
+    if (courant_messg < MAX_WARN_MSG)
+      fprintf (stderr, "SB_DIFFUSE_ALLOY: WARNING: Possible instability by Courant criterion!\n Solid: , %1.2e, Liquid: %1.2e\n", rs,
+               rl);
+    courant_messg++;
+#ifdef ERROR_EXIT
+    if (courant_messg > WARN_EXIT_LIMIT) {
+      fprintf (stderr, "SB_DIFFUSE_ALLOY: ERROR_EXIT: Courant Stability warning limit exceeded. %i warnings.\n", courant_messg);
+      exit (courant_messg);
+    }
+#endif /*ERROR_EXIT */
+  }
+  /* make a copy of the solute concentration array */
+  bp->cubeptr.ivalue = bp->Cbdy_alloy;
+  errflg += fcopy_matrix (PAD, osol, nsol, bp, sol_alloy_values, sbnum);        /* (flag, to, from, bp) */
+  bp->cubeptr.ivalue = 0.0;
+
+  /* add the source at the mould surface if selected */
+  if (mp->mould_src != 0) {
+    sb_mould_src (bp, mp, sbnum, osol);
+  }
+
+  /* rewind array pointers */
+  np = nsol;
+  op = osol + bp->cubeptr.flist[0][START];      /*rewind */
+  newfs = newfs_start + bp->cubeptr.flist[0][START];
+  oldfs = oldfs_start;
+
+      /************************************************/
+  /* now calculate the finite difference */
+      /************************************************/
+  /* DIFFUSION LOOP                               */
+      /************************************************/
+  /* Run through all cells updating as needed.    */
+      /************************************************/
+  for (k = 0; k < nz; k++) {    /* loop cells in z direction */
+    for (j = 0; j < ny; j++) {  /* loop cells in y direction */
+      for (i = 0; i < nx; i++) {        /* loop cells in x direction */
+        /* skip cells that are not in the casting */
+        if (*oldfs == NOT_CASTING) {
+          /* do nothing */
+        } else {
+
+          old_alpha = (1.0 - (mp->km * *oldfs));
+          new_alpha = (1.0 - (mp->km * *newfs));
+          alpha_ratio = (old_alpha / new_alpha);
+
+          if (EUTECTIC) {       /* this is DEFINED at the top */
+            /*alpha_ratio = (1.0); */
+            f_ratio = (*oldfs) / (*newfs);
+            f_l = 1.0 - *newfs;
+          }
+
+          nbsum = 0;
+          conc = *op;
+          for (onip = oni; onip < onend; onip++) {
+            nbfs = *(newfs + *onip);
+
+            /* skip nb cells that are not in the casting */
+            if (nbfs == NOT_CASTING)
+              continue;
+            /* averaged frac solid */
+            fs_av = 0.5 * (*newfs + nbfs);
+
+#                    define LINEAR_MEAN
+#                    ifdef HARMONIC_MEAN
+            r = rsrl / (rl * fs + rs * fl);
+#                    endif /*HARMONIC_MEAN */
+#                    ifdef LINEAR_MEAN
+            r = rs * fs_av + rl * (1 - fs_av);
+#                    endif /*LINEAR_MEAN */
+            /* Averaged diff coeff */
+
+            nbconc = *(op + *onip);
+
+            nbsum += r * (nbconc - conc);
+            if (r > rmax)
+              rmax = r;
+            if (r < rmin)
+              rmin = r;
+          }                     /* end of neighbour sum loop */
+
+          /* eutectic rule  */
+          /** \todo  improve eutectic rule -- maybe obsolote by lthuinet version */
+          if (EUTECTIC) {
+            *np = mp->c_eut + f_ratio * (*op - mp->c_eut) + nbsum / f_l;
+            neut++;
+          } else {
+            *np = alpha_ratio * *op + nbsum / new_alpha;
+          }
+          if (*np < 0) {
+            if (emess < MAX_ERR_MSG)
+              fprintf (stderr, "ERROR:sb_diffuse_alloy: Possible instability *np = %g\n", *np);
+            emess++;
+          }
+          if (*newfs > 0.0) {
+            /*     calculate limiting values for this cell */
+            /**  \todo  fix problem if temperature == t_pure esp. for rising liquidus slope */
+            Clim = (*c_temp_p -bp->mprops.tp) * mp->m_inv_solute;
+            Clim = (Clim > mp->c_eut) ? mp->c_eut : Clim;
+            ClimInv = 1 / Clim;
+            kmClimInv = ClimInv * mp->kminv;
+            if ((Clim > Cinit) && (*np > Clim) && (*newfs < 1.0) && (*np > Cinit)) {
+              /*fix frac. solid to level providing concentration Clim */
+              fixfs = mp->kminv - *np * kmClimInv + *newfs * *np * ClimInv;
+              if (fixfs > 0.0) {
+                /* fix the fraction solid and the del_fs for latent heat calculation */
+                fsdiff = *newfs - fixfs;
+                sp->Tvals.del_fs -= fsdiff;
+                *newfs = fixfs;
+                *np = Clim;
+              }
+            }
+          }
+          fstot += *newfs;
+        }                       /* end NOT_CASTING test */
+        c_temp_p++;
+        np++;
+        oldfs++;
+        newfs++;
+        op++;
+      }                         /*x */
+      op += 2;
+      newfs += 2;
+    }                           /*y */
+    op += 2 * (nx + 2);
+    newfs += 2 * (nx + 2);
+  }                             /*z */
+
+  if ((bp->step % bp->ctrl->scr_dmp_freq) == 0) {
+    fprintf (stderr, "sb_diffuse_alloy: rmax %.5g  rmin %.5g\n", rmax, rmin);
+#ifdef VERBOSE
+    fprintf (stderr, "sb_diffuse_alloy: emess: %d wmess: %d\n", emess, wmess);
+    fprintf (stderr, "sb_diffuse_alloy: neut: %d\n", neut);
+#endif /*VERBOSE*/
+  }
+
+  /*fix up fraction solid */
+
+  sp->Tvals.fsavg = fstot / (bp->ncsb - sp->nmould);
+
+  return (errflg);
+}                               /* end of sb_diffuse */
+
+/* Little subroutine to get rcs id into the object code */
+/* so you can use ident on the compiled program  */
+/* also you can call this to print out or include the rcs id in a file*/
+char const *rcs_id_sb_diffuse_alloy_c ()
+{
+  static char const rcsid[] = "$Id$";
+
+  return (rcsid);
+}
+
+/* end of rcs_id_sb_diffuse_alloy_c subroutine */
+/*
+*/

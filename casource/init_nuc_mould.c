@@ -1,0 +1,143 @@
+
+/****************************************************************/
+/*      Copyright (c) 1993 Peter D Lee                          */
+/*      Copyright (c) 1998 Dept. of Materials, ICSTM            */
+/*      All Rights Reserved                                     */
+/*      The copyright notice above does not evidence any        */
+/*      actual or intended publication of such source code,     */
+/*      and is an unpublished work by Dept. of Materials, ICSTM.*/
+/*      continuing D Phil work from University of Oxford        */
+/****************************************************************/
+/* This code is part of the umats routines developed at in the  */
+/* Materials Processing Group, Dept. of Materials, ICSTM.       */
+/*      email p.d.lee or r.atwood @imperial.ac.uk for details   */
+/****************************************************************/
+
+/********************************************************************************/
+/*  This version is distributed under a BSD style public license, as follows:   */
+/*                                                                              */
+/*  Copyright (c) 2007, Dept. of Materials, Imperial College London             */
+/*  All rights reserved.                                                        */
+/*  Redistribution and use in source and binary forms, with or without          */
+/*  modification, are permitted provided that the following conditions          */
+/*  are met:                                                                    */
+/*                                                                              */
+/*  * Redistributions of source code must retain the above copyright            */
+/*  notice, this list of conditions and the following disclaimer.               */
+/*                                                                              */
+/*  * Redistributions in binary form must reproduce the above                   */
+/*  copyright notice, this list of conditions and the following                 */
+/*  disclaimer in the documentation and/or other materials provided             */
+/*  with the distribution.                                                      */
+/*                                                                              */
+/*  * Neither the name of the Dept. of Materials, Imperial College London, nor  */
+/*  the names of its contributors may be used to endorse or promote products    */
+/*  derived from this software without specific prior written permission.       */
+/*                                                                              */
+/*  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS         */
+/*  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT           */
+/*  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR       */
+/*  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT        */
+/*  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,       */
+/*  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED    */
+/*  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR      */
+/*  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF      */
+/*  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING        */
+/*  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS          */
+/*  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.                */
+/********************************************************************************/
+/*END of LICENSE NOTICE*/
+
+/*RCS Id:$Id: init_nuc_mould.c 1356 2008-08-18 13:41:15Z  $*/
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <string.h>
+#include "machine.h"
+#include "blocks.h"
+#include "umat_matrix.h"
+#include "gaussdev.h"
+
+int init_nuc_mould (BB_struct * bp, int sbnum, FILE * listfile)
+{
+  int *thrp;                    /* pointer to the list of pointers! */
+  CA_FLOAT gaussparams[4];
+  CA_FLOAT threshold = 0;
+  CA_FLOAT sarea;
+  SB_struct *sp;
+  int i, j, k;
+  int num_mould_nuc = 0, num_not_casting = 0;
+  int errflg = 0;
+  int *oni, *onip, *onend;
+  int *thresh_temp;
+  int n_nuc, tries, newnuc, n_created = 0;
+
+  sp = bp->sb[sbnum];
+  thrp = sp->surface.c_surfp;
+  sarea = sp->surface.ns_cell * bp->size_c[0] * bp->size_c[1];
+  n_nuc = sarea * bp->nprops.gd_max_surf;
+  if (n_nuc > sp->surface.ns_cell) {
+    fprintf (stderr, "WARNING:init_nuc_mould: More surface nuclei than cells. Reducing.\n");
+    n_nuc = sp->surface.ns_cell;
+  }
+
+ /** \todo  improve surf. nuc  model, use other params? -- general */
+  gaussparams[0] = bp->nprops.NucParamsSurf[0];
+  gaussparams[1] = bp->nprops.NucParamsSurf[1];
+  gaussparams[2] = 0;
+  gaussparams[3] = 0;
+
+#ifdef LIST_ALL_NUC
+  fprintf (listfile, "Surface Mould Nuclei \n");
+#endif /* LIST_ALL_NUC */
+
+  /* create random nuclei threshold */
+  for (i = 0; i < n_nuc; i++) {
+    /* find a new site that is not taken */
+    tries = 0;
+    do {
+      newnuc = (int) FLOOR (drand48 () * sp->surface.ns_cell);
+      if (tries++ > 2 * sp->surface.ns_cell) {
+        fprintf (stderr, "ERROR: init_nuc_mould: Double Aaargh!\nYou have to debug.\n");
+        fprintf (stderr, "       init_nuc_mould:Maximum tries exceeded\n");
+        exit (1);
+      }
+    } while (*(sp->c_nuc_thresh + thrp[newnuc]) > 0);
+      /****************************************************************************/
+    /* find a gaussian devated, or other function, that is within #defined range */
+    /* paranoia check that it is greater than zero also! */
+    /* but G_NUC_MIN_UND ought to be >= 0 anyways */
+      /****************************************************************************/
+    tries = 0;
+    do {
+      /* random function set up on readmat.c as an option */
+      /* using a pointer to one of the available random functions */
+      threshold = (*(bp->nprops.rand_function)) (gaussparams);
+      if (tries++ > sp->surface.ns_cell) {
+        fprintf (stderr, "ERROR: init_nuc_mould: Could not find a nucleation threshold after %i tries.\n", tries);
+        fprintf (stderr, "ERROR: init_nuc_mould: Triple Aaargh!\nYou have to debug.\n");
+        exit (1);
+      }
+    } while ((threshold < G_NUC_MIN_UND) || (threshold < 0));
+    n_created++;
+    *(sp->c_nuc_thresh + thrp[newnuc]) = threshold;
+#ifdef LIST_ALL_NUC
+    fprintf (listfile, "%i,%.5g\n", thrp[newnuc], threshold);
+#endif /*LIST_ALL_NUC */
+
+  }
+
+  fprintf (stderr, "init_nuc_mould: adding %i surface nuclei\n", n_created);
+  return (errflg);
+}                               /* end of init_nuc_mould */
+
+/***************************************************/
+/* rcs id routine to include rcs id in the program */
+/* generated by make_rcs_sub.sh script             */
+/***************************************************/
+char const *init_nuc_mould_c ()
+{
+  static char const rcsid[] = "$Id: init_nuc_mould.c 1356 2008-08-18 13:41:15Z  $";
+
+  return (rcsid);
+}

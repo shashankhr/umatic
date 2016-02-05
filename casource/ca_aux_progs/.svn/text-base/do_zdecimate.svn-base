@@ -1,0 +1,14 @@
+#!/bin/bash
+for i in *
+do
+
+   if [[ -d $i ]]
+   then
+      echo "-----"
+      echo $i
+      (cd $i; zipdecimate 40)
+
+
+   fi
+done
+

@@ -1,0 +1,156 @@
+
+/****************************************************************/
+/*      Copyright (c) 1993 Peter D Lee                          */
+/*      Copyright (c) 1998 Dept. of Materials, ICSTM            */
+/*      All Rights Reserved                                     */
+/*      The copyright notice above does not evidence any        */
+/*      actual or intended publication of such source code,     */
+/*      and is an unpublished work by Dept. of Materials, ICSTM.*/
+/*      continuing D Phil work from University of Oxford        */
+/****************************************************************/
+/* This code is part of the umats routines developed at in the  */
+/* Materials Processing Group, Dept. of Materials, ICSTM.       */
+/*      email p.d.lee or r.atwood @imperial.ac.uk for details   */
+/****************************************************************/
+
+/********************************************************************************/
+/*  This version is distributed under a BSD style public license, as follows:   */
+/*                                                                              */
+/*  Copyright (c) 2007, Dept. of Materials, Imperial College London             */
+/*  All rights reserved.                                                        */
+/*  Redistribution and use in source and binary forms, with or without          */
+/*  modification, are permitted provided that the following conditions          */
+/*  are met:                                                                    */
+/*                                                                              */
+/*  * Redistributions of source code must retain the above copyright            */
+/*  notice, this list of conditions and the following disclaimer.               */
+/*                                                                              */
+/*  * Redistributions in binary form must reproduce the above                   */
+/*  copyright notice, this list of conditions and the following                 */
+/*  disclaimer in the documentation and/or other materials provided             */
+/*  with the distribution.                                                      */
+/*                                                                              */
+/*  * Neither the name of the Dept. of Materials, Imperial College London, nor  */
+/*  the names of its contributors may be used to endorse or promote products    */
+/*  derived from this software without specific prior written permission.       */
+/*                                                                              */
+/*  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS         */
+/*  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT           */
+/*  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR       */
+/*  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT        */
+/*  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,       */
+/*  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED    */
+/*  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR      */
+/*  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF      */
+/*  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING        */
+/*  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS          */
+/*  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.                */
+/********************************************************************************/
+/*END of LICENSE NOTICE*/
+
+/*RCS Id:$Id$*/
+/*pore header file - needed in blocks.h of course!*/
+#ifndef PORE_H
+#define PORE_H
+
+#define POREREV "pore.h $Revision$"
+
+#define N_T_LISTS 8
+#define T_RAD_LIST  0
+#define T_PRES_LIST 1
+#define T_VOL_LIST  2
+#define T_EQR_LIST  3
+#define T_NMOL_LIST 4
+#define T_LIM_LIST  5
+#define T_NCELL_LIST  6 
+#define T_FRACSOL_LIST  7 
+
+/* names of each list for pore data printout */
+#ifndef LISTNAMES
+   #define LISTNAMES
+  static const  char t_listnames[N_T_LISTS][25] = {
+      "Rad/Length", /*0*/
+      "Pressure",   /*1*/
+      "Volume",     /*2*/
+      "Eqiv. Rad.", /*3*/
+      "N Mols",     /*4*/
+      "Lim Rad",    /*5*/
+      "Ncells",     /*6*/
+      "FracSolid"   /*7*/
+   };
+#endif /*LISTNAMES*/
+
+
+/*stored in the subblock*/
+
+typedef struct pore_cell_node {
+        int cellnum;
+        int Cell[3];
+        struct pore_cell_node * next;
+        struct pore_cell_node * previous;
+
+} p_c_node;
+
+typedef struct pore_cell_list{
+        p_c_node * first;
+        p_c_node * last;
+} p_c_list;
+
+typedef struct pores {
+   int Cellnum;    /* index of home cell for this pore*/
+   int Cell[3];    /* xyz of cel with a pore */
+   p_c_list * body;
+   p_c_list * boundary;
+   int ncells;
+   CA_FLOAT Thresh;   /* nucleation temperature precalc. for this cell*/
+   CA_FLOAT Radius;   /* radius of the pore in this cell*/
+   CA_FLOAT EqRad;    /* equivalent spherical radius*/
+   CA_FLOAT Limrad;   /* Limiting radius for spherical growth */
+   CA_FLOAT base_Limrad;
+   CA_FLOAT Oldrad;   /* Old effective radius */
+   CA_FLOAT Newrad;   /* New effective radius */
+   CA_FLOAT Volume;   /* The pore volume */
+   CA_FLOAT Nmols;    /* Number of moles of gas in pore */
+   CA_FLOAT NmolsH;   /* Number of mols of H2 added tothe pore since it started*/
+   CA_FLOAT extra_nmols;
+   CA_FLOAT sat;
+   CA_FLOAT supersat;
+   CA_FLOAT Pressure; /* the pressure in the pore */
+   CA_FLOAT Startrad; /* starting radius of the pore in this cell*/
+   CA_FLOAT Itime;    /* initialize dwell time */
+   CA_FLOAT Stime;    /* sim time in pore */
+   CA_FLOAT Time;     /* Dwell time of the pore.        */
+   CA_FLOAT Mat;      /* Pore maturity function */
+   CA_FLOAT NucSS;    /* supersaturation nucleation at which pore actually nucleated*/
+   CA_FLOAT Temp;     /* current temperature*/
+   CA_FLOAT NucTemp;  /* temperature at which the pore acutally nucleated */
+   CA_FLOAT FracSol;  /* the averaged fraction solid of the pore bdy elements */
+   int State;      /* PORE_ON or PORE_OFF or PORE_NONE ore PORE_TUBE or ...*/
+   int trad_last;  /* last temperature benchmark index */
+
+
+   CA_FLOAT ** t_lists; /* array of all the lists at temperature benchmarks */
+} PORE_str;
+
+/*need only once in bigblock*/
+typedef struct poreprops {
+   int P_nmeth;   /*GAUSS or STEP */
+   CA_FLOAT (*pore_rand_function) (CA_FLOAT * params); /* random number function with required distribution */
+   CA_FLOAT Binsize; /* size of temp. bins to use */
+   CA_FLOAT P_nmax; /* nmax for the pore distrib. */
+   CA_FLOAT P_tn;    /* center of gauss. dis. for pores */
+   CA_FLOAT P_tsig;  /*spread of pore distrib*/
+   CA_FLOAT P_par1;  /*user defined parameter*/
+   CA_FLOAT P_par2;  /*user defined parameter*/
+   /* for making the list of radius at steps of temperature */
+   int P_ntrad;
+   CA_FLOAT P_trad_max;
+   CA_FLOAT P_trad_min;
+   CA_FLOAT P_trad_step;
+   CA_FLOAT P_limrad_perturb;
+   /**/
+
+} P_str;
+#endif /*PORE_H*/
+/*
+*/

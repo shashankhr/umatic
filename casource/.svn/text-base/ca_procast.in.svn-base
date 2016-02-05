@@ -1,0 +1,9 @@
+##%##############################################################
+# This is an input file for ca_procast giving all
+# of the control options
+# Version: 
+##%##############################################################
+#
+CellOption 2    /* use 1 for total and 2 for local microstructure prediction */
+BigBlockOrigin   -0.00563 -0.00701 -0.01193   /* give the coordinates for the origin of CA in meters */
+

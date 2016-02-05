@@ -1,0 +1,418 @@
+
+/****************************************************************/
+/*      Copyright (c) 1993 Peter D Lee                          */
+/*      Copyright (c) 1998 Dept. of Materials, ICSTM            */
+/*      All Rights Reserved                                     */
+/*      The copyright notice above does not evidence any        */
+/*      actual or intended publication of such source code,     */
+/*      and is an unpublished work by Dept. of Materials, ICSTM.*/
+/*      continuing D Phil work from University of Oxford        */
+/****************************************************************/
+/* This code is part of the umats routines developed at in the  */
+/* Materials Processing Group, Dept. of Materials, ICSTM.       */
+/*      email p.d.lee or r.atwood @imperial.ac.uk for details   */
+/****************************************************************/
+
+/********************************************************************************/
+/*  This version is distributed under a BSD style public license, as follows:   */
+/*                                                                              */
+/*  Copyright (c) 2007, Dept. of Materials, Imperial College London             */
+/*  All rights reserved.                                                        */
+/*  Redistribution and use in source and binary forms, with or without          */
+/*  modification, are permitted provided that the following conditions          */
+/*  are met:                                                                    */
+/*                                                                              */
+/*  * Redistributions of source code must retain the above copyright            */
+/*  notice, this list of conditions and the following disclaimer.               */
+/*                                                                              */
+/*  * Redistributions in binary form must reproduce the above                   */
+/*  copyright notice, this list of conditions and the following                 */
+/*  disclaimer in the documentation and/or other materials provided             */
+/*  with the distribution.                                                      */
+/*                                                                              */
+/*  * Neither the name of the Dept. of Materials, Imperial College London, nor  */
+/*  the names of its contributors may be used to endorse or promote products    */
+/*  derived from this software without specific prior written permission.       */
+/*                                                                              */
+/*  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS         */
+/*  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT           */
+/*  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR       */
+/*  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT        */
+/*  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,       */
+/*  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED    */
+/*  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR      */
+/*  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF      */
+/*  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING        */
+/*  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS          */
+/*  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.                */
+/********************************************************************************/
+/*END of LICENSE NOTICE*/
+
+/*RCS Id:$Id$*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+#include "machine.h"
+#include "fem.h"
+#include "read_ctrl.h"
+#include "blocks.h"
+#include "nuc_lookup.h"
+
+extern CA_FLOAT global_pressure;
+
+extern int init_sb (BB_struct * bp, int sbnum);
+
+/* functions used from initface.c */
+extern int init_facecode (Frame * cubeptr, int *ins, int dim);
+
+/* functions used from initcube.c */
+extern int init_cube (BB_struct * bp);
+
+/*function from nbhd_def.c*/
+extern void nbhd_def (BB_struct * bp);
+
+/**************************************************/
+/*      Subroutine to alloc memory for bigblock   */
+/**************************************************/
+/* pass in a blank BB structure with control,     */
+/*                       return allocated         */
+/**************************************************/
+
+int alloc_bb (BB_struct * bp)
+{
+  char command[MAX_STRING_LEN];
+  int i, sbnum;
+  extern void srand48 (long);
+  int errors = 0;
+  Ctrl_str *cp;
+
+  cp = bp->ctrl;                /** aargh! \todo straghten this out!  --  general*/
+  /*THUINET 18/02/05 */
+  int isol, ele_num, ele_1;
+  int iphs, iphs_tot;
+
+  /*FIN THUINET 18/02/05 */
+
+   /************************************************/
+  /* malloc an array of pointers to SB structures */
+   /************************************************/
+  fprintf (stderr, "Entering alloc_bb ...\n");
+  fprintf (stderr, "mallocing an array of pointers to SB str...\n");
+  if (!(bp->sb = (SB_struct * *)malloc (bp->ntsb * sizeof (SB_struct *)))) {
+    fprintf (stderr, "ERROR: SB_struct pointer array malloc failed\n");
+    return (1);
+  }
+  for (sbnum = 0; sbnum < bp->ntsb; sbnum++) {
+    if (init_sb (bp, sbnum) != 0) {
+      fprintf (stderr, "exiting due to init_sb failure");
+      exit (2);
+    }
+  }
+  /* create the mask and set to zero */
+  fprintf (stderr, "callocing SB mask ...\n");
+  if (!(bp->sb_mask = (int *) calloc (bp->ntsb, sizeof (int)))) {
+    fprintf (stderr, "ERROR: SB_mask array  malloc failed\n");
+    return (1);
+  }
+
+  /*and the supplementary pointer value structures */
+
+  /*fraction solid */
+  if (!(bp->c_fs_values = (Value_struct *) calloc (1, sizeof (Value_struct)))) {
+    fprintf (stderr, "ERROR: c_fs pointer values malloc failed\n");
+    return (1);
+  } else {
+    if (!(bp->c_fs_values->block_array = (CA_FLOAT * *)calloc (bp->ntsb, sizeof (CA_FLOAT *)))) {
+      fprintf (stderr, "ERROR: c_fs values malloc failed\n");
+      return (1);
+    }
+    bp->c_fs_values->part_coef = 1;     /*correct conc. profile output if not C_LIQ */
+
+    sprintf (bp->c_fs_values->id_string, "FS_");
+  }
+
+  /*schiel fraction solid */
+  if (!(bp->sch_fs_values = (Value_struct *) calloc (bp->ntsb, sizeof (Value_struct)))) {
+    fprintf (stderr, "ERROR: sch_fs pointer values malloc failed\n");
+    return (1);
+  } else {
+    if (!(bp->sch_fs_values->block_array = (CA_FLOAT * *)calloc (bp->ntsb, sizeof (CA_FLOAT *)))) {
+      fprintf (stderr, "ERROR: sch_fs values malloc failed\n");
+      return (1);
+    }
+    sprintf (bp->sch_fs_values->id_string, "SCH_");
+  }
+
+  /*first solute (gas) */
+  if (!(bp->c_sol_values = (Value_struct *) calloc (bp->ntsb, sizeof (Value_struct)))) {
+    fprintf (stderr, "ERROR: c_sol pointer values malloc failed\n");
+    return (1);
+  } else {
+    if (!(bp->c_sol_values->block_array = (CA_FLOAT * *)calloc (bp->ntsb, sizeof (CA_FLOAT *)))) {
+      fprintf (stderr, "ERROR: c_sol values malloc failed\n");
+      return (1);
+    }
+    sprintf (bp->c_sol_values->id_string, "G_");
+    bp->c_sol_values->disp_max = cp->gas_disp_max;
+  }
+
+  /*second solute (alloy) */
+  if (!(bp->c_sol_alloy_values = (Value_struct *) calloc (bp->ntsb, sizeof (Value_struct)))) {
+    fprintf (stderr, "ERROR: c_sol_alloy pointer values malloc failed\n");
+    exit (1);
+  } else {
+    if (!(bp->c_sol_alloy_values->block_array = (CA_FLOAT * *)calloc (bp->ntsb, sizeof (CA_FLOAT *)))) {
+      fprintf (stderr, "ERROR: c_sol_alloy values malloc failed\n");
+      return (1);
+    }
+    sprintf (bp->c_sol_alloy_values->id_string, "A_");
+    bp->c_sol_alloy_values->disp_max = cp->alloy_disp_max;
+  }
+
+  /*and the supplementary int pointer arrays */
+
+  /*grain number */
+  if (!(bp->gr_array = (int **) calloc (bp->ntsb, sizeof (int *)))) {
+    fprintf (stderr, "ERROR:  pointer values malloc failed\n");
+    return (1);
+  }
+
+  /*finite element number */
+  if (!(bp->c_elm_array = (int **) calloc (bp->ntsb, sizeof (int *)))) {
+    fprintf (stderr, "ERROR:  pointer values malloc failed\n");
+    return (1);
+  }
+  /* holder for closed block (int) */
+  if (!(bp->intclosed = (int *) calloc (bp->ncsb, sizeof (int)))) {
+    fprintf (stderr, "ERROR:  pointer values malloc failed\n");
+    return (1);
+  }
+  /* holder for closed block (float) */
+  if (!(bp->floatclosed = (CA_FLOAT *) calloc (bp->ncsb, sizeof (CA_FLOAT)))) {
+    fprintf (stderr, "ERROR:  pointer values malloc failed\n");
+    return (1);
+  }
+
+   /*******************************************/
+  /* Init cubeptr structure for matrix copy  */
+   /*******************************************/
+  init_cube (bp);
+  init_facecode (&(bp->cubeptr), bp->nc, bp->dim);
+
+   /************************************************/
+  /* Malloc temp CA_FLOAT and int arrays          */
+   /************************************************/
+  i = (bp->nc[0] + 2) * (bp->nc[1] + 2) * (bp->nc[2] + 2);
+  fprintf (stderr, "%s: total, nx, ny, nz, %d, %d, %d, %d\n", __func__, i, bp->nc[0], bp->nc[1], bp->nc[2]);
+/** \todo put temporary buffer arrays into the subblocks -- multiblock */
+  if (!(bp->ftmp_one = (CA_FLOAT *) calloc (i, sizeof (CA_FLOAT)))) {
+    fprintf (stderr, "ERROR: tmp CA_FLOAT array malloc failed\n");
+    return (1);
+  }
+
+  if (!(bp->ftmp_two = (CA_FLOAT *) calloc (i, sizeof (CA_FLOAT)))) {
+    fprintf (stderr, "ERROR: tmp CA_FLOAT array malloc failed\n");
+    return (1);
+  }
+
+  if (!(bp->ftmp_three = (CA_FLOAT *) calloc (i, sizeof (CA_FLOAT)))) {
+    fprintf (stderr, "ERROR: tmp CA_FLOAT array malloc failed\n");
+    return (1);
+  }
+
+  /*by Wei WANG 11-07-02 */
+  if (!(bp->ftmp_four = (CA_FLOAT *) calloc (i, sizeof (CA_FLOAT)))) {
+    fprintf (stderr, "ERROR: tmp CA_FLOAT array malloc failed\n");
+    return (1);
+  }
+
+  /*by Wei WANG 11-07-02 */
+  if (!(bp->ftmp_five = (CA_FLOAT *) calloc (i, sizeof (CA_FLOAT)))) {
+    fprintf (stderr, "ERROR: tmp CA_FLOAT array malloc failed\n");
+    return (1);
+  }
+
+  /* modified to protect by options */
+  /**todo: Fine tune the options so as to avoid unnecessary memory allcation */
+  if ((bp->ctrl->curvature_3D !=0) || (bp->ctrl->curvature_2D != 0)){
+     /*xly 2004/09/06 */
+     if (!(bp->ftmp_nx = (CA_FLOAT *) calloc (i, sizeof (CA_FLOAT)))) {
+       fprintf (stderr, "ERROR: tmp CA_FLOAT array malloc failed\n");
+       return (1);
+     }
+     /*xly 2004/09/06 */
+     if (!(bp->ftmp_ny = (CA_FLOAT *) calloc (i, sizeof (CA_FLOAT)))) {
+       fprintf (stderr, "ERROR: tmp CA_FLOAT array malloc failed\n");
+       return (1);
+     }
+      /*dn00 2005/10/21*/
+      if (!(bp->ftmp_nz = (CA_FLOAT * ) calloc(i, sizeof(CA_FLOAT)))) {
+         fprintf(stderr, "ERROR: tmp CA_FLOAT array malloc failed\n");
+         return(1);
+      }
+   }
+  /*by THUINET 18-02-05 */
+
+  /* L Thuinet polycomponent data arrays */
+  if (bp->ctrl->diffuse_alloy_poly == 1) {
+
+    ele_num = cp->NUM_COMP;     /* number of elements in the alloy */
+    ele_1 = ele_num - 1;
+    iphs_tot = cp->NUM_PHS;     /* number of solid phases */
+
+    if (!(bp->itmp_nat_cell = (int *) calloc (i, sizeof (int)))) {
+      fprintf (stderr, "ERROR: tmp int array malloc failed\n");
+      return (1);
+    }
+
+    if (!(bp->itmp_nat_grain = (int *) calloc (i, sizeof (int)))) {
+      fprintf (stderr, "ERROR: tmp int array malloc failed\n");
+      return (1);
+    }
+
+  } else {
+    ele_num = 2;
+    ele_1 = 1;
+    iphs_tot = 1;               /* number of solid phases */
+  }
+
+  /* loop through solutes */
+  for (isol = 0; isol < ele_1; isol++) {
+    if (!(bp->ftmp_cl_poly[isol] = (CA_FLOAT *) calloc (i, sizeof (CA_FLOAT)))) {
+      fprintf (stderr, "ERROR: tmp CA_FLOAT array malloc failed\n");
+      return (1);
+    }
+    if (!(bp->ftmp_ce_poly[isol] = (CA_FLOAT *) calloc (i, sizeof (CA_FLOAT)))) {
+      fprintf (stderr, "ERROR: tmp CA_FLOAT array malloc failed\n");
+      return (1);
+    }
+    /* Value structures for polycomponent */
+    if (!(bp->poly_c_eqv_values[isol] = (Value_struct *) calloc (bp->ntsb, sizeof (Value_struct)))) {
+      fprintf (stderr, "ERROR: calloc failed in %s at %s\n", __func__, __LINE__);
+      return (1);
+    } else {
+      if (!(bp->poly_c_eqv_values[isol]->block_array = (CA_FLOAT * *)calloc (bp->ntsb, sizeof (CA_FLOAT *)))) {
+        fprintf (stderr, "ERROR: calloc failed in %s at %s\n", __func__, __LINE__);
+        return (1);
+      }
+      sprintf (bp->poly_c_eqv_values[isol]->id_string, "A_%i", isol);
+      bp->poly_c_eqv_values[isol]->disp_max = cp->alloy_disp_max;
+    }
+    if (!(bp->poly_c_sol_values[isol] = (Value_struct *) calloc (bp->ntsb, sizeof (Value_struct)))) {
+      fprintf (stderr, "ERROR: calloc failed in %s at %s\n", __func__, __LINE__);
+      return (1);
+    } else {
+      if (!(bp->poly_c_sol_values[isol]->block_array = (CA_FLOAT * *)calloc (bp->ntsb, sizeof (CA_FLOAT *)))) {
+        fprintf (stderr, "ERROR: calloc failed in %s at %s\n", __func__, __LINE__);
+        return (1);
+      }
+      sprintf (bp->poly_c_sol_values[isol]->id_string, "A_%i", isol);
+      bp->poly_c_sol_values[isol]->disp_max = cp->alloy_disp_max;
+    }
+
+  }                             /* end of isol loop through solutes */
+
+  /* loop through phases */
+  for (iphs = 0; iphs < iphs_tot; iphs++) {
+    if (!(bp->ftmp_one_poly[iphs] = (CA_FLOAT *) calloc (i, sizeof (CA_FLOAT)))) {
+      fprintf (stderr, "ERROR: tmp CA_FLOAT array malloc failed\n");
+      return (1);
+    }
+    /* Value structures for polycomponent phases */
+    if (!(bp->poly_c_fs_values[iphs] = (Value_struct *) calloc (bp->ntsb, sizeof (Value_struct)))) {
+      fprintf (stderr, "ERROR: calloc failed in %s at %s\n", __func__, __LINE__);
+      return (1);
+    } else {
+      if (!(bp->poly_c_fs_values[iphs]->block_array = (CA_FLOAT * *)calloc (bp->ntsb, sizeof (CA_FLOAT *)))) {
+        fprintf (stderr, "ERROR: calloc failed in %s at %s\n", __func__, __LINE__);
+        return (1);
+      }
+      sprintf (bp->poly_c_fs_values[iphs]->id_string, "FS_%i", iphs);
+      bp->poly_c_fs_values[iphs]->disp_max = 1.0;
+    }
+  }                             /* end of iphs loop through phases */
+  /*FIN THUINET 18-02-05 */
+
+  /* malloc buffer for decented octahedron *//*by Wei WANG 11-07-02 */
+  if (cp->decentred_octahedron) {       /*malloced only if decentred_ocathedron algorithm used */
+    if (!(bp->ftmp_dc_d = (CA_FLOAT *) calloc (i, sizeof (CA_FLOAT)))) {
+      fprintf (stderr, "ERROR: tmp CA_FLOAT array malloc failed\n");
+      return (1);
+    }
+
+    if (!(bp->ftmp_dc_x = (CA_FLOAT *) calloc (i, sizeof (CA_FLOAT)))) {
+      fprintf (stderr, "ERROR: tmp CA_FLOAT array malloc failed\n");
+      return (1);
+    }
+
+    if (!(bp->ftmp_dc_y = (CA_FLOAT *) calloc (i, sizeof (CA_FLOAT)))) {
+      fprintf (stderr, "ERROR: tmp CA_FLOAT array malloc failed\n");
+      return (1);
+    }
+
+    if (!(bp->ftmp_dc_z = (CA_FLOAT *) calloc (i, sizeof (CA_FLOAT)))) {
+      fprintf (stderr, "ERROR: tmp CA_FLOAT array malloc failed\n");
+      return (1);
+    }
+  }
+#ifdef OLD_TUNDER
+  if (!(bp->old_Tunder = (CA_FLOAT *) calloc (i, sizeof (CA_FLOAT)))) {
+    fprintf (stderr, "ERROR: old_Tunder array malloc failed\n");
+    return (1);
+  }
+#endif /*OLD_TUNDER */
+  if (!(bp->itmp_one = (int *) calloc (i, sizeof (int)))) {
+    fprintf (stderr, "ERROR: tmp int array malloc failed\n");
+    return (1);
+  }
+
+  /*by Wei WANG 11-07-02 */
+  if (!(bp->itmp_two = (int *) calloc (i, sizeof (int)))) {
+    fprintf (stderr, "ERROR: tmp int array malloc failed\n");
+    return (1);
+  }
+
+   /************************************************/
+   /* malloc an array of grain structures          */
+   /************************************************/
+  if (!(bp->gr = (Ind_grain * *)calloc (bp->nprops.gd_max_total, sizeof (Ind_grain *)))) {
+    fprintf (stderr, "ERROR: Ind_grain array malloc failed\n");
+    return (1);
+  }
+
+  if (bp->ctrl->fgrid_input) {
+    /* the finite element grid structure */
+    if (!(bp->fg = (FGrid_str *) calloc (1, sizeof (FGrid_str)))) {
+      fprintf (stderr, "ERROR: fg structure malloc failed\n");
+      return (1);
+    }
+    /* the finite element grid structure */
+    if (!(bp->fg_next = (FGrid_str *) calloc (1, sizeof (FGrid_str)))) {
+      fprintf (stderr, "ERROR: fg structure malloc failed\n");
+      return (1);
+    }
+  }
+
+   /*************************************/
+  /* Print out checks on input data... */
+   /*************************************/
+  fprintf (stderr, "sb_mask nsb: %d, %d, %d\n", bp->nsb[0], bp->nsb[1], bp->nsb[2]);
+  fprintf (stderr, "Exiting alloc_bb().\n");
+  return (0);
+}
+
+  /* end of alloc_bb subroutine */
+  /* Little subroutine to get rcs id into the object code */
+  /* so you can use ident on the compiled program  */
+  /* also you can call this to print out or include the rcs id in a file */
+char const *rcs_id_alloc_bb_c ()
+{
+  static char const rcsid[] = "$Id$";
+
+  return (rcsid);
+}
+
+/*
+*/

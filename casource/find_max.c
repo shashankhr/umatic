@@ -1,0 +1,179 @@
+
+/****************************************************************/
+/*      Copyright (c) 1993 Peter D Lee                          */
+/*      Copyright (c) 1998 Dept. of Materials, ICSTM            */
+/*      All Rights Reserved                                     */
+/*      The copyright notice above does not evidence any        */
+/*      actual or intended publication of such source code,     */
+/*      and is an unpublished work by Dept. of Materials, ICSTM.*/
+/*      continuing D Phil work from University of Oxford        */
+/****************************************************************/
+/* This code is part of the umats routines developed at in the  */
+/* Materials Processing Group, Dept. of Materials, ICSTM.       */
+/*      email p.d.lee or r.atwood @imperial.ac.uk for details   */
+/****************************************************************/
+
+/********************************************************************************/
+/*  This version is distributed under a BSD style public license, as follows:   */
+/*                                                                              */
+/*  Copyright (c) 2007, Dept. of Materials, Imperial College London             */
+/*  All rights reserved.                                                        */
+/*  Redistribution and use in source and binary forms, with or without          */
+/*  modification, are permitted provided that the following conditions          */
+/*  are met:                                                                    */
+/*                                                                              */
+/*  * Redistributions of source code must retain the above copyright            */
+/*  notice, this list of conditions and the following disclaimer.               */
+/*                                                                              */
+/*  * Redistributions in binary form must reproduce the above                   */
+/*  copyright notice, this list of conditions and the following                 */
+/*  disclaimer in the documentation and/or other materials provided             */
+/*  with the distribution.                                                      */
+/*                                                                              */
+/*  * Neither the name of the Dept. of Materials, Imperial College London, nor  */
+/*  the names of its contributors may be used to endorse or promote products    */
+/*  derived from this software without specific prior written permission.       */
+/*                                                                              */
+/*  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS         */
+/*  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT           */
+/*  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR       */
+/*  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT        */
+/*  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,       */
+/*  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED    */
+/*  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR      */
+/*  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF      */
+/*  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING        */
+/*  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS          */
+/*  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.                */
+/********************************************************************************/
+/*END of LICENSE NOTICE*/
+
+/****************************************************************/
+/*   Copyright (c) 1998 Dept. of Materials, ICSTM               */
+/*   All Rights Reserved                                        */
+/*   THIS IS UNPUBLISHED PROPRIETARY SOURCE CODE OF ICSTM       */
+/*   The copyright notice above does not evidence any           */
+/*   actual or intended publication of such source code,        */
+/*   and is an unpublished work by Dept. of Materials, ICSTM.   */
+/*   This material contains CONFIDENTIAL INFORMATION that       */
+/*   is the property of Imperial College. Any use,              */
+/*   duplication or disclosure not specifically authorized      */
+/*   by Imperial College is strictly prohibited.                */
+/****************************************************************/
+/* This code is part of the umats routines developed at in the  */
+/* Materials Processing Group, Dept. of Materials, ICSTM.       */
+/*      email p.d.lee or r.atwood @ic.ac.uk for details         */
+/****************************************************************/
+/*RCS Id:$Id: find_max.c 1341 2008-07-23 15:23:30Z  $*/
+#include <stdio.h>
+#include "machine.h"
+#include "blocks.h"
+#include "props.h"
+int find_max_conc (BB_struct * bp, Value_struct * vp, int sbnum)
+{
+
+  CA_FLOAT max, min, amt, tot = 0;
+  int i, j, k, errors = 0;      /*counters */
+  CA_FLOAT *sp, *fsp, partcoef, *concp;
+  CA_FLOAT Temp, TempK, ss, conc, fl;
+  CA_FLOAT sat = 0, maxsat, maxss, minss, maxcl, mincl;
+  int index_ca;
+
+  partcoef = vp->part_coef;
+  sp = vp->block_array[sbnum];
+  Temp = bp->sb[sbnum]->Tvals.Tavg;
+  TempK = Temp + STD_TEMP;
+  if (bp->ctrl->scheil == TRUE) {
+    fsp = bp->sb[sbnum]->sch_fs;
+  } else {
+    fsp = bp->sb[sbnum]->c_fs;
+  }
+  concp = bp->sb[sbnum]->c_sol_alloy;
+  max = 0;
+  min = 100;
+  maxcl = 0;
+  mincl = 100;
+  minss = 100;
+  maxsat = maxss = 0;
+   /*******************************************/
+  /* Loop through the value array and find   */
+  /* the min, max and solute amount corrected */
+  /* according to the partition coefficient. */
+  /*                                         */
+   /*******************************************/
+  for (k = 0, index_ca = 0; (k < bp->nc[2] && index_ca < bp->nc[0] * bp->nc[1] * bp->nc[2]); k++) {
+    for (j = 0; j < bp->nc[1]; j++) {
+      for (i = 0; i < bp->nc[0]; i++) {
+         /***********NOT_CASTING TEST*************************/
+        if (*fsp == NOT_CASTING) {
+        } else {
+          amt = *sp * (1 - (1 - partcoef) * *fsp);
+          tot += amt;
+          if (*fsp < 1.0) {
+            if (*sp > maxcl)
+              maxcl = *sp;
+            if (*sp < mincl)
+              mincl = *sp;
+          }
+          if (amt > max)
+            max = amt;
+          if (amt < min)
+            min = amt;
+          if (amt < 0)
+            errors++;
+          if (bp->ctrl->scheil == TRUE) {
+            fl = 1 - *fsp;
+            conc = find_sch_conc (TempK, fl);
+          } else if ((bp->ctrl->diffuse_alloy) && (bp->ctrl->diffuse_alloy_multi == FALSE)) {
+            conc = *concp;
+          } else {
+            conc = (bp->sb[sbnum]->Svals[ALLOY]).Cinit;
+          }
+  
+          if (bp->ctrl->diffuse_alloy_poly == FALSE){
+            sat = find_sat (&(bp->mprops), TempK, conc, *fsp);
+          }else{
+            sat = find_sat_poly(bp, sbnum, TempK);
+          }
+
+          ss = *sp / sat;
+          if (sat > maxsat)
+            maxsat = sat;
+          if (ss < minss)
+            minss = ss;
+          if (ss > maxss)
+            maxss = ss;
+        }   /*********end of NOT_CASTING test*************/
+        index_ca++;
+        sp++;
+        fsp++;
+        concp++;
+      }
+    }
+  }
+
+  vp->CLmin = mincl;
+  vp->CLmax = maxcl;
+  vp->Cmin = min;
+  vp->Cmax = max;
+  vp->Ctot = tot;
+  vp->SSmax = maxss;
+  vp->SSmin = minss;
+  vp->SATmax = maxsat;
+
+  return (errors);
+}                               /*end of find max conc */
+
+/* Little subroutine to get rcs id into the object code */
+/* so you can use ident on the compiled program  */
+/* also you can call this to print out or include the rcs id in a file*/
+char const *rcs_id_find_max_c ()
+{
+  static char const rcsid[] = "$Id: find_max.c 1341 2008-07-23 15:23:30Z  $";
+
+  return (rcsid);
+}
+
+/* end of rcs_id_find_max_c subroutine */
+/*
+*/

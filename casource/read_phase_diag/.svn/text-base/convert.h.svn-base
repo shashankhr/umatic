@@ -1,0 +1,29 @@
+/*RCS Id:$Id$*/
+void copy_line (LineData * toline,LineData * fromline);
+void convert_line (CA_FLOAT * fdat,LineData * the_line);
+void convert_csv(CsvFloat * the_float,CsvData * the_data);
+/*
+RCS Log:$Log$
+RCS Log:Revision 1.1  2006/03/10 15:24:59  rcatwood
+RCS Log:Added read_phase_diag for phasediagram lookup table
+RCS Log:
+RCS Log:Revision 1.1.2.1  2004/07/28 10:39:06  rcatwood
+RCS Log:Added copies of read-list files suitably modified
+RCS Log:
+RCS Log:Revision 9.2  2003/12/10 17:36:23  kerman
+RCS Log:added unit conversions & fixed for counting number of fields from the header
+RCS Log:
+RCS Log:Revision 1.1.2.3  2003/02/25 19:43:58  kerman
+RCS Log:change the unit system from BS to SI as it's necessary for decentred square
+RCS Log:
+RCS Log:Revision 2.1.6.1  2003/01/22 16:52:14  rcatwood
+RCS Log:Changed the sort order to conform with xuehua and weishan input routines.
+RCS Log:
+RCS Log:Revision 2.1  2002/10/17 16:56:01  rcatwood
+RCS Log:*** empty log message ***
+RCS Log:
+RCS Log:Revision 1.1  2002/09/04 18:40:54  rcatwood
+RCS Log:
+RCS Log:header files needed for converting and finding number of nodes, and fgrid structure
+RCS Log:
+*/

@@ -1,0 +1,110 @@
+
+/****************************************************************/
+/*      Copyright (c) 1993 Peter D Lee                          */
+/*      Copyright (c) 1998 Dept. of Materials, ICSTM            */
+/*      All Rights Reserved                                     */
+/*      The copyright notice above does not evidence any        */
+/*      actual or intended publication of such source code,     */
+/*      and is an unpublished work by Dept. of Materials, ICSTM.*/
+/*      continuing D Phil work from University of Oxford        */
+/****************************************************************/
+/* This code is part of the umats routines developed at in the  */
+/* Materials Processing Group, Dept. of Materials, ICSTM.       */
+/*      email p.d.lee or r.atwood @imperial.ac.uk for details   */
+/****************************************************************/
+
+/********************************************************************************/
+/*  This version is distributed under a BSD style public license, as follows:   */
+/*                                                                              */
+/*  Copyright (c) 2007, Dept. of Materials, Imperial College London             */
+/*  All rights reserved.                                                        */
+/*  Redistribution and use in source and binary forms, with or without          */
+/*  modification, are permitted provided that the following conditions          */
+/*  are met:                                                                    */
+/*                                                                              */
+/*  * Redistributions of source code must retain the above copyright            */
+/*  notice, this list of conditions and the following disclaimer.               */
+/*                                                                              */
+/*  * Redistributions in binary form must reproduce the above                   */
+/*  copyright notice, this list of conditions and the following                 */
+/*  disclaimer in the documentation and/or other materials provided             */
+/*  with the distribution.                                                      */
+/*                                                                              */
+/*  * Neither the name of the Dept. of Materials, Imperial College London, nor  */
+/*  the names of its contributors may be used to endorse or promote products    */
+/*  derived from this software without specific prior written permission.       */
+/*                                                                              */
+/*  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS         */
+/*  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT           */
+/*  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR       */
+/*  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT        */
+/*  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,       */
+/*  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED    */
+/*  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR      */
+/*  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF      */
+/*  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING        */
+/*  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS          */
+/*  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.                */
+/********************************************************************************/
+/*END of LICENSE NOTICE*/
+
+/*$Id$*/
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include "machine.h"
+#include "blocks.h"
+#include "pore.h"
+
+void write_POREprop_values (FILE * fp, PORE_str * sp)
+{
+/* start of structure pores */
+  int i;
+
+  fprintf (fp, "\n\nPORE PROP STRUCTURE VALUES\n");
+  fprintf (fp, "Cellnum %i \n", sp->Cellnum);
+  fprintf (fp, "Cell ");
+  for (i = 0; i < 3; i++) {
+    fprintf (fp, " %i ", sp->Cell[i]);
+  }
+  fprintf (fp, " \n");
+  fprintf (fp, "ncells %i \n", sp->ncells);
+  fprintf (fp, "Thresh %g \n", sp->Thresh);
+  fprintf (fp, "Radius %g \n", sp->Radius);
+  fprintf (fp, "EqRad %g \n", sp->EqRad);
+  fprintf (fp, "Limrad %g \n", sp->Limrad);
+  fprintf (fp, "base_Limrad %g \n", sp->base_Limrad);
+  fprintf (fp, "Oldrad %g \n", sp->Oldrad);
+  fprintf (fp, "Newrad %g \n", sp->Newrad);
+  fprintf (fp, "Volume %g \n", sp->Volume);
+  fprintf (fp, "Nmols %g \n", sp->Nmols);
+  fprintf (fp, "NmolsH %g \n", sp->NmolsH);
+  fprintf (fp, "extra_nmols %g \n", sp->extra_nmols);
+  fprintf (fp, "sat %g \n", sp->sat);
+  fprintf (fp, "supersat %g \n", sp->supersat);
+  fprintf (fp, "Pressure %g \n", sp->Pressure);
+  fprintf (fp, "Startrad %g \n", sp->Startrad);
+  fprintf (fp, "Itime %g \n", sp->Itime);
+  fprintf (fp, "Stime %g \n", sp->Stime);
+  fprintf (fp, "Time %g \n", sp->Time);
+  fprintf (fp, "Mat %g \n", sp->Mat);
+  fprintf (fp, "NucSS %g \n", sp->NucSS);
+  fprintf (fp, "Temp %g \n", sp->Temp);
+  fprintf (fp, "NucTemp %g \n", sp->NucTemp);
+  fprintf (fp, "FracSol %g \n", sp->FracSol);
+  fprintf (fp, "State %i \n", sp->State);
+  fprintf (fp, "trad_last %i \n", sp->trad_last);
+}
+
+/* End of structure PORE_str */
+
+/***************************************************/
+/* rcs id routine to include rcs id in the program */
+/* generated by make_rcs_sub.sh script             */
+/***************************************************/
+char const *write_POREprop_values_c ()
+{
+  static char const rcsid[] = "$Id$";
+
+  return (rcsid);
+}

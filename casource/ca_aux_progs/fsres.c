@@ -1,0 +1,269 @@
+/* make a tecplot data file from binary output file */
+/* needs debin.c and machine.h */
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <math.h>
+#include <gd.h>
+#include "../colour.h"
+#include "../machine.h"
+#include "debin.h"
+
+#ifndef TRUE
+#define TRUE 1 
+#endif
+#ifndef MAX_WORD_LENGTH
+#define MAX_WORD_LENGTH 255
+#endif
+
+
+void main(int argc, char * argv[]){
+   
+	FILE *infile,*outfile,*geofile;
+   char *line,*token,*in_fname,*fs_fname,*out_fname,*base_fname,*label;
+	int nxny,i=0,j=0;
+	int finput = 0,pngflag=0,foutput = 0,flabel=0,cflg,errflg,ctrlflg = 0;
+   int xsize=0,ysize=0,nc[3]; 
+   CA_FLOAT part_coef=0.1;
+   extern int optind;
+   extern char *optarg;
+   CA_FLOAT *data,*datastart,*fsdata,*cdata,maxdat=0;
+   float pngmax,pngvalue;
+   int pngcolours[32];
+   int index=0;
+   int maxflag=0;
+   gdImagePtr im_out;
+
+
+    out_fname = (char *)calloc(MAX_WORD_LENGTH,sizeof(char));
+    in_fname = (char *)calloc(MAX_WORD_LENGTH,sizeof(char));
+    fs_fname = (char *)calloc(MAX_WORD_LENGTH,sizeof(char));
+    base_fname = (char *)calloc(MAX_WORD_LENGTH,sizeof(char));
+    label = (char *)calloc(MAX_WORD_LENGTH,sizeof(char));
+    line = (char *) calloc(MAX_STRING_LEN ,sizeof(char));
+    token = (char *) calloc(MAX_STRING_LEN ,sizeof(char));
+    errflg=0;
+    fprintf(stderr,"$Id: fsres.c 895 2006-03-10 16:12:45Z rcatwood $\n");
+
+   if (argc == 1) errflg=TRUE;
+   fprintf(stderr,"\n");
+   while ((cflg = getopt(argc, argv, "ai:o:d:hl:gp:k:")) != -1) {
+      switch (cflg) {
+      case 'a':
+	      fprintf(stderr,"%s: sorry, flag 'a' is not defined\n",argv[0]);
+         break;
+      case 'p':
+	      fprintf(stderr,"Output png file\n");
+	      pngflag = 1;
+	      pngmax = atof(optarg);
+	      if (pngmax == 0){
+	         pngmax = 1;
+	         maxflag = 1;
+	      }
+         break;
+      case 'k':
+	      part_coef = atof(optarg);
+         break;
+      case 'g':
+	      fprintf(stderr,"Using control file ca_geoplus.in\n");
+	      ctrlflg = 1;
+         break;
+      case 'i':       /* get input filename */
+         finput = TRUE;
+         in_fname=strdup(optarg);
+         debin (base_fname,in_fname);
+         /*base_fname=strdup(optarg);*/
+         /*sprintf(in_fname,"%s.bin",base_fname);*/
+         break;
+      case 'd':
+         if (!(xsize = atoi(optarg))){
+            fprintf(stderr,"ERROR with d argument: %s\n",optarg);
+            errflg = TRUE; 
+         }
+         if (!( ysize = atoi(argv[optind]))){
+            fprintf(stderr,"ERROR with d argument: %s\n",argv[optind]);
+            errflg = TRUE; 
+         }
+         optind++;
+         break;
+      case 'o':       /* get output filename */
+         foutput = TRUE;
+         out_fname = strdup(optarg);
+         break;
+      case 'l':       /* get label string */
+         flabel = TRUE;
+         label = strdup(optarg);
+         break;
+      case 'h':
+         errflg=TRUE;
+         break;
+      default:
+         errflg=TRUE;
+         break;
+      }
+   }
+   if (errflg ) {
+      fprintf(stderr,"%s -i infile  [-o outfile] "\
+                      "-d xsize ysize,or \n"\
+                      "-g to read ca_geoplus for size\n"\
+                      "-p maxval to create PNG file \n"\
+                      "-k partition-coefficient to calculate true conc. \n"\
+                      "-l label to label the tecplot results(default is CA_RESULTS) \n"\
+                      "Default out is [infile].dat\n",argv[0]);
+      exit(0);
+   }
+   if (!foutput){
+      sprintf(out_fname,"%s.dat",base_fname);
+      fprintf(stderr,"Default output filename used: %s\n",out_fname);
+   }
+   if (!finput){
+      fprintf(stderr,"ERROR: no input file specified! \n");
+      exit(0);
+   }
+       
+
+    fprintf(stderr,"Creating 2-d data file for TecPlot\n");
+    fprintf(stderr,"Processing CA_FLOAT results from %s into %s\n",in_fname,out_fname);
+    if (!(outfile = fopen(out_fname,"w"))){
+      fprintf(stderr,"ERROR: could not open  outfile %s\n",out_fname);
+      exit(0);
+    }
+
+    if (ctrlflg){
+       if ( (geofile = fopen("ca_geoplus.in","r"))== NULL ){
+          fprintf(stderr,"ERROR, could not open ca_geoplus.in\n");
+          exit(0);
+       }else{
+       while (fgets(line,MAX_STRING_LEN,geofile)!= NULL){
+            if(line[0]=='%' || line[0]=='#'||(token = strtok(line," ,;\t"))==NULL) {
+	         continue;
+           }else if (strcasecmp(token,"NCellsPerSB") == 0){
+             for (i=0; i<3; i++) {
+                if ((token = strtok(NULL, " ,;\t")) != NULL)
+                   nc[i]  = atoi(token);
+                else {
+                   fprintf(stderr,"Error: NCellsPerSB,not found\n");
+                   exit(0);
+                }
+             }
+           } 
+        }/*end of while loop for getting lines*/
+        fclose(geofile);
+        xsize = nc[0];
+        ysize = nc[1];
+     }
+     }/* end of read geo file */
+
+    printf("xsize = %i, ysize = %i\n",xsize,ysize);
+    nxny = xsize * ysize;
+    if (nxny <= 0) {
+       fprintf(stderr,"ERROR: size is wrong: %i\n",nxny);
+       fprintf(stderr,"\nSpecifiy -d xsize ysize\n");
+       fprintf(stderr,"or -g to read file ca_geoplus.in \n\n");
+       exit(0);
+    }
+
+   if (pngflag){
+      im_out=gdImageCreate(xsize,ysize);
+      #ifdef RANDCOLOUR
+      for(i=0;i<32;i++){
+         pngcolours[i]=gdImageColorAllocate(im_out,colours[3*i],colours[3*i+1],colours[3*i+2]);
+      }
+      #else
+         pngcolours[0]=gdImageColorAllocate(im_out,255,255,255);
+         pngcolours[31]=gdImageColorAllocate(im_out,255,85,85);
+      for(i=1;i<31;i++){
+         pngcolours[i]=gdImageColorAllocate(im_out,255 - 8*i,255-8*i,255-8*i);
+      }
+      #endif
+
+   }
+      
+          #ifdef ALL_VAR
+
+    if (flabel) fprintf(outfile,"VARIABLES =\"x\",\"y\", \"%s\"\n",label);
+    else fprintf (outfile,"VARIABLES = \"x\",\"y\", \"CA RESULTS\"\n");
+    #else
+    if (flabel) fprintf(outfile,"VARIABLES = \"%s\"\n",label);
+    else fprintf (outfile,"VARIABLES =  \"CA RESULTS\"\n");
+          #endif/*ALL_VAR*/
+
+          #ifdef ALL_VAR
+    fprintf (outfile,"ZONE I=%i,J=%i,F=POINT\n",xsize,ysize);
+    #else
+    fprintf (outfile,"ZONE I=%i,J=%i\n",xsize,ysize);
+          #endif/*ALL_VAR*/
+
+    data = datastart = (CA_FLOAT *) malloc ( nxny * sizeof(CA_FLOAT));
+    fsdata = (CA_FLOAT *) malloc ( nxny * sizeof(CA_FLOAT));
+    cdata = (CA_FLOAT *) malloc ( nxny * sizeof(CA_FLOAT));
+
+    if (!(infile = fopen(in_fname,"r"))){
+      fprintf(stderr,"ERROR: could not open  infile %s\n",in_fname);
+      exit(0);
+    }
+    fread(cdata,sizeof(CA_FLOAT),nxny,infile);
+    fclose(infile);
+    
+    sprintf(fs_fname,"F_FS_%s",in_fname+4);
+    if (!(infile = fopen(fs_fname,"r"))){
+      fprintf(stderr,"ERROR: could not open  infile %s\n",fs_fname);
+      exit(0);
+    }
+    fread(fsdata,sizeof(CA_FLOAT),nxny,infile);
+    fclose(infile);
+    
+    for (j=0;j<ysize;j++){
+       for(i=0;i<xsize;i++){
+          *data = ((1-(1-part_coef) * *fsdata) * *cdata);
+          if(pngflag){
+             if (maxflag){
+                maxdat = (maxdat > *data)? maxdat:*data;
+             }else{
+                pngvalue = 30* (float)(*data) / pngmax;
+                if (pngvalue > 30) pngvalue = 30;
+                if (pngvalue < 0) pngvalue = 31;
+                index = (int)(floorf(pngvalue));
+                gdImageSetPixel(im_out,i,j,pngcolours[index]);
+             }
+          }
+          #ifdef ALL_VAR
+          fprintf(outfile,"%i %i %.10g\n",i,j,*data);
+    #else
+          fprintf(outfile,"%.10g\n",*data);
+          #endif/*ALL_VAR*/
+          data++;
+          fsdata++;
+          cdata++;
+       }
+    }
+
+    if(maxflag && pngflag){
+    data = datastart; /*rewind*/
+    pngmax = maxdat;
+
+       for (j=0;j<ysize;j++){
+          for(i=0;i<xsize;i++){
+             pngvalue = 31* (float)(*data) / pngmax;
+             if (pngvalue > 31) pngvalue = 31;
+             if (pngvalue < 0) pngvalue = 0;
+             index = (int)(floorf(pngvalue));
+             gdImageSetPixel(im_out,i,j,pngcolours[index]);
+             data++;
+          }
+       }
+    }
+    fclose(outfile);
+
+  if(pngflag){
+     /*********write out the PNG output************/
+      gdImageInterlace(im_out,1);
+      sprintf(out_fname,"%s.png",base_fname);
+      outfile=fopen(out_fname,"w");
+      gdImagePng(im_out,outfile);
+      fclose(outfile);
+      fprintf(stderr,"Created file %s\n",out_fname);
+   }
+
+    fprintf(stderr,"Total lines processed %i\n",i);
+}

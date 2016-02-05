@@ -1,0 +1,584 @@
+
+/****************************************************************/
+/*      Copyright (c) 1993 Peter D Lee                          */
+/*      Copyright (c) 1998 Dept. of Materials, ICSTM            */
+/*      All Rights Reserved                                     */
+/*      The copyright notice above does not evidence any        */
+/*      actual or intended publication of such source code,     */
+/*      and is an unpublished work by Dept. of Materials, ICSTM.*/
+/*      continuing D Phil work from University of Oxford        */
+/****************************************************************/
+/* This code is part of the umats routines developed at in the  */
+/* Materials Processing Group, Dept. of Materials, ICSTM.       */
+/*      email p.d.lee or r.atwood @imperial.ac.uk for details   */
+/****************************************************************/
+
+/********************************************************************************/
+/*  This version is distributed under a BSD style public license, as follows:   */
+/*                                                                              */
+/*  Copyright (c) 2007, Dept. of Materials, Imperial College London             */
+/*  All rights reserved.                                                        */
+/*  Redistribution and use in source and binary forms, with or without          */
+/*  modification, are permitted provided that the following conditions          */
+/*  are met:                                                                    */
+/*                                                                              */
+/*  * Redistributions of source code must retain the above copyright            */
+/*  notice, this list of conditions and the following disclaimer.               */
+/*                                                                              */
+/*  * Redistributions in binary form must reproduce the above                   */
+/*  copyright notice, this list of conditions and the following                 */
+/*  disclaimer in the documentation and/or other materials provided             */
+/*  with the distribution.                                                      */
+/*                                                                              */
+/*  * Neither the name of the Dept. of Materials, Imperial College London, nor  */
+/*  the names of its contributors may be used to endorse or promote products    */
+/*  derived from this software without specific prior written permission.       */
+/*                                                                              */
+/*  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS         */
+/*  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT           */
+/*  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR       */
+/*  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT        */
+/*  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,       */
+/*  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED    */
+/*  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR      */
+/*  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF      */
+/*  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING        */
+/*  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS          */
+/*  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.                */
+/********************************************************************************/
+/*END of LICENSE NOTICE*/
+
+#include <stdio.h>
+#include <signal.h>
+#include "machine.h"
+#include "blocks.h"
+
+ 
+CA_FLOAT dir_temp_melt (BB_struct * bp, int sbnum)
+{
+  
+
+CA_FLOAT v, v_real, vt;
+  
+CA_FLOAT v_coef1, v_coef2;
+  
+CA_FLOAT t, t_v1, t_v2, t_hold, t_v3, t_v4, t_v12;
+  
+
+t_v1 = bp->time_velo1;
+  
+t_v2 = bp->time_velo2;
+  
+t_v4 = bp->time_velo4;
+  
+t_hold = bp->time_hold;
+  
+t_v3 = t_v2 + t_hold;
+  
+
+v_coef1 = bp->velo_coef1;
+  
+v_coef2 = bp->velo_coef2;
+  
+v = bp->velocity;
+  
+
+t = bp->sim_time;
+  
+
+
+if (t <= t_v1) {
+    
+vt = t * v;
+  
+
+} else if (t <= t_v2 && t > t_v1) {
+    
+v_real = v + v_coef1 * (t - t_v1);
+    
+
+if (v_real >= 0) {
+      
+vt = (v * t_v1) + 0.5 * (t - t_v1) * (v + v_real);
+    
+} else if (v_real < 0) {
+      
+t_v12 = t_v1 + v / v_coef1 * (-1);
+      
+vt = (v * t_v1) + 0.5 * (t_v12 - t_v1) * v + 0.5 * (t - t_v12) * v_coef1 * (t - t_v12);
+    
+}
+  
+
+} else if (t <= t_v3 && t > t_v2) {
+    
+v_real = v + v_coef1 * (t_v2 - t_v1);
+    
+if (v_real >= 0) {
+      
+vt = v * t_v1 + 0.5 * (t_v2 - t_v1) * (v + v_real);
+    
+} else {
+      
+t_v12 = t_v1 + v / v_coef1 * (-1);
+      
+vt = v * t_v1 + 0.5 * (t_v12 - t_v1) * v + 0.5 * (t_v2 - t_v12) * (t_v2 - t_v12) * v_coef1;
+    
+}
+  
+} else if (t <= t_v4 && t > t_v3) {
+    
+v_real = v + v_coef1 * (t_v2 - t_v1);
+    
+if (v_real >= 0) {
+      
+vt = v * t_v1 + 0.5 * (v + v_real) * (t_v2 - t_v1) + 0.5 * (t - t_v3) * (t - t_v3) * v_coef2;
+    
+} else {
+      
+t_v12 = t_v1 + v / v_coef1 * (-1);
+      
+
+vt =
+        v * t_v1 + 0.5 * (t_v12 - t_v1) * v + 0.5 * (t_v2 - t_v12) * (t_v2 - t_v12) * v_coef1 + 0.5 * (t - t_v3) * (t -
+                                                                                                                    t_v3) * v_coef2;
+    
+}
+  
+} else if (t > t_v4) {
+    
+v_real = v + v_coef1 * (t_v2 - t_v1);
+    
+if (v_real >= 0) {
+      
+
+vt =
+        v * t_v1 + 0.5 * (v + v_real) * (t_v2 - t_v1) + 0.5 * (t_v4 - t_v3) * (t_v4 - t_v3) * v_coef2 + (t - t_v4) * (t_v4 -
+                                                                                                                      t_v3) * v_coef2;
+    
+} else {
+      
+t_v12 = t_v1 + v / v_coef1 * (-1);
+      
+
+vt =
+        v * t_v1 + 0.5 * (t_v12 - t_v1) * v + 0.5 * (t_v2 - t_v12) * (t_v2 - t_v12) * v_coef1 + 0.5 * (t_v4 - t_v3) * (t_v4 -
+                                                                                                                       t_v3) *
+        v_coef2 + (t - t_v4) * (t_v4 - t_v3) * v_coef2;
+    
+}
+  
+}
+  
+
+return (vt);
+
+}
+
+
+
+
+CA_FLOAT dir_temp_curv (BB_struct * bp, int sbnum, int x, int y)
+{
+  
+
+
+CA_FLOAT rad, axis;
+  
+CA_FLOAT T;
+  
+CA_FLOAT tgrad, grad_coef, iso_coef1, iso_coef2, t_coef;
+  
+CA_FLOAT velo_coef;
+  
+CA_FLOAT t, t_curv, t_tran;
+  
+CA_FLOAT v, vt;
+  
+
+int c_no;
+
+  
+
+if (bp->ctrl->swap_axes == 1) {
+    
+axis = bp->sb[sbnum]->orig_sb[0] + x * bp->size_c[0];
+    
+rad = bp->sb[sbnum]->orig_sb[1] + y * bp->size_c[1];
+  
+} else {
+    
+rad = bp->sb[sbnum]->orig_sb[0] + x * bp->size_c[0];
+    
+axis = bp->sb[sbnum]->orig_sb[1] + y * bp->size_c[1];
+  
+}
+  
+
+grad_coef = bp->grad_coef;
+  
+c_no = bp->cell_no;
+  
+
+t = bp->sim_time;
+  
+t_curv = bp->time_curv;
+  
+t_tran = bp->time_tran;
+  
+tgrad = bp->gradient + grad_coef * t;
+  
+t_coef = bp->therm_coef;
+  
+
+iso_coef1 = bp->iso_coef1;
+  
+iso_coef2 = bp->iso_coef2;
+  
+
+velo_coef = bp->velo_coef;
+  
+v = bp->velocity + velo_coef * t;
+  
+vt = 0.5 * (v + bp->velocity) * t;
+  
+
+if (t <= t_curv) {
+    
+iso_coef2 = iso_coef2 / bp->size_c[0] / bp->nc[0];
+    
+if (x < c_no) {
+      
+T = bp->Tinit + tgrad * (axis - vt);
+      
+T -= tgrad * (iso_coef1 * rad + iso_coef2 * (c_no * bp->size_c[0] - rad) * (c_no * bp->size_c[0] - rad));
+    
+} else {
+      
+rad = bp->sb[sbnum]->orig_sb[0] + c_no * bp->size_c[0];
+      
+T = bp->Tinit + tgrad * (axis - vt);
+      
+T -= tgrad * (iso_coef1 * rad + iso_coef2 * (c_no * bp->size_c[0] - rad) * (c_no * bp->size_c[0] - rad));
+    
+}
+  
+} else if (t <= (t_curv + t_tran) && t > t_curv) {
+    
+
+iso_coef2 = (bp->iso_coef2 + 2 * (t_coef / t_tran) * (t - t_curv)) / bp->size_c[0] / bp->nc[0];
+    
+if (x < c_no) {
+      
+T = bp->Tinit + tgrad * (axis - vt);
+      
+T -= tgrad * (iso_coef1 * rad + iso_coef2 * (c_no * bp->size_c[0] - rad) * (c_no * bp->size_c[0] - rad));
+    
+} else {
+      
+rad = bp->sb[sbnum]->orig_sb[0] + c_no * bp->size_c[0];
+      
+T = bp->Tinit + tgrad * (axis - vt);
+      
+T -= tgrad * (iso_coef1 * rad + iso_coef2 * (c_no * bp->size_c[0] - rad) * (c_no * bp->size_c[0] - rad));
+    
+}
+  
+} else if (t > (t_curv + t_tran)) {
+    
+iso_coef2 = (bp->iso_coef2 + 2 * t_coef) / bp->size_c[0] / bp->nc[0];
+    
+if (x < c_no) {
+      
+T = bp->Tinit + tgrad * (axis - vt);
+      
+T -= tgrad * (iso_coef1 * rad + iso_coef2 * (c_no * bp->size_c[0] - rad) * (c_no * bp->size_c[0] - rad));
+    
+} else {
+      
+rad = bp->sb[sbnum]->orig_sb[0] + c_no * bp->size_c[0];
+      
+T = bp->Tinit + tgrad * (axis - vt);
+      
+T -= tgrad * (iso_coef1 * rad + iso_coef2 * (c_no * bp->size_c[0] - rad) * (c_no * bp->size_c[0] - rad));
+    
+}
+  
+
+}
+  
+return (T);
+
+}
+
+
+
+
+CA_FLOAT dir_temp_melt_curv (BB_struct * bp, int sbnum, int x, int y)
+{
+  
+
+CA_FLOAT v, v_real, vt;
+  
+CA_FLOAT v_coef1, v_coef2;
+  
+CA_FLOAT t, t_v1, t_v2, t_hold, t_v3, t_v4, t_v12;
+  
+CA_FLOAT rad, axis;
+  
+CA_FLOAT T;
+  
+CA_FLOAT tgrad, grad_coef, iso_coef1, iso_coef2, t_coef;
+  
+CA_FLOAT t_flat, t_curv, t_tran;
+  
+
+int c_no;
+
+  
+
+t_v1 = bp->time_velo1;
+  
+t_v2 = bp->time_velo2;
+  
+t_v4 = bp->time_velo4;
+  
+t_hold = bp->time_hold;
+  
+t_v3 = t_v2 + t_hold;
+  
+
+v_coef1 = bp->velo_coef1;
+  
+v_coef2 = bp->velo_coef2;
+  
+v = bp->velocity;
+  
+
+t = bp->sim_time;
+  
+
+if (bp->ctrl->swap_axes == 1) {
+    
+axis = bp->sb[sbnum]->orig_sb[0] + x * bp->size_c[0];
+    
+rad = bp->sb[sbnum]->orig_sb[1] + y * bp->size_c[1];
+  
+} else {
+    
+rad = bp->sb[sbnum]->orig_sb[0] + x * bp->size_c[0];
+    
+axis = bp->sb[sbnum]->orig_sb[1] + y * bp->size_c[1];
+  
+}
+  
+
+grad_coef = bp->grad_coef;
+  
+c_no = bp->cell_no;
+  
+
+t_flat = t_v1 - v / v_coef1;
+  
+t_curv = bp->time_curv;
+  
+t_tran = bp->time_tran;
+  
+tgrad = bp->gradient + grad_coef * t;
+  
+t_coef = bp->therm_coef;
+  
+
+iso_coef1 = bp->iso_coef1;
+  
+iso_coef2 = bp->iso_coef2;
+  
+
+if (t <= t_v1) {
+    
+vt = t * v;
+  
+
+} else if (t <= t_v2 && t > t_v1) {
+    
+v_real = v + v_coef1 * (t - t_v1);
+    
+
+if (v_real >= 0) {
+      
+vt = (v * t_v1) + 0.5 * (t - t_v1) * (v + v_real);
+    
+} else if (v_real < 0) {
+      
+t_v12 = t_v1 + v / v_coef1 * (-1);
+      
+vt = (v * t_v1) + 0.5 * (t_v12 - t_v1) * v + 0.5 * (t - t_v12) * v_coef1 * (t - t_v12);
+    
+}
+  
+
+} else if (t <= t_v3 && t > t_v2) {
+    
+v_real = v + v_coef1 * (t_v2 - t_v1);
+    
+if (v_real >= 0) {
+      
+vt = v * t_v1 + 0.5 * (t_v2 - t_v1) * (v + v_real);
+    
+} else {
+      
+t_v12 = t_v1 + v / v_coef1 * (-1);
+      
+vt = v * t_v1 + 0.5 * (t_v12 - t_v1) * v + 0.5 * (t_v2 - t_v12) * (t_v2 - t_v12) * v_coef1;
+    
+}
+  
+
+
+
+} else if (t <= t_v4 && t > t_v3) {
+    
+v_real = v + v_coef1 * (t_v2 - t_v1);
+    
+if (v_real >= 0) {
+      
+vt = v * t_v1 + 0.5 * (v + v_real) * (t_v2 - t_v1) + 0.5 * (t - t_v3) * (t - t_v3) * v_coef2;
+    
+} else {
+      
+t_v12 = t_v1 + v / v_coef1 * (-1);
+      
+
+vt =
+        v * t_v1 + 0.5 * (t_v12 - t_v1) * v + 0.5 * (t_v2 - t_v12) * (t_v2 - t_v12) * v_coef1 + 0.5 * (t - t_v3) * (t -
+                                                                                                                    t_v3) * v_coef2;
+    
+}
+  
+
+} else if (t > t_v4) {
+    
+v_real = v + v_coef1 * (t_v2 - t_v1);
+    
+if (v_real >= 0) {
+      
+
+vt =
+        v * t_v1 + 0.5 * (v + v_real) * (t_v2 - t_v1) + 0.5 * (t_v4 - t_v3) * (t_v4 - t_v3) * v_coef2 + (t - t_v4) * (t_v4 -
+                                                                                                                      t_v3) * v_coef2;
+    
+} else {
+      
+t_v12 = t_v1 + v / v_coef1 * (-1);
+      
+
+vt =
+        v * t_v1 + 0.5 * (t_v12 - t_v1) * v + 0.5 * (t_v2 - t_v12) * (t_v2 - t_v12) * v_coef1 + 0.5 * (t_v4 - t_v3) * (t_v4 -
+                                                                                                                       t_v3) *
+        v_coef2 + (t - t_v4) * (t_v4 - t_v3) * v_coef2;
+    
+}
+  
+}
+  
+
+
+if (t <= t_flat) {
+    
+T = bp->Tinit + tgrad * (axis - vt);
+  
+} else if (t > t_flat && t <= t_curv) {
+    
+iso_coef2 = iso_coef2 / bp->size_c[0] / bp->nc[0];
+    
+if (x < c_no) {
+      
+T = bp->Tinit + tgrad * (axis - vt);
+      
+T -= tgrad * (iso_coef1 * rad + iso_coef2 * (c_no * bp->size_c[0] - rad) * (c_no * bp->size_c[0] - rad));
+    
+} else {
+      
+rad = bp->sb[sbnum]->orig_sb[0] + c_no * bp->size_c[0];
+      
+T = bp->Tinit + tgrad * (axis - vt);
+      
+T -= tgrad * (iso_coef1 * rad + iso_coef2 * (c_no * bp->size_c[0] - rad) * (c_no * bp->size_c[0] - rad));
+    
+}
+  
+} else if (t > t_curv && t <= (t_curv + t_tran)) {
+    
+iso_coef2 = (bp->iso_coef2 + 2 * (t_coef / t_tran) * (t - t_curv)) / bp->size_c[0] / bp->nc[0];
+    
+if (x < c_no) {
+      
+T = bp->Tinit + tgrad * (axis - vt);
+      
+T -= tgrad * (iso_coef1 * rad + iso_coef2 * (c_no * bp->size_c[0] - rad) * (c_no * bp->size_c[0] - rad));
+    
+} else {
+      
+rad = bp->sb[sbnum]->orig_sb[0] + c_no * bp->size_c[0];
+      
+T = bp->Tinit + tgrad * (axis - vt);
+      
+T -= tgrad * (iso_coef1 * rad + iso_coef2 * (c_no * bp->size_c[0] - rad) * (c_no * bp->size_c[0] - rad));
+    
+}
+  
+} else if (t > (t_curv + t_tran)) {
+    
+iso_coef2 = (bp->iso_coef2 + 2 * t_coef) / bp->size_c[0] / bp->nc[0];
+    
+if (x < c_no) {
+      
+T = bp->Tinit + tgrad * (axis - vt);
+      
+T -= tgrad * (iso_coef1 * rad + iso_coef2 * (c_no * bp->size_c[0] - rad) * (c_no * bp->size_c[0] - rad));
+    
+} else {
+      
+rad = bp->sb[sbnum]->orig_sb[0] + c_no * bp->size_c[0];
+      
+T = bp->Tinit + tgrad * (axis - vt);
+      
+T -= tgrad * (iso_coef1 * rad + iso_coef2 * (c_no * bp->size_c[0] - rad) * (c_no * bp->size_c[0] - rad));
+    
+}
+  
+
+}
+  
+
+return (T);
+
+}
+
+
+
+char const *rcs_id_temp_calc_melt_c () 
+{
+  
+static char const rcsid[] = "$Id$";
+
+  
+return (rcsid);
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

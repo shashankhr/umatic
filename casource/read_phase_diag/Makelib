@@ -1,0 +1,25 @@
+
+.EXPORT_ALL_VARIABLES:
+.SUFFIXES:
+.SUFFIXES: .c .o .d
+.c.o:
+	$(CC) $(CFLAGS)  $<
+
+
+CC=gccv333
+CFLAGS= -ggdb -c
+
+SOURCES=\
+convert.c\
+debin.c\
+freecsv.c\
+init.c\
+readwrite.c\
+safeopen.c
+
+OBJECTS=$(SOURCES:.c=.o)
+lib: objects
+	ar -rs libreadlist.a $(OBJECTS) 
+objects: $(OBJECTS)
+
+

@@ -1,0 +1,51 @@
+\tophead{Things to fix in $\mu$MatIc code }
+
+
+\subsection{Multiblock}
+\begin{itemize}
+\item Input of whole bigblock mould image
+\item Perhaps unused parts need to be input so that they are available
+      for the testing of neighbour states when a subblock is turned on,
+      most of the  space could be saved by compression of unused subblock
+      image as it will be mostly -1 and 0's
+
+\item Checking of neighbouring blocks for mould cells upon opening
+
+      Currently the neighbouring block is loaded by the copymat routines
+      when a subblock is opened for calcualtion (switched on) However
+      it is likely that the neighbouring block has not yet been switched
+      on and that therefore the data arrays have not been allocated.
+
+      This causes a segfault.
+\item Virtually all data arrays added by Wei Wang for the de-centered square/octa method 
+      do not have auxiliary data pointers (Value\_str ) defined in the big block.
+
+     \paragrpaph{So...} should the data storage be redesigned to consist of a single array of data 
+     structure pointers \textit{in order to} simplify fixing up the multiblock routine? Or shoudl the 
+     original zoo of auxiliary data pointers be expanded to work with decentered methods?
+\end{itemize}
+
+      
+
+\subsection{Other problems}
+
+\begin{itemize}
+
+\item Creation of nucleation thresholds in binary and polycomponent
+      uses separate subroutines that are nearly identical. This shoudl
+      be fixed to use one subroutine.
+
+\item Mould source has instability if mould boundary intersects subblock
+      wall (even for single block)
+
+\end{itemize}
+
+
+
+\vfill{}
+\verb$Revision: 109 $
+\verb$Date: 2007-11-30 12:22:27 +0000 (Fri, 30 Nov 2007) $
+
+
+\verb$URL: http://xe01/svn/docs/trunk/PreparingDocs.tex $
+

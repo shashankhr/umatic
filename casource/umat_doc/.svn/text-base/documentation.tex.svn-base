@@ -1,0 +1,61 @@
+\batchmode
+%% Header for mpg documentation
+%\documentclass[10pt,english]{article}
+\documentclass[a4paper]{article} \usepackage[T1]{fontenc} \usepackage[latin1]{inputenc}
+
+\newcommand{\tophead}[1]{
+   \section{#1}
+   \def\tophname{#1}
+}
+\def\tophname{}
+
+\makeatletter
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{times}
+\usepackage{fancyhdr}
+\usepackage{geometry}
+\usepackage{tweaklist}
+\usepackage{color}
+\setlength{\parindent}{0mm}
+\geometry{a4paper,tmargin=2.5 cm,bmargin=2.5 cm,lmargin=1.5 cm,rmargin=1.5 cm}
+\setlength{\parskip}{0pt plus 2pt}
+\renewcommand{\itemhook}{\setlength{\itemsep}{0pt} \setlength{\parskip}{0pt}}
+%%lyxcode environment from LyX
+\providecommand{\LyX}{L\kern-.1667em\lower.25em\hbox{Y}\kern-.125emX\@}
+ \newenvironment{lyxcode}
+   {\begin{list}{}{
+     \setlength{\rightmargin}{\leftmargin}
+     \setlength{\listparindent}{0pt}% needed for AMS classes
+     \raggedright
+     \setlength{\itemsep}{0pt}
+     \setlength{\parsep}{0pt}
+     \normalfont\ttfamily}%
+    \item[]}
+   {\end{list}}
+%% end of lyxcode environment
+\pagestyle{fancyplain}
+\lhead{\em{$\mu$MatIc User's Guide}}
+\rhead{\em{\today}}
+\chead{\tophname}
+%\cfoot[\thepage]{\thepage}
+\makeatother
+\usepackage{html}
+\usepackage{ifthen}
+\newboolean{singledoc}
+\setboolean{singledoc}{false}
+\externallabels{.}{../documentation/labels.pl}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%% end of preamble %%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\include {TableOfContents}
+\include {CodeProblems}
+\include {PreparingDocs}
+\end{document}
+
+\verb$URL: http://xe01/svn/docs/trunk/documentation.tex $
+

@@ -1,0 +1,131 @@
+
+/****************************************************************/
+/*      Copyright (c) 1993 Peter D Lee                          */
+/*      Copyright (c) 1998 Dept. of Materials, ICSTM            */
+/*      All Rights Reserved                                     */
+/*      The copyright notice above does not evidence any        */
+/*      actual or intended publication of such source code,     */
+/*      and is an unpublished work by Dept. of Materials, ICSTM.*/
+/*      continuing D Phil work from University of Oxford        */
+/****************************************************************/
+/* This code is part of the umats routines developed at in the  */
+/* Materials Processing Group, Dept. of Materials, ICSTM.       */
+/*      email p.d.lee or r.atwood @imperial.ac.uk for details   */
+/****************************************************************/
+
+/********************************************************************************/
+/*  This version is distributed under a BSD style public license, as follows:   */
+/*                                                                              */
+/*  Copyright (c) 2007, Dept. of Materials, Imperial College London             */
+/*  All rights reserved.                                                        */
+/*  Redistribution and use in source and binary forms, with or without          */
+/*  modification, are permitted provided that the following conditions          */
+/*  are met:                                                                    */
+/*                                                                              */
+/*  * Redistributions of source code must retain the above copyright            */
+/*  notice, this list of conditions and the following disclaimer.               */
+/*                                                                              */
+/*  * Redistributions in binary form must reproduce the above                   */
+/*  copyright notice, this list of conditions and the following                 */
+/*  disclaimer in the documentation and/or other materials provided             */
+/*  with the distribution.                                                      */
+/*                                                                              */
+/*  * Neither the name of the Dept. of Materials, Imperial College London, nor  */
+/*  the names of its contributors may be used to endorse or promote products    */
+/*  derived from this software without specific prior written permission.       */
+/*                                                                              */
+/*  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS         */
+/*  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT           */
+/*  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR       */
+/*  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT        */
+/*  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,       */
+/*  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED    */
+/*  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR      */
+/*  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF      */
+/*  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING        */
+/*  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS          */
+/*  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.                */
+/********************************************************************************/
+/*END of LICENSE NOTICE*/
+
+/****************************************************************/
+/* fidap.h                                                      */
+/* head file for temp. in macro (FIDAP, CV)                     */
+/****************************************************************/
+/* Written by X. Xu, P.D. Lee & R.C. Atwood, Imperial College   */
+/* Nov 10, 1998                                                 */
+/****************************************************************/
+/*      MODIFIED by:                                            */
+/****************************************************************/
+/*$Id$*/
+
+/*RCS Id:$Id$*/
+#ifndef FIDAP_INTERP_H
+#define FIDAP_INTERP_H
+
+#define FG_REV "fidap.h $Revision$"
+#define STEADY 0
+#define TRANSIENT 1
+
+#define MAX_TRING 20
+#define TRING_I 2
+#define TRING_F 5
+ 
+#define R_OFF 0.0       /* set an offset (0.138) from central of ingot when interpolation for saving time */  
+#define Z_OFF 1.60      /* set an offset from the bottom of ingot in macro temperature field for CA */
+#define TIME_TR 0.0
+
+typedef struct treering {
+   int v_int[TRING_I];   /* 0: cell number to start perturb. on  */
+            /* 1: cell number to finish perturb. on */
+   CA_FLOAT v_f[TRING_F];   /* 0: magnitude of perturbation         */
+         /* 1: time perturb starts               */
+         /* 2: time perturbation lasts           */
+         /* 3: z to start perturbation           */
+         /* 4: z to finish perturbation          */
+} Tring_str;
+
+typedef struct fidap_geo {
+   int nnodes;     /* total # of nodes                     */
+   int nr;         /* # of nodes in r direction            */
+   int nz;         /* # of nodes in z direction            */
+   CA_FLOAT tstart;   /* beginning time for this data */
+   int s_start;  /* CA step for beginning time */
+   CA_FLOAT tnext;    /* beginning time for the next data */
+   int s_next;   /* CA step for next data time */
+   double wfact; /* precalculated weight factor for time interpolation */
+   double wf_add; /* precalculated weight factor step*/
+   int stepdif;
+                   /* updated every step */
+
+   CA_FLOAT *r;       /* ptr to array of r node locations     */
+   CA_FLOAT *z;       /* ptr to array of z node locations     */
+   CA_FLOAT *Fidap_T;       /* ptr to array of node Temperatures    */
+   CA_FLOAT v;        /* velocity of growth [mm]              */
+   CA_FLOAT Tmax;     /* Max. Temperature to set CA cells     */
+   CA_FLOAT Tmin;     /* Min. Temperature to set CA cells     */
+   int state;      /* steady/transient state of temp. field. */
+  /*******************  Stuff for tree ring creation   ***********/
+   int tring_on;    /* Using Tree Rings? True/False    */
+   int ntring;      /* no. oc tree rings                      */
+   Tring_str tring[MAX_TRING];   /* structure to add perturbations */
+   CA_FLOAT *zoffset;   /* ptr to array of z offsets (one per r)  */
+   CA_FLOAT oldtime;    /* time at last step                      */
+  
+  /******************** Stuff for transient calculation ************/
+   int trans_on;        /* Using Transient state thermal solution  */
+   CA_FLOAT time_trans;    /* time to start using transient state solution  */   
+   CA_FLOAT z_off;         /* offset of Z of CV mesh with CA's     */
+   CA_FLOAT r_off;         /* offset of R of CV mesh with CA's     */
+   CA_FLOAT time_var;      /* time in a macro model                */
+   CA_FLOAT time_ca;       /* time of CA                           */
+   CA_FLOAT hs_ingot;      /* steady state height of the ingot     */
+   CA_FLOAT h_ingot;       /* Transient state heigh of the ingot   */
+   CA_FLOAT h_cur;         /* Height of ingot at current step      */ 
+   CA_FLOAT h_ca;          /* total height of ingot in CA domain   */
+  
+} FGrid_str;
+
+#endif /* FIDAP_INTERP_H */
+/*
+*/

@@ -1,0 +1,409 @@
+
+/****************************************************************/
+/*      Copyright (c) 1993 Peter D Lee                          */
+/*      Copyright (c) 1998 Dept. of Materials, ICSTM            */
+/*      All Rights Reserved                                     */
+/*      The copyright notice above does not evidence any        */
+/*      actual or intended publication of such source code,     */
+/*      and is an unpublished work by Dept. of Materials, ICSTM.*/
+/*      continuing D Phil work from University of Oxford        */
+/****************************************************************/
+/* This code is part of the umats routines developed at in the  */
+/* Materials Processing Group, Dept. of Materials, ICSTM.       */
+/*      email p.d.lee or r.atwood @imperial.ac.uk for details   */
+/****************************************************************/
+
+/********************************************************************************/
+/*  This version is distributed under a BSD style public license, as follows:   */
+/*                                                                              */
+/*  Copyright (c) 2007, Dept. of Materials, Imperial College London             */
+/*  All rights reserved.                                                        */
+/*  Redistribution and use in source and binary forms, with or without          */
+/*  modification, are permitted provided that the following conditions          */
+/*  are met:                                                                    */
+/*                                                                              */
+/*  * Redistributions of source code must retain the above copyright            */
+/*  notice, this list of conditions and the following disclaimer.               */
+/*                                                                              */
+/*  * Redistributions in binary form must reproduce the above                   */
+/*  copyright notice, this list of conditions and the following                 */
+/*  disclaimer in the documentation and/or other materials provided             */
+/*  with the distribution.                                                      */
+/*                                                                              */
+/*  * Neither the name of the Dept. of Materials, Imperial College London, nor  */
+/*  the names of its contributors may be used to endorse or promote products    */
+/*  derived from this software without specific prior written permission.       */
+/*                                                                              */
+/*  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS         */
+/*  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT           */
+/*  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR       */
+/*  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT        */
+/*  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,       */
+/*  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED    */
+/*  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR      */
+/*  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF      */
+/*  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING        */
+/*  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS          */
+/*  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.                */
+/********************************************************************************/
+/*END of LICENSE NOTICE*/
+
+#include <stdlib.h>
+#include <stdio.h>
+#include "machine.h"
+#include "blocks.h"
+#include "pore.h"
+#include "SurCellRoutines.h"
+
+/* in pore_routines.c */
+extern void free_porelist (p_c_list * list);
+extern void free_ms (MultiS_struct * ms, int ele_1);
+
+int free_pore (PORE_str * porelist, int npores);
+int free_sb (BB_struct * bp, int i);
+
+/* free all the structures .. hopefully .. */
+void free_sb_arrays (BB_struct * bp, int sbnum);
+
+/*******************************************/
+/* Free the pointers in the ctrl struct    */
+/*******************************************/
+int free_ctrl (Ctrl_str * cp)
+{
+  fprintf (stderr, "    free(cp->fn_cap);\n");
+  free (cp->fn_cap);
+  fprintf (stderr, "    free(cp->fn_geo);\n");
+  free (cp->fn_geo);
+  fprintf (stderr, "    free(cp->fn_mat);\n");
+  free (cp->fn_mat);
+  fprintf (stderr, "    free(cp->fn_inp);\n");
+  free (cp->fn_inp);
+  fprintf (stderr, "    free(cp->fn_base);\n");
+  free (cp->fn_base);
+  fprintf (stderr, "    free(cp->cflags);\n");
+  free (cp->cflags);
+  fprintf (stderr, "    free(cp->rgbp->r);\n");
+  free (cp->rgbp->r);
+  fprintf (stderr, "    free(cp->rgbp->g);\n");
+  fprintf (stderr, " %x\n", (cp->rgbp->g));
+  free (cp->rgbp->g);
+  fprintf (stderr, "    free(cp->rgbp->b);\n");
+
+  free (cp->rgbp->b);
+
+  fprintf (stderr, "    free(cp-> rgbp);\n");
+  free (cp->rgbp);
+
+  return (0);
+}
+
+/*******************************************/
+/* Free the pointers in the blig block     */
+/*******************************************/
+int free_bb (BB_struct * bp)
+{
+
+  int i, j, ele_num, ele_1;
+  MultiS_struct *ms;
+  Ctrl_str *cp;
+
+  cp = bp->ctrl;
+  ms = &(bp->MultiSvals);
+  ele_num = cp->NUM_COMP;
+  ele_1 = ele_num - 1;
+  for (i = 0; i < bp->ntsb; i++) {
+    fprintf (stderr, "Freeing subblock %i\n", i);
+    free_sb (bp, i);
+    free (bp->sb[i]);
+  }
+
+  free (bp->sb);
+  free (bp->intclosed);
+  free (bp->floatclosed);
+  free (bp->c_fs_values->block_array);
+  free (bp->c_fs_values);
+
+  /*free the structures for finite element input */
+  if (bp->ctrl->fgrid_input) {
+    free (bp->fg);
+    free (bp->fg_next);
+  }
+
+  if (bp->ctrl->diffuse_alloy_multi == 1) {
+    free (bp->fs_n_eut_values->block_array);
+    free (bp->fs_n_eut_old_values->block_array);
+    free (bp->cell_dfs_primary_values);
+    free (bp->cell_dfs_eutectic_values);
+    free (bp->fs_b_eut_values->block_array);
+    free (bp->fs_b_eut_old_values->block_array);
+    free (bp->fs_t_eut_values->block_array);
+    free (bp->c_fs_corrected_values->block_array);
+    free (bp->fs_n_eut_values);
+    free (bp->fs_n_eut_old_values);
+    free (bp->fs_b_eut_values);
+    free (bp->fs_b_eut_old_values);
+    free (bp->fs_t_eut_values);
+    free (bp->c_fs_corrected_values);
+  }
+  /* end of multi diff test */
+  free (bp->sch_fs_values->block_array);
+  free (bp->sch_fs_values);
+  free (bp->c_sol_values->block_array);
+  free (bp->c_sol_values);
+  free (bp->c_sol_alloy_values->block_array);
+  free (bp->c_sol_alloy_values);
+  /*
+     if (bp->ctrl->diffuse_alloy_multi==FALSE){
+     free (bp->c_sol_in_solid_values);
+     }
+   */
+
+  free (bp->gr_array);
+
+  free (bp->c_elm_array);
+
+  /*free (bp->ftmp_one_old); */
+  free (bp->ftmp_one);
+  free (bp->ftmp_two);
+  free (bp->ftmp_three);
+  free (bp->ftmp_four);
+  free (bp->ftmp_five);
+  free (bp->ftmp_nx);
+  free (bp->ftmp_ny);
+
+  /* only used for decentered (Wei WANG) mode */
+  if (bp->ctrl->decentred_octahedron) {
+    free (bp->ftmp_dc_d);
+    free (bp->ftmp_dc_x);
+    free (bp->ftmp_dc_y);
+    free (bp->ftmp_dc_z);
+  }
+
+  free (bp->sb_mask);
+  if (bp->ctrl->external == TRUE) {
+    free (bp->cell_temp_extern);
+    free (bp->cell_pres_extern);
+    free (bp->current_cell_temp);
+    free (bp->current_cell_pres);
+    free (bp->cell_temp_change_extern);
+    free (bp->cell_pres_grad_extern);
+    free (bp->cell_element_array);
+    free (bp->cell_node_array);
+  }
+#ifdef OLD_TUNDER
+  free (bp->old_Tunder);
+#endif /*OLD_TUNDER */
+
+  free (bp->itmp_one);
+  free (bp->itmp_two);
+
+  /*free the grains */
+  fprintf (stderr, "Freeing the grains\n");
+  for (i = 0; i <= bp->nprops.ngr; i++) {
+    if (bp->gr[i] != NULL) {
+#ifdef DBM
+      fprintf (stderr, "freegrain,num %i,mem %x\n", i, bp->gr[i]);
+#endif /*DBM*/
+        free (bp->gr[i]);
+    }
+  }
+
+  /*and the array that holds them */
+  fprintf (stderr, "... the grain ptr array\n");
+  free (bp->gr);
+
+  /* free the pressure lookup table */
+  fprintf (stderr, "... the pressure lookup\n");
+  if (bp->ctrl->pr_lookup)
+    free (bp->prlookup->pr_points);
+
+      /*****************************/
+  /*free the control structure */
+      /*****************************/
+  fprintf (stderr, "... the ctrl pointers \n");
+  free_ctrl (bp->ctrl);
+  fprintf (stderr, "... done \n");
+  fprintf (stderr, "... the ctrl struct \n");
+  free (bp->ctrl);
+  fprintf (stderr, "... done \n");
+      /*****************************/
+  /* control structure is gone! */
+      /*****************************/
+
+  fprintf (stderr, "... done free_bb \n");
+  return (0);
+}                               /* end of free_bb */
+
+void free_interp (NODENB_str * nnd)
+{
+  free (nnd->nl);
+  free (nnd->wl);
+  free (nnd->wr);
+  free (nnd->nd);
+  free (nnd->wd);
+  free (nnd->wu);
+}
+
+/*******************************************/
+/* free the subblock substructures */
+/*******************************************/
+int free_sb (BB_struct * bp, int sbnum)
+{
+
+  SB_struct *sb;
+
+  sb = bp->sb[sbnum];
+
+  if (sb->open == SB_OPEN) {
+    /* free the data arrays inside the subblock */
+    free_sb_arrays (bp, sbnum);
+
+    /* free the interpolation information */
+    if (bp->ctrl->fgrid_input) {
+      free_interp (sb->nnd);
+      free_interp (sb->nnd_next);
+      free (sb->nnd);
+      free (sb->nnd_next);
+    }
+    /* free the surface structure */
+
+    free_SurCell (&(sb->surface));
+
+    /*free all the pores */
+    if (bp->ctrl->pore) {
+      free_pore (sb->porelist, sb->Npores);
+      free (sb->porelist);
+    }
+  }
+
+  return (0);
+}
+
+/* free each pore structure */
+int free_pore (PORE_str * porelist, int npores)
+{
+  int i, j;
+
+  fprintf (stderr, "Freeing the pores ...");
+  for (i = 0; i < npores; i++) {
+    if ((porelist[i].State != NOT_CASTING)) {
+      for (j = 0; j < N_T_LISTS; j++) {
+        free (porelist[i].t_lists[j]);
+      }
+      /*traverse the list deleting it all */
+#ifdef VERBOSE
+      fprintf (stderr, "%i ", i);
+#endif
+      free_porelist (porelist[i].boundary);
+    }
+    free (porelist[i].boundary);
+    free (porelist[i].body);
+    free (porelist[i].t_lists);
+  }
+  fprintf (stderr, "Done\n");
+  return (0);
+}
+
+/*******************************************/
+/*                                         */
+/* free all the arrays contained in the sb */
+/*                                         */
+/*******************************************/
+void free_sb_arrays (BB_struct * bp, int sbnum)
+{
+  SB_struct *sp;
+
+  sp = bp->sb[sbnum];
+#ifdef USE_ELM
+  free (sp->c_elm);
+  sp->c_elm = NULL;
+  bp->c_elm_array[sbnum] = bp->intclosed;
+#endif /*USE_ELM */
+
+  /* fraction solid array */
+  free (sp->c_fs);
+  sp->c_fs = NULL;
+  bp->c_fs_values->block_array[sbnum] = bp->floatclosed;
+
+  /* scheil fraction solid array */
+  if (bp->ctrl->scheil == TRUE) {
+    free (sp->sch_fs);
+    sp->sch_fs = NULL;
+    bp->sch_fs_values->block_array[sbnum] = bp->floatclosed;
+  }
+
+  /* cell index for Wei WANG */
+  free (sp->index);
+
+  /*
+  free (sp->interface_index);
+  REMOVED rcatwood 23/11/05 */
+
+  /* grain array */
+  free (sp->gr);
+  sp->gr = NULL;
+  bp->gr_array[sbnum] = bp->intclosed;
+
+  /* cell temperature for Wei WANG */
+  free (sp->c_temp);
+
+  /* curvature xly 2004/08/09 */
+  /* modified for curvature 3D and protected by the options */
+  /**todo: simplify the curvature options */
+      if ((bp->ctrl->curvature_3D != 0 ) || (bp->ctrl->curvature_2D != 0)) {
+	    free (sp->curv);
+	    free (sp->norm_x);
+	    free (sp->norm_y);
+	    free (sp->norm_z);
+     }
+
+  /* gas solute array */
+  if (bp->ctrl->diffuse == TRUE) {
+    free (sp->c_sol);
+    sp->c_sol = NULL;
+    bp->c_sol_values->block_array[sbnum] = bp->floatclosed;
+  }
+  /*ALLOY solute array */
+  if ((bp->ctrl->diffuse_alloy == TRUE) || (bp->ctrl->particle == TRUE)) {
+    free (sp->c_sol_alloy);
+    sp->c_sol_alloy = NULL;
+    bp->c_sol_alloy_values->block_array[sbnum] = bp->floatclosed;
+
+    /* C_E array for Wei WANG */
+    if (bp->ctrl->decentred_octahedron == TRUE) {
+      free (sp->c_eqv_alloy);
+    }
+  }
+
+  if (bp->ctrl->decentred_octahedron == TRUE) {
+    free (sp->dc_d);
+    free (sp->dc_x);
+    free (sp->dc_y);
+    free (sp->dc_z);
+  }
+
+  /*block nuc array */
+  if ((bp->ctrl->block_nuc == TRUE)) {
+    free (sp->c_nuc_thresh);
+    sp->c_nuc_thresh = NULL;
+    free(sp->nat_sol_site);
+    sp->nat_sol_site=NULL;
+
+  }
+
+}                               /* end free_sb_arrays */
+
+/********************************************************/
+/* Little subroutine to get rcs id into the object code */
+/* so you can use ident on the compiled program         */
+/* also you can call this to print out or include the rcs id in a file */
+char const *rcs_id_freeblock_c ()
+{
+  static char const rcsid[] = "$Id$";
+
+  return (rcsid);
+}
+
+/* end of rcs_id_subroutine */
+/*
+*/

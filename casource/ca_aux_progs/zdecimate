@@ -1,0 +1,21 @@
+for f in Afiles.zip BLfiles.zip FSfiles.zip Ifiles.zip PNGfiles.zip Tfiles.zip UCfiles.zip
+do
+l=''
+echo $f 
+   for i in `unzip -l $f | tail +4 | sed -e's/  */ /g' | cut -d' ' -f 5`
+   do
+   #echo $i
+      if [[ a -lt 5 ]]
+      then
+         #echo "listing $i"
+         (( a = $a + 1 ))
+         l="$l $i"
+      else
+         #echo "keeping $i"
+         a=0
+      fi
+   done
+   #echo $l
+   zip -q -d $f $l
+done
+

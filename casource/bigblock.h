@@ -1,0 +1,241 @@
+
+/****************************************************************/
+/*      Copyright (c) 1993 Peter D Lee                          */
+/*      Copyright (c) 1998 Dept. of Materials, ICSTM            */
+/*      All Rights Reserved                                     */
+/*      The copyright notice above does not evidence any        */
+/*      actual or intended publication of such source code,     */
+/*      and is an unpublished work by Dept. of Materials, ICSTM.*/
+/*      continuing D Phil work from University of Oxford        */
+/****************************************************************/
+/* This code is part of the umats routines developed at in the  */
+/* Materials Processing Group, Dept. of Materials, ICSTM.       */
+/*      email p.d.lee or r.atwood @imperial.ac.uk for details   */
+/****************************************************************/
+
+/********************************************************************************/
+/*  This version is distributed under a BSD style public license, as follows:   */
+/*                                                                              */
+/*  Copyright (c) 2007, Dept. of Materials, Imperial College London             */
+/*  All rights reserved.                                                        */
+/*  Redistribution and use in source and binary forms, with or without          */
+/*  modification, are permitted provided that the following conditions          */
+/*  are met:                                                                    */
+/*                                                                              */
+/*  * Redistributions of source code must retain the above copyright            */
+/*  notice, this list of conditions and the following disclaimer.               */
+/*                                                                              */
+/*  * Redistributions in binary form must reproduce the above                   */
+/*  copyright notice, this list of conditions and the following                 */
+/*  disclaimer in the documentation and/or other materials provided             */
+/*  with the distribution.                                                      */
+/*                                                                              */
+/*  * Neither the name of the Dept. of Materials, Imperial College London, nor  */
+/*  the names of its contributors may be used to endorse or promote products    */
+/*  derived from this software without specific prior written permission.       */
+/*                                                                              */
+/*  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS         */
+/*  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT           */
+/*  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR       */
+/*  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT        */
+/*  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,       */
+/*  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED    */
+/*  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR      */
+/*  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF      */
+/*  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING        */
+/*  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS          */
+/*  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.                */
+/********************************************************************************/
+/*END of LICENSE NOTICE*/
+
+#define BIGBLOCKREV "bigblock.h $Revision: 1376 $"
+#ifndef BIGBLOCK_H
+#define BIGBLOCK_H
+
+typedef struct bigblock {
+   char header[256];      /* header string                   */
+   char *fileroot;      /* filename without extension   */
+
+   CA_FLOAT CR;              /* cooling rate if sol o           */
+   CA_FLOAT Cinit;           /* initial concentration for diff  */
+   CA_FLOAT CinitB;          /* initial concentration for diff  */
+   CA_FLOAT Tinit;         /* the initial temperature [K]  */
+   CA_FLOAT Cbdy_alloy; /* used for FIX_BDY solute source term */
+   CA_FLOAT Cbdy_gas;
+
+   CA_FLOAT area_bb;         /* surface area of BB              */
+   CA_FLOAT autofin_time;  /* time to stop simulation       */
+   CA_FLOAT delt;          /* ca time step                     */
+   CA_FLOAT fs_active;       /* average fs of active blocks     */
+   CA_FLOAT fsgrow;
+   CA_FLOAT grad_slope;     /* slope of deviation of fixed temp grad.   */
+   CA_FLOAT gradient;       /* fixed temperature gradient */
+   CA_FLOAT iso_coef1;       /*curved isotherm */
+   CA_FLOAT iso_coef2;       /*curved isotherm */
+   CA_FLOAT velo_coef;        /*Varying V*/
+   CA_FLOAT grad_coef;       /*varying G*/ 
+   CA_FLOAT grad_ct;         /* precalcuated cosine of gradient tilt */
+   CA_FLOAT grad_st;         /* precalcuated sine of gradient tilt */
+   CA_FLOAT time_curv;       /* options for transient isotherm curvature*/
+   CA_FLOAT time_tran;
+   CA_FLOAT cell_no;
+   CA_FLOAT therm_coef;  /* coef. for the transient isothermals, e.g. coef=2 from -2 to +2, coef =1.5 from -2 to 1 */
+
+                         /* variables for melt-back xly 20041018 */
+   CA_FLOAT time_velo1;  /* the time held for initial velocity before decreasing */
+   CA_FLOAT time_velo2;  /* the time stop decreasing velocity */
+   CA_FLOAT time_velo4;  /* the time stop increasing velocity */ 
+   CA_FLOAT time_hold;   /* the time held for zero velocity for melting back */
+   CA_FLOAT velo_coef1;  /* velocity decrease per second, negative value */
+   CA_FLOAT velo_coef2;  /* velocity increase per second, positive value */ 
+
+   CA_FLOAT t_velo;       /* time to change velocity for melt_back only */
+   CA_FLOAT oct_factor;     /* oct. factor for ngbhd flippn*/
+   float orig_bb[3];      /* lower left front origin of bb   */
+   CA_FLOAT finish_time;   /* time to stop simulation       */
+   CA_FLOAT sim_time;      /* current time in simulation       */
+   CA_FLOAT this_temp, this_pr;
+   CA_FLOAT size_bb[3];      /* size of big-block               */
+   float size_c[3];       /* size of cell                    */
+   CA_FLOAT velocity;       /* non-FIdap directional velocity*/
+   CA_FLOAT vol_bb;          /* volume of BB                    */
+   CA_FLOAT vol_c;           /* volume of a cell                */
+   CA_FLOAT vol_sb;          /* volume of a sb                  */
+   CA_FLOAT window_disp;     /* window displacement */ /*by Wei WANG on 11-07-02*/
+  CA_FLOAT window_disp2;        /* window displacement *//*by THUINET on 03-05 */
+   CA_FLOAT window_velo;     /* window moving velocity */ /*by Wei WANG on 11-07-02*/
+   CA_FLOAT yinv;              /* to speed up sb_temp_calc_cc     */
+
+   int auto_fin;        /* automatically calc. fin time */
+   int bb_npores;         /* # of active pores in BB         */
+   int cell_option; /* user option for total or local umat_extern */
+   int dfs_cap;          /* grow too fast or            */
+   int dfs_err;          /* grow more than one cell     */
+   int dfs_warn;         /* counters for how many cells */
+   int dim;               /* # of dimensions: 2 or 3         */
+   int extrafs_cap;     /* extra solid exceeds limit   */
+   int first_micro; /* indicates the beginning of each macro time step */
+   int last_micro; /* flag used to tell PRocast to stop running */
+   int micro_step;
+   int header_size;       /* size of total file header       */
+   int nbeut;             /* # of binary eutectic cells      */
+   int n_a_sb;            /* # active sb                     */
+   int nc[3];             /* # cells/sub-blocks in x,y,z     */
+   int ncsb;              /* # cells/sb                      */
+   int nsb[3];            /* # sub-blocks in x,y,z           */
+   int nzones[3];         /* # of grain-size zones per sb    */
+   int nsteps;
+   int nteut;             /* # of ternary eutectic cells    */
+   int ntsb;              /* total # subblocks               */
+   int pore_err;
+   int realtime;     /* the clock time */
+   int scr_dump_num;
+   int slice_dump_num;
+   int blk_dump_num;
+   int step;            /* ca step #                     */
+   int tnc[3];            /* total # cells in x,y,z          */
+   int total_cell_number;
+
+   Value_struct * c_fd_values;
+   Value_struct * c_fs_corrected_values;
+   Value_struct * c_fs_values;
+   Value_struct * c_sol_alloy_values;
+   Value_struct * c_sol_values;
+   Value_struct * cell_dfs_eutectic_values;
+   Value_struct * cell_dfs_primary_values;
+   Value_struct * fs_b_eut_old_values;
+   Value_struct * fs_b_eut_values;
+   Value_struct * fs_n_eut_old_values;
+   Value_struct * fs_n_eut_values;
+   Value_struct * fs_t_eut_values;
+   Value_struct * sch_fs_values;
+  /* needed for poly component THUINET version (added by ATWOOD) */
+  Value_struct *poly_c_eqv_values[NSOLMAX];
+  Value_struct *poly_c_sol_values[NSOLMAX];
+  Value_struct *poly_c_fs_values[NPHAMAX];
+  /*end */
+   int * intclosed;
+   int ** c_elm_array;
+   int ** gr_array;
+   int *bin_flag, *ter_flag;
+   int *bin_grain_index, *ter_grain_index;
+  int *cell_element_array;
+
+                             /*****************the maper array of CAFE********/
+  int *cell_node_array;
+
+                             /*****************the mapper array for nodes*****/
+   int *itmp_one;           /* int array size (nc[i]+2)^3   */
+  int *itmp_nat_cell;
+  int *itmp_nat_grain;
+
+/*THUINET 04/05*/
+  CA_FLOAT a[NPHAMAX][NPHAMAX]; /* table of coefficients to invert for linear system */
+  CA_FLOAT slope[NPHAMAX][NSOLMAX];
+  CA_FLOAT part[NPHAMAX][NSOLMAX];
+  int dim_tab;
+  int iphs_eff;
+  int ipheq_eff;
+
+/*END THUINET 04/05*/
+   int *itmp_two;           /* int array size (nc[i]+2)^3   */ /*by Wei WANG on 11-07-02*/
+   int *sb_mask;            /* array of flag for status of each subblock */
+  float *cell_cord_x, *cell_cord_y, *cell_cord_z;
+
+                                                   /*******cell coordinates in x y and z directions******/
+  float *cell_temp_change_extern, *cell_pres_grad_extern;
+
+                                                             /*****cell temperature and pressure gradients from external***/
+  float *cell_temp_extern, *cell_pres_extern;
+
+                                                   /****cell  and pressure from external******/
+  float *current_cell_temp, *current_cell_pres;
+
+                                                  /*******micro step values for temp and pres at each cell********/
+/**  \todo  make temporary arrays in the subblock instead -- multiblock */
+   CA_FLOAT * floatclosed;
+   CA_FLOAT *ftmp_dc_d;        /* CA_FLOAT array size (nc[i]+2)^3 */
+   CA_FLOAT *ftmp_dc_x;        /* CA_FLOAT array size (nc[i]+2)^3 */
+   CA_FLOAT *ftmp_dc_y;        /* CA_FLOAT array size (nc[i]+2)^3 */
+   CA_FLOAT *ftmp_dc_z;        /* CA_FLOAT array size (nc[i]+2)^3 */
+   CA_FLOAT *ftmp_five;        /* CA_FLOAT array size (nc[i]+2)^3 */ /*by Wei WANG on 11-07-02*/
+   CA_FLOAT *ftmp_four;        /* CA_FLOAT array size (nc[i]+2)^3 */ /*by Wei WANG on 11-07-02*/
+  CA_FLOAT *ftmp_cl_poly[NSOLMAX];      /*by THUINET on 18-02-05 */
+
+  CA_FLOAT *ftmp_ce_poly[NSOLMAX];      /*by THUINET on 18-02-05 */
+  CA_FLOAT *ftmp_one_poly[NPHAMAX];     /*THUINET 04/05 */
+   CA_FLOAT * c_sol_in_solid_values;
+   CA_FLOAT *conc_anal;  /* analythic solution for 3 component system */
+   CA_FLOAT *ftmp_one;         /* CA_FLOAT array size (nc[i]+2)^3 */
+   CA_FLOAT *ftmp_one_old;     /* CA_FLOAT array size (nc[i]+2)^3 */
+   CA_FLOAT *ftmp_three;         /* CA_FLOAT array size (nc[i]+2)^3 */
+   CA_FLOAT *ftmp_two;         /* CA_FLOAT array size (nc[i]+2)^3 */
+   CA_FLOAT *old_Tunder;
+   CA_FLOAT *ftmp_nx;     /* CA_FLOAT array size (nc[i]+2)^3 to hold normal_x and normal_y  for curv calculation only added by xly 2004/09/06 */
+   CA_FLOAT *ftmp_ny;
+   CA_FLOAT *ftmp_nz;
+
+   Frame cubeptr;      /* the geometry lookup tables   */
+  Ind_grain **gr;               /* array of grain stuctures        */
+   Mat_str mprops;      /* defined in matprops.h        */
+   MultiS_struct MultiSvals; /* multi solute values in bb see*/
+   Nbhd_str nbhd;       /* defined in nbhd.h           */
+   Nuc_str nprops;      /* defined in nucprops.h        */
+   PR_str * prlookup; /*defined in pr_struct.h */
+   P_str pprops;  /* defined in pore.h */
+   SB_struct **sb;        /* ptr to array of subblock str.   */
+   TC_str tc;
+   TEMP_str * templookup; /*defined in temp_struct.h */
+   time_t starttime;
+   /* pointer to temperature calc function */
+   CA_FLOAT (*cell_temp_func)(struct bigblock *bp,int sbnum, int i, int j, int k); 
+   /*
+   CA_FLOAT (*mould_src_func)(struct bigblock *bp, CA_FLOAT cell_temp, CA_FLOAT conc, int i, int j, int k);
+   */
+   BB_Fem_str fem;      /* str. to hold FEM info        */
+   Ctrl_str *ctrl;       /* defined in read_ctrl.h       */
+   FGrid_str *fg;        /* str. to hold FIDAP info      */
+   FGrid_str *fg_next;        /* str. to hold FIDAP info      */
+   char tailer[256];      /* tailer string (-;               */
+} BB_struct;
+#endif /*BIGBLOCK_H*/

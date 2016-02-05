@@ -1,0 +1,1157 @@
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/ca_svn/!svn/ver/1405/branches/GE_ongoing/casource
+END
+thermo_trace_calc.c
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/thermo_trace_calc.c
+END
+user_rtn_cell.c
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/user_rtn_cell.c
+END
+initcube.c
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/initcube.c
+END
+SurCellRoutines.c
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/SurCellRoutines.c
+END
+props.c
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/props.c
+END
+pore_example_infiles.shar
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/pore_example_infiles.shar
+END
+interp.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/interp.h
+END
+calc_solprops_poly.c
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/calc_solprops_poly.c
+END
+SurCellRoutines.h
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/SurCellRoutines.h
+END
+sb_boundary.c
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/sb_boundary.c
+END
+tcpl.h
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/tcpl.h
+END
+props.h
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/props.h
+END
+checkgas.c
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/checkgas.c
+END
+write_bb_values.c
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/write_bb_values.c
+END
+ca_solid.c
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/ca_svn/!svn/ver/1405/branches/GE_ongoing/casource/ca_solid.c
+END
+fcopymat.c
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/ca_svn/!svn/ver/1386/branches/GE_ongoing/casource/fcopymat.c
+END
+ca_prop_wrapper.c
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/ca_prop_wrapper.c
+END
+mould_sources.c
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/mould_sources.c
+END
+user_rtns.c
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/user_rtns.c
+END
+findroot.c
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/findroot.c
+END
+checkblock.c
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/checkblock.c
+END
+mould_sources.h
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/mould_sources.h
+END
+umat_matrix.h
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/umat_matrix.h
+END
+ca_project_nograph.dox
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/ca_project_nograph.dox
+END
+init_sb_neigh.c
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/init_sb_neigh.c
+END
+subblock.c
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/ca_svn/!svn/ver/1386/branches/GE_ongoing/casource/subblock.c
+END
+colour.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/colour.h
+END
+init_nuc_mould.c
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/init_nuc_mould.c
+END
+subblock.h
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/subblock.h
+END
+sb_diffuse_alloy.c
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/sb_diffuse_alloy.c
+END
+sb_temp_calc.c
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/sb_temp_calc.c
+END
+temprops.h
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/temprops.h
+END
+rand_step.c
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/rand_step.c
+END
+write_grain_histo.c
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/write_grain_histo.c
+END
+initface.c
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/initface.c
+END
+rand_step.h
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/rand_step.h
+END
+sb_diffuse_alloy_decentred.c
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/sb_diffuse_alloy_decentred.c
+END
+solprops.h
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/solprops.h
+END
+write_header_ctrl.c
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/write_header_ctrl.c
+END
+write_blocks.c
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/ca_svn/!svn/ver/1402/branches/GE_ongoing/casource/write_blocks.c
+END
+olderror.c
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/olderror.c
+END
+find_nmols.c
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/find_nmols.c
+END
+grain_functions.c
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/grain_functions.c
+END
+sb_diffuse_alloy_decentred_poly.c
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/sb_diffuse_alloy_decentred_poly.c
+END
+getxyz.c
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/getxyz.c
+END
+ca_ctrl.in
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/ca_ctrl.in
+END
+output_ex.c
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/ca_svn/!svn/ver/1382/branches/GE_ongoing/casource/output_ex.c
+END
+write_POREprop_values.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/write_POREprop_values.c
+END
+write_fidap_struct.c
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/write_fidap_struct.c
+END
+solprops_reader.c
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/solprops_reader.c
+END
+rand_square.c
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/rand_square.c
+END
+output.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/output.h
+END
+grain.h
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/grain.h
+END
+write_fidap_struct.h
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/write_fidap_struct.h
+END
+props_alloy0.in
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/props_alloy0.in
+END
+solprops_reader.h
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/solprops_reader.h
+END
+read_ca_procast.c
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/read_ca_procast.c
+END
+rand_square.h
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/rand_square.h
+END
+machine.h
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/ca_svn/!svn/ver/1401/branches/GE_ongoing/casource/machine.h
+END
+ca_matprop.in
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/ca_matprop.in
+END
+pnuc_function.c
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/pnuc_function.c
+END
+bigblock.c
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/bigblock.c
+END
+pore_multi.c
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/pore_multi.c
+END
+umat_histo.h
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/umat_histo.h
+END
+constants.h
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/ca_svn/!svn/ver/1390/branches/GE_ongoing/casource/constants.h
+END
+bigblock.h
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/bigblock.h
+END
+ca_project.dox
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/ca_project.dox
+END
+blocks.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/blocks.h
+END
+write_block_values.c
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/write_block_values.c
+END
+cube.h
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/cube.h
+END
+fidap_interp_calc.c
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/fidap_interp_calc.c
+END
+interpolate.c
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/interpolate.c
+END
+write_block_values.h
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/write_block_values.h
+END
+window_move.c
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/window_move.c
+END
+files.txt
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/files.txt
+END
+handlers.c
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/handlers.c
+END
+ca_procast.in
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/ca_procast.in
+END
+readfiles.h
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/readfiles.h
+END
+handlers.h
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/handlers.h
+END
+curvature_3D.c
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/curvature_3D.c
+END
+T_var_read.c
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/T_var_read.c
+END
+matprops.h
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/matprops.h
+END
+multi_diff_props.h
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/multi_diff_props.h
+END
+ca_restart.in
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/ca_restart.in
+END
+readmat_chirazi.inc
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/readmat_chirazi.inc
+END
+nuc_functions.c
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/nuc_functions.c
+END
+write_values.h
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/write_values.h
+END
+alloc_sb.c
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/alloc_sb.c
+END
+ca_read_wrapper.c
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/ca_svn/!svn/ver/1381/branches/GE_ongoing/casource/ca_read_wrapper.c
+END
+readmat_oldsol.inc
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/readmat_oldsol.inc
+END
+gaussdev.c
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/gaussdev.c
+END
+nuc_functions.h
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/nuc_functions.h
+END
+sb_line_int.c
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/sb_line_int.c
+END
+icopymat.c
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/icopymat.c
+END
+gaussdev.h
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/gaussdev.h
+END
+ca_histo.c
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/ca_histo.c
+END
+input_struct.y
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/input_struct.y
+END
+temp_calc.h
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/temp_calc.h
+END
+readphase.c
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/readphase.c
+END
+freeblock.c
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/freeblock.c
+END
+writeblocks.h
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/writeblocks.h
+END
+sb_get_surface_cells.c
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/ca_svn/!svn/ver/1386/branches/GE_ongoing/casource/sb_get_surface_cells.c
+END
+common.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/common.h
+END
+thermo_trace_init.c
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/thermo_trace_init.c
+END
+histo_struct.h
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/histo_struct.h
+END
+read_ctrl.c
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/ca_svn/!svn/ver/1382/branches/GE_ongoing/casource/read_ctrl.c
+END
+read_cap_ca.c
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/read_cap_ca.c
+END
+sb_diffuse_gas.c
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/sb_diffuse_gas.c
+END
+rcs_id.c
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/rcs_id.c
+END
+read_ctrl.h
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/ca_svn/!svn/ver/1382/branches/GE_ongoing/casource/read_ctrl.h
+END
+ca_geoplus.in
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/ca_geoplus.in
+END
+procast_userfuncs.c
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/procast_userfuncs.c
+END
+rcs_id.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/rcs_id.h
+END
+pore.h
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/pore.h
+END
+solprops_writer.c
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/solprops_writer.c
+END
+replacerand.c
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/replacerand.c
+END
+curvature.c
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/curvature.c
+END
+solprops_writer.h
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/solprops_writer.h
+END
+ca_wrapper.c
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/ca_svn/!svn/ver/1401/branches/GE_ongoing/casource/ca_wrapper.c
+END
+curvature.h
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/curvature.h
+END
+fg_read.c
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/ca_svn/!svn/ver/1402/branches/GE_ongoing/casource/fg_read.c
+END
+close_sb.c
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/close_sb.c
+END
+nucfuncs.h
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/nucfuncs.h
+END
+step_output.c
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/step_output.c
+END
+oriented.inc
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/oriented.inc
+END
+castats.c
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/castats.c
+END
+pull.inc
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/pull.inc
+END
+sb_diffuse_gas_poly.c
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/sb_diffuse_gas_poly.c
+END
+castats.h
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/castats.h
+END
+fem.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/fem.h
+END
+setup_mould_src_function.c
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/setup_mould_src_function.c
+END
+readmat.c
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/readmat.c
+END
+nucprops.h
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/nucprops.h
+END
+temp_struct.h
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/temp_struct.h
+END
+sb_decentred_step_poly.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/sb_decentred_step_poly.c
+END
+nbhd.h
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/nbhd.h
+END
+props_gas.in
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/props_gas.in
+END
+readmat.h
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/readmat.h
+END
+gd_io.h
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/gd_io.h
+END
+write_nprop_values.c
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/write_nprop_values.c
+END
+p_growth.c
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/p_growth.c
+END
+trans_interp_calc.c
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/trans_interp_calc.c
+END
+writeslice.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/writeslice.cxx
+END
+pore_routines.c
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/pore_routines.c
+END
+write_ctrl_values.c
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/write_ctrl_values.c
+END
+recr_extra.c
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/recr_extra.c
+END
+pore_setup_multi.c
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/pore_setup_multi.c
+END
+gd.h
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/gd.h
+END
+nearnode.h
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/nearnode.h
+END
+safeopen.c
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/safeopen.c
+END
+pore_routines.h
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/pore_routines.h
+END
+sb_ca_step.c
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/sb_ca_step.c
+END
+safeopen.h
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/safeopen.h
+END
+wfact_r_calc.c
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/ca_svn/!svn/ver/1402/branches/GE_ongoing/casource/wfact_r_calc.c
+END
+readgeoplus.c
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/readgeoplus.c
+END
+SurCell.h
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/SurCell.h
+END
+readgeoplus.h
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/readgeoplus.h
+END
+wfact_z_calc.c
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/wfact_z_calc.c
+END
+prop_wrapper.c
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/prop_wrapper.c
+END
+sb_tableofcontents.h
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/ca_svn/!svn/ver/1403/branches/GE_ongoing/casource/sb_tableofcontents.h
+END
+open_sb.c
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/ca_svn/!svn/ver/1390/branches/GE_ongoing/casource/open_sb.c
+END
+find_max.c
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/find_max.c
+END
+fidap.h
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/fidap.h
+END
+find_max.h
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/find_max.h
+END
+output_img.c
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/output_img.c
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/ca_svn/!svn/ver/1405/branches/GE_ongoing/casource/CMakeLists.txt
+END
+read_sb.c
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/read_sb.c
+END
+checks.c
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/checks.c
+END
+setup_temp_func.c
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/setup_temp_func.c
+END
+testfile.t
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/testfile.t
+END
+read_sb.h
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/read_sb.h
+END
+checks.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/checks.h
+END
+read_blocks.c
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/ca_svn/!svn/ver/1402/branches/GE_ongoing/casource/read_blocks.c
+END
+temp_calc_melt.c
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/temp_calc_melt.c
+END
+sb_nuc.c
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/ca_svn/!svn/ver/1398/branches/GE_ongoing/casource/sb_nuc.c
+END
+pr_lookup.c
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/pr_lookup.c
+END
+write_matprop_values.c
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/write_matprop_values.c
+END
+analythic.c
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/analythic.c
+END
+sb_decentred_step.c
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/sb_decentred_step.c
+END
+nuc_lookup.c
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/nuc_lookup.c
+END
+sb_diffuse.h
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/sb_diffuse.h
+END
+sb_decentred_step.h
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/sb_decentred_step.h
+END
+nuc_lookup.h
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/nuc_lookup.h
+END
+alloc_multicomp.c
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/alloc_multicomp.c
+END
+sb_diffuse_alloy_multi.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/sb_diffuse_alloy_multi.c
+END
+calc_sb.c
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/calc_sb.c
+END
+ca_feedback.c
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/ca_feedback.c
+END
+nbhd_def.c
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/nbhd_def.c
+END
+write_pprop_values.c
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/write_pprop_values.c
+END
+pr_struct.h
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/pr_struct.h
+END
+sb_head.h
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/sb_head.h
+END
+alloc_bb.c
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/alloc_bb.c
+END

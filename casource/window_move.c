@@ -1,0 +1,252 @@
+
+/****************************************************************/
+/*      Copyright (c) 1993 Peter D Lee                          */
+/*      Copyright (c) 1998 Dept. of Materials, ICSTM            */
+/*      All Rights Reserved                                     */
+/*      The copyright notice above does not evidence any        */
+/*      actual or intended publication of such source code,     */
+/*      and is an unpublished work by Dept. of Materials, ICSTM.*/
+/*      continuing D Phil work from University of Oxford        */
+/****************************************************************/
+/* This code is part of the umats routines developed at in the  */
+/* Materials Processing Group, Dept. of Materials, ICSTM.       */
+/*      email p.d.lee or r.atwood @imperial.ac.uk for details   */
+/****************************************************************/
+
+/********************************************************************************/
+/*  This version is distributed under a BSD style public license, as follows:   */
+/*                                                                              */
+/*  Copyright (c) 2007, Dept. of Materials, Imperial College London             */
+/*  All rights reserved.                                                        */
+/*  Redistribution and use in source and binary forms, with or without          */
+/*  modification, are permitted provided that the following conditions          */
+/*  are met:                                                                    */
+/*                                                                              */
+/*  * Redistributions of source code must retain the above copyright            */
+/*  notice, this list of conditions and the following disclaimer.               */
+/*                                                                              */
+/*  * Redistributions in binary form must reproduce the above                   */
+/*  copyright notice, this list of conditions and the following                 */
+/*  disclaimer in the documentation and/or other materials provided             */
+/*  with the distribution.                                                      */
+/*                                                                              */
+/*  * Neither the name of the Dept. of Materials, Imperial College London, nor  */
+/*  the names of its contributors may be used to endorse or promote products    */
+/*  derived from this software without specific prior written permission.       */
+/*                                                                              */
+/*  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS         */
+/*  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT           */
+/*  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR       */
+/*  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT        */
+/*  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,       */
+/*  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED    */
+/*  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR      */
+/*  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF      */
+/*  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING        */
+/*  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS          */
+/*  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.                */
+/********************************************************************************/
+/*END of LICENSE NOTICE*/
+
+/****************************************************************/
+/* Written by Peter D. Lee & Robert C. Atwood, Imperial College */
+/****************************************************************/
+/*      window_move.c:                                          */
+/*                                                              */
+/* Subroutine of window moving                                  */
+/* This file is added by Wei WANG on 11-07-02                   */
+/*                                                              */
+/*                                                              */
+/*                                                              */
+/****************************************************************/
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <string.h>
+#include "machine.h"
+#include "blocks.h"
+#include "umat_matrix.h"
+
+/*window move by Wei Wang on 15-03-01 */
+int window_move (BB_struct * bp, int sbnum)
+{
+  SB_struct *sp;
+  int i, j, k;                  /* tmp counter */
+  int nx, ny, nz;
+  int *ngr, *mgr;
+  CA_FLOAT *nfs, *mfs, *ncl, *mcl, *nce, *mce;
+/** \todo Moving would be better implemented by a move-array routine called for each array */
+
+/*THUINET 02/05*/
+  int isol, ele_num, ele_1;
+  CA_FLOAT *ncl_poly[NSOLMAX], *mcl_poly[NSOLMAX], *nce_poly[NSOLMAX], *mce_poly[NSOLMAX];
+  Ctrl_str *cp = bp->ctrl;
+
+/*FIN THUINET 02/05*/
+
+  CA_FLOAT *npd, *npx, *npy, *npz, *mpd, *mpx, *mpy, *mpz;
+
+  sp = bp->sb[sbnum];
+
+/*THUINET 03/05*/
+  ele_num = cp->NUM_COMP;       /* number of elements in the alloy */
+  ele_1 = ele_num - 1;
+/*FIN THUINET 03/05*/
+
+  nx = bp->nc[0];
+  ny = bp->nc[1];
+  nz = bp->nc[2];
+
+  /* shift arrays of grain number and fraction solid */
+  ngr = sp->gr;                 /* ptr to grain number of cell */
+  nfs = sp->c_fs;               /* ptr to fractio solid */
+  mgr = ngr + nx;
+  mfs = nfs + nx;
+
+  for (k = 0; k < nz; k++) {
+    for (j = 0; j < ny - 1; j++) {      /* row 1 - ny shifted down by one cell */
+      memcpy (ngr, mgr, nx * sizeof (int));
+      memcpy (nfs, mfs, nx * sizeof (CA_FLOAT));
+      ngr += nx;
+      mgr += nx;
+      nfs += nx;
+      mfs += nx;
+    }
+    for (i = 0; i < nx; i++) {  /* add a new row ny on the top */
+      *ngr = 0;
+      *nfs = 0.0;
+      ngr++;
+      nfs++;
+    }
+    mgr += nx;
+  }
+
+  /* shift arrays of C_L and C_E */
+  if (bp->ctrl->diffuse_alloy == TRUE) {
+    ncl = sp->c_sol_alloy;
+    nce = sp->c_eqv_alloy;
+    mcl = ncl + nx;
+    mce = nce + nx;
+
+    for (k = 0; k < nz; k++) {
+      for (j = 0; j < ny - 1; j++) {
+        memcpy (nce, mce, nx * sizeof (CA_FLOAT));
+        memcpy (nce, mce, nx * sizeof (CA_FLOAT));
+        ncl += nx;
+        mcl += nx;
+        nce += nx;
+        mce += nx;
+      }
+
+      for (i = 0; i < nx; i++) {
+        *nce = *ncl = bp->mprops.alloyprops[0].Cinit;
+        ncl++;
+        nce++;
+      }
+      mfs += nx;
+      mcl += nx;
+      mce += nx;
+    }
+  }
+
+  /* shift arrays of C_L and C_E in multicomponent for THUINET 03/05 */
+  if (bp->ctrl->diffuse_alloy_poly == TRUE) {
+
+    for (isol = 0; isol < ele_1; isol++) {
+      ncl_poly[isol] = sp->c_sol_poly[isol];
+      nce_poly[isol] = sp->c_eqv_poly[isol];
+      mcl_poly[isol] = ncl_poly[isol] + nx;
+      mce_poly[isol] = nce_poly[isol] + nx;
+    }
+
+    for (k = 0; k < nz; k++) {
+      for (j = 0; j < ny - 1; j++) {
+
+        for (isol = 0; isol < ele_1; isol++) {
+
+          memcpy (nce_poly[isol], mce_poly[isol], nx * sizeof (CA_FLOAT));
+          memcpy (nce_poly[isol], mce_poly[isol], nx * sizeof (CA_FLOAT));
+          ncl_poly[isol] += nx;
+          mcl_poly[isol] += nx;
+          nce_poly[isol] += nx;
+          mce_poly[isol] += nx;
+
+        }
+      }
+
+      for (i = 0; i < nx; i++) {
+
+        for (isol = 0; isol < ele_1; isol++) {
+          *nce_poly[isol] = *ncl_poly[isol] = bp->mprops.alloyprops[isol].Cinit;
+          ncl_poly[isol]++;
+          nce_poly[isol]++;
+        }
+      }
+
+      mfs += nx;
+
+      for (isol = 0; isol < ele_1; isol++) {
+        mcl_poly[isol] += nx;
+        mce_poly[isol] += nx;
+      }
+    }
+  }
+
+  /*End THUINET 03/05 */
+
+  /* shift arrays for decentred octahedron */
+  if (bp->ctrl->decentred_octahedron) {
+    npd = sp->dc_d;             /* ptr to decentred octahedron half diagonal */
+    npx = sp->dc_x;             /* ptr to decentred octahedron centre x */
+    npy = sp->dc_y;             /* ptr to decentred octahedron centre y */
+    npz = sp->dc_z;             /* ptr to decentred octahedron centre z */
+    mpd = npd + nx;
+    mpx = npx + nx;
+    mpy = npy + nx;
+    mpz = npz + nx;
+
+    for (k = 0; k < nz; k++) {
+      for (j = 0; j < ny - 1; j++) {
+        memcpy (npd, mpd, nx * sizeof (CA_FLOAT));
+        memcpy (npx, mpx, nx * sizeof (CA_FLOAT));
+        memcpy (npy, mpy, nx * sizeof (CA_FLOAT));
+        memcpy (npz, mpz, nx * sizeof (CA_FLOAT));
+        npd += nx;
+        mpd += nx;
+        npx += nx;
+        mpx += nx;
+        npy += nx;
+        mpy += nx;
+        npz += nx;
+        mpz += nx;
+      }
+      for (i = 0; i < nx; i++) {
+        *npd = 0.0;
+        *npx = 0.0;
+        *npy = 0.0;
+        *npz = 0.0;
+        npd++;
+        npx++;
+        npy++;
+        npz++;
+      }
+      mpd += nx;
+      mpx += nx;
+      mpy += nx;
+      mpz += nx;
+    }
+  }
+
+  return (1);
+}
+
+/***************************************************/
+/* rcs id routine to include rcs id in the program */
+/* generated by make_rcs_sub.sh script             */
+/***************************************************/
+char const *window_move_c ()
+{
+  static char const rcsid[] = "$Id: window_move.c 1356 2008-08-18 13:41:15Z  $";
+
+  return (rcsid);
+}

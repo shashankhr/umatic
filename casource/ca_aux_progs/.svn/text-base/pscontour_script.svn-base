@@ -1,0 +1,59 @@
+#!/bin/bash 
+set -x
+
+
+#plot parameters
+   #region of data to show
+      XSIZE=740
+      YSIZE=540
+   #contour line parameters
+      MINVAL=0
+      MAXVAL=1700
+      VALSTEP=100
+   #fonts to use for titles and tics
+      gmtset BASEMAP_AXES WeSn
+      gmtset ANNOT_FONT_SIZE_PRIMARY  18
+      gmtset HEADER_FONT_SIZE 24
+
+#downsampling parameters
+BLOCKSIZE=10 #average within this block
+
+#image conversion parameters
+DPI=75 #dot-per-inch parameter for postscript ->png conversion
+set +x
+
+#if there's no command line parameters, print a helpful message
+if [[ $# -lt 1 ]]
+then
+   echo ""
+   echo -e "$0:\tContour a uMat output slice using GMT postscript tools"
+   echo -e "\t\t\tEdit the script to set the above parameters, then use "
+   echo "$0 inputfile "
+   echo "The file requires x,y, and result data "
+   echo ""
+   exit
+fi
+
+INFILE=$1
+
+#create a contour colour table
+makecpt -Crainbow -Z  -T$MINVAL/$MAXVAL/$VALSTEP > colors.cpt
+
+# downsample the data by blockmean or blockmedian
+blockmean  -R0/${XSIZE}/0/${YSIZE}  -I$BLOCKSIZE    -bi  $INFILE > c.bm
+#blockmedian  -R0/${XSIZE}/0/${YSIZE}  -I$BLOCKSIZE    -bi  $INFILE > c.bm
+
+# extract the surface contours
+surface    -R0/${XSIZE}/0/${YSIZE}  -I$BLOCKSIZE    c.bm  -Gc.grd
+
+# draw the coloured bands
+grdimage   -R0/${XSIZE}/0/${YSIZE}  -JXh -Ccolors.cpt  c.grd -K  > cgr.eps
+
+# draw the contour lines 
+grdcontour -R0/${XSIZE}/0/${YSIZE}  -JXh  -Ccolors.cpt -B50 c.grd -O  >> cgr.eps
+
+#convert to a png image  -- careful with large DPI as it may overload the memory
+convert -density $DPI  cgr.eps cgr.png
+echo -e "Created:\n\tpostscript file  cgr.eps\n\tpng file cgr.png"
+
+

@@ -1,0 +1,257 @@
+\tophead{Preparing Documentation for this system}
+
+This system uses latex2html to prepare the web pages, and pdflatex
+to prepare the PDF files, and SVN (Sub Version system) to archive
+the original documents. Therefore the documents should be prepared
+in \LaTeX{} form, but a very simple version. 
+
+
+\subsection{Getting the source}
+\paragraph{Note:} The repository has recently been changed to use SVN instead of CVS, if any 
+references to CVS remain in the following document, please replace with the appropriate SVN commands.
+The source is stored using SVN. The repository is at 
+
+\begin{verbatim}
+http://xe01/svn/docs
+\end{verbatim}
+and the package is called 
+
+\begin{verbatim}
+docs
+\end{verbatim}
+so the command
+
+\begin{verbatim}
+svn co http://xe01/svn/docs/trunk mycopyofdocs
+
+\end{verbatim}
+would place all the current versions of the files into the directory
+\textbf{mycopyofdocs}.  An example LyX document, \textbf{BlankDoc.lyx},
+and some utility shell scripts are included in the package.
+
+The true URL of the current document source  (automatically updated) is:
+\verb$URL: http://xe01/svn/docs/trunk/PreparingDocs.tex $
+
+This information should appear at the foot of each document.
+
+\subsection{Features to use}
+
+Each section gets included into the master document, so the section
+should not have a preamble, and should not have \textbackslash{}begin\{document\}
+and \textbackslash{}end\{document\} commands.
+
+The section should begin with the special section header command
+
+\begin{verbatim}
+\tophead{title text}
+\end{verbatim}
+Subsections and sub-sub sections use the commands:
+
+\begin{verbatim}
+\subsection{heading text}
+\subsubsection{subheading text\}
+\end{verbatim}
+
+Included computer code uses the \textit{verbatim} environment
+
+
+{\ttfamily\textbackslash{}begin\{verbatim\}
+
+Anything typed here will be printed exactly,
+
+no matter how many \verb={*}\&\{`\#\%= special characters it has. 
+
+\textbackslash{}end\{verbatim\}
+}
+
+For version tracking, it is helpful to include the lines
+
+{\ttfamily
+	\verb|\vfill{}|
+
+	\textbackslash{}verb\$Revision:\$
+
+	\textbackslash{}verb\$Date:\$\textbackslash{}par\{\}
+
+	\textbackslash{}verb\$URL:\$
+
+}
+
+at the end of the file. This will be changed by SVN to include the
+actual revision and date of the document, making it easy to spot when
+someone is using an out-of-date version.
+
+
+\subsection{How to prepare the file}
+
+You can use a variety of methods to edit and prepare the doucument.
+I can suggest four:
+
+\begin{itemize}
+%\item Use a \LaTeX{} front-end such as \LyX{} or Kile.
+\item Use a \LaTeX{} front-end such as Kile.
+\item Use a text editor
+%\item Use Microsoft Word and convert with wvCleanLatex
+\end{itemize}
+Each has its advantages and disadvantages. 
+
+\paragraph{Kile  Front end }
+%At present, the most recent version is only available on Mig. This
+%program allows all features of \LaTeX{} to be used properly including
+%\textit{verbatim} environments and code. It does not run on Windows. It
+%is a KDE program.
+Kile includes the function for previewing a sub-document:
+\begin{enumerate}
+   \item Open the \textit{documentation.tex} file
+   \item Select \textbf{Settings | Define current document as master document}
+   \item Open the file for one of the sections
+   \item Select \textbf{Build | Quick Preview | Subdoucment }
+\end{enumerate}
+
+%\paragraph{\LyX{} Front end }
+%
+%Using \LyX{} will require that you export the project as \LaTeX{},
+%then use a script to remove the beginning and end material from the file. The script 
+%\begin{verbatim}
+%unlyxdoc
+%\end{verbatim}
+%is included for this purpose.
+%
+%Alternately, you may manually delete all the lines up to
+%and including \begin{document}, remove
+%the \textbackslash{}end\{document\} at the end, and change
+%\textbackslash{}section to \textbackslash{}tophead for the section title,
+%so that it gets printed at the top of each page in the section.
+%
+%\begin{itemize}
+%\item You should use the \textbf{Section} format for the main section title,
+%the script will change it to \textbackslash{}tophead\{ ... \} or you can do this manually after exporting.
+%
+%\item Use \textbf{Subsection, Subsubsection,} and \textbf{Paragraph} formats
+%for internal sections
+%\item You may use the \textbf{verbatim} environment instead of the \LaTeX{} \textit{verbatim} for code listings.
+%
+%I think it should work but it is not really a verbatim listing. If
+%it does not work for a particular case, you may need to manually change
+%\textbackslash{}begin\{verbatim\} ...\textbackslash{}end\{verbatim\}
+%to \textbackslash{}begin\{verbatim\} ... \textbackslash{}end\{verbatim\}
+%and edit the listing a bit. Hopefully future versions of \LyX{} will
+%incorporate the verbatim environment.
+%
+%\item \textbf{Itemize} and \textbf{Enumerate} for numbered/bulleted lists.
+%\end{itemize}
+
+\paragraph{Text editor}
+
+Using a text editor requires that you enter the \LaTeX{} commands
+yourself. As the commands used should be confined to the heading and
+section commands, and lists or numbered lists, this is not so bad. Use 
+\begin{verbatim}
+\tophead{my heading}
+\end{verbatim}
+to set the main section heading instead of \textbackslash{}section\{\}. This sets the text at the top of each page, and 
+is used as the marker to split the html and pdf files into sections.
+
+%\paragraph{Word conversion}
+%
+%The program \textbf{wvCleanLatex} usually produces \LaTeX{} that results
+%in a document with the appearance of the Word document. However, the
+%logical structure is not preserved. Headings are just done in boldface
+%instead of Section, so they are not incorporated into the table of
+%contents. To properly integrate the document, a fair bit of manual
+%editing is required. However, this still may be easier than editing
+%the doucment from scratch especially if a Word document already exists.
+%
+
+\subsection{How to Create the Document}
+
+Once you have the \LaTeX{} file for the section, you should test the
+appearance of your modified \LaTeX{} file when used with the common
+header. The instructions below assume that the dvi and pdf viewers
+availabel are \textbf{xdvi} and \textbf{xpdf}, however many other
+viewers are around. On a windows system Acrobat reader may be used
+for pdf files. A good dvi viewer called \textbf{yap} is available
+in the Mik\TeX{} distribution. Using an account on \textit{mig} may be easiest since 
+\LyX{}, Kile, and the other tools are already installed and working.
+
+\subsubsection{Previewing the section}
+
+The script \textbf{testnewdoc} is provided for testing the appearance
+of a new document section before integrating it with the others. If you
+have created a document called \textbf{UsingMyProgram.tex}, 
+call the script:
+
+
+\begin{verbatim}
+./testnewdoc~UsingMyProgram
+\end{verbatim}
+This will create a temporary version in which the headers have been
+included, and run \LaTeX{} to produce a .dvi output file. The file has the
+extra suffix \textit{tmp.} The file may be viewed with the \textbf{xdvi} program:
+
+\begin{verbatim}
+xdvi UsingMyProgramtmp.dvi
+\end{verbatim}
+
+\paragraph{Note:} If you use Kile to prepare the section, you can use
+the \textbf{Build | Quick Preview | Subdocument} command as described
+above. Some of preceding steps may not be necessary.
+
+\subsubsection{Incorporating the new section in the master document}
+If the preview works as desired, the new section may be inserted in the master
+documentation file, \textbf{documentation.tex.} Insert the line
+
+\begin{verbatim}
+\include{UsingMyProgram.tex}
+\end{verbatim}
+into the appropriate place in the list of included files. Then test
+your section with the script \textbf{makedoc:}
+
+\begin{verbatim}
+./makedoc UsingMyProgram
+\end{verbatim}
+The difference is that this tests your file in combination with all
+the other sections, then prints out only your section. View using
+xpdf:
+
+\begin{verbatim}
+xpdf UsingMyProgram.pdf
+\end{verbatim}
+If this is successful, you should checkin your documentation section
+
+\subsubsection{Adding the new section to the repository}
+
+The new section may be added to the repository when it is ready using the commands:
+\begin{verbatim}
+svn add UsingMyProgram.tex
+svn ci 
+\end{verbatim}
+
+In order to enable `keyword substitution' in svn, the \textit{keyword} properties must be set for the file
+\begin{verbatim}
+svn propset svn:keywords "Url Revision Date Id" UsingMyProgram.tex
+\end{verbatim}
+
+
+The section will be added to the html and pdf on the webserver when
+the automated process runs, each day at 2 AM.
+\paragraph{Root users} can manually update the webpage on the web server 
+using the script sbin/make\_docs:
+\begin{verbatim}
+$ su -
+password: #####
+# sbin/make_docs
+# exit
+$
+\end{verbatim}
+This script updates the working copy from the repository, then builds 
+html and pdf versions and copies them to the web server's directory.
+
+
+\vfill{}
+\verb$Revision: 109 $
+\verb$Date: 2007-11-30 12:22:27 +0000 (Fri, 30 Nov 2007) $
+
+
+\verb$URL: http://xe01/svn/docs/trunk/PreparingDocs.tex $
+

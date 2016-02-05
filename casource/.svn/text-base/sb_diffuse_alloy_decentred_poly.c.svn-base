@@ -1,0 +1,341 @@
+
+/****************************************************************/
+/*      Copyright (c) 1993 Peter D Lee                          */
+/*      Copyright (c) 1998 Dept. of Materials, ICSTM            */
+/*      All Rights Reserved                                     */
+/*      The copyright notice above does not evidence any        */
+/*      actual or intended publication of such source code,     */
+/*      and is an unpublished work by Dept. of Materials, ICSTM.*/
+/*      continuing D Phil work from University of Oxford        */
+/****************************************************************/
+/* This code is part of the umats routines developed at in the  */
+/* Materials Processing Group, Dept. of Materials, ICSTM.       */
+/*      email p.d.lee or r.atwood @imperial.ac.uk for details   */
+/****************************************************************/
+
+/********************************************************************************/
+/*  This version is distributed under a BSD style public license, as follows:   */
+/*                                                                              */
+/*  Copyright (c) 2007, Dept. of Materials, Imperial College London             */
+/*  All rights reserved.                                                        */
+/*  Redistribution and use in source and binary forms, with or without          */
+/*  modification, are permitted provided that the following conditions          */
+/*  are met:                                                                    */
+/*                                                                              */
+/*  * Redistributions of source code must retain the above copyright            */
+/*  notice, this list of conditions and the following disclaimer.               */
+/*                                                                              */
+/*  * Redistributions in binary form must reproduce the above                   */
+/*  copyright notice, this list of conditions and the following                 */
+/*  disclaimer in the documentation and/or other materials provided             */
+/*  with the distribution.                                                      */
+/*                                                                              */
+/*  * Neither the name of the Dept. of Materials, Imperial College London, nor  */
+/*  the names of its contributors may be used to endorse or promote products    */
+/*  derived from this software without specific prior written permission.       */
+/*                                                                              */
+/*  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS         */
+/*  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT           */
+/*  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR       */
+/*  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT        */
+/*  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,       */
+/*  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED    */
+/*  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR      */
+/*  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF      */
+/*  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING        */
+/*  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS          */
+/*  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.                */
+/********************************************************************************/
+/*END of LICENSE NOTICE*/
+
+/*RCS Id:$Id$*/
+#include <stdio.h>
+#include <math.h>
+#include <string.h>
+#include "blocks.h"
+#include "machine.h"
+#include "umat_matrix.h"
+#include "sb_diffuse.h"
+extern void sb_mould_src (BB_struct * bp, Solute_props * sp, int sbnum, CA_FLOAT * osol);
+extern CA_FLOAT get_dl (CA_FLOAT temp);
+extern CA_FLOAT get_ds (CA_FLOAT temp);
+extern CA_FLOAT getav_d (CA_FLOAT dl, CA_FLOAT ds, CA_FLOAT fs);
+extern CA_FLOAT cell_temp_calc_cc (BB_struct * bp, int sbnum, int x, int y);
+extern CA_FLOAT mould_src (BB_struct * bp, CA_FLOAT cell_temp, CA_FLOAT conc);
+extern CA_FLOAT const_mould_src (BB_struct * bp, CA_FLOAT cell_temp, CA_FLOAT conc, int i, int j, int k);
+extern CA_FLOAT perturb_mould_src (BB_struct * bp, CA_FLOAT cell_temp, CA_FLOAT conc, int i, int j, int k);
+
+
+
+/****************************************************************/
+/* sb_diffuse_alloy_decentred_poly.c                            */
+/* added by Ludovic THUINET on 01-02-05                         */
+/****************************************************************/
+
+int sb_diffuse_alloy_decentred_poly (BB_struct * bp, int sbnum)
+{
+  int errflg = 0, fileflag = 0, errors = 0;
+  int nx, ny, nz, skip;
+  static int wmess = 0, emess = 0, courant_messg = 0;
+  int *oni, *onip, *onend;
+  SB_struct *sp;
+  Ctrl_str *cp;
+  int i, j, k, n;
+
+/*THUINET 03/05*/
+  int isol;
+  int iphs, iphs_tot;
+  int ele_num, ele_1;
+
+/*END THUINET*/
+  CA_FLOAT **sol_alloy_values;
+  CA_FLOAT *ofs, *ocl, *oce, *nfs, *ncl, *nce;
+  CA_FLOAT dtx, r, rs, rl, rsrl;
+
+/*THUINET 04/05*/
+/* CA_FLOAT fstot, nbfs, fs_av, conc, nbconc, nbsum;*/
+  CA_FLOAT fstot;
+  CA_FLOAT conc, nbconc, nbsum;
+  CA_FLOAT fstot_poly[NPHAMAX], nbfs[NPHAMAX], fs_av[NPHAMAX];
+  CA_FLOAT *ofs_poly[NPHAMAX], *nfs_poly[NPHAMAX];
+  CA_FLOAT rs_poly[NPHAMAX][NSOLMAX], rl_poly[NSOLMAX];
+
+/*END THUINET 04/05*/
+
+  /*THUINET 18/02/05 */
+  CA_FLOAT *ncl_poly[NSOLMAX], *nce_poly[NSOLMAX], *ocl_poly[NSOLMAX], *oce_poly[NSOLMAX];
+  CA_FLOAT *nct;
+  CA_FLOAT tempK;
+
+  /*FIN THUINET 18/02/05 */
+
+  /*Check mass conservation */
+  CA_FLOAT c_avg[NSOLMAX];
+
+  /*End check */
+
+  nx = bp->nc[0];
+  ny = bp->nc[1];
+  nz = bp->nc[2];
+  skip = 2 * (nx + 2);
+
+  cp = bp->ctrl;
+
+  ele_num = cp->NUM_COMP;
+  ele_1 = ele_num - 1;
+
+/*THUINET 04/05*/
+  iphs_tot = cp->NUM_PHS;
+/*END THUINET*/
+
+/* set up local values and pointers */
+  sp = bp->sb[sbnum];
+  bp->cubeptr.curr = sbnum;
+
+  nct = sp->c_temp;
+  tempK = (*nct) + 273.0;
+
+/* set up local neighbourhood */
+/* use 6cell only for now     */
+  fstot = 0;
+  for (iphs = 0; iphs < iphs_tot; iphs++) {
+    fstot_poly[iphs] = 0;
+  }
+
+  nfs = sp->c_fs;
+  ofs = bp->ftmp_one;
+  ofs += bp->cubeptr.flist[0][START];
+
+  for (iphs = 0; iphs < iphs_tot; iphs++) {
+    nfs_poly[iphs] = sp->c_fs_poly[iphs];
+    ofs_poly[iphs] = bp->ftmp_one_poly[iphs];
+    ofs_poly[iphs] += bp->cubeptr.flist[0][START];
+  }
+
+  oni = bp->nbhd.onq;           /*padded */
+  onip = oni;
+  onend = oni + 6;
+
+  dtx = bp->delt / (bp->size_c[0] * bp->size_c[0]);     /* dt /dx^2 */
+
+  for (isol = 0; isol < ele_1; isol++) {        /*loop on solute elements *//*Ludovic THUINET 02-02-05 */
+
+    c_avg[isol] = 0;
+
+    ncl_poly[isol] = sp->c_sol_poly[isol];
+    nce_poly[isol] = sp->c_eqv_poly[isol];
+
+    ocl_poly[isol] = bp->ftmp_cl_poly[isol];
+    oce_poly[isol] = bp->ftmp_ce_poly[isol];
+
+    /* copy C_L, C_E to temporary buffers */
+    fcopy_matrix (PAD, ocl_poly[isol], ncl_poly[isol], bp, NULL, sbnum);        /*not work for multi-blocks */
+    fcopy_matrix (PAD, oce_poly[isol], nce_poly[isol], bp, NULL, sbnum);
+
+
+    /* add the source amount to the interface cells */
+    if (bp->ctrl->mould_src) {
+
+      sb_mould_src (bp, &(bp->mprops.alloyprops[isol]), sbnum, ocl_poly[isol]);
+
+    }
+
+    ocl_poly[isol] += bp->cubeptr.flist[0][START];
+    /*set up parameter values */
+
+  }
+
+  for (isol = 0; isol < ele_1; isol++) {
+    for (iphs = 0; iphs < iphs_tot; iphs++) {
+      rs_poly[iphs][isol] = (bp->mprops.alloyprops[isol].Dsol[iphs] * dtx);     /* D_S * dt /dx^2 */
+    }
+
+    rl_poly[isol] = (bp->mprops.alloyprops[isol].Dliq * dtx);   /* D_L * dt /dx^2 */
+    /*   rsrl = rs * rl; *//* precalc to save time in loop */
+
+    /* check courant stability */
+
+    for (iphs = 0; iphs < iphs_tot; iphs++) {
+
+      if (rs_poly[iphs][isol] > COURANT_LIMIT) {
+        if (courant_messg < MAX_WARN_MSG)
+          fprintf (stderr, "SB_DIFFUSE_ALLOY: WARNING: Possible instability by Courant criterion!\n Solid:%d,%1.2e\n", iphs,
+                   rs_poly[iphs][isol]);
+        courant_messg++;
+#ifdef ERROR_EXIT
+        if (courant_messg > WARN_EXIT_LIMIT) {
+          fprintf (stderr, "SB_DIFFUSE_ALLOY: ERROR_EXIT: Courant Stability warning limit exceeded. %i warnings.\n", courant_messg);
+          exit (courant_messg);
+        }
+#endif /*ERROR_EXIT */
+      }
+    }
+
+    if (rl_poly[isol] > COURANT_LIMIT) {
+      if (courant_messg < MAX_WARN_MSG)
+        fprintf (stderr, "SB_DIFFUSE_ALLOY: WARNING: Possible instability by Courant criterion!\n Liquid: %1.2e\n", rl_poly[isol]);
+      courant_messg++;
+#ifdef ERROR_EXIT
+      if (courant_messg > WARN_EXIT_LIMIT) {
+        fprintf (stderr, "SB_DIFFUSE_ALLOY: ERROR_EXIT: Courant Stability warning limit exceeded. %i warnings.\n", courant_messg);
+        exit (courant_messg);
+      }
+#endif /*ERROR_EXIT */
+    }
+
+  }
+
+   /************************************************/
+  /* now calculate the finite difference          */
+   /************************************************/
+  /* DIFFUSION LOOP                               */
+   /************************************************/
+  /* Run through all cells updating as needed.    */
+   /************************************************/
+
+  for (k = 0; k < nz; k++) {    /* loop cells in z direction */
+    for (j = 0; j < ny; j++) {  /* loop cells in y direction */
+      for (i = 0; i < nx; i++) {        /* loop cells in x direction */
+        /* skip cells that are not in the casting */
+        if (*ofs == NOT_CASTING) {
+        } else {
+
+          for (isol = 0; isol < ele_1; isol++) {
+            nbsum = 0;
+            conc = *(ocl_poly[isol]);
+            for (onip = oni; onip < onend; onip++) {
+              for (iphs = 0; iphs < iphs_tot; iphs++) {
+                nbfs[iphs] = *(ofs_poly[iphs] + *onip);
+
+                /* skip nb cells that are not in the casting */
+                  if (nbfs[iphs] == NOT_CASTING)
+                    continue;
+                  /* averaged frac solid */
+                  fs_av[iphs] = 0.5 * (*ofs_poly[iphs] + nbfs[iphs]);
+              }                 /*End loop on the solid phases */
+
+              /* Linear Averaged diff coeff */
+              r = rl_poly[isol];
+              for (iphs = 0; iphs < iphs_tot; iphs++) {
+                r += (rs_poly[iphs][isol] - rl_poly[isol]) * fs_av[iphs];
+              }
+
+              nbconc = *(ocl_poly[isol] + *onip);
+              nbsum += r * (nbconc - conc);
+            }                   /* end of neighbour sum loop */
+
+            *(nce_poly[isol]) += nbsum; /* increment of equivalent concentration */
+
+            if (*(nce_poly[isol]) < 0.) {
+              if (emess < MAX_ERR_MSG) {
+                fprintf (stderr, "ERROR:sb_diffuse_alloy_decentred:Instability C_E=%g I=%d J=%d K=%d\n", *nce_poly[isol], i, j, k);
+              }
+              emess++;
+            }
+
+          }                     /*End of solute loop */
+
+          fstot += *ofs;
+          for (iphs = 0; iphs < iphs_tot; iphs++) {
+            fstot_poly[iphs] += *ofs_poly[iphs];
+          }
+
+        }                       /* end of NOT_CASTING test */
+
+        for (isol = 0; isol < ele_1; isol++) {
+          c_avg[isol] += *(nce_poly[isol]) / bp->ncsb;
+        }
+
+        ofs++;
+
+        for (iphs = 0; iphs < iphs_tot; iphs++) {
+          ofs_poly[iphs]++;
+        }
+
+        for (isol = 0; isol < ele_1; isol++) {
+          ocl_poly[isol]++;
+          nce_poly[isol]++;
+        }
+
+      }                         /*x */
+
+      ofs += 2;
+      for (iphs = 0; iphs < iphs_tot; iphs++) {
+        ofs_poly[iphs] += 2;
+      }
+
+      for (isol = 0; isol < ele_1; isol++) {
+        ocl_poly[isol] += 2;
+      }
+
+    }                           /*y */
+
+    ofs += skip;
+    for (iphs = 0; iphs < iphs_tot; iphs++) {
+      ofs_poly[iphs] += skip;
+    }
+
+    for (isol = 0; isol < ele_1; isol++) {
+      ocl_poly[isol] += skip;
+    }
+
+  }                             /*z */
+
+  /*Check mass conservation by THUINET 10/05 */
+  /*fprintf(stderr,"C_avg 1=%g 2=%g\n",c_avg[0],c_avg[1]); */
+  /*End check */
+
+  sp->Tvals.fsavg = fstot / bp->ncsb;   /*fix up fraction solid */
+  return (errflg);
+
+}                               /* end of sb_diffuse_alloy_poly */
+/***************************************************/
+/* rcs id routine to include rcs id in the program */
+/* generated by make_rcs_sub.sh script             */
+/***************************************************/
+char const *rcs_id_sb_diffuse_alloy_decentred_poly_c ()
+{
+  static char const rcsid[] = "$Id$";
+
+  return (rcsid);
+}

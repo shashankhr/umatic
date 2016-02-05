@@ -1,0 +1,122 @@
+File List for CA Code 
+RCS ID:$Id$
+Log:$Log$
+Log:Revision 11.1  2006/03/01 18:20:39  rcatwood
+Log:Merging polycomponent and gas with meltback
+Log:
+Log:Revision 10.2  2005/12/01 14:38:01  rcatwood
+Log:Merged xly_05 changes into the main trunk
+Log:Primarily involving melt-back
+Log:
+Log:Revision 10.1.2.2  2005/11/23 18:18:53  rcatwood
+Log:Result of merging mould_source and xly meltback+curvature 2d versions
+Log:
+Log:Revision 10.1  2005/11/03 11:56:46  rcatwood
+Log:New version number -- using mould_src as base
+Log:
+Log:Revision 8.1.16.1  2005/11/02 11:12:09  rcatwood
+Log:Robert Atwood's mould source branch
+Log:
+Log:Revision 9.1  2003/08/14 14:38:35  rcatwood
+Log:Working merge with decentered/porosity/procast, also including
+Log:Ali Chirazi's multicomponent (not tested in this version)
+Log:
+Log:Revision 8.1  2002/10/17 17:01:01  rcatwood
+Log:New version number! for decentered/porosity merge! Alpha Version!
+Log:
+Log:Revision 4.0  1999/12/15 12:00:26  rcatwood
+Log:Updated to reflect file changes upon cleanup, multiblock,
+Log:and seperation of alloy and gas diffusion routines.
+Log:
+
+Makefile*  The makefile. Note that localrules is also needed to properly handle CWEB (.w) files, also
+            if 'tangling' the files manually you have to strip leading spaces for #directives (my STANGLE
+            script does this)
+bigblock.c* Initialise the big block structures.
+
+blocks.h*   Defines the bigblock and subblock structures.
+
+ca_solid.c* Output of stangle ca_solid.w
+ca_solid.w  The main subroutine called by ca_wrapper, calls initialisation,
+            calculation, and finish routines.
+            
+ca_wrapper.c* Calls the ca_solid routine in solo mode. 
+ca_matrix.h
+colour.h*    Defines the colour table for output images.
+constants.h
+
+cube.h*      Defines the lookup table for neighbour pointers.
+
+fcopymat.c*  Float version, copy a subblock array to/from padded space.
+fcopymat.w   CWEB source for above.
+
+fem.h*       Something to do with fininte element models.
+
+fidap.h*     Something to do with Fidap fluid flow/heat transger models.
+
+fidap_interp_calc.c* Calculate the temperature based on an input file.
+
+fidap_interp_init.c* Initialise the ??
+find_max.c   Contains the routine(s) for finding max values 
+find_max.h   Prototype for above functions, include in files that use find_max
+
+grain.h*    Defines the grain structure.
+
+icopymat.c* integer version - copy subblock array to/from padded space.
+icopymat.w  Cweb source for above.
+
+init_sb_neigh.c* Initialise the neighbour pointers for subblocks.
+
+initcube.c*  Initialise the lookup table for neighbours.
+initface.c*  Initialise the face-code for neigbhours of subblock faces.
+localrules   Required by Makefile, includes def. for clean and wfiles
+
+machine.h*   Initialise machine dependant things, also some constants still in here.
+
+matprops.h*  Set up the mprops structure.
+
+nbhd.h*      Define the neighbourhood structures.
+
+nbhd_def.c*  Define the allowed neighbourhoods.
+
+nucprops.h*  Define the nucleation props sturcture
+
+oriented.inc* Section to handle oriented grains.
+
+output.h*   Header to include with output routines
+output_ex.c* Write data to text files 
+output_img.c* Write data to image files
+pore.c       Routines for initialising and growing the pores.
+
+pore.h       Header requred by pore.c
+pore.w       Cweb source for pore.c
+prop_wrapper.c Wrapper for testing the property values.
+props.c     Subroutines to calculate properties (diff coeff, schiel, etc)
+
+props.w     Cweb source for above
+pull.inc*   The loop for 'pull' method (disused )
+read_cap_ca.c* Soubrutine for reading cap info.
+
+read_ctrl.c* Read the ca_ctrl.in or specified ctrl file
+read_ctrl.h* Header , defines ctrl structure
+readgeoplus.c* Read the ca_geoplus.in or specified geometry and time file.
+readgeoplus.h* Header, defines default values 
+readmat.c*     read ca_matprops.in or specified material file
+readmat.h*     header defines default values for mprops
+recr_extra.c   extra subroutines for recrystallization eg grain growth rule
+sb_boundary.c  find the boundary of grains in a subblock 
+sb_ca_step.c*  Perform a specified number of steps on a subblock (macro timestep)
+sb_ca_step.w   CWEB source for above
+sb_diffuse_alloy.c  FD Diffusion code for alloy component
+sb_diffuse_gas.c    FD Diffusion code for gas component
+sb_diffuse.h        Header for both of the above
+sb_nuc.c*           Nucleation of grains
+sb_temp_calc.c*     Find the temperature in a subblock
+solprops.h          Defins the solute sprops structure
+subblock.c*         initialise the subblock, loop to call sb_ca_step
+tcpl.h*             Header needed for thermocouple-type input
+temprops.h*         Defines the Tprops substructure
+thermo_trace_calc.c* routine for finding the temperature from a TC trace
+thermo_trace_init.c  Set up the lookup table for TC trace temperature
+writeblocks.h        Header to be included when the output (write_bb_etc) routines are used.
+

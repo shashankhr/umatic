@@ -1,0 +1,333 @@
+
+/****************************************************************/
+/*      Copyright (c) 1993 Peter D Lee                          */
+/*      Copyright (c) 1998 Dept. of Materials, ICSTM            */
+/*      All Rights Reserved                                     */
+/*      The copyright notice above does not evidence any        */
+/*      actual or intended publication of such source code,     */
+/*      and is an unpublished work by Dept. of Materials, ICSTM.*/
+/*      continuing D Phil work from University of Oxford        */
+/****************************************************************/
+/* This code is part of the umats routines developed at in the  */
+/* Materials Processing Group, Dept. of Materials, ICSTM.       */
+/*      email p.d.lee or r.atwood @imperial.ac.uk for details   */
+/****************************************************************/
+
+/********************************************************************************/
+/*  This version is distributed under a BSD style public license, as follows:   */
+/*                                                                              */
+/*  Copyright (c) 2007, Dept. of Materials, Imperial College London             */
+/*  All rights reserved.                                                        */
+/*  Redistribution and use in source and binary forms, with or without          */
+/*  modification, are permitted provided that the following conditions          */
+/*  are met:                                                                    */
+/*                                                                              */
+/*  * Redistributions of source code must retain the above copyright            */
+/*  notice, this list of conditions and the following disclaimer.               */
+/*                                                                              */
+/*  * Redistributions in binary form must reproduce the above                   */
+/*  copyright notice, this list of conditions and the following                 */
+/*  disclaimer in the documentation and/or other materials provided             */
+/*  with the distribution.                                                      */
+/*                                                                              */
+/*  * Neither the name of the Dept. of Materials, Imperial College London, nor  */
+/*  the names of its contributors may be used to endorse or promote products    */
+/*  derived from this software without specific prior written permission.       */
+/*                                                                              */
+/*  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS         */
+/*  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT           */
+/*  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR       */
+/*  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT        */
+/*  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,       */
+/*  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED    */
+/*  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR      */
+/*  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF      */
+/*  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING        */
+/*  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS          */
+/*  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.                */
+/********************************************************************************/
+/*END of LICENSE NOTICE*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include "machine.h"
+#include "nucprops.h"
+#include "nuc_lookup.h"
+
+#ifdef TEST_NUC_LOOKUP          /*Test MAIN procedure for nuc_lookup */
+#define N_TUND_BINS 1000
+#define TUND_MAX 10
+#define U_MAX 10
+#define N_U_BINS 100
+#define K_ONE 1e19
+#define N_NUC_FUNCS 5
+void main ()
+{
+  /*test main procedure for nuc_lookup */
+  Nuc_str nucleation, *np;
+  CA_FLOAT *nuc_table;
+  int unumber_ten;
+  int unumber_five;
+  int errors = 0;
+
+  unumber_ten = (int) FLOOR ((CA_FLOAT) (N_U_BINS) * (((CA_FLOAT) U_MAX) / ((CA_FLOAT) (10))));
+  unumber_five = (int) FLOOR ((CA_FLOAT) (N_U_BINS) * (((CA_FLOAT) U_MAX) / ((CA_FLOAT) (20))));
+
+  np = &nucleation;
+  np->gd_max = 1.0e-6;
+  np->NucParams[1] = 0.1;
+  np->NucParams[0] = 3.0;
+  np->nucdist.nuc_dist_func_type = 2;
+
+  errors += init_nuc_func_table (np);
+  errors += init_nuc_values (np);
+  errors += init_nuc_dist (np);
+  errors += init_nuc_lookup (np);
+  errors += output_nuc_lookup (np);
+
+}
+#endif /*TEST_NUC_LOOKUP */
+
+/**************************************************/
+/* Create the nuc distribuion function table.     */
+/* Set up the memory space and the identification */
+/* strigns for the available nucleaiton funcions. */
+/*                                                */
+/**************************************************/
+int init_nuc_func_table (Nuc_str * np)
+{
+  int errors = 0;
+  int i;
+
+  /* pointer to a list of pointers to functions */
+  /* This is a 'dispatch table' allowing selection */
+  /* by the software of which function to use,     */
+
+  CA_FLOAT (**N_f_t) (CA_FLOAT Unuc, CA_FLOAT p1, CA_FLOAT p2, CA_FLOAT p3);
+  /* array of the names of the funcitons, for output to the user */
+  char **N_f_id;
+
+  /* the table needs some space in memory */
+  N_f_t =
+    (CA_FLOAT (**)(CA_FLOAT, CA_FLOAT, CA_FLOAT, CA_FLOAT)) calloc (N_NUC_FUNCS,
+                                                                    sizeof (CA_FLOAT (*)(CA_FLOAT, CA_FLOAT, CA_FLOAT, CA_FLOAT)));
+  N_f_id = (char **) calloc (N_NUC_FUNCS, sizeof (char *));
+
+  for (i = 0; i < N_NUC_FUNCS; i++) {
+    *(N_f_id + i) = (char *) calloc (MAX_STRING_LEN, sizeof (char));
+  }
+
+  N_f_t[0] = nuc_func_square;
+  N_f_id[0] = "nuc_func_square";
+  N_f_t[1] = nuc_func_pow;
+  N_f_id[1] = "nuc_func_pow";
+  N_f_t[2] = nuc_func_norm;
+  N_f_id[2] = "nuc_func_norm";
+  N_f_t[3] = nuc_func_delta;
+  N_f_id[3] = "nuc_func_delta";
+  N_f_t[4] = nuc_func_step;
+  N_f_id[4] = "nuc_func_step";
+  N_f_t[5] = nuc_func_user;
+  N_f_id[5] = "nuc_func_user";
+  np->nucdist.Nuc_func_table = N_f_t;
+  np->nucdist.Nuc_func_id = N_f_id;
+
+  return (errors);
+}                               /*end of init_nuc_func_table */
+
+/*******************************************/
+/*                                         */
+/*                                         */
+/*                                         */
+/* Functions for the nuc-function table    */
+/*******************************************/
+#ifdef JUNK
+CA_FLOAT nuc_func_norm (CA_FLOAT Unuc, CA_FLOAT p1, CA_FLOAT p2, CA_FLOAT p3)
+{
+  CA_FLOAT result;
+
+  result = p2 * 1 / (p1 * SQRT (2.0 * 3.14159)) * EXP (-((Unuc - p3) * (Unuc - p3)) / (2 * p1 * p1));
+  return (result);
+}
+
+CA_FLOAT nuc_func_pow (CA_FLOAT Unuc, CA_FLOAT p1, CA_FLOAT p2, CA_FLOAT p3)
+{
+  CA_FLOAT result;
+
+  result = (Unuc > p1) ? p2 * POW ((Unuc - p1), p3) : 0;
+  return (result);
+}
+
+CA_FLOAT nuc_func_square (CA_FLOAT Unuc, CA_FLOAT p1, CA_FLOAT p2, CA_FLOAT p3)
+{
+  CA_FLOAT result;
+
+  result = (Unuc > p1) ? p2 * (Unuc - p1) * (Unuc - p1) : 0;
+  return (result);
+}
+#endif /*JUNK*/
+/*******************************************/
+/* Initialise the nuc distribution         */
+/* This contains the function for the      */
+/* distribution of nuc. activities as an   */
+/* analytical expression.                  */
+/*******************************************/
+int init_nuc_dist (Nuc_str * np)
+{
+  int errors = 0;
+  Nuc_dist_str *ndp;
+  int n_U_bins;
+  CA_FLOAT Unuc, binsize;
+  int i;
+  int function_number;
+  char *function_id;
+  FILE *Utable_file;
+
+  CA_FLOAT (*U_dist_func) (CA_FLOAT Unuc, CA_FLOAT p1, CA_FLOAT p2, CA_FLOAT p3);
+
+  ndp = &(np->nucdist);
+  Utable_file = fopen ("utable.csv", "w");
+  function_number = ndp->nuc_dist_func_type;
+  U_dist_func = ndp->Nuc_func_table[function_number];
+  function_id = ndp->Nuc_func_id[function_number];
+
+  fprintf (Utable_file, "Nucleation U distribution function used:,%s\n", function_id);
+  fprintf (Utable_file, "Parameters:,%.5g,%.5g,%.5g\n", np->NucParams[1], np->gd_max, np->NucParams[0]);
+
+  binsize = ndp->Unuc_incr;
+
+  n_U_bins = ndp->n_U_bins;
+  Unuc = 0;
+
+  for (i = 0; i < n_U_bins; i++) {
+    ndp->Number_U[i] = binsize * (*U_dist_func) (Unuc, np->NucParams[1], np->gd_max, np->NucParams[0]);
+
+/*       ndp->Number_U[i] = binsize * np->gd_max * Unuc * Unuc;*/
+/*       ndp->Number_U[i] = binsize * np->gd_max * 1/(np->NucParams[1] * SQRT(2.0*3.14159)) * EXP( - ((Unuc - np->NucParams[0] )*(Unuc - np->Tn)) / (2*np->Tsigma*np->Tsigma));*/
+/*         ndp->Number_U[i] = (Unuc > np->NucParams[1])?binsize * np->gd_max * (Unuc - np->Tsigma) * (Unuc - np->Tsigma):0;*/
+/*         ndp->Number_U[i] = (Unuc > np->NucParams[1])?binsize * np->gd_max * POW((Unuc - np->Tsigma),np->NucParams[0]) :0;*/
+/*         ndp->Number_U[i] = (i==10 || i==2)?np->gd_max :0;*/
+#ifdef TEST_NUC_LOOKUP
+    fprintf (stderr, "%i,%.5g,%.5g\n", i, Unuc, ndp->Number_U[i]);
+#endif /*TEST_NUC_LOOKUP */
+    fprintf (Utable_file, "%i,%.5g,%.5g\n", i, Unuc, ndp->Number_U[i]);
+    Unuc += binsize;
+  }
+
+  fclose (Utable_file);
+  return (errors);
+}                               /*end of init_nuc_dist */
+
+/*******************************************/
+/* Ouput the lookup table                  */
+/*******************************************/
+int output_nuc_lookup (Nuc_str * np)
+{
+  int i, errors = 0;
+  FILE *outfile;
+  CA_FLOAT *nuc_table;
+  char outfilename[25];
+
+  nuc_table = np->nucdist.Nuctable;
+
+  sprintf (outfilename, "%s", "nuctable.csv");
+  outfile = fopen (outfilename, "w");
+
+  for (i = 0; i < np->nucdist.n_Tund_bins; i++) {
+#ifdef TEST_NUC_LOOKUP
+    fprintf (stderr, "%i,%.5g\n", i, nuc_table[i]);
+#endif /*TEST_NUC_LOOKUP */
+    fprintf (outfile, "%i,%g \n", i, nuc_table[i]);
+  }
+  fclose (outfile);
+  return (errors);
+}                               /*end of output_nuc_lookup */
+
+/*******************************************/
+/*         Initialise the nuc lookup table */
+/*         arrays and so forth.            */
+/*******************************************/
+int init_nuc_values (Nuc_str * np)
+{
+  Nuc_dist_str *ndp;
+  int errors = 0;
+
+  ndp = &(np->nucdist);
+
+  ndp->n_U_bins = N_U_BINS;
+  ndp->n_Tund_bins = N_TUND_BINS;
+  ndp->Unuc_incr = U_MAX / (CA_FLOAT) ndp->n_U_bins;
+  ndp->Tund_incr = TUND_MAX / (CA_FLOAT) ndp->n_Tund_bins;
+  ndp->Tund_factor = (CA_FLOAT) ndp->n_Tund_bins / TUND_MAX;
+  ndp->Nuctable = (CA_FLOAT *) calloc (ndp->n_Tund_bins + 1, sizeof (CA_FLOAT));
+  ndp->Number_U = (CA_FLOAT *) calloc (ndp->n_U_bins + 1, sizeof (CA_FLOAT));
+
+  return (errors);
+}
+
+/*******************************************/
+/* Create the lookup table.                */
+/*******************************************/
+int init_nuc_lookup (Nuc_str * np)
+{
+  /*Create a lookup table based on distribution nucleation model */
+
+  CA_FLOAT *numb_U, *nuc_table;
+  int i, j, errors = 0;
+  CA_FLOAT Unuc, Tund, Tund_incr, Unuc_incr, n_U_bins, n_Tund_bins;
+
+  nuc_table = np->nucdist.Nuctable;
+  Tund = 0;
+  Unuc = 0;
+  numb_U = np->nucdist.Number_U;
+
+  n_U_bins = np->nucdist.n_U_bins;
+  Unuc_incr = np->nucdist.Unuc_incr;
+
+  n_Tund_bins = np->nucdist.n_Tund_bins;
+  Tund_incr = np->nucdist.Tund_incr;
+
+  for (i = 0; i < n_Tund_bins; i++) {
+    Unuc = 0;
+    for (j = 0; j < n_U_bins; j++) {
+      nuc_table[i] += numb_U[j] * nuc_function (Tund, Unuc);
+      Unuc += Unuc_incr;
+    }
+#ifdef TEST_NUC_LOOKUP
+    fprintf (stderr, "%i,%.5g,%.5g\n", i, Tund, nuc_table[i]);
+#endif /*TEST_NUC_LOOKUP */
+    Tund += Tund_incr;
+  }
+
+  return (errors);
+}                               /*end of init_nuc_lookup */
+
+#ifdef JUNK
+/*******************************************/
+/* Classical Nucleation Function of U,Tund */
+/*******************************************/
+CA_FLOAT nuc_function (CA_FLOAT Tund, CA_FLOAT Unuc)
+{
+
+  CA_FLOAT result;
+
+  if (Tund <= 0)
+    result = 0;
+  else
+    result = K_ONE * EXP (-Unuc / (Tund * Tund));
+  return (result);
+}
+
+#endif /*JUNK*/
+/* Little subroutine to get rcs id into the object code */
+/* so you can use ident on the compiled program  */
+/* also you can call this to print out or include the rcs id in a file */
+char const *rcs_id_nuc_lookup_c ()
+{
+  static char const rcsid[] = "$Id$";
+
+  return (rcsid);
+}
+
+/* end of rcs_id_subroutine */

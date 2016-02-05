@@ -1,0 +1,797 @@
+
+/****************************************************************/
+/*      Copyright (c) 1993 Peter D Lee                          */
+/*      Copyright (c) 1998 Dept. of Materials, ICSTM            */
+/*      All Rights Reserved                                     */
+/*      The copyright notice above does not evidence any        */
+/*      actual or intended publication of such source code,     */
+/*      and is an unpublished work by Dept. of Materials, ICSTM.*/
+/*      continuing D Phil work from University of Oxford        */
+/****************************************************************/
+/* This code is part of the umats routines developed at in the  */
+/* Materials Processing Group, Dept. of Materials, ICSTM.       */
+/*      email p.d.lee or r.atwood @imperial.ac.uk for details   */
+/****************************************************************/
+
+/********************************************************************************/
+/*  This version is distributed under a BSD style public license, as follows:   */
+/*                                                                              */
+/*  Copyright (c) 2007, Dept. of Materials, Imperial College London             */
+/*  All rights reserved.                                                        */
+/*  Redistribution and use in source and binary forms, with or without          */
+/*  modification, are permitted provided that the following conditions          */
+/*  are met:                                                                    */
+/*                                                                              */
+/*  * Redistributions of source code must retain the above copyright            */
+/*  notice, this list of conditions and the following disclaimer.               */
+/*                                                                              */
+/*  * Redistributions in binary form must reproduce the above                   */
+/*  copyright notice, this list of conditions and the following                 */
+/*  disclaimer in the documentation and/or other materials provided             */
+/*  with the distribution.                                                      */
+/*                                                                              */
+/*  * Neither the name of the Dept. of Materials, Imperial College London, nor  */
+/*  the names of its contributors may be used to endorse or promote products    */
+/*  derived from this software without specific prior written permission.       */
+/*                                                                              */
+/*  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS         */
+/*  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT           */
+/*  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR       */
+/*  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT        */
+/*  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,       */
+/*  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED    */
+/*  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR      */
+/*  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF      */
+/*  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING        */
+/*  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS          */
+/*  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.                */
+/********************************************************************************/
+/*END of LICENSE NOTICE*/
+
+/****************************************************************/
+/* READ_MAT.C:   (Part of CA code)                              */
+/* Subroutine to read the material properties from a file.      */
+/* The file is formated, using the style:                       */
+/*    # as first character:     Comment                         */
+/* and values are input in the format:                          */
+/*    command value  #comments                                  */
+/****************************************************************/
+/****************************************************************/
+/* Written by Peter D. Lee & Robert C. Atwood, Imperial College */
+/* Jul 1, 1998                                                  */
+/****************************************************************/
+
+/****************************************************************/
+/* Versions maintained with CVS                                 */
+/* see log at end of file ***************************************/
+/****************************************************************/
+/*RCS id $Id: readmat.c 1373 2008-08-27 20:51:52Z  $*/
+
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include "machine.h"
+#include "read_ctrl.h"
+#include "readmat.h"
+#include "blocks.h"
+#include "gaussdev.h"
+#include "rand_step.h"
+#include "rand_square.h"
+#include "solprops_reader.h"
+#include "solprops_writer.h"
+extern int olderrct;
+extern void olderror(char * txt, const char * callfunc);
+
+extern void calc_solprops_poly(BB_struct * bp, Mat_str *mp, Solute_props *sp,int tp_flag, int ieq_tot); 
+
+void calc_solprops(BB_struct *bp,Mat_str *mp, Solute_props *sp,int tp_flag){
+  /* Subroutine to calculate additional derived properties used to simplify and speed up */
+  /* calculations for BINARY alloy and gas solutes. */
+  sp->km = (1 - sp->part_coef[0]);
+  sp->kminv = 1 / (sp->km);
+  /** \todo: major revision of the pre-calculation of phase diagram -- URGENT*/
+
+  fprintf (stderr, "\n\nNOTE: Linear Binary Phase Diagram: Calculating...\n");
+  if ((tp_flag == 1))  {
+    mp->Tliq = mp->tp + (sp->m_solute[0]) * (sp->Cinit);
+    fprintf (stderr, "T_pure specified, OVERRIDING liquidus\n");
+    fprintf (stderr, "Liquidus Temperature Tliq = %.6g\n", mp->Tliq);
+  } else {
+    mp->tp = mp->Tliq - (sp->m_solute[0]) * (sp->Cinit);
+    fprintf (stderr, "T_pure not specified, calculating..\n");
+    fprintf (stderr, "Reference Temperature Tp = %.6g\n", mp->tp);
+  }
+  
+    /** \todo : Apply only for single-alloy solute case */
+    sp->c_eut = sp->Cinit + (sp->T_eut - mp->Tliq) / (sp->m_solute[0]);
+    fprintf (stderr, "c_eut .... calculating...\n");
+    fprintf (stderr, "Eutectic Concentration = %.6g\n", sp->c_eut);
+ 
+  sp->Fs_eut = (sp->c_eut - sp->Cinit) / ((1 - sp->part_coef[0]) * sp->c_eut);
+
+  if (sp->Fs_eut > 1.0)
+    sp->Fs_eut = 1.0;
+
+  sp->m_inv_solute = 1 / (sp->m_solute[0]);
+
+  fprintf (stderr, "Fraction Solid at Eutectic Fs_eut = %.6g\n", sp->Fs_eut);
+  fprintf (stderr, "\n\n");
+}/* end of calc_solprops */
+
+   /*********************************************************/
+   /* Set all the default values... see matprop.h           */
+   /*********************************************************/
+void set_mat_defaults (Mat_str * mp)
+{
+  mp->Tliq = D_TLIQ;
+  mp->Tsol = D_TSOL;
+  mp->latentH = D_LATENTH;
+  mp->rho = D_RHO;
+  mp->cp = D_CP;
+  mp->CA_Q = D_Q;
+  mp->surf_tens = D_SURF_TENS;
+  mp->gibbs_thomson = D_GIBBS_THOMSON;
+  mp->gg_const = D_GG_CONST;
+  mp->gg_cub = D_GG_CUB;
+  mp->das_factor = 1.0;
+}
+
+void set_solute_defaults (Solute_props * sp)
+{
+  sp->Cinit = D_CINIT;
+  sp->mould_src = 0;
+}
+
+void set_nuc_defaults (Nuc_str * np)
+{
+  /* from nucprop.h */
+  np->gd_max_total = D_GD_MAX_TOTAL;
+  np->ngr = 0;
+  np->gd_max = D_GD_MAX;
+  np->gd_max_surf = D_GD_MAX;
+  np->NucParams[0] = D_TN;
+  np->NucParams[1] = D_TSIGMA;
+  np->nmodel = D_NUC_MODEL;
+  np->nhet = 0;
+  np->nareanuc = 0;
+  np->oriented = FALSE;
+  np->perturb_on = FALSE;
+  np->n_perturb = 0;
+  np->nucdist.nuc_dist_func_type = 0;
+
+  /* np->rand_function = rand_two_square; */
+  /*function pointer defined in header file */
+  np->rand_function = gaussdev;
+}
+
+int read_matprop_vals (Ctrl_str * cp, BB_struct * bp)
+{
+  char line[MAX_STRING_LEN];
+  char *token;
+  char *sep;
+  int i, itmp, n, pow_flag = 0;
+  int tp_flag = 0, ce_flag = 0;
+  int rflag = 0;
+  int error = FALSE;
+  int ele_1;
+
+/*for multiphase solidification THUINET 04/05*/
+  int ieq, ieq_tot, iphs, iphs_tot, inuc_law, inuc_law_tot;
+
+/*END THUINET 04/05*/
+  Mat_str *mp;
+  MultiS_struct *ms;
+  Nuc_str *np;
+  P_str *pp;
+
+  sep = strdup (" ,;\t\n\r");
+
+  pp = &(bp->pprops);
+  mp = &(bp->mprops);
+  np = &(bp->nprops);
+  ele_1 = cp->NUM_COMP - 1;
+  ieq_tot = cp->NUM_EQ;
+  iphs_tot = cp->NUM_PHS;
+  inuc_law_tot = cp->NUM_NUC_LAW;
+
+   /*********************************************************/
+  /* Open the file                                         */
+   /*********************************************************/
+  if ((cp->fd_mat = fopen (cp->fn_mat, "r")) == NULL) {
+    fprintf (stderr, "Error: can't open input file [%s]\n", cp->fn_mat);
+    exit (0);
+  }
+
+  while (fgets (line, MAX_STRING_LEN, cp->fd_mat) != NULL) {
+    /* ignore comment and blank lines */
+    if (line[0] == '%' || line[0] == '#' || (token = strtok (line, sep)) == NULL) {
+      continue;
+
+      /*********************************************************/
+      /* All values in the matprops structure                  */
+      /*********************************************************/
+      /* LiquidusTemp */
+    } else if (strcasecmp (token, "LiquidusTemp") == 0) {
+      if ((token = strtok (NULL, sep)) != NULL) {
+        mp->Tliq = atof (token);
+      }
+      /* SolidusTemp */
+    } else if (strcasecmp (token, "SolidusTemp") == 0) {
+      if ((token = strtok (NULL, sep)) != NULL)
+        mp->Tsol = atof (token);
+      /* pure temperature */
+    } else if (strcasecmp (token, "T_pure") == 0) {
+
+      tp_flag = 1;
+
+      if ((token = strtok (NULL, sep)) != NULL)
+        mp->tp = atof (token);
+
+      /* LatentHeat */
+    } else if (strcasecmp (token, "LatentHeat") == 0) {
+      if ((token = strtok (NULL, sep)) != NULL)
+        mp->latentH = atof (token);
+      /* Density */
+    } else if (strcasecmp (token, "Density") == 0) {
+      if ((token = strtok (NULL, sep)) != NULL)
+        mp->rho = atof (token);
+      /* HeatCapcity */
+    } else if (strcasecmp (token, "HeatCapcity") == 0) {
+      if ((token = strtok (NULL, sep)) != NULL)
+        mp->cp = atof (token);
+#ifdef HEAT_FLUX_SURF
+      /* surface HeatFlux if defined */
+    } else if (strcasecmp (token, "HeatFluxSurf") == 0) {
+      if ((token = strtok (NULL, sep)) != NULL)
+        mp->CA_Q = atof (token);
+#else
+      /* volume HeatFlux */
+    } else if (strcasecmp (token, "HeatFluxVol") == 0) {
+      if ((token = strtok (NULL, sep)) != NULL)
+        mp->CA_Q = atof (token);
+
+#endif /*HEAT_FLUX_SURF */
+    /* SurfaceTension */
+    } else if (strcasecmp (token, "SurfaceTension") == 0) {
+      if ((token = strtok (NULL, sep)) != NULL) {
+        mp->surf_tens = atof (token);
+      }
+    /* Gibbs-Thomson */
+    } else if (strcasecmp (token, "Gibbs_Thomson") == 0) {
+      if ((token = strtok (NULL, sep)) != NULL) 
+        mp->gibbs_thomson = atof (token);
+      /* GG_Constant */
+    } else if (strcasecmp (token, "GG_Constant") == 0) {
+      if ((token = strtok (NULL, sep)) != NULL)
+        mp->gg_const = atof (token);
+      /* GG_Cubic coeff */
+    } else if (strcasecmp (token, "GG_Cub") == 0) {
+      if ((token = strtok (NULL, sep)) != NULL)
+        mp->gg_cub = atof (token);
+      /* DAS geometric factor */
+    } else if (strcasecmp (token, "das_factor") == 0) {
+      if ((token = strtok (NULL, sep)) != NULL)
+        mp->das_factor = atof (token);
+/**************************************************/
+/*                                                */
+/*  Gas solute information                        */
+/*  ERROR IF OLD KEYWORDS ARE USED                */
+/**************************************************/
+      /* InitialConc Gas CA_FLOAT */
+    } else if ((strcasecmp (token, "InitialConcGas") == 0) ||
+               /* InitialConc Gas , alternate key CA_FLOAT */
+               (strcasecmp (token, "InitialConc") == 0)) {
+        olderror(token,__func__);
+      /* Dliq */
+    } else if (strcasecmp (token, "Dliq") == 0) {
+        olderror(token,__func__);
+      /* Dsol */
+    } else if (strcasecmp (token, "Dsol") == 0) {
+        olderror(token,__func__);
+      /* part_coef */
+    } else if (strcasecmp (token, "part_coef") == 0) {
+        olderror(token,__func__);
+      /* Mould_Source_Gas  type of source */
+    } else if (strcasecmp (token, "MouldSourceGas") == 0) {
+        olderror(token,__func__);
+      /* Mould_Source_Value_Gas  strength of source */
+    } else if (strcasecmp (token, "MouldSourceValueGas") == 0) {
+        olderror(token,__func__);
+
+    } else if (strcasecmp (token, "DoLiqGas") == 0) {
+        olderror(token,__func__);
+    } else if (strcasecmp (token, "QaLiqGas") == 0) {
+        olderror(token,__func__);
+    } else if (strcasecmp (token, "DoSolGas") == 0) {
+        olderror(token,__func__);
+    } else if (strcasecmp (token, "QaSolGas") == 0) {
+        olderror(token,__func__);
+/**************************************************/
+/*                                                */
+/*  Alloy solute information                      */
+/*                                                */
+/**************************************************/
+      /* InitialConc CA_FLOAT */
+    } else if (strcasecmp (token, "InitialConcAlloy") == 0) {
+      if ((token = strtok (NULL, sep)) != NULL)
+        mp->alloyprops[0].Cinit = atof (token);
+    } else if (strcasecmp (token, "t_purePoly") == 0) {
+      tp_flag = 1;
+      for (ieq = 0; ieq < ieq_tot; ieq++) {
+        if ((token = strtok (NULL, sep)) != NULL) {
+          mp->tp_poly[ieq] = atof (token);
+        }
+      }
+
+      /*********************************************************/
+      /* All values in the nucprops structure                  */
+      /*********************************************************/
+      /* MaxTotGrains int */
+    } else if (strcasecmp (token, "MaxTotGrains") == 0) {
+      if ((token = strtok (NULL, sep)) != NULL) {
+        itmp = atoi (token);
+        if (itmp > 0)
+          np->gd_max_total = itmp;
+      }
+      /* NucModel 1/2/3/4/5/6 - 1 Rappaz, 2 Het. 3 dist. */
+    } else if (strcasecmp (token, "NucModel") == 0) {
+      if ((token = strtok (NULL, sep)) != NULL) {
+        itmp = atoi (token);
+        if (itmp > 0 && itmp < N_NUC_MODELS)
+          np->nmodel = itmp;
+        if (np->nmodel == N_BLOCK)
+          cp->block_nuc = TRUE;
+      }
+      /* Surface MaxGrainDensity */
+      /* changing the keyword, keeping old inconsistent one for now */
+    } else if (strcasecmp (token, "Gd_Max_Surf") == 0 ||        /* oldkeyword */
+               strcasecmp (token, "MaxGrainDensitySurf") == 0) {        /* newkeyword */
+      if ((token = strtok (NULL, sep)) != NULL)
+        np->gd_max_surf = atof (token);
+      /* NucDistFunc */
+      /* MaxGrainDensity */
+    } else if (strcasecmp (token, "MaxGrainDensity") == 0) {
+      if ((token = strtok (NULL, sep)) != NULL)
+        np->gd_max = atof (token);
+      /* NucDistFunc */
+    } else if (strcasecmp (token, "NucDistFunc") == 0) {
+      if ((token = strtok (NULL, sep)) != NULL) {
+        np->nucdist.nuc_dist_func_type = atoi (token);
+      }
+      /* GNGaussCentreSurf */
+    } else if (strcasecmp (token, "GNGaussCentreSurf") == 0) {
+      if ((token = strtok (NULL, sep)) != NULL)
+        np->NucParamsSurf[0] = atof (token);
+      /* GNGaussSigmaSurf */
+    } else if (strcasecmp (token, "GNGaussSigmaSurf") == 0) {
+      if ((token = strtok (NULL, sep)) != NULL)
+        np->NucParamsSurf[1] = atof (token);
+      /* GNGaussCentre */
+    } else if (strcasecmp (token, "GNGaussCentre") == 0) {
+      if ((token = strtok (NULL, sep)) != NULL)
+        np->NucParams[0] = atof (token);
+      /* GNGaussSigma */
+    } else if (strcasecmp (token, "GNGaussSigma") == 0) {
+      if ((token = strtok (NULL, sep)) != NULL)
+        np->NucParams[1] = atof (token);
+      /* GNParam2 */
+    } else if (strcasecmp (token, "GNParam2") == 0) {
+      if ((token = strtok (NULL, sep)) != NULL) {
+        np->NucParams[2] = atof (token);
+        pow_flag = TRUE;
+      }
+      /* GNParam2 */
+    } else if (strcasecmp (token, "GNParam3") == 0) {
+      if ((token = strtok (NULL, sep)) != NULL)
+        np->NucParams[3] = atof (token);
+      /* Oriented Grain Growth */
+    } else if (strcasecmp (token, "GNOriented") == 0) {
+      if ((token = strtok (NULL, sep)) != NULL)
+        np->oriented = atoi (token);
+
+/*Values relative to the nucleation of the solid phases in multiphase system */
+/*by THUINET 04/05*/
+
+      /* MaxGrainDensity */
+    } else if (strcasecmp (token, "MaxGrainDensityPoly") == 0) {
+      for (inuc_law = 0; inuc_law < inuc_law_tot; inuc_law++) {
+        if ((token = strtok (NULL, sep)) != NULL)
+          np->gd_max_poly[inuc_law] = atof (token);
+      }
+      /* GNGaussCentre */
+    } else if (strcasecmp (token, "GNGaussCentrePoly") == 0) {
+      for (inuc_law = 0; inuc_law < inuc_law_tot; inuc_law++) {
+        if ((token = strtok (NULL, sep)) != NULL)
+          np->NucParams_poly[inuc_law][0] = atof (token);
+      }
+      /* GNGaussSigma */
+    } else if (strcasecmp (token, "GNGaussSigmaPoly") == 0) {
+      for (inuc_law = 0; inuc_law < inuc_law_tot; inuc_law++) {
+        if ((token = strtok (NULL, sep)) != NULL)
+          np->NucParams_poly[inuc_law][1] = atof (token);
+      }
+
+/*END THUINET 03/05*/
+
+      /*********************************************************/
+      /* Porosity Values                                       */
+      /*********************************************************/
+      /*Pore nuc method */
+    } else if (strcasecmp (token, "PnucMethod") == 0) {
+      if ((token = strtok (NULL, sep)) != NULL)
+        pp->P_nmeth = atoi (token);
+      /*Pore global limit radius */
+    } else if (strcasecmp (token, "P_limrad_perturb") == 0) {
+      if ((token = strtok (NULL, sep)) != NULL)
+        pp->P_limrad_perturb = atof (token);
+      /*Pore nuc user par1 */
+    } else if (strcasecmp (token, "P_par1") == 0) {
+      if ((token = strtok (NULL, sep)) != NULL)
+        pp->P_par1 = atof (token);
+      /*Pore nuc user par2 */
+    } else if (strcasecmp (token, "P_par2") == 0) {
+      if ((token = strtok (NULL, sep)) != NULL)
+        pp->P_par2 = atof (token);
+      /*Pore nuc gauss sigma */
+    } else if (strcasecmp (token, "PGaussSigma") == 0) {
+      if ((token = strtok (NULL, sep)) != NULL)
+        pp->P_tsig = atof (token);
+      /*Pore nuc gauss center */
+    } else if (strcasecmp (token, "PGaussCentre") == 0) {
+      if ((token = strtok (NULL, sep)) != NULL)
+        pp->P_tn = atof (token);
+      /*Pore nuc max dens */
+    } else if (strcasecmp (token, "PMaxDensity") == 0) {
+      if ((token = strtok (NULL, sep)) != NULL)
+        pp->P_nmax = atof (token);
+      /*Pore nuc binsize */
+    } else if (strcasecmp (token, "PBinSize") == 0) {
+      if ((token = strtok (NULL, sep)) != NULL)
+        pp->Binsize = atof (token);
+      /*********************************************************/
+      /* All values for heterogenious nucleation               */
+      /*********************************************************/
+      /* Species Nmax A rad B */
+    } else if (strcasecmp (token, "Species") == 0) {
+      error = FALSE;
+      i = np->nhet;
+      /* initialise values in Nucleus_str i */
+      np->nuc[i].fin = FALSE;
+      np->nuc[i].Nrate = np->nuc[i].Nmax = np->nuc[i].Ntot = 0.0;
+
+      if ((token = strtok (NULL, sep)) != NULL)
+        np->nuc[i].Nmax = atof (token);
+      else
+        error = TRUE;
+      if ((token = strtok (NULL, sep)) != NULL)
+        np->nuc[i].CA_A = atof (token);
+      else
+        error = TRUE;
+      if ((token = strtok (NULL, sep)) != NULL)
+        np->nuc[i].rad = atof (token);
+      else
+        error = TRUE;
+      if ((token = strtok (NULL, sep)) != NULL)
+        np->nuc[i].B = atof (token);
+      else
+        error = TRUE;
+
+      if (error) {
+        rflag++;
+        fprintf (stderr, "Error: Species, must have four values: Nmax A rad B.\n");
+      } else {
+        np->nhet += 1;
+        if (np->nhet == MAX_NSP) {
+          fprintf (stderr, "Error: Species, Maximum # of Species exceeded.\n");
+          np->nhet = MAX_NSP - 1;
+        }
+      }
+
+      /*********************************************************/
+      /* All values for heterogenious nucleation               */
+      /*********************************************************/
+      /* NucArea dens (f) sbnum(i) llc_x(i) llc_y(i) llc_z(i) urc_x(i) urc_y(i) urc_z(i) */
+    } else if (strcasecmp (token, "NucArea") == 0) {
+      error = FALSE;
+      n = np->nareanuc;
+
+      if ((token = strtok (NULL, sep)) != NULL)
+        np->nap[n].dens = atof (token);
+      else
+        error = TRUE;
+      if ((token = strtok (NULL, sep)) != NULL) {
+        np->nap[n].sbnum = atoi (token);
+        if (np->nap[n].sbnum > (bp->ntsb - 1)) {
+          fprintf (stderr, "ERROR: NucArea, sbnum out of range [%d]\n", np->nap[n].sbnum);
+          np->nap[n].sbnum = bp->ntsb - 1;
+        }
+      } else
+        error = TRUE;
+      for (i = 0; i < 3; i++) {
+        if ((token = strtok (NULL, sep)) != NULL) {
+          np->nap[n].lleft[i] = atoi (token);
+          if ((np->nap[n].lleft[i] < 0) || (np->nap[n].lleft[i] > (bp->nc[i] - 1))) {
+            fprintf (stderr, "ERROR: NucArea, cell out of range [%d]\n", np->nap[n].lleft[i]);
+            np->nap[n].lleft[i] = 0;
+          }
+        } else {
+          np->nap[n].lleft[i] = 0;
+          error = TRUE;
+          fprintf (stderr, "Error: NucArea, default lleft value used: %d.\n", np->nap[n].lleft[i]);
+        }
+      }
+      for (i = 0; i < 3; i++) {
+        if ((token = strtok (NULL, sep)) != NULL) {
+          np->nap[n].uright[i] = atoi (token);
+          if ((np->nap[n].uright[i] < 0) || (np->nap[n].uright[i] > (bp->nc[i] - 1))
+              || np->nap[n].uright[i] < np->nap[n].lleft[i]) {
+            fprintf (stderr, "ERROR: NucArea, cell out of range [%d]\n", np->nap[n].uright[i]);
+            np->nap[n].uright[i] = np->nap[n].lleft[i];
+          }
+        } else {
+          np->nap[n].uright[i] = 0;
+          error = TRUE;
+          fprintf (stderr, "Error: NucArea, default uright value used: %d.\n", np->nap[n].uright[i]);
+        }
+      }
+
+      if (error) {
+        rflag++;
+        fprintf (stderr,
+                 "Error: NucArea, must have 8 values: dens (f) sbnum(i) llc_x(i) llc_y(i) llc_z(i) urc_x(i) urc_y(i) urc_z(i).\n");
+      } else {
+        np->nareanuc += 1;
+        if (np->nareanuc == MAX_NUCAREA) {
+          fprintf (stderr, "Error: NucArea, Maximum # of areas exceeded.\n");
+          np->nareanuc = MAX_NUCAREA - 1;
+        }
+      }
+
+      /*********************************************************/
+      /* Tree ring structure test !                            */
+      /*********************************************************/
+      /* NucPerturb mag(f) time_s(f) dtime(f) */
+    } else if (strcasecmp (token, "NucPerturb") == 0) {
+      error = FALSE;
+      if (np->n_perturb < MAX_NUC_PERTURB) {
+        for (i = 0; i < NUC_PERTURB_F; i++) {
+          if ((token = strtok (NULL, sep)) != NULL) {
+            np->perturb[np->n_perturb].v_f[i] = atof (token);
+          } else {
+            rflag++;
+            error = TRUE;
+            fprintf (stderr, "Error: NucPerturb, must have 3 params.\n");
+          }
+        }
+        if (!error) {
+          np->perturb_on = TRUE;
+          np->n_perturb++;
+        }
+      } else {                  /* exceeded MAX_NUC_PERTURB */
+        fprintf (stderr, "Error: NucPerturb, exceed Max: %d perturbations.\n", MAX_NUC_PERTURB);
+      }
+
+/*********************************************************/
+/*                                                       */
+/*     multi-component system (L. THUINET 04-02-05)      */
+/*                                                       */
+/*********************************************************/
+
+    } else if (cp->diffuse_alloy_poly) {
+      if (strcasecmp (token, "stoechio") == 0) {
+        if ((token = strtok(NULL, sep)) != NULL)
+          mp->stoechio = atoi (token);
+      }
+
+      if (strcasecmp (token, "TliquidusPoly") == 0) {
+        for (ieq = 0; ieq < ieq_tot; ieq++) {
+          if ((token = strtok (NULL, sep)) != NULL) {
+            mp->Tliq_poly[ieq] = atof (token);
+          }
+        }
+
+        /* InitialConc for multi component alloy CA_FLOAT */
+      }
+      if (strcasecmp (token, "NominalPolyConc") == 0) {
+        for (i = 0; i < ele_1; i++) {
+          if ((token = strtok (NULL, sep)) != NULL) {
+            mp->alloyprops[i].Cinit = atof (token);
+          }
+        }
+
+        /* slopes for multi component alloy CA_FLOAT */
+      } else if (strcmp (token, "SlopePoly") == 0) {
+        for (ieq = 0; ieq < ieq_tot; ieq++) {
+          for (i = 0; i < ele_1; i++) {
+            if ((token = strtok (NULL, sep)) != NULL) {
+              mp->alloyprops[i].m_solute[ieq] = atof (token);
+            }
+
+          }
+
+        }
+
+        /*LiqDiff  for multi component alloy CA_FLOAT */
+      } else if (strcmp (token, "LiqDiffPoly") == 0) {
+        for (i = 0; i < ele_1; i++) {
+          if ((token = strtok (NULL, sep)) != NULL) {
+            mp->alloyprops[i].Dliq = atof (token);
+          }
+        }
+
+        /* SolDiff for multi component alloy CA_FLOAT */
+      } else if (strcasecmp (token, "SolDiffPoly") == 0) {
+        for (iphs = 0; iphs < iphs_tot; iphs++) {
+          for (i = 0; i < ele_1; i++) {
+            if ((token = strtok (NULL, sep)) != NULL) {
+              mp->alloyprops[i].Dsol[iphs] = atof (token);
+            }
+          }
+        }
+
+        /* PartCoef for multi component alloy CA_FLOAT */
+      } else if (strcasecmp (token, "PartCoefPoly") == 0) {
+        for (iphs = 0; iphs < iphs_tot; iphs++) {
+          for (i = 0; i < ele_1; i++) {
+            if ((token = strtok (NULL, sep)) != NULL) {
+              mp->alloyprops[i].part_coef[iphs] = atof (token);
+            }
+          }
+        }
+      }
+
+    }
+
+    /*end of if condition on multicomponent system */
+ /*********************************************************/
+    /* Default if command not known                          */
+ /*********************************************************/
+    else {
+      fprintf (stderr, "Warning: Unknown command: %s.\n", token);
+      rflag++;
+    }
+  }                             /* end while */
+
+  /* read the solprop structures info from the files */
+  if (cp->diffuse) {
+    input_solprops_values (cp->fn_solprops_gas, &(mp->gasprops));
+    write_solprops_values (stdout, &(mp->gasprops));
+
+  }
+  /** \todo Combine the input for binary and poly-component into one section  -- merge lthuinet*/
+  if (cp->diffuse_alloy_poly) {
+    for (i = 0; i < ele_1; i++) {
+      input_solprops_values (cp->fn_solprops_alloy[i], &(mp->alloyprops[i]));
+      write_solprops_values (stdout, &(mp->alloyprops[i]));
+    }
+  }else{
+    input_solprops_values (cp->fn_solprops_alloy[0], &(mp->alloyprops[0]));
+    write_solprops_values (stdout, &(mp->alloyprops[0]));
+  }
+
+
+
+         /*******************************************************/
+  /* Calculate phase diagram parameters using LNEAR model */
+  /* only calculate once for constant part_coef */
+         /*******************************************************/
+
+
+  if (ce_flag == 1) {
+    fprintf (stderr, "ERROR: %s: c_eut specification no longer supported\n", __func__);
+    fprintf (stderr, "You need to respecify the input file with the liquidus slope specified.\n");
+    exit (1);
+  }
+
+
+  /*place the number of solute components in the mp structure too */
+  mp->ele_1 = ele_1;
+
+  /* alloyprops is a stack array not a pointer array */
+  /* need to pass the adddress to calc_solprops... */
+
+  if (cp->diffuse_alloy_poly){
+
+    for (ieq = 0; ieq < ieq_tot; ieq++) {
+      if (tp_flag == 1) {
+        mp->Tliq_poly[ieq] = mp->tp_poly[ieq];
+      }else {
+        mp->tp_poly[ieq] = mp->Tliq_poly[ieq];
+      }
+    }
+
+    for (i = 0; i < ele_1; i++) {
+      calc_solprops_poly (bp, mp, (mp->alloyprops + i),tp_flag,ieq_tot);
+    }
+
+
+  }else{
+     calc_solprops(bp, mp, (mp->alloyprops + 0 ),tp_flag);
+     mp->Tstart = mp->Tliq + START_TEMP_OFFSET;
+  }
+
+  /* set up the block nuc random function */
+  if (cp->block_nuc) {
+    switch (np->nucdist.nuc_dist_func_type) {
+    case G_NUC_STEP:
+      np->rand_function = rand_step;
+      break;
+    case G_NUC_SQUARE:
+      np->rand_function = rand_square;
+      if (!(pow_flag))
+        np->NucParams[2] = 0.33333;
+      break;
+    case G_NUC_GAUSSDEV:
+      np->rand_function = gaussdev;
+      break;
+    case G_NUC_TWOSTEP:
+      np->rand_function = rand_two_step;
+      break;
+    default:
+      fprintf (stderr, "ERROR:readmat.h: nonexistant nuc model\n");
+      break;
+    }
+  }
+
+  fprintf (stderr, "Tliq %g \n", mp->Tliq);
+  fprintf (stderr, "Tsol %g \n", mp->Tsol);
+  fprintf (stderr, "Cinit %g \n", mp->gasprops.Cinit);
+#ifdef OLDSOL
+  fprintf (stderr, "part_coef %g \n", mp->part_coef);
+  fprintf (stderr, "km %g \n", mp->km);
+  fprintf (stderr, "kminv %g \n", mp->kminv);
+  fprintf (stderr, "Cinit_alloy %g \n", mp->alloyprops.Cinit);
+  fprintf (stderr, "part_coef_alloy %g \n", mp->part_coef_alloy);
+  fprintf (stderr, "km_alloy %g \n", mp->km_alloy);
+  fprintf (stderr, "kminv_alloy %g \n", mp->kminv_alloy);
+  fprintf (stderr, "c_eut %g \n", mp->c_eut);
+  fprintf (stderr, "T_eut %g \n", mp->T_eut);
+  fprintf (stderr, "tp %g \n", mp->tp);
+  fprintf (stderr, "m_alloy %g \n", mp->m_alloy);
+  fprintf (stderr, "m_inv_alloy %g \n", mp->m_inv_alloy);
+  fprintf (stderr, "Fs_eut %g \n", mp->Fs_eut);
+#endif /* OLDSOL */
+
+  fclose (cp->fd_mat);
+/*  exit(0);*/
+  return rflag;                 /* return the number of errors whilst reading file */
+}                               /* end of subroutine read_matprop_vals */
+
+int read_matprop (Ctrl_str * cp, BB_struct * bp)
+{
+  int retval = 0;
+  int i=0;
+
+  set_mat_defaults (&(bp->mprops));
+  set_solute_defaults (&(bp->mprops.gasprops));
+  bp->mprops.gasprops.my_type = GAS;
+  set_solute_defaults (&(bp->mprops.alloyprops[0]));
+
+  for (i=0;i<NSOLMAX;i++){
+     bp->mprops.alloyprops[i].my_type = ALLOY;
+     bp->mprops.alloyprops[i].my_num = i;
+  }
+  set_nuc_defaults (&(bp->nprops));
+  retval = read_matprop_vals (cp, bp);
+  /* stop if invalid old input commands are found */
+  if ( olderrct != 0 ){
+     fprintf(stderr,"ERROR:%s: %i old input commands found! \n",__func__,olderrct);
+     exit(0);
+  }
+  /*exit(0);*/
+  return (retval);
+}
+
+/* Little subroutine to get rcs id into the object code */
+/* so you can use ident on the compiled program  */
+/* also you can call this to print out or include the rcs id in a file*/
+char const *rcs_id_readmat_c ()
+{
+  static char const rcsid[] = "$Id: readmat.c 1373 2008-08-27 20:51:52Z  $";
+
+  return (rcsid);
+}
+
+/* end of rcs_id_readmat_c subroutine */
+/*
+*/

@@ -1,0 +1,219 @@
+
+/****************************************************************/
+/*      Copyright (c) 1993 Peter D Lee                          */
+/*      Copyright (c) 1998 Dept. of Materials, ICSTM            */
+/*      All Rights Reserved                                     */
+/*      The copyright notice above does not evidence any        */
+/*      actual or intended publication of such source code,     */
+/*      and is an unpublished work by Dept. of Materials, ICSTM.*/
+/*      continuing D Phil work from University of Oxford        */
+/****************************************************************/
+/* This code is part of the umats routines developed at in the  */
+/* Materials Processing Group, Dept. of Materials, ICSTM.       */
+/*      email p.d.lee or r.atwood @imperial.ac.uk for details   */
+/****************************************************************/
+
+/********************************************************************************/
+/*  This version is distributed under a BSD style public license, as follows:   */
+/*                                                                              */
+/*  Copyright (c) 2007, Dept. of Materials, Imperial College London             */
+/*  All rights reserved.                                                        */
+/*  Redistribution and use in source and binary forms, with or without          */
+/*  modification, are permitted provided that the following conditions          */
+/*  are met:                                                                    */
+/*                                                                              */
+/*  * Redistributions of source code must retain the above copyright            */
+/*  notice, this list of conditions and the following disclaimer.               */
+/*                                                                              */
+/*  * Redistributions in binary form must reproduce the above                   */
+/*  copyright notice, this list of conditions and the following                 */
+/*  disclaimer in the documentation and/or other materials provided             */
+/*  with the distribution.                                                      */
+/*                                                                              */
+/*  * Neither the name of the Dept. of Materials, Imperial College London, nor  */
+/*  the names of its contributors may be used to endorse or promote products    */
+/*  derived from this software without specific prior written permission.       */
+/*                                                                              */
+/*  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS         */
+/*  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT           */
+/*  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR       */
+/*  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT        */
+/*  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,       */
+/*  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED    */
+/*  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR      */
+/*  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF      */
+/*  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING        */
+/*  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS          */
+/*  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.                */
+/********************************************************************************/
+/*END of LICENSE NOTICE*/
+
+/****************************************************************/
+/*  nbhd_def.c:                                                 */
+/****************************************************************/
+/* Written by Peter D. Lee & Robert C. Atwood, Imperial College */
+/* jan 19, 1998                                                  */
+/****************************************************************/
+/*      MODIFIED by:                                            */
+/****************************************************************/
+/****** To Do List **********************************************/
+/*General:  27 member neibhorhood needs doing                   */
+/****************************************************************/
+/*RCS Id:$Id$*/
+#include <stdio.h>
+#include <stdlib.h>
+#include "machine.h"
+#include "blocks.h"
+/******************************************************/
+/*                                                    */
+/* This routine initializes all currently implemented */
+/* CA neighbourhoods and stores them in the nbhd      */
+/* structure within the BB structure. As other        */
+/* neighbourhoods are implemented they may be added   */
+/* to this file, ensuring that the N_NEIGH and n_neigh*/
+/* parameters in other files are compatible.          */
+/*                                                    */
+/* This file gets passed the bigblock structure       */
+/* pointer and modifies the members of the nbhd      */
+/* substructure.                                      */
+/*                                                    */
+/*                                                    */
+/******************************************************/
+void nbhd_def (BB_struct * bp)
+{
+  Nbhd_str *nbhd;               /* local pointer to nbhd structure in bb */
+  int nx, ny, nz;               /* size in x,y,z direction of subblock   */
+  int i, j, k;
+  int yup, zup, *cnpt;          /*precalc shift factors */
+
+  /* set up local pointers */
+  nbhd = &(bp->nbhd);
+  nx = bp->nc[0];
+  ny = bp->nc[1];
+  nz = bp->nc[2];
+
+/************************************************/
+/* Set up quad neighbourhoods....                */
+/************************************************/
+  /* set neighbourhood index array into old (padded) array */
+  nbhd->onq[0] = -1;
+  nbhd->onq[1] = 1;
+  nbhd->onq[2] = -(nx + 2);
+  nbhd->onq[3] = (nx + 2);
+  nbhd->onq[4] = -(nx + 2) * (ny + 2);
+  nbhd->onq[5] = (nx + 2) * (ny + 2);
+  /* set neighbourhood index array into new (non-padded) array */
+  nbhd->nnq[0] = -1;
+  nbhd->nnq[1] = 1;
+  nbhd->nnq[2] = -nx;
+  nbhd->nnq[3] = nx;
+  nbhd->nnq[4] = -nx * ny;
+  nbhd->nnq[5] = nx * ny;
+/************************************************/
+/* Set up hex neighbourhoods....                */
+/************************************************/
+  /* set neighbourhood index array into old (padded) array */
+  nbhd->onhl[0] = -1;
+  nbhd->onhl[1] = 1;
+  nbhd->onhl[2] = -(nx + 2);
+  nbhd->onhl[3] = (nx + 2);
+  nbhd->onhl[4] = -(nx + 2) * (ny + 2);
+  nbhd->onhl[5] = (nx + 2) * (ny + 2);
+  nbhd->onhl[6] = (nx + 1);
+  nbhd->onhl[7] = -nx - 1;
+  /* set neighbourhood index array into new (non-padded) array */
+  nbhd->nnhl[0] = -1;
+  nbhd->nnhl[1] = 1;
+  nbhd->nnhl[2] = -nx;
+  nbhd->nnhl[3] = nx;
+  nbhd->nnhl[4] = -nx * ny;
+  nbhd->nnhl[5] = nx * ny;
+  nbhd->nnhl[6] = nx - 1;
+  nbhd->nnhl[7] = -nx + 1;
+  /* set neighbourhood index array into old (padded) array */
+  nbhd->onhr[0] = -1;
+  nbhd->onhr[1] = 1;
+  nbhd->onhr[2] = -(nx + 2);
+  nbhd->onhr[3] = (nx + 2);
+  nbhd->onhr[4] = -(nx + 2) * (ny + 2);
+  nbhd->onhr[5] = (nx + 2) * (ny + 2);
+  nbhd->onhr[6] = (nx + 3);
+  nbhd->onhr[7] = -(nx + 3);
+  /* set neighbourhood index array into new (non-padded) array */
+  nbhd->nnhr[0] = -1;
+  nbhd->nnhr[1] = 1;
+  nbhd->nnhr[2] = -nx;
+  nbhd->nnhr[3] = nx;
+  nbhd->nnhr[4] = -nx * ny;
+  nbhd->nnhr[5] = nx * ny;
+  nbhd->nnhr[6] = nx + 1;
+  nbhd->nnhr[7] = -nx - 1;
+/************************************************/
+/* Set up oct neighbourhoods....                */
+/************************************************/
+  /* set neighbourhood index array into old (padded) array */
+  nbhd->ono[0] = -1;
+  nbhd->ono[1] = 1;
+  nbhd->ono[2] = -(nx + 2);
+  nbhd->ono[3] = (nx + 2);
+  nbhd->ono[4] = -(nx + 2) * (ny + 2);
+  nbhd->ono[5] = (nx + 2) * (ny + 2);
+  nbhd->ono[6] = (nx + 1);
+  nbhd->ono[7] = (nx + 3);
+  nbhd->ono[8] = -(nx + 3);
+  nbhd->ono[9] = -(nx + 1);
+  /* set neighbourhood index array into new (non-padded) array */
+  nbhd->nno[0] = -1;
+  nbhd->nno[1] = 1;
+  nbhd->nno[2] = -nx;
+  nbhd->nno[3] = nx;
+  nbhd->nno[4] = -nx * ny;
+  nbhd->nno[5] = nx * ny;
+  nbhd->nno[6] = nx - 1;
+  nbhd->nno[7] = nx + 1;
+  nbhd->nno[8] = -nx - 1;
+  nbhd->nno[9] = -nx + 1;
+/******************************************* *****/
+/* set up cubic (27) neighbourhood               */
+/******************************************* *****/
+  /* set neighbourhood index array into old (padded) array */
+  /* set neighbourhood index array into old (padded) array */
+
+  cnpt = nbhd->onc;
+  zup = (nx + 2) * (ny + 2);
+  for (k = -1; k < 2; k++) {
+    for (j = -1; j < 2; j++) {
+      for (i = -1; i < 2; i++) {
+        *cnpt = (k * zup + j * (nx + 2) + i);
+        cnpt += (*cnpt == 0 ? 0 : 1);
+      }                         /*i */
+    }                           /*j */
+  }                             /*k */
+
+  /* set neighbourhood index array into new (non-padded) array */
+  zup = nx * ny;
+  cnpt = nbhd->nnc;
+  for (k = -1; k < 2; k++) {
+    for (j = -1; j < 2; j++) {
+      for (i = -1; i < 2; i++) {
+        *cnpt = (k * zup + j * nx + i);
+        cnpt += *cnpt == 0 ? 0 : 1;
+      }                         /*i */
+    }                           /*j */
+  }                             /*k */
+
+}                               /* end of nbhd_def subroutine */
+
+/* Little subroutine to get rcs id into the object code */
+/* so you can use ident on the compiled program  */
+/* also you can call this to print out or include the rcs id in a file*/
+char const *rcs_id_nbhd_def_c ()
+{
+  static char const rcsid[] = "$Id$";
+
+  return (rcsid);
+}
+
+/* end of rcs_id_nbhd_def_c subroutine */
+/*
+*/

@@ -1,0 +1,562 @@
+
+/****************************************************************/
+/*      Copyright (c) 1993 Peter D Lee                          */
+/*      Copyright (c) 1998 Dept. of Materials, ICSTM            */
+/*      All Rights Reserved                                     */
+/*      The copyright notice above does not evidence any        */
+/*      actual or intended publication of such source code,     */
+/*      and is an unpublished work by Dept. of Materials, ICSTM.*/
+/*      continuing D Phil work from University of Oxford        */
+/****************************************************************/
+/* This code is part of the umats routines developed at in the  */
+/* Materials Processing Group, Dept. of Materials, ICSTM.       */
+/*      email p.d.lee or r.atwood @imperial.ac.uk for details   */
+/****************************************************************/
+
+/********************************************************************************/
+/*  This version is distributed under a BSD style public license, as follows:   */
+/*                                                                              */
+/*  Copyright (c) 2007, Dept. of Materials, Imperial College London             */
+/*  All rights reserved.                                                        */
+/*  Redistribution and use in source and binary forms, with or without          */
+/*  modification, are permitted provided that the following conditions          */
+/*  are met:                                                                    */
+/*                                                                              */
+/*  * Redistributions of source code must retain the above copyright            */
+/*  notice, this list of conditions and the following disclaimer.               */
+/*                                                                              */
+/*  * Redistributions in binary form must reproduce the above                   */
+/*  copyright notice, this list of conditions and the following                 */
+/*  disclaimer in the documentation and/or other materials provided             */
+/*  with the distribution.                                                      */
+/*                                                                              */
+/*  * Neither the name of the Dept. of Materials, Imperial College London, nor  */
+/*  the names of its contributors may be used to endorse or promote products    */
+/*  derived from this software without specific prior written permission.       */
+/*                                                                              */
+/*  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS         */
+/*  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT           */
+/*  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR       */
+/*  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT        */
+/*  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,       */
+/*  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED    */
+/*  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR      */
+/*  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF      */
+/*  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING        */
+/*  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS          */
+/*  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.                */
+/********************************************************************************/
+/*END of LICENSE NOTICE*/
+
+/********************************************************************************/
+/*  This version is distributed under a BSD style public license, as follows:   */
+/*                                                                              */
+/*  Copyright (c) 2007, Dept. of Materials, Imperial College London             */
+/*  All rights reserved.                                                        */
+/*  Redistribution and use in source and binary forms, with or without          */
+/*  modification, are permitted provided that the following conditions          */
+/*  are met:                                                                    */
+/*                                                                              */
+/*  * Redistributions of source code must retain the above copyright            */
+/*  notice, this list of conditions and the following disclaimer.               */
+/*                                                                              */
+/*  * Redistributions in binary form must reproduce the above                   */
+/*  copyright notice, this list of conditions and the following                 */
+/*  disclaimer in the documentation and/or other materials provided             */
+/*  with the distribution.                                                      */
+/*                                                                              */
+/*  * Neither the name of the Dept. of Materials, Imperial College London, nor  */
+/*  the names of its contributors may be used to endorse or promote products    */
+/*  derived from this software without specific prior written permission.       */
+/*                                                                              */
+/*  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS         */
+/*  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT           */
+/*  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR       */
+/*  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT        */
+/*  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,       */
+/*  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED    */
+/*  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR      */
+/*  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF      */
+/*  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING        */
+/*  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS          */
+/*  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.                */
+/********************************************************************************/
+
+/****************************************************************/
+/*      umat_wrapper.c:                                           */
+/*  Main program to provide a wrapper for the portable 		*/
+/*  bigblock/subblock subroutines to simulate grain		*/
+/*  nucleation and growth, via the cellular automata method     */
+/*  for eutectic equiaxed growth.                               */
+/****************************************************************/
+/* Written by Peter D. Lee & Robert C. Atwood, Imperial College */
+/* Wed Jul  1 18:38:31 bst 1998                 		*/
+/****************************************************************/
+/* 	MODIFIED by:						*/
+/*  PDL: July 2, 1998						*/
+/*  PDL: Aug 16, 1998						*/
+/*  RCA: Aug 19, 1998                                           */
+/* Versioning and logging move to SubVersion  2006-12           */
+/****************************************************************/
+
+/*RCS Id:$Id: ca_wrapper.c 1401 2008-11-13 15:32:56Z  $*/
+/* include system headers */
+
+/* if specified, include the headers for dbmalloc debugging */
+#include <stdio.h>
+#include <math.h>
+#include <time.h>
+#include <sys/types.h>
+#include <sys/times.h>
+#include <setjmp.h>
+#include <sys/signal.h>
+#include <signal.h>
+#include <unistd.h>
+#include <string.h>
+#include "getcflags.h"
+
+/* header for enabling fpe traps in gnu glibc  library */
+#ifdef GNU_TRAP_FPE
+#  include <fenv.h>
+#endif /* GNU_TRAP_FPE */
+
+/* include header files requred by subroutines */
+#include "machine.h"
+#include "read_ctrl.h"          /* included for def. of READ_CTRL subroutine */
+#include "blocks.h"             /* included for def. of INIT_BB, CALC_BB, FINISH_BB */
+#include "handlers.h"
+
+void printbsd(FILE * fp);
+void printauthors(FILE * fp);
+
+/*#define PRINT_RCS_ID
+#define SAVE_RCS_ID*/
+/*global for pressure - to be fixed*/
+CA_FLOAT global_pressure;
+
+extern int free_bb (BB_struct * bp);
+
+extern void read_bin_blocks (BB_struct * bp, const char *fname);
+
+/*function from rcs_id.c*/
+extern void print_rcs_id (FILE * outfile);
+
+/* functions used from umat_solid.c */
+extern int umat_solid (int stat_flag, CA_FLOAT time, CA_FLOAT delt, Ctrl_str * cp, BB_struct * bp);
+
+/* functions used from read_cp->c */
+extern int read_ctrl (char *filename, Ctrl_str * cp);
+
+jmp_buf env;                    /*jump environment buffer for signal handler */
+int jflg = JFLG_END;            /* flag for behaviour of signal handler */
+int the_signo;                  /* signal that was received */
+int signal_change_freq = 0;     /* value to change output frequency */
+
+/* empty stub for a external function so that the non-external versionwill compile */
+void external_sb_set_cells (BB_struct * bp, int sbnum)
+{
+  return;
+}
+
+void print_usage (char *prog_name)
+{                               /* print the usage message on error */
+
+  fprintf (stderr, "\n\n*************************************************\n");
+  fprintf (stderr, "*   %s: Simulate grain nucleation and growth.\n", prog_name);
+  fprintf (stderr, "*   Optionally model the diffusion of gas and solute\n");
+  fprintf (stderr, "*   and growth of gas porosity\n");
+  fprintf (stderr, "*   possibly using the decentered square algorithm for\n");
+  fprintf (stderr, "*   simulating preferred growth directions of grains\n");
+  fprintf (stderr, "*   and maybe using three-component diffusion and partitioning.\n");
+  fprintf (stderr, "*\n*   Usage: %s -c control_file\n", prog_name);
+  fprintf (stderr, "*\tWhere the control_file, tells the\n");
+  fprintf (stderr, "*\tprgramme which files to read information from.\n");
+  fprintf (stderr, "*\tThe following command line options are allowed:\n");
+  fprintf (stderr, "*\t-a\t\t-> test option reading and exit\n");
+  fprintf (stderr, "*\t-c\t\t-> specify control file\n");
+  fprintf (stderr, "*\t-r\t\t-> specify restart control file\n");
+  fprintf (stderr, "*\t-f\t\t-> print compile-time options (cflags)\n");
+  fprintf (stderr, "*\t-v\t\t-> print version information\n");
+  fprintf (stderr, "*\t-F\t\t-> print more compile-time and version information\n");
+  fprintf (stderr, "*\t-h\t\t-> print this message\n");
+  fprintf (stderr, "*\t\n");
+  fprintf (stderr, "*************************************************\n\n");
+}
+
+/****************************************************************/
+/* Beginning of the MAIN program!				*/
+/* This is just a wrapper to simulate the grain subroutine	*/
+/* being called from within CAP. It asks a few questions	*/
+/* that that CAP would know, and then goes on from there.	*/
+/* It gives you the option to enter all the thermophysical	*/
+/* data that would be read from a file if using CAP.		*/
+/* This file must be in the current directory called umat_mp.dat	*/
+/****************************************************************/
+
+/** \callgraph */
+int main (int argc, char *argv[])
+{
+
+  /* declare counters and output variables for main */
+  int i;
+  int sigvec = 0;
+  int stat_flag = -1;           /* stage in analysis: -1=before, 0=during, 1=final */
+
+  /* variables for input */
+  Ctrl_str *cp;
+  int cflg, errflg;
+  int finput = FALSE;           /* inquire control info from user as default */
+  int restart_flag = FALSE;
+  int errors = 0, tries = 0;
+  char *ctrl_fname, *Cflags,*Svninfo;
+
+  int step, pr_step;
+  CA_FLOAT ptime, del_ptime = 1.0;
+  CA_FLOAT time = 0.0;
+  CA_FLOAT delt = 1.0;
+  char *time_string;            /* local date/time in string */
+  FILE *rcs_id_file;
+  static BB_struct bb;
+  BB_struct *bp;
+  sigset_t sigmask, newsig;
+
+/* variables used for timing the program */
+#ifdef CLOCK
+  clock_t start_clock, end_clock;
+  struct tms times_clock;
+  double cpu_time_used, utime, stime;
+
+  start_clock = clock ();
+  {
+#endif
+
+/* variables used for debugging memory allocation */
+#ifdef _DEBUG_MALLOC_INC
+    unsigned long oldsize;
+    unsigned long size1, size2;
+    unsigned long hist0, hist1, hist2;
+
+    oldsize = malloc_inuse (&(hist0));
+#endif /*_DEBUG_MALLOC_INC*/
+
+    bp = &bb;
+    cp = (Ctrl_str *) calloc (1, sizeof (Ctrl_str));
+
+#ifdef _DEBUG_MALLOC_INC
+    malloc_inuse (&(cp->hist[0]));
+#endif /*_DEBUG_MALLOC_INC*/
+
+    /* allow external script to write compilation info into a string */
+    /* this should be done in the Makefile */
+    /* Stored in Cflags variable */
+
+Cflags = strdup(GETCFLAGS);
+Svninfo = strdup(GETSVNINFO);
+
+    fprintf (stdout, "\n*****\nMicro/meso scale modelling of phase change phenomena.\n");
+
+    fprintf (stdout, "(c) Imperial College London, 1998--????\n\n\n");
+
+#ifdef PRINT_RCS_ID
+/*FIRST, print out all flags and rcs id strings*/
+    fprintf (stderr, "%s\n", Cflags);
+    print_rcs_id (stderr);
+#endif /*PRINT_RCS_ID */
+
+#define SAVE_RCS_ID
+#ifdef SAVE_RCS_ID
+/* and save to a file as well */
+    rcs_id_file = fopen ("rcs_id.txt", "w");
+    if (rcs_id_file == NULL) {
+      fprintf (stderr, "ERROR: could not open file rcs_id.txt\n");
+      exit (0);
+    }
+    fprintf (rcs_id_file, "%s\n", Cflags);
+    print_rcs_id (rcs_id_file);
+    fclose (rcs_id_file);
+#endif /*SAVE_RCS_ID */
+
+    /* Set up the signal handler to use SIGTERM */
+    signal (SIGTERM, catchit);
+    /* set up a signal handler to use SIGUSR1 (writeblock and exit) */
+    signal (SIGUSR1, catchit);
+    /* set up a signal handler to use SIGUSR2 (writeblock and continue) */
+    signal (SIGUSR2, catchit);
+
+    /* set up a signal handler to use SIGFPE (doesn't do anything, but you can set a trap in the debugger) */
+    /* also requires linking with libfpe on the SGI , not sure how to do this on other systems (linux , cygwin) */
+    /* using gcc >=2.2 : use fenv.h functions , feenableexcepts() (in handlers.c)  */
+
+#ifdef GNU_TRAP_FPE
+    enable_fpe_traps ();
+    signal (SIGFPE, float_error);
+#endif
+
+/************************************************/
+/* check the number parameters and print out    */
+/* warning if incorrect                         */
+/************************************************/
+    errflg = 0;
+    stat_flag = INIT_BB;
+    /** \todo  waiting for someone to implement use of this feature, Header string -- general*/
+    sprintf (bb.header, "\nThis space for rent :-)\n");
+    sprintf (bb.tailer, "\nThis space unintentionally left blank 8-b\n");
+
+    if (argc < 1)
+      errflg++;
+    #ifndef NOGETOPT
+    while ((cflg = getopt (argc, argv, "avc:r:fFh")) != -1) {
+      switch (cflg) {
+      case 'a':
+        fprintf (stderr, "%s: sorry, flag 'a' is not defined\n", argv[0]);
+        errflg++;
+        break;
+        /*get ctrl file name */
+      case 'c':
+        finput = TRUE;
+        ctrl_fname = strdup (optarg);
+        break;
+        /* get restart file name */
+      case 'r':
+        finput = TRUE;
+        ctrl_fname = strdup (optarg);
+        stat_flag = RESTART_BB;
+        restart_flag = TRUE;
+        fprintf (stderr, "RESTART option selected\n");
+        break;
+
+        /* print version of files and cflags */
+        /* print license */
+      case 'v':
+        fprintf (stdout, "\numat_wrapper svn location: $URL: http://xe01/svn/ca_svn/branches/GE_ongoing/casource/ca_wrapper.c $\n\n\n");
+        print_rcs_id (stdout);
+	printbsd(stdout);
+	printauthors(stdout);
+        /* only print compilation flags */
+      case 'f':
+        printf ("%s\n", Cflags);
+        exit (0);
+        break;
+      case 'F':
+        printf ("%s\n", Svninfo);
+        exit (0);
+        break;
+	
+
+        /* print help message */
+      case 'h':
+      default:
+        errflg++;
+        break;
+      }
+    }
+    #endif
+    if (errflg) {
+      printbsd(stdout);
+      print_usage (argv[0]);
+      printauthors(stdout);
+      exit (0);
+    }
+
+/************************************************/
+/* call the initialization subroutines          */
+/************************************************/
+
+    fprintf (stderr, "alloy exponent %.10g\n", ALLOY_EXPONENT);
+    /* if no control input file was supplied,    */
+    /* as the user if one should be used.        */
+    if (!finput) {
+      char command[MAX_STRING_LEN], answer[MAX_STRING_LEN];
+      int echo = TRUE;
+      int i, j;                 /* tmp counters */
+      CA_FLOAT tmp;             /* tmp CA_FLOAT var. */
+
+      fprintf (stdout, "No control file name was given.\n");
+      fprintf (stdout, "Please enter the control filename:\n");
+      fprintf (stdout, "or 'help' for help\n");
+      fprintf (stdout, "or 'restart' for a restart\n");
+      fprintf (stdout, "or 'license' for license information\n");
+      fgets (command, MAX_STRING_LEN, stdin);
+      if (command[strlen (command) - 1] == '\n')
+        command[strlen (command) - 1] = 0;
+      if (strcasecmp (command, "restart") == 0) {
+        stat_flag = RESTART_BB;
+        restart_flag = TRUE;
+        fprintf (stderr, "RESTART option selected\n");
+        fprintf (stderr, "Now enter the restart control filename:\n");
+        fgets (command, MAX_STRING_LEN, stdin);
+        if (command[strlen (command) - 1] == '\n')
+          command[strlen (command) - 1] = 0;
+      }
+      if (strcasecmp (command, "help") == 0) {
+        print_usage (argv[0]);
+        exit (0);
+      }
+      if (strcasecmp (command, "license") == 0) {
+        printbsd (stdout);
+        printauthors (stdout);
+        exit (0);
+      }
+      ctrl_fname = strdup (command);
+    }
+
+    fprintf (stderr, "input filename: %s.\n", ctrl_fname);
+    cp->fn_ctrl = ctrl_fname;
+    /************************************************/
+    /* read in the control/restart file ************ */
+    /************************************************/
+
+    errors = read_ctrl (ctrl_fname, cp);
+    if (errors >= 1) {
+      fprintf (stdout, "umat_wrapper: exiting due to control file problems [%s]\n", ctrl_fname);
+      exit (1);
+    }
+    /* copy compilation info into ctrl structure */
+    cp->cflags = strdup (Cflags);
+
+/************************************************/
+/* loop through time calling the ca routine...  */
+/*  (and later energy, diffusion, etc...)       */
+/************************************************/
+    step = 0;
+    pr_step = 1;
+    ptime = del_ptime;
+
+    fprintf (stdout, "Calling umat_solid for initialisation.\n");
+
+    /* call umat_solid -- initial or restart depends on the flag */
+    umat_solid (stat_flag, time, delt, cp, bp);
+
+    fprintf (stderr, "Finished umat_solid for initialisation.\n");
+#ifdef _DEBUG_MALLOC_INC
+    size1 = malloc_inuse (&hist1);
+#endif       /*_DEBUG_MALLOC_INC*/
+
+    /* set up the entry for signal handler */
+    if (setjmp (env) != 0) {
+      fprintf (stderr, "CA_WRAPPER: Handling the signal %i.  Finishing BB\n", the_signo);
+    } else {                    /*signal not recieved! */
+
+      /* call umat_solid for macro timestep */
+      fprintf (stderr, "Calling umat_solid for one macro timestep.\n");
+      stat_flag = CALC_BB;
+      umat_solid (stat_flag, time, delt, cp, bp);
+      fprintf (stderr, "Finished one macro-timestep in umat_solid.\n");
+
+    }                           /*end of setjmp condition */
+    /*program jumps to here if one of the  specified */
+    /* signals is received */
+
+    /* tell ca prgramme it has finished and to print out */
+    stat_flag = FINISH_BB;
+    cp->jflg = jflg;
+    umat_solid (stat_flag, time, delt, cp, bp);
+    fprintf (stderr, "Finished final call to umat_solid\n");
+
+    fprintf (stderr, "\nfinished all calculations successfully.\n");
+    fprintf (stderr, "be seeing you...\n");
+   /************************************************/
+    /* close all open input/output files and exit   */
+   /************************************************/
+
+    free (Cflags);
+    free (ctrl_fname);
+    if (restart_flag) {
+      free (cp->fn_geo);
+      free (cp->fn_mat);
+      free (cp->fn_inp);
+      free (cp->fn_base);
+      free (cp->cflags);
+      free (cp->rgbp);
+      free (cp);
+    }
+#ifdef _DEBUG_MALLOC_INC
+    size2 = malloc_inuse (&hist2);
+    if (size2 != (oldsize)) {
+      fprintf (stderr, "ERROR: umat_wrapper: dbMalloc test of size of allocated memory\n");
+      fprintf (stderr, "\toldsize = %lu, size = %lu - should be %lu\n", oldsize, size2, oldsize);
+      fprintf (stderr, "First list \n");
+      malloc_list (2, hist0, hist1);
+      fprintf (stderr, "Second list \n");
+      malloc_list (2, hist0, hist2);
+      fprintf (stderr, "Finshed dbMalloc size check \n");
+    } else {
+      fprintf (stderr, "OK\n");
+    }
+#endif /*_DEBUG_MALLOC_INC*/
+
+#ifdef CLOCK
+  }
+  end_clock = clock ();
+  times (&times_clock);
+  cpu_time_used = ((double) (end_clock - start_clock)) / (CLOCKS_PER_SEC);
+  utime = ((double) (times_clock.tms_utime)) / (THE_CLOCK);
+  stime = ((double) (times_clock.tms_stime)) / (THE_CLOCK);
+  fprintf (stderr, "CLOCK: cpu time used,utime,stime:, %.10g,%.10g,%.10g\n", cpu_time_used, utime, stime);
+#endif
+
+  return (0);
+}                               /* end of main program, umat_wrapper */
+
+void printauthors(FILE *fp){
+    fprintf (stdout, "Contributors include Peter D. Lee, Robert C. Atwood, Wei Wang, Ali Chirazi, \n");
+    fprintf (stdout, "Ludovic Thuinet, ... , \n");
+    /*
+       add your name here!
+    */
+
+}
+
+void printbsd(FILE * fp){
+      fprintf(fp,"\n************************************************************************\n");
+      fprintf(fp,"This version is distributed under a BSD style public license, as follows:   \n");
+      fprintf(fp,"                                                                            \n");
+      fprintf(fp,"Copyright (c) 2007, Dept. of Materials, Imperial College London             \n");
+      fprintf(fp,"All rights reserved.                                                        \n");
+      fprintf(fp,"Redistribution and use in source and binary forms, with or without          \n");
+      fprintf(fp,"modification, are permitted provided that the following conditions          \n");
+      fprintf(fp,"are met:                                                                    \n");
+      fprintf(fp,"                                                                            \n");
+      fprintf(fp,"* Redistributions of source code must retain the above copyright            \n");
+      fprintf(fp,"notice, this list of conditions and the following disclaimer.               \n");
+      fprintf(fp,"                                                                            \n");
+      fprintf(fp,"* Redistributions in binary form must reproduce the above                   \n");
+      fprintf(fp,"copyright notice, this list of conditions and the following                 \n");
+      fprintf(fp,"disclaimer in the documentation and/or other materials provided             \n");
+      fprintf(fp,"with the distribution.                                                      \n");
+      fprintf(fp,"                                                                            \n");
+      fprintf(fp,"* Neither the name of the Dept. of Materials, Imperial College London, nor  \n");
+      fprintf(fp,"the names of any of the contributors may be used to endorse or promote      \n");
+      fprintf(fp,"products  derived from this software without specific prior written         \n");
+      fprintf(fp,"permission.                                                                 \n");
+      fprintf(fp,"                                                                            \n");
+      fprintf(fp,"THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS         \n");
+      fprintf(fp,"\"AS IS\" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT           \n");
+      fprintf(fp,"LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR       \n");
+      fprintf(fp,"A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT        \n");
+      fprintf(fp,"OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,       \n");
+      fprintf(fp,"SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED    \n");
+      fprintf(fp,"TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR      \n");
+      fprintf(fp,"PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF      \n");
+      fprintf(fp,"LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING        \n");
+      fprintf(fp,"NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS          \n");
+      fprintf(fp,"SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.                \n");
+      fprintf(fp,"************************************************************************\n");
+      fprintf(fp,"\n");
+}
+
+      /**********************************************************************/
+      /* Little subroutine to get rcs id into the object code               */
+      /* so you can use ident on the compiled program                       */
+      /* also you can call this to print out or include the rcs id in a file*/
+      /**********************************************************************/
+char const *rcs_id_umat_wrapper_c ()
+{
+  static char const rcsid[] = "$Id: ca_wrapper.c 1401 2008-11-13 15:32:56Z  $";
+
+  return (rcsid);
+}
+
+/* end of rcs_id_umat_wrapper_c subroutine */
+/*
+*/

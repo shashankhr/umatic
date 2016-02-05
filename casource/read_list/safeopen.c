@@ -1,0 +1,16 @@
+/*$Id: safeopen.c 887 2006-03-01 18:21:01Z rcatwood $*/
+/* safeopen file opener */ 
+#include <stdio.h>
+#include <stdlib.h>
+FILE * safeopen(const char * fname,const char * type){
+    FILE * fp;
+    fp = fopen(fname,type);
+    /* exit if the file did not open */
+    if (fp == NULL){
+       fprintf(stderr,"ERROR: safeopen: could not open file %s\n",fname);
+       fprintf(stderr,"Exiting...\n");
+       exit(1);
+    }
+
+    return(fp);
+}

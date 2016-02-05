@@ -1,0 +1,928 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="84">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <df name="casource" root=".">
+      <df name="build">
+      </df>
+      <df name="ca_aux_progs">
+        <in>debin.c</in>
+        <in>debin.h</in>
+        <in>f_res.c</in>
+        <in>float_convert.c</in>
+        <in>fsres.c</in>
+        <in>i_grainsize.c</in>
+        <in>i_res.c</in>
+        <in>makemould.cxx</in>
+      </df>
+      <df name="read_list">
+        <in>convert.c</in>
+        <in>convert.h</in>
+        <in>csv.h</in>
+        <in>debin.c</in>
+        <in>debin.h</in>
+        <in>findvals.c</in>
+        <in>findvals.h</in>
+        <in>findvals_old.c</in>
+        <in>freecsv.c</in>
+        <in>freecsv.h</in>
+        <in>init.c</in>
+        <in>init.h</in>
+        <in>qsort_csv.c</in>
+        <in>qsort_csv.h</in>
+        <in>read_csv.c</in>
+        <in>read_fg_list.c</in>
+        <in>read_fg_list.h</in>
+        <in>read_list.c</in>
+        <in>readwrite.c</in>
+        <in>readwrite.h</in>
+        <in>readwrite_data.c</in>
+        <in>readwrite_fg.c</in>
+        <in>readwrite_fg.h</in>
+        <in>safeopen.c</in>
+        <in>safeopen.h</in>
+        <in>unit_conv.c</in>
+      </df>
+      <df name="read_phase_diag">
+        <in>P_out.c</in>
+        <in>P_out.h</in>
+        <in>W_out.c</in>
+        <in>W_out.h</in>
+        <in>convert.c</in>
+        <in>convert.h</in>
+        <in>csv.h</in>
+        <in>debin.c</in>
+        <in>debin.h</in>
+        <in>freecsv.c</in>
+        <in>freecsv.h</in>
+        <in>init.c</in>
+        <in>init.h</in>
+        <in>libreadlist.h</in>
+        <in>make_structure_output.c</in>
+        <in>make_structure_output.h</in>
+        <in>make_structure_reader.c</in>
+        <in>make_structure_reader.h</in>
+        <in>maketernary.c</in>
+        <in>maketernary.cxx</in>
+        <in>ph_input.h</in>
+        <in>ph_input_struct_reader.c</in>
+        <in>ph_input_struct_reader.h</in>
+        <in>ph_input_struct_writer.c</in>
+        <in>ph_input_struct_writer.h</in>
+        <in>phasediag.c</in>
+        <in>phasediag.h</in>
+        <in>read_csv.c</in>
+        <in>read_fg_list.h</in>
+        <in>readphasediag.c</in>
+        <in>readwrite.c</in>
+        <in>readwrite.h</in>
+        <in>readwrite_compress.c</in>
+        <in>safeopen.c</in>
+        <in>testmatrix.cxx</in>
+        <in>vec.cxx</in>
+        <in>vec.h</in>
+        <in>writephasediag.c</in>
+      </df>
+      <df name="umat_doc">
+      </df>
+      <in>SurCell.h</in>
+      <in>SurCellRoutines.c</in>
+      <in>SurCellRoutines.h</in>
+      <in>T_var_read.c</in>
+      <in>alloc_bb.c</in>
+      <in>alloc_multicomp.c</in>
+      <in>alloc_sb.c</in>
+      <in>analythic.c</in>
+      <in>bigblock.c</in>
+      <in>bigblock.h</in>
+      <in>blocks.h</in>
+      <in>ca_feedback.c</in>
+      <in>ca_histo.c</in>
+      <in>ca_prop_wrapper.c</in>
+      <in>ca_read_wrapper.c</in>
+      <in>ca_solid.c</in>
+      <in>ca_wrapper.c</in>
+      <in>calc_sb.c</in>
+      <in>calc_solprops_poly.c</in>
+      <in>castats.c</in>
+      <in>castats.h</in>
+      <in>checkblock.c</in>
+      <in>checkgas.c</in>
+      <in>checks.c</in>
+      <in>checks.h</in>
+      <in>close_sb.c</in>
+      <in>colour.h</in>
+      <in>common.h</in>
+      <in>constants.h</in>
+      <in>cube.h</in>
+      <in>curvature.c</in>
+      <in>curvature.h</in>
+      <in>curvature_3D.c</in>
+      <in>fcopymat.c</in>
+      <in>fem.h</in>
+      <in>fg_read.c</in>
+      <in>fidap.h</in>
+      <in>fidap_interp_calc.c</in>
+      <in>find_max.c</in>
+      <in>find_max.h</in>
+      <in>find_nmols.c</in>
+      <in>findroot.c</in>
+      <in>freeblock.c</in>
+      <in>gaussdev.c</in>
+      <in>gaussdev.h</in>
+      <in>gd.h</in>
+      <in>gd_io.h</in>
+      <in>getxyz.c</in>
+      <in>grain.h</in>
+      <in>grain_functions.c</in>
+      <in>handlers.c</in>
+      <in>handlers.h</in>
+      <in>histo_struct.h</in>
+      <in>icopymat.c</in>
+      <in>init_nuc_mould.c</in>
+      <in>init_sb_neigh.c</in>
+      <in>initcube.c</in>
+      <in>initface.c</in>
+      <in>interp.h</in>
+      <in>interpolate.c</in>
+      <in>machine.h</in>
+      <in>matprops.h</in>
+      <in>mould_sources.c</in>
+      <in>mould_sources.h</in>
+      <in>multi_diff_props.h</in>
+      <in>nbhd.h</in>
+      <in>nbhd_def.c</in>
+      <in>nearnode.h</in>
+      <in>nuc_functions.c</in>
+      <in>nuc_functions.h</in>
+      <in>nuc_lookup.c</in>
+      <in>nuc_lookup.h</in>
+      <in>nucfuncs.h</in>
+      <in>nucprops.h</in>
+      <in>olderror.c</in>
+      <in>open_sb.c</in>
+      <in>oriented.inc</in>
+      <in>output.h</in>
+      <in>output_ex.c</in>
+      <in>output_img.c</in>
+      <in>p_growth.c</in>
+      <in>pnuc_function.c</in>
+      <in>pore.h</in>
+      <in>pore_multi.c</in>
+      <in>pore_routines.c</in>
+      <in>pore_routines.h</in>
+      <in>pore_setup_multi.c</in>
+      <in>pr_lookup.c</in>
+      <in>pr_struct.h</in>
+      <in>procast_userfuncs.c</in>
+      <in>prop_wrapper.c</in>
+      <in>props.c</in>
+      <in>props.h</in>
+      <in>pull.inc</in>
+      <in>rand_square.c</in>
+      <in>rand_square.h</in>
+      <in>rand_step.c</in>
+      <in>rand_step.h</in>
+      <in>rcs_id.c</in>
+      <in>rcs_id.h</in>
+      <in>read_blocks.c</in>
+      <in>read_ca_procast.c</in>
+      <in>read_cap_ca.c</in>
+      <in>read_ctrl.c</in>
+      <in>read_ctrl.h</in>
+      <in>read_sb.c</in>
+      <in>read_sb.h</in>
+      <in>readfiles.h</in>
+      <in>readgeoplus.c</in>
+      <in>readgeoplus.h</in>
+      <in>readmat.c</in>
+      <in>readmat.h</in>
+      <in>readmat_chirazi.inc</in>
+      <in>readmat_oldsol.inc</in>
+      <in>readphase.c</in>
+      <in>recr_extra.c</in>
+      <in>replacerand.c</in>
+      <in>safeopen.c</in>
+      <in>safeopen.h</in>
+      <in>sb_boundary.c</in>
+      <in>sb_ca_step.c</in>
+      <in>sb_decentred_step.c</in>
+      <in>sb_decentred_step.h</in>
+      <in>sb_decentred_step_poly.c</in>
+      <in>sb_diffuse.h</in>
+      <in>sb_diffuse_alloy.c</in>
+      <in>sb_diffuse_alloy_decentred.c</in>
+      <in>sb_diffuse_alloy_decentred_poly.c</in>
+      <in>sb_diffuse_alloy_multi.c</in>
+      <in>sb_diffuse_gas.c</in>
+      <in>sb_diffuse_gas_poly.c</in>
+      <in>sb_get_surface_cells.c</in>
+      <in>sb_head.h</in>
+      <in>sb_line_int.c</in>
+      <in>sb_nuc.c</in>
+      <in>sb_tableofcontents.h</in>
+      <in>sb_temp_calc.c</in>
+      <in>setup_mould_src_function.c</in>
+      <in>setup_temp_func.c</in>
+      <in>solprops.h</in>
+      <in>solprops_reader.c</in>
+      <in>solprops_reader.h</in>
+      <in>solprops_writer.c</in>
+      <in>solprops_writer.h</in>
+      <in>step_output.c</in>
+      <in>subblock.c</in>
+      <in>subblock.h</in>
+      <in>tcpl.h</in>
+      <in>temp_calc.h</in>
+      <in>temp_calc_melt.c</in>
+      <in>temp_struct.h</in>
+      <in>temprops.h</in>
+      <in>thermo_trace_calc.c</in>
+      <in>thermo_trace_init.c</in>
+      <in>trans_interp_calc.c</in>
+      <in>umat_histo.h</in>
+      <in>umat_matrix.h</in>
+      <in>user_rtn_cell.c</in>
+      <in>user_rtns.c</in>
+      <in>wfact_r_calc.c</in>
+      <in>wfact_z_calc.c</in>
+      <in>window_move.c</in>
+      <in>write_POREprop_values.c</in>
+      <in>write_bb_values.c</in>
+      <in>write_block_values.c</in>
+      <in>write_block_values.h</in>
+      <in>write_blocks.c</in>
+      <in>write_ctrl_values.c</in>
+      <in>write_fidap_struct.c</in>
+      <in>write_fidap_struct.h</in>
+      <in>write_grain_histo.c</in>
+      <in>write_header_ctrl.c</in>
+      <in>write_matprop_values.c</in>
+      <in>write_nprop_values.c</in>
+      <in>write_pprop_values.c</in>
+      <in>write_values.h</in>
+      <in>writeblocks.h</in>
+      <in>writeslice.cxx</in>
+    </df>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>CMakeLists.txt</itemPath>
+      <itemPath>build/Makefile</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <sourceFolderFilter>^(nbproject)$</sourceFolderFilter>
+  <sourceRootList>
+    <Elem>.</Elem>
+  </sourceRootList>
+  <projectmakefile>build/Makefile</projectmakefile>
+  <confs>
+    <conf name="Default" type="0">
+      <toolsSet>
+        <remote-sources-mode>LOCAL_SOURCES</remote-sources-mode>
+        <compilerSet>default</compilerSet>
+      </toolsSet>
+      <codeAssistance>
+      </codeAssistance>
+      <makefileType>
+        <makeTool>
+          <buildCommandWorkingDir>build</buildCommandWorkingDir>
+          <buildCommand>${MAKE} -f Makefile</buildCommand>
+          <cleanCommand>${MAKE} -f Makefile clean</cleanCommand>
+          <executablePath></executablePath>
+        </makeTool>
+      </makefileType>
+      <item path="SurCellRoutines.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="T_var_read.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="alloc_bb.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="alloc_multicomp.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="alloc_sb.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="analythic.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="bigblock.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="ca_aux_progs/debin.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="ca_aux_progs/f_res.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="ca_aux_progs/float_convert.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="ca_aux_progs/fsres.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="ca_aux_progs/i_grainsize.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="ca_aux_progs/i_res.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="ca_aux_progs/makemould.cxx" ex="false" tool="1" flavor2="4">
+        <ccTool>
+        </ccTool>
+      </item>
+      <item path="ca_feedback.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="ca_histo.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="ca_prop_wrapper.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="ca_read_wrapper.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="ca_solid.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="ca_wrapper.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="calc_sb.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="calc_solprops_poly.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="castats.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="checkblock.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="checkgas.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="checks.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="close_sb.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="curvature.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="curvature_3D.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="fcopymat.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="fg_read.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="fidap_interp_calc.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="find_max.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="find_nmols.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="findroot.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="freeblock.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="gaussdev.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="getxyz.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="grain_functions.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="handlers.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="icopymat.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="init_nuc_mould.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="init_sb_neigh.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="initcube.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="initface.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="interpolate.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="mould_sources.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="nbhd_def.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="nuc_functions.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="nuc_lookup.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="olderror.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="open_sb.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="output_ex.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="output_img.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="p_growth.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="pnuc_function.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="pore_multi.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="pore_routines.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="pore_setup_multi.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="pr_lookup.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="procast_userfuncs.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="prop_wrapper.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="props.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="rand_square.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="rand_step.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="rcs_id.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="read_blocks.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="read_ca_procast.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="read_cap_ca.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="read_ctrl.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="read_list/convert.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="read_list/debin.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="read_list/findvals.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="read_list/findvals_old.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="read_list/freecsv.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="read_list/init.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="read_list/qsort_csv.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="read_list/read_csv.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="read_list/read_fg_list.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="read_list/read_list.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="read_list/readwrite.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="read_list/readwrite_data.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="read_list/readwrite_fg.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="read_list/safeopen.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="read_list/unit_conv.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="read_phase_diag/P_out.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="read_phase_diag/W_out.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="read_phase_diag/convert.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="read_phase_diag/debin.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="read_phase_diag/freecsv.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="read_phase_diag/init.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="read_phase_diag/make_structure_output.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="read_phase_diag/make_structure_reader.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="read_phase_diag/maketernary.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="read_phase_diag/maketernary.cxx" ex="false" tool="1" flavor2="4">
+        <ccTool>
+        </ccTool>
+      </item>
+      <item path="read_phase_diag/ph_input_struct_reader.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="read_phase_diag/ph_input_struct_writer.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="read_phase_diag/phasediag.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="read_phase_diag/read_csv.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="read_phase_diag/readphasediag.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="read_phase_diag/readwrite.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="read_phase_diag/readwrite_compress.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="read_phase_diag/safeopen.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="read_phase_diag/testmatrix.cxx" ex="false" tool="1" flavor2="4">
+        <ccTool>
+        </ccTool>
+      </item>
+      <item path="read_phase_diag/vec.cxx" ex="false" tool="1" flavor2="4">
+        <ccTool>
+        </ccTool>
+      </item>
+      <item path="read_phase_diag/writephasediag.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="read_sb.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="readgeoplus.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="readmat.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="readphase.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="recr_extra.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="replacerand.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="safeopen.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="sb_boundary.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="sb_ca_step.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="sb_decentred_step.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="sb_decentred_step_poly.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="sb_diffuse_alloy.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="sb_diffuse_alloy_decentred.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="sb_diffuse_alloy_decentred_poly.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="sb_diffuse_alloy_multi.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="sb_diffuse_gas.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="sb_diffuse_gas_poly.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="sb_get_surface_cells.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="sb_line_int.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="sb_nuc.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="sb_temp_calc.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="setup_mould_src_function.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="setup_temp_func.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="solprops_reader.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="solprops_writer.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="step_output.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="subblock.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="temp_calc_melt.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="thermo_trace_calc.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="thermo_trace_init.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="trans_interp_calc.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="user_rtn_cell.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="user_rtns.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="wfact_r_calc.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="wfact_z_calc.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="window_move.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="write_POREprop_values.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="write_bb_values.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="write_block_values.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="write_blocks.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="write_ctrl_values.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="write_fidap_struct.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="write_grain_histo.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="write_header_ctrl.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="write_matprop_values.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="write_nprop_values.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="write_pprop_values.c" ex="false" tool="0" flavor2="2">
+        <cTool>
+        </cTool>
+      </item>
+      <item path="writeslice.cxx" ex="false" tool="1" flavor2="4">
+        <ccTool>
+        </ccTool>
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>

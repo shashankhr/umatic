@@ -1,0 +1,113 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/ca_aux_progs
+END
+f_res.c
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/ca_aux_progs/f_res.c
+END
+makemould.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/ca_aux_progs/makemould.cxx
+END
+pscontour_script
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/ca_aux_progs/pscontour_script
+END
+i_res.c
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/ca_aux_progs/i_res.c
+END
+i_grainsize.c
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/ca_aux_progs/i_grainsize.c
+END
+make_structure_output.y
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/ca_aux_progs/make_structure_output.y
+END
+float_convert.c
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/ca_aux_progs/float_convert.c
+END
+make_structure_reader.y
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/ca_aux_progs/make_structure_reader.y
+END
+readstruct.y
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/ca_aux_progs/readstruct.y
+END
+do_zdecimate
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/ca_aux_progs/do_zdecimate
+END
+makeruns.sh
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/ca_aux_progs/makeruns.sh
+END
+debin.c
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/ca_aux_progs/debin.c
+END
+fsres.c
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/ca_aux_progs/fsres.c
+END
+zdecimate
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/ca_aux_progs/zdecimate
+END
+readlexer.l
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/ca_aux_progs/readlexer.l
+END
+debin.h
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/ca_aux_progs/debin.h
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/ca_aux_progs/Makefile
+END
+make_routines.sh
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/ca_svn/!svn/ver/1380/branches/GE_ongoing/casource/ca_aux_progs/make_routines.sh
+END

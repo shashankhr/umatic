@@ -1,0 +1,16 @@
+#hydrogen in aluminium
+Cinit                0.3  /* CA_FLOAT Cinit */
+DoLiq 3.8e-6    /* eichenaur ? */
+QaLiq 2315
+DoSol0 1.1e-5
+QaSol0 4922
+mould_src 0
+mould_source_value   1e-6  /* CA_FLOAT mould_source_value */
+mould_src_pert       0  /* int mould_src_pert */
+part_coef0            1.0e-01  /* CA_FLOAT part_coef */
+
+#the values below are not used for gas solute
+T_eut                1.0e-01  /* CA_FLOAT T_eut */
+Fs_eut               1.0e-01  /* CA_FLOAT Fs_eut */
+m_solute0             0        /* CA_FLOAT m_solute */
+surf_tens_coef       1.0e-01  /* CA_FLOAT surf_tens_coef */

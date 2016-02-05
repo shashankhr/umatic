@@ -1,0 +1,220 @@
+#!gnumake
+#RCS ID: $Id: Makefile 1402 2008-11-20 15:36:41Z  $
+#
+#Makefile for read_list subproject
+#by Robert Atwood
+#
+# This Makefile builds the requested version of the package, with 
+# the requested type of debugging included. It enables rebuilding
+# of only the object files required, for each version. This is 
+# done by having a seperate subdirectory for each possible combination,
+# therefore conflicting objects are not linked. (However it does not
+# account for using a different compiler.) Each subdirectory contains its
+# own Makefile, with minimal differences between them. 
+# This Makefile detects the type of machine/compiler based on the setting
+# of the ARCH environment variable which should be set to the output of the
+# uname command. It also checks for the presence of the intel compiler by 
+# looking for it in the PATH environment variable. 
+# 
+.EXPORT_ALL_VARIABLES:
+.SUFFIXES:
+SRCDIR = $(CURDIR):$(CURDIR)/..
+
+vpath %.c  $(SRCDIR)
+vpath %.inc $(SRCDIR)
+
+.SUFFIXES: .c .o .d
+.c.o:
+	$(CC) -c $(CFLAGS)  $<
+
+#DEPEND rule copied from gnu make manual
+%.d: %.c
+	set -e; $(CC) -MM $(CFLAGS) $< \
+| sed 's/\($*\)\.o[ :]*/\1.o $@ : /g' > $@; \
+[ -s $@ ] || rm -f $@
+
+#default 
+#for all systems
+# unless overridden in system specific sections, these flags
+# will always be used 
+#flags for all possible builds
+REG_LCDEFS =   -I..  -DCA_DOUBLE
+DFLAGS =
+
+ifeq ($(ARCH) , IRIX64)
+WOFF = -woff 1685,515,608,658,799,803,852,1048,1233,1499,134,85,1009,1174,1552
+SYSFLAGS =  -DSGI   -nostdinc -I/usr/include -mips4 -n32
+POPTIMIZER = -O3
+DOPTIMIZER = -g
+CC = cc
+LIBFLAGS = -mips4 -n32 -quickstart_info -nostdlib -L/usr/lib32/mips4 -L/usr/lib32 -L/usr/lib32/internal 
+MATHLIB = -lfastm -lm
+NAME = sgi
+DEPFLAGS = -MDupdate Makedepend
+endif
+
+#CYGWIN (windows pc) section
+ifneq (,$(findstring CYGWIN,$(ARCH)))
+WOFF = 
+#DFLAGS = -DALL_SIGS
+SYSLCOPTS = -I/usr/include -I .. -I . -I ../read_list   
+DFLAGS =
+CC = gcc
+
+REG_OPT = -O3 -ffast-math 
+DEB_OPT = -g
+PAR =
+
+LLDLIBS = -lgd -lpng -lm -lz
+# stripped and
+# static build for easy portability and small size
+# with the cygwin version -- fewer DLL files required
+# for the static version
+LDFLAGS = -static -s -L/usr/local/lib $(LLDLIBS)
+DEB_LIB = 
+SYSNAME = cygwin
+NAME = cyg
+EXE = .exe
+endif
+#LINUX (pc) section
+ifneq (,$(findstring Linux,$(ARCH)))
+WOFF = 
+#DFLAGS = -DALL_SIGS
+DFLAGS =  #-DNEW_MOULD_SRC # -DVERBOSE_FILE
+CC =  gcc
+# the name of the static analyser (like "lint")
+LINT = splint -weak
+#
+# may need to change for different machines
+# but most are at least p3 
+REG_OPT =  -ffast-math -march=pentium3
+DEB_OPT = -ggdb
+PAR =  -j6
+
+LLDLIBS = -lgd -lm 
+LDFLAGS = -L/usr/local/lib $(LLDLIBS)
+DEB_LIB =# -lefence 
+DBM_LIB = -ldmalloc
+
+NAME = linux
+SYSNAME = linux
+SYSLCOPTS =  -I .. -I . -I ../read_list 
+endif
+ifneq (,$(findstring hive,$(HOSTNAME)))
+# it will find the icc compiler anyways....
+#CC =  gcc379
+#CC = icc
+
+REG_OPT = # -O0 -xW -ipo
+#gnu profiler options
+#should not use debugging malloc libraray with profiling!
+#REG_OPT = -g -pg  
+
+DEB_OPT = -ggdb
+NAME = hive
+endif
+
+#
+#specific for Intel ICC complier
+#looks in the path for the intel files
+#
+ifneq (,$(findstring intel,$(PATH)))
+CC = icc
+
+# actually the -O0 flag turns off the ipo and parallel options.
+# anyways. Some problems have been observed with any higher level 
+# of optimization , however...
+REG_OPT =  -O0 -xW -ipo  -parallel # -tpp7 -openmp
+DEB_OPT = -g
+NAME = icc
+endif
+
+#error if the ARCH variable has not been specified
+ifeq ($(strip $(ARCH)),)
+CC = echo
+SYSNAME = ERROR_NO_ARCH
+NAME = ERROR_NO_ARCH
+MSG = "ERROR ERROR ERROR !!!!! -- no ARCH variable detected! Please set the environment variable to describe the system. Quitting with error: "
+endif
+
+#####
+#end of system specific sections
+#
+####
+#generate the final version of the flags
+
+DEPEND=$(SOURCES:.c=.d)
+include $(DEPEND)
+
+MSG = "Finished making"
+
+
+
+PROG = readcsv_$(NAME)
+DPROG = readcsv_deb
+DBMPROG = rdbm
+
+LPROG = readlist_$(NAME)
+DLPROG = readlist_deb
+DBMLPROG = rldbm
+
+
+CFLAGS = $(OPTIMIZER) $(DFLAGS) $(REG_LCDEFS) $(SYSFLAGS) $(WOFF)
+REG_LIBS = $(LIBFLAGS) $(MATHLIB) -lz
+LIBS = $(REG_LIBS) $(LOC_LIBS)
+
+
+OBJEXT = o
+
+LSOURCES = read_fg_list.c qsort_csv.c readwrite_data.c convert.c findvals.c freecsv.c init.c  readwrite.c readwrite_fg.c safeopen.c debin.c unit_conv.c 
+NLSOURCES = write_fidap_struct.c  
+SOURCES = $(LSOURCES) $(NLSOURCES)
+SOBJECTS = $(SOURCES:.c=.o)
+OBJECTS = $(SOBJECTS) $(MOBJ)
+
+
+
+default: $(LPROG)
+
+all: $(PROG) $(LPROG)
+
+debug: clean $(DLPROG)
+
+objects: MOBJ=read_list.o
+objects: $(OBJECTS)
+	echo $(OBJECTS)
+
+dbm: clean $(DBMLPROG)
+
+new: clean default
+
+
+$(DPROG) $(DLPROG): OPTIMIZER=$(DEB_OPT)
+$(DPROG) $(DLPROG): LOC_LIBS= -L/usr/local/lib -lefence
+
+$(PROG) $(LPROG): OPTIMIZER=$(pOPTIMIZER)
+$(PROG) $(LPROG): LOC_LIBS= 
+
+$(DBMPROG) $(DBMLPROG): OPTIMIZER=$(DOPTIMIZER)
+$(DBMPROG) $(DBMLPROG): LOC_LIBS= -L/usr/local/lib -ldbmalloc
+$(DBMPROG) $(DBMLPROG): DFLAGS = -DDBM
+$(DBMPROG) $(DBMLPROG): read_list.o
+
+
+$(PROG) $(DPROG) $(DBMPROG): MOBJ:=read_csv.o
+$(LPROG) $(DLPROG) $(DBMLPROG): MOBJ=read_list.o
+
+ALLPROGS= $(PROG) $(DPROG) $(DMPPROG) $(LPROG) $(DLPROG) $(DBMLPROG) 
+
+$(ALLPROGS): $(OBJECTS) $(HEADERS) 
+	echo $(OBJECTS)
+	echo $(MOBJ)
+	$(MAKE) $(MOBJ) 
+	$(CC) $(CFLAGS) $(OBJECTS) -o $@ $(LIBS) 
+	echo "Finished making:" $@
+
+clean:
+	rm -f *.$(OBJEXT) *.exe $(PROG) $(DPROG) 
+
+lint:
+	lint $(REG_LCDEFS) $(LSOURCES) read_list.c  > lintout.txt

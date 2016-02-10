@@ -43,10 +43,10 @@ RM = /usr/local/Cellar/cmake/3.4.3/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/shashankhr/github/umatic/casource
+CMAKE_SOURCE_DIR = /Users/shashankhr/GitHub/umatic/casource
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/shashankhr/github/umatic/build
+CMAKE_BINARY_DIR = /Users/shashankhr/GitHub/umatic/build
 
 # Utility rule file for includer.
 
@@ -61,7 +61,7 @@ CMakeFiles/includer:
 	echo 'Configure Host:\t''\' >> getcflags.h
 	echo 'Compiler Info:\t' `/Library/Developer/CommandLineTools/usr/bin/cc --version | head -1` '\' >> getcflags.h
 	echo 'Configure CFLAGS:\t'-DBL_COMPRESS -DIMAGEOUT -DLIST_ALL_NUC -DPRINT_AV_PROFILE -DGLOBAL_UND_GRO -DAV_DIFF_COEFF -DNOSOLID -DCELL_DIFF_ARR -DHISTO_NUC -DALWAYS_NUC -DRANSLEY -DTEST_LINE_INT -DWRITE_BLOCK -DINCONEL -DNLM_FORMULA -DCA_DOUBLE -DCLOCK -DPNG_OUTPUT -fPIC'\' >> getcflags.h
-	echo 'SVN Version:\t' `svnversion /Users/shashankhr/github/umatic/casource` '\' >> getcflags.h
+	echo 'SVN Version:\t' `svnversion /Users/shashankhr/GitHub/umatic/casource` '\' >> getcflags.h
 	echo '")' >> getcflags.h
 
 includer: CMakeFiles/includer
@@ -79,6 +79,6 @@ CMakeFiles/includer.dir/clean:
 .PHONY : CMakeFiles/includer.dir/clean
 
 CMakeFiles/includer.dir/depend:
-	cd /Users/shashankhr/github/umatic/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/shashankhr/github/umatic/casource /Users/shashankhr/github/umatic/casource /Users/shashankhr/github/umatic/build /Users/shashankhr/github/umatic/build /Users/shashankhr/github/umatic/build/CMakeFiles/includer.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Users/shashankhr/GitHub/umatic/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/shashankhr/GitHub/umatic/casource /Users/shashankhr/GitHub/umatic/casource /Users/shashankhr/GitHub/umatic/build /Users/shashankhr/GitHub/umatic/build /Users/shashankhr/GitHub/umatic/build/CMakeFiles/includer.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/includer.dir/depend
 

@@ -1,4 +1,4 @@
-# Install script for directory: /Users/shashankhr/github/umatic/casource/read_list
+# Install script for directory: /Users/shashankhr/GitHub/umatic/casource/read_list
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

@@ -1,4 +1,4 @@
-/Users/shashankhr/github/umatic/build/CMakeFiles/includer.dir
-/Users/shashankhr/github/umatic/build/CMakeFiles/umat_run.dir
-/Users/shashankhr/github/umatic/build/CMakeFiles/umatic.dir
-/Users/shashankhr/github/umatic/build/read_list/CMakeFiles/readlist.dir
+/Users/shashankhr/GitHub/umatic/build/CMakeFiles/includer.dir
+/Users/shashankhr/GitHub/umatic/build/CMakeFiles/umat_run.dir
+/Users/shashankhr/GitHub/umatic/build/CMakeFiles/umatic.dir
+/Users/shashankhr/GitHub/umatic/build/read_list/CMakeFiles/readlist.dir

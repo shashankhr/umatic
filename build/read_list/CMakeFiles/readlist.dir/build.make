@@ -43,10 +43,10 @@ RM = /usr/local/Cellar/cmake/3.4.3/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/shashankhr/github/umatic/casource
+CMAKE_SOURCE_DIR = /Users/shashankhr/GitHub/umatic/casource
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/shashankhr/github/umatic/build
+CMAKE_BINARY_DIR = /Users/shashankhr/GitHub/umatic/build
 
 # Include any dependencies generated for this target.
 include read_list/CMakeFiles/readlist.dir/depend.make
@@ -58,17 +58,17 @@ include read_list/CMakeFiles/readlist.dir/progress.make
 include read_list/CMakeFiles/readlist.dir/flags.make
 
 read_list/CMakeFiles/readlist.dir/convert.o: read_list/CMakeFiles/readlist.dir/flags.make
-read_list/CMakeFiles/readlist.dir/convert.o: /Users/shashankhr/github/umatic/casource/read_list/convert.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object read_list/CMakeFiles/readlist.dir/convert.o"
-	cd /Users/shashankhr/github/umatic/build/read_list && /Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/readlist.dir/convert.o   -c /Users/shashankhr/github/umatic/casource/read_list/convert.c
+read_list/CMakeFiles/readlist.dir/convert.o: /Users/shashankhr/GitHub/umatic/casource/read_list/convert.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object read_list/CMakeFiles/readlist.dir/convert.o"
+	cd /Users/shashankhr/GitHub/umatic/build/read_list && /Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/readlist.dir/convert.o   -c /Users/shashankhr/GitHub/umatic/casource/read_list/convert.c
 
 read_list/CMakeFiles/readlist.dir/convert.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/readlist.dir/convert.i"
-	cd /Users/shashankhr/github/umatic/build/read_list && /Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/read_list/convert.c > CMakeFiles/readlist.dir/convert.i
+	cd /Users/shashankhr/GitHub/umatic/build/read_list && /Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/read_list/convert.c > CMakeFiles/readlist.dir/convert.i
 
 read_list/CMakeFiles/readlist.dir/convert.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/readlist.dir/convert.s"
-	cd /Users/shashankhr/github/umatic/build/read_list && /Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/read_list/convert.c -o CMakeFiles/readlist.dir/convert.s
+	cd /Users/shashankhr/GitHub/umatic/build/read_list && /Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/read_list/convert.c -o CMakeFiles/readlist.dir/convert.s
 
 read_list/CMakeFiles/readlist.dir/convert.o.requires:
 
@@ -82,17 +82,17 @@ read_list/CMakeFiles/readlist.dir/convert.o.provides.build: read_list/CMakeFiles
 
 
 read_list/CMakeFiles/readlist.dir/debin.o: read_list/CMakeFiles/readlist.dir/flags.make
-read_list/CMakeFiles/readlist.dir/debin.o: /Users/shashankhr/github/umatic/casource/read_list/debin.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object read_list/CMakeFiles/readlist.dir/debin.o"
-	cd /Users/shashankhr/github/umatic/build/read_list && /Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/readlist.dir/debin.o   -c /Users/shashankhr/github/umatic/casource/read_list/debin.c
+read_list/CMakeFiles/readlist.dir/debin.o: /Users/shashankhr/GitHub/umatic/casource/read_list/debin.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object read_list/CMakeFiles/readlist.dir/debin.o"
+	cd /Users/shashankhr/GitHub/umatic/build/read_list && /Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/readlist.dir/debin.o   -c /Users/shashankhr/GitHub/umatic/casource/read_list/debin.c
 
 read_list/CMakeFiles/readlist.dir/debin.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/readlist.dir/debin.i"
-	cd /Users/shashankhr/github/umatic/build/read_list && /Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/read_list/debin.c > CMakeFiles/readlist.dir/debin.i
+	cd /Users/shashankhr/GitHub/umatic/build/read_list && /Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/read_list/debin.c > CMakeFiles/readlist.dir/debin.i
 
 read_list/CMakeFiles/readlist.dir/debin.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/readlist.dir/debin.s"
-	cd /Users/shashankhr/github/umatic/build/read_list && /Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/read_list/debin.c -o CMakeFiles/readlist.dir/debin.s
+	cd /Users/shashankhr/GitHub/umatic/build/read_list && /Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/read_list/debin.c -o CMakeFiles/readlist.dir/debin.s
 
 read_list/CMakeFiles/readlist.dir/debin.o.requires:
 
@@ -106,17 +106,17 @@ read_list/CMakeFiles/readlist.dir/debin.o.provides.build: read_list/CMakeFiles/r
 
 
 read_list/CMakeFiles/readlist.dir/findvals.o: read_list/CMakeFiles/readlist.dir/flags.make
-read_list/CMakeFiles/readlist.dir/findvals.o: /Users/shashankhr/github/umatic/casource/read_list/findvals.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object read_list/CMakeFiles/readlist.dir/findvals.o"
-	cd /Users/shashankhr/github/umatic/build/read_list && /Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/readlist.dir/findvals.o   -c /Users/shashankhr/github/umatic/casource/read_list/findvals.c
+read_list/CMakeFiles/readlist.dir/findvals.o: /Users/shashankhr/GitHub/umatic/casource/read_list/findvals.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object read_list/CMakeFiles/readlist.dir/findvals.o"
+	cd /Users/shashankhr/GitHub/umatic/build/read_list && /Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/readlist.dir/findvals.o   -c /Users/shashankhr/GitHub/umatic/casource/read_list/findvals.c
 
 read_list/CMakeFiles/readlist.dir/findvals.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/readlist.dir/findvals.i"
-	cd /Users/shashankhr/github/umatic/build/read_list && /Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/read_list/findvals.c > CMakeFiles/readlist.dir/findvals.i
+	cd /Users/shashankhr/GitHub/umatic/build/read_list && /Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/read_list/findvals.c > CMakeFiles/readlist.dir/findvals.i
 
 read_list/CMakeFiles/readlist.dir/findvals.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/readlist.dir/findvals.s"
-	cd /Users/shashankhr/github/umatic/build/read_list && /Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/read_list/findvals.c -o CMakeFiles/readlist.dir/findvals.s
+	cd /Users/shashankhr/GitHub/umatic/build/read_list && /Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/read_list/findvals.c -o CMakeFiles/readlist.dir/findvals.s
 
 read_list/CMakeFiles/readlist.dir/findvals.o.requires:
 
@@ -130,17 +130,17 @@ read_list/CMakeFiles/readlist.dir/findvals.o.provides.build: read_list/CMakeFile
 
 
 read_list/CMakeFiles/readlist.dir/freecsv.o: read_list/CMakeFiles/readlist.dir/flags.make
-read_list/CMakeFiles/readlist.dir/freecsv.o: /Users/shashankhr/github/umatic/casource/read_list/freecsv.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object read_list/CMakeFiles/readlist.dir/freecsv.o"
-	cd /Users/shashankhr/github/umatic/build/read_list && /Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/readlist.dir/freecsv.o   -c /Users/shashankhr/github/umatic/casource/read_list/freecsv.c
+read_list/CMakeFiles/readlist.dir/freecsv.o: /Users/shashankhr/GitHub/umatic/casource/read_list/freecsv.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object read_list/CMakeFiles/readlist.dir/freecsv.o"
+	cd /Users/shashankhr/GitHub/umatic/build/read_list && /Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/readlist.dir/freecsv.o   -c /Users/shashankhr/GitHub/umatic/casource/read_list/freecsv.c
 
 read_list/CMakeFiles/readlist.dir/freecsv.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/readlist.dir/freecsv.i"
-	cd /Users/shashankhr/github/umatic/build/read_list && /Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/read_list/freecsv.c > CMakeFiles/readlist.dir/freecsv.i
+	cd /Users/shashankhr/GitHub/umatic/build/read_list && /Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/read_list/freecsv.c > CMakeFiles/readlist.dir/freecsv.i
 
 read_list/CMakeFiles/readlist.dir/freecsv.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/readlist.dir/freecsv.s"
-	cd /Users/shashankhr/github/umatic/build/read_list && /Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/read_list/freecsv.c -o CMakeFiles/readlist.dir/freecsv.s
+	cd /Users/shashankhr/GitHub/umatic/build/read_list && /Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/read_list/freecsv.c -o CMakeFiles/readlist.dir/freecsv.s
 
 read_list/CMakeFiles/readlist.dir/freecsv.o.requires:
 
@@ -154,17 +154,17 @@ read_list/CMakeFiles/readlist.dir/freecsv.o.provides.build: read_list/CMakeFiles
 
 
 read_list/CMakeFiles/readlist.dir/init.o: read_list/CMakeFiles/readlist.dir/flags.make
-read_list/CMakeFiles/readlist.dir/init.o: /Users/shashankhr/github/umatic/casource/read_list/init.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object read_list/CMakeFiles/readlist.dir/init.o"
-	cd /Users/shashankhr/github/umatic/build/read_list && /Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/readlist.dir/init.o   -c /Users/shashankhr/github/umatic/casource/read_list/init.c
+read_list/CMakeFiles/readlist.dir/init.o: /Users/shashankhr/GitHub/umatic/casource/read_list/init.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object read_list/CMakeFiles/readlist.dir/init.o"
+	cd /Users/shashankhr/GitHub/umatic/build/read_list && /Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/readlist.dir/init.o   -c /Users/shashankhr/GitHub/umatic/casource/read_list/init.c
 
 read_list/CMakeFiles/readlist.dir/init.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/readlist.dir/init.i"
-	cd /Users/shashankhr/github/umatic/build/read_list && /Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/read_list/init.c > CMakeFiles/readlist.dir/init.i
+	cd /Users/shashankhr/GitHub/umatic/build/read_list && /Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/read_list/init.c > CMakeFiles/readlist.dir/init.i
 
 read_list/CMakeFiles/readlist.dir/init.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/readlist.dir/init.s"
-	cd /Users/shashankhr/github/umatic/build/read_list && /Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/read_list/init.c -o CMakeFiles/readlist.dir/init.s
+	cd /Users/shashankhr/GitHub/umatic/build/read_list && /Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/read_list/init.c -o CMakeFiles/readlist.dir/init.s
 
 read_list/CMakeFiles/readlist.dir/init.o.requires:
 
@@ -178,17 +178,17 @@ read_list/CMakeFiles/readlist.dir/init.o.provides.build: read_list/CMakeFiles/re
 
 
 read_list/CMakeFiles/readlist.dir/qsort_csv.o: read_list/CMakeFiles/readlist.dir/flags.make
-read_list/CMakeFiles/readlist.dir/qsort_csv.o: /Users/shashankhr/github/umatic/casource/read_list/qsort_csv.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object read_list/CMakeFiles/readlist.dir/qsort_csv.o"
-	cd /Users/shashankhr/github/umatic/build/read_list && /Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/readlist.dir/qsort_csv.o   -c /Users/shashankhr/github/umatic/casource/read_list/qsort_csv.c
+read_list/CMakeFiles/readlist.dir/qsort_csv.o: /Users/shashankhr/GitHub/umatic/casource/read_list/qsort_csv.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object read_list/CMakeFiles/readlist.dir/qsort_csv.o"
+	cd /Users/shashankhr/GitHub/umatic/build/read_list && /Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/readlist.dir/qsort_csv.o   -c /Users/shashankhr/GitHub/umatic/casource/read_list/qsort_csv.c
 
 read_list/CMakeFiles/readlist.dir/qsort_csv.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/readlist.dir/qsort_csv.i"
-	cd /Users/shashankhr/github/umatic/build/read_list && /Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/read_list/qsort_csv.c > CMakeFiles/readlist.dir/qsort_csv.i
+	cd /Users/shashankhr/GitHub/umatic/build/read_list && /Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/read_list/qsort_csv.c > CMakeFiles/readlist.dir/qsort_csv.i
 
 read_list/CMakeFiles/readlist.dir/qsort_csv.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/readlist.dir/qsort_csv.s"
-	cd /Users/shashankhr/github/umatic/build/read_list && /Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/read_list/qsort_csv.c -o CMakeFiles/readlist.dir/qsort_csv.s
+	cd /Users/shashankhr/GitHub/umatic/build/read_list && /Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/read_list/qsort_csv.c -o CMakeFiles/readlist.dir/qsort_csv.s
 
 read_list/CMakeFiles/readlist.dir/qsort_csv.o.requires:
 
@@ -202,17 +202,17 @@ read_list/CMakeFiles/readlist.dir/qsort_csv.o.provides.build: read_list/CMakeFil
 
 
 read_list/CMakeFiles/readlist.dir/read_fg_list.o: read_list/CMakeFiles/readlist.dir/flags.make
-read_list/CMakeFiles/readlist.dir/read_fg_list.o: /Users/shashankhr/github/umatic/casource/read_list/read_fg_list.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object read_list/CMakeFiles/readlist.dir/read_fg_list.o"
-	cd /Users/shashankhr/github/umatic/build/read_list && /Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/readlist.dir/read_fg_list.o   -c /Users/shashankhr/github/umatic/casource/read_list/read_fg_list.c
+read_list/CMakeFiles/readlist.dir/read_fg_list.o: /Users/shashankhr/GitHub/umatic/casource/read_list/read_fg_list.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object read_list/CMakeFiles/readlist.dir/read_fg_list.o"
+	cd /Users/shashankhr/GitHub/umatic/build/read_list && /Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/readlist.dir/read_fg_list.o   -c /Users/shashankhr/GitHub/umatic/casource/read_list/read_fg_list.c
 
 read_list/CMakeFiles/readlist.dir/read_fg_list.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/readlist.dir/read_fg_list.i"
-	cd /Users/shashankhr/github/umatic/build/read_list && /Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/read_list/read_fg_list.c > CMakeFiles/readlist.dir/read_fg_list.i
+	cd /Users/shashankhr/GitHub/umatic/build/read_list && /Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/read_list/read_fg_list.c > CMakeFiles/readlist.dir/read_fg_list.i
 
 read_list/CMakeFiles/readlist.dir/read_fg_list.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/readlist.dir/read_fg_list.s"
-	cd /Users/shashankhr/github/umatic/build/read_list && /Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/read_list/read_fg_list.c -o CMakeFiles/readlist.dir/read_fg_list.s
+	cd /Users/shashankhr/GitHub/umatic/build/read_list && /Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/read_list/read_fg_list.c -o CMakeFiles/readlist.dir/read_fg_list.s
 
 read_list/CMakeFiles/readlist.dir/read_fg_list.o.requires:
 
@@ -226,17 +226,17 @@ read_list/CMakeFiles/readlist.dir/read_fg_list.o.provides.build: read_list/CMake
 
 
 read_list/CMakeFiles/readlist.dir/readwrite.o: read_list/CMakeFiles/readlist.dir/flags.make
-read_list/CMakeFiles/readlist.dir/readwrite.o: /Users/shashankhr/github/umatic/casource/read_list/readwrite.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object read_list/CMakeFiles/readlist.dir/readwrite.o"
-	cd /Users/shashankhr/github/umatic/build/read_list && /Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/readlist.dir/readwrite.o   -c /Users/shashankhr/github/umatic/casource/read_list/readwrite.c
+read_list/CMakeFiles/readlist.dir/readwrite.o: /Users/shashankhr/GitHub/umatic/casource/read_list/readwrite.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object read_list/CMakeFiles/readlist.dir/readwrite.o"
+	cd /Users/shashankhr/GitHub/umatic/build/read_list && /Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/readlist.dir/readwrite.o   -c /Users/shashankhr/GitHub/umatic/casource/read_list/readwrite.c
 
 read_list/CMakeFiles/readlist.dir/readwrite.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/readlist.dir/readwrite.i"
-	cd /Users/shashankhr/github/umatic/build/read_list && /Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/read_list/readwrite.c > CMakeFiles/readlist.dir/readwrite.i
+	cd /Users/shashankhr/GitHub/umatic/build/read_list && /Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/read_list/readwrite.c > CMakeFiles/readlist.dir/readwrite.i
 
 read_list/CMakeFiles/readlist.dir/readwrite.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/readlist.dir/readwrite.s"
-	cd /Users/shashankhr/github/umatic/build/read_list && /Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/read_list/readwrite.c -o CMakeFiles/readlist.dir/readwrite.s
+	cd /Users/shashankhr/GitHub/umatic/build/read_list && /Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/read_list/readwrite.c -o CMakeFiles/readlist.dir/readwrite.s
 
 read_list/CMakeFiles/readlist.dir/readwrite.o.requires:
 
@@ -250,17 +250,17 @@ read_list/CMakeFiles/readlist.dir/readwrite.o.provides.build: read_list/CMakeFil
 
 
 read_list/CMakeFiles/readlist.dir/readwrite_data.o: read_list/CMakeFiles/readlist.dir/flags.make
-read_list/CMakeFiles/readlist.dir/readwrite_data.o: /Users/shashankhr/github/umatic/casource/read_list/readwrite_data.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object read_list/CMakeFiles/readlist.dir/readwrite_data.o"
-	cd /Users/shashankhr/github/umatic/build/read_list && /Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/readlist.dir/readwrite_data.o   -c /Users/shashankhr/github/umatic/casource/read_list/readwrite_data.c
+read_list/CMakeFiles/readlist.dir/readwrite_data.o: /Users/shashankhr/GitHub/umatic/casource/read_list/readwrite_data.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object read_list/CMakeFiles/readlist.dir/readwrite_data.o"
+	cd /Users/shashankhr/GitHub/umatic/build/read_list && /Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/readlist.dir/readwrite_data.o   -c /Users/shashankhr/GitHub/umatic/casource/read_list/readwrite_data.c
 
 read_list/CMakeFiles/readlist.dir/readwrite_data.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/readlist.dir/readwrite_data.i"
-	cd /Users/shashankhr/github/umatic/build/read_list && /Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/read_list/readwrite_data.c > CMakeFiles/readlist.dir/readwrite_data.i
+	cd /Users/shashankhr/GitHub/umatic/build/read_list && /Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/read_list/readwrite_data.c > CMakeFiles/readlist.dir/readwrite_data.i
 
 read_list/CMakeFiles/readlist.dir/readwrite_data.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/readlist.dir/readwrite_data.s"
-	cd /Users/shashankhr/github/umatic/build/read_list && /Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/read_list/readwrite_data.c -o CMakeFiles/readlist.dir/readwrite_data.s
+	cd /Users/shashankhr/GitHub/umatic/build/read_list && /Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/read_list/readwrite_data.c -o CMakeFiles/readlist.dir/readwrite_data.s
 
 read_list/CMakeFiles/readlist.dir/readwrite_data.o.requires:
 
@@ -274,17 +274,17 @@ read_list/CMakeFiles/readlist.dir/readwrite_data.o.provides.build: read_list/CMa
 
 
 read_list/CMakeFiles/readlist.dir/readwrite_fg.o: read_list/CMakeFiles/readlist.dir/flags.make
-read_list/CMakeFiles/readlist.dir/readwrite_fg.o: /Users/shashankhr/github/umatic/casource/read_list/readwrite_fg.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object read_list/CMakeFiles/readlist.dir/readwrite_fg.o"
-	cd /Users/shashankhr/github/umatic/build/read_list && /Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/readlist.dir/readwrite_fg.o   -c /Users/shashankhr/github/umatic/casource/read_list/readwrite_fg.c
+read_list/CMakeFiles/readlist.dir/readwrite_fg.o: /Users/shashankhr/GitHub/umatic/casource/read_list/readwrite_fg.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object read_list/CMakeFiles/readlist.dir/readwrite_fg.o"
+	cd /Users/shashankhr/GitHub/umatic/build/read_list && /Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/readlist.dir/readwrite_fg.o   -c /Users/shashankhr/GitHub/umatic/casource/read_list/readwrite_fg.c
 
 read_list/CMakeFiles/readlist.dir/readwrite_fg.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/readlist.dir/readwrite_fg.i"
-	cd /Users/shashankhr/github/umatic/build/read_list && /Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/read_list/readwrite_fg.c > CMakeFiles/readlist.dir/readwrite_fg.i
+	cd /Users/shashankhr/GitHub/umatic/build/read_list && /Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/read_list/readwrite_fg.c > CMakeFiles/readlist.dir/readwrite_fg.i
 
 read_list/CMakeFiles/readlist.dir/readwrite_fg.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/readlist.dir/readwrite_fg.s"
-	cd /Users/shashankhr/github/umatic/build/read_list && /Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/read_list/readwrite_fg.c -o CMakeFiles/readlist.dir/readwrite_fg.s
+	cd /Users/shashankhr/GitHub/umatic/build/read_list && /Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/read_list/readwrite_fg.c -o CMakeFiles/readlist.dir/readwrite_fg.s
 
 read_list/CMakeFiles/readlist.dir/readwrite_fg.o.requires:
 
@@ -298,17 +298,17 @@ read_list/CMakeFiles/readlist.dir/readwrite_fg.o.provides.build: read_list/CMake
 
 
 read_list/CMakeFiles/readlist.dir/unit_conv.o: read_list/CMakeFiles/readlist.dir/flags.make
-read_list/CMakeFiles/readlist.dir/unit_conv.o: /Users/shashankhr/github/umatic/casource/read_list/unit_conv.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object read_list/CMakeFiles/readlist.dir/unit_conv.o"
-	cd /Users/shashankhr/github/umatic/build/read_list && /Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/readlist.dir/unit_conv.o   -c /Users/shashankhr/github/umatic/casource/read_list/unit_conv.c
+read_list/CMakeFiles/readlist.dir/unit_conv.o: /Users/shashankhr/GitHub/umatic/casource/read_list/unit_conv.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object read_list/CMakeFiles/readlist.dir/unit_conv.o"
+	cd /Users/shashankhr/GitHub/umatic/build/read_list && /Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/readlist.dir/unit_conv.o   -c /Users/shashankhr/GitHub/umatic/casource/read_list/unit_conv.c
 
 read_list/CMakeFiles/readlist.dir/unit_conv.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/readlist.dir/unit_conv.i"
-	cd /Users/shashankhr/github/umatic/build/read_list && /Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/read_list/unit_conv.c > CMakeFiles/readlist.dir/unit_conv.i
+	cd /Users/shashankhr/GitHub/umatic/build/read_list && /Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/read_list/unit_conv.c > CMakeFiles/readlist.dir/unit_conv.i
 
 read_list/CMakeFiles/readlist.dir/unit_conv.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/readlist.dir/unit_conv.s"
-	cd /Users/shashankhr/github/umatic/build/read_list && /Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/read_list/unit_conv.c -o CMakeFiles/readlist.dir/unit_conv.s
+	cd /Users/shashankhr/GitHub/umatic/build/read_list && /Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/read_list/unit_conv.c -o CMakeFiles/readlist.dir/unit_conv.s
 
 read_list/CMakeFiles/readlist.dir/unit_conv.o.requires:
 
@@ -351,9 +351,9 @@ read_list/libreadlist.a: read_list/CMakeFiles/readlist.dir/readwrite_fg.o
 read_list/libreadlist.a: read_list/CMakeFiles/readlist.dir/unit_conv.o
 read_list/libreadlist.a: read_list/CMakeFiles/readlist.dir/build.make
 read_list/libreadlist.a: read_list/CMakeFiles/readlist.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking C static library libreadlist.a"
-	cd /Users/shashankhr/github/umatic/build/read_list && $(CMAKE_COMMAND) -P CMakeFiles/readlist.dir/cmake_clean_target.cmake
-	cd /Users/shashankhr/github/umatic/build/read_list && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/readlist.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking C static library libreadlist.a"
+	cd /Users/shashankhr/GitHub/umatic/build/read_list && $(CMAKE_COMMAND) -P CMakeFiles/readlist.dir/cmake_clean_target.cmake
+	cd /Users/shashankhr/GitHub/umatic/build/read_list && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/readlist.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 read_list/CMakeFiles/readlist.dir/build: read_list/libreadlist.a
@@ -375,10 +375,10 @@ read_list/CMakeFiles/readlist.dir/requires: read_list/CMakeFiles/readlist.dir/un
 .PHONY : read_list/CMakeFiles/readlist.dir/requires
 
 read_list/CMakeFiles/readlist.dir/clean:
-	cd /Users/shashankhr/github/umatic/build/read_list && $(CMAKE_COMMAND) -P CMakeFiles/readlist.dir/cmake_clean.cmake
+	cd /Users/shashankhr/GitHub/umatic/build/read_list && $(CMAKE_COMMAND) -P CMakeFiles/readlist.dir/cmake_clean.cmake
 .PHONY : read_list/CMakeFiles/readlist.dir/clean
 
 read_list/CMakeFiles/readlist.dir/depend:
-	cd /Users/shashankhr/github/umatic/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/shashankhr/github/umatic/casource /Users/shashankhr/github/umatic/casource/read_list /Users/shashankhr/github/umatic/build /Users/shashankhr/github/umatic/build/read_list /Users/shashankhr/github/umatic/build/read_list/CMakeFiles/readlist.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Users/shashankhr/GitHub/umatic/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/shashankhr/GitHub/umatic/casource /Users/shashankhr/GitHub/umatic/casource/read_list /Users/shashankhr/GitHub/umatic/build /Users/shashankhr/GitHub/umatic/build/read_list /Users/shashankhr/GitHub/umatic/build/read_list/CMakeFiles/readlist.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : read_list/CMakeFiles/readlist.dir/depend
 

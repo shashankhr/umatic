@@ -48,10 +48,10 @@ RM = /usr/local/Cellar/cmake/3.4.3/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/shashankhr/github/umatic/casource
+CMAKE_SOURCE_DIR = /Users/shashankhr/GitHub/umatic/casource
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/shashankhr/github/umatic/build
+CMAKE_BINARY_DIR = /Users/shashankhr/GitHub/umatic/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,14 +80,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /Users/shashankhr/github/umatic/build && $(CMAKE_COMMAND) -E cmake_progress_start /Users/shashankhr/github/umatic/build/CMakeFiles /Users/shashankhr/github/umatic/build/read_list/CMakeFiles/progress.marks
-	cd /Users/shashankhr/github/umatic/build && $(MAKE) -f CMakeFiles/Makefile2 read_list/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/shashankhr/github/umatic/build/CMakeFiles 0
+	cd /Users/shashankhr/GitHub/umatic/build && $(CMAKE_COMMAND) -E cmake_progress_start /Users/shashankhr/GitHub/umatic/build/CMakeFiles /Users/shashankhr/GitHub/umatic/build/read_list/CMakeFiles/progress.marks
+	cd /Users/shashankhr/GitHub/umatic/build && $(MAKE) -f CMakeFiles/Makefile2 read_list/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/shashankhr/GitHub/umatic/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /Users/shashankhr/github/umatic/build && $(MAKE) -f CMakeFiles/Makefile2 read_list/clean
+	cd /Users/shashankhr/GitHub/umatic/build && $(MAKE) -f CMakeFiles/Makefile2 read_list/clean
 .PHONY : clean
 
 # The main clean target
@@ -97,22 +97,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /Users/shashankhr/github/umatic/build && $(MAKE) -f CMakeFiles/Makefile2 read_list/preinstall
+	cd /Users/shashankhr/GitHub/umatic/build && $(MAKE) -f CMakeFiles/Makefile2 read_list/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /Users/shashankhr/github/umatic/build && $(MAKE) -f CMakeFiles/Makefile2 read_list/preinstall
+	cd /Users/shashankhr/GitHub/umatic/build && $(MAKE) -f CMakeFiles/Makefile2 read_list/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /Users/shashankhr/github/umatic/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /Users/shashankhr/GitHub/umatic/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 read_list/CMakeFiles/readlist.dir/rule:
-	cd /Users/shashankhr/github/umatic/build && $(MAKE) -f CMakeFiles/Makefile2 read_list/CMakeFiles/readlist.dir/rule
+	cd /Users/shashankhr/GitHub/umatic/build && $(MAKE) -f CMakeFiles/Makefile2 read_list/CMakeFiles/readlist.dir/rule
 .PHONY : read_list/CMakeFiles/readlist.dir/rule
 
 # Convenience name for target.
@@ -122,172 +122,172 @@ readlist: read_list/CMakeFiles/readlist.dir/rule
 
 # fast build rule for target.
 readlist/fast:
-	cd /Users/shashankhr/github/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/build
+	cd /Users/shashankhr/GitHub/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/build
 .PHONY : readlist/fast
 
 # target to build an object file
 convert.o:
-	cd /Users/shashankhr/github/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/convert.o
+	cd /Users/shashankhr/GitHub/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/convert.o
 .PHONY : convert.o
 
 # target to preprocess a source file
 convert.i:
-	cd /Users/shashankhr/github/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/convert.i
+	cd /Users/shashankhr/GitHub/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/convert.i
 .PHONY : convert.i
 
 # target to generate assembly for a file
 convert.s:
-	cd /Users/shashankhr/github/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/convert.s
+	cd /Users/shashankhr/GitHub/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/convert.s
 .PHONY : convert.s
 
 # target to build an object file
 debin.o:
-	cd /Users/shashankhr/github/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/debin.o
+	cd /Users/shashankhr/GitHub/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/debin.o
 .PHONY : debin.o
 
 # target to preprocess a source file
 debin.i:
-	cd /Users/shashankhr/github/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/debin.i
+	cd /Users/shashankhr/GitHub/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/debin.i
 .PHONY : debin.i
 
 # target to generate assembly for a file
 debin.s:
-	cd /Users/shashankhr/github/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/debin.s
+	cd /Users/shashankhr/GitHub/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/debin.s
 .PHONY : debin.s
 
 # target to build an object file
 findvals.o:
-	cd /Users/shashankhr/github/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/findvals.o
+	cd /Users/shashankhr/GitHub/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/findvals.o
 .PHONY : findvals.o
 
 # target to preprocess a source file
 findvals.i:
-	cd /Users/shashankhr/github/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/findvals.i
+	cd /Users/shashankhr/GitHub/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/findvals.i
 .PHONY : findvals.i
 
 # target to generate assembly for a file
 findvals.s:
-	cd /Users/shashankhr/github/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/findvals.s
+	cd /Users/shashankhr/GitHub/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/findvals.s
 .PHONY : findvals.s
 
 # target to build an object file
 freecsv.o:
-	cd /Users/shashankhr/github/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/freecsv.o
+	cd /Users/shashankhr/GitHub/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/freecsv.o
 .PHONY : freecsv.o
 
 # target to preprocess a source file
 freecsv.i:
-	cd /Users/shashankhr/github/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/freecsv.i
+	cd /Users/shashankhr/GitHub/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/freecsv.i
 .PHONY : freecsv.i
 
 # target to generate assembly for a file
 freecsv.s:
-	cd /Users/shashankhr/github/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/freecsv.s
+	cd /Users/shashankhr/GitHub/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/freecsv.s
 .PHONY : freecsv.s
 
 # target to build an object file
 init.o:
-	cd /Users/shashankhr/github/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/init.o
+	cd /Users/shashankhr/GitHub/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/init.o
 .PHONY : init.o
 
 # target to preprocess a source file
 init.i:
-	cd /Users/shashankhr/github/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/init.i
+	cd /Users/shashankhr/GitHub/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/init.i
 .PHONY : init.i
 
 # target to generate assembly for a file
 init.s:
-	cd /Users/shashankhr/github/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/init.s
+	cd /Users/shashankhr/GitHub/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/init.s
 .PHONY : init.s
 
 # target to build an object file
 qsort_csv.o:
-	cd /Users/shashankhr/github/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/qsort_csv.o
+	cd /Users/shashankhr/GitHub/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/qsort_csv.o
 .PHONY : qsort_csv.o
 
 # target to preprocess a source file
 qsort_csv.i:
-	cd /Users/shashankhr/github/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/qsort_csv.i
+	cd /Users/shashankhr/GitHub/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/qsort_csv.i
 .PHONY : qsort_csv.i
 
 # target to generate assembly for a file
 qsort_csv.s:
-	cd /Users/shashankhr/github/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/qsort_csv.s
+	cd /Users/shashankhr/GitHub/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/qsort_csv.s
 .PHONY : qsort_csv.s
 
 # target to build an object file
 read_fg_list.o:
-	cd /Users/shashankhr/github/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/read_fg_list.o
+	cd /Users/shashankhr/GitHub/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/read_fg_list.o
 .PHONY : read_fg_list.o
 
 # target to preprocess a source file
 read_fg_list.i:
-	cd /Users/shashankhr/github/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/read_fg_list.i
+	cd /Users/shashankhr/GitHub/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/read_fg_list.i
 .PHONY : read_fg_list.i
 
 # target to generate assembly for a file
 read_fg_list.s:
-	cd /Users/shashankhr/github/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/read_fg_list.s
+	cd /Users/shashankhr/GitHub/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/read_fg_list.s
 .PHONY : read_fg_list.s
 
 # target to build an object file
 readwrite.o:
-	cd /Users/shashankhr/github/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/readwrite.o
+	cd /Users/shashankhr/GitHub/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/readwrite.o
 .PHONY : readwrite.o
 
 # target to preprocess a source file
 readwrite.i:
-	cd /Users/shashankhr/github/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/readwrite.i
+	cd /Users/shashankhr/GitHub/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/readwrite.i
 .PHONY : readwrite.i
 
 # target to generate assembly for a file
 readwrite.s:
-	cd /Users/shashankhr/github/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/readwrite.s
+	cd /Users/shashankhr/GitHub/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/readwrite.s
 .PHONY : readwrite.s
 
 # target to build an object file
 readwrite_data.o:
-	cd /Users/shashankhr/github/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/readwrite_data.o
+	cd /Users/shashankhr/GitHub/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/readwrite_data.o
 .PHONY : readwrite_data.o
 
 # target to preprocess a source file
 readwrite_data.i:
-	cd /Users/shashankhr/github/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/readwrite_data.i
+	cd /Users/shashankhr/GitHub/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/readwrite_data.i
 .PHONY : readwrite_data.i
 
 # target to generate assembly for a file
 readwrite_data.s:
-	cd /Users/shashankhr/github/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/readwrite_data.s
+	cd /Users/shashankhr/GitHub/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/readwrite_data.s
 .PHONY : readwrite_data.s
 
 # target to build an object file
 readwrite_fg.o:
-	cd /Users/shashankhr/github/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/readwrite_fg.o
+	cd /Users/shashankhr/GitHub/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/readwrite_fg.o
 .PHONY : readwrite_fg.o
 
 # target to preprocess a source file
 readwrite_fg.i:
-	cd /Users/shashankhr/github/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/readwrite_fg.i
+	cd /Users/shashankhr/GitHub/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/readwrite_fg.i
 .PHONY : readwrite_fg.i
 
 # target to generate assembly for a file
 readwrite_fg.s:
-	cd /Users/shashankhr/github/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/readwrite_fg.s
+	cd /Users/shashankhr/GitHub/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/readwrite_fg.s
 .PHONY : readwrite_fg.s
 
 # target to build an object file
 unit_conv.o:
-	cd /Users/shashankhr/github/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/unit_conv.o
+	cd /Users/shashankhr/GitHub/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/unit_conv.o
 .PHONY : unit_conv.o
 
 # target to preprocess a source file
 unit_conv.i:
-	cd /Users/shashankhr/github/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/unit_conv.i
+	cd /Users/shashankhr/GitHub/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/unit_conv.i
 .PHONY : unit_conv.i
 
 # target to generate assembly for a file
 unit_conv.s:
-	cd /Users/shashankhr/github/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/unit_conv.s
+	cd /Users/shashankhr/GitHub/umatic/build && $(MAKE) -f read_list/CMakeFiles/readlist.dir/build.make read_list/CMakeFiles/readlist.dir/unit_conv.s
 .PHONY : unit_conv.s
 
 # Help Target
@@ -343,6 +343,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /Users/shashankhr/github/umatic/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /Users/shashankhr/GitHub/umatic/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

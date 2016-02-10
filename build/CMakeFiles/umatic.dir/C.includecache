@@ -6,13 +6,13 @@
 
 #IncludeRegexTransform: 
 
-/Users/shashankhr/github/umatic/casource/SurCell.h
+/Users/shashankhr/GitHub/umatic/casource/SurCell.h
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 
-/Users/shashankhr/github/umatic/casource/SurCellRoutines.c
+/Users/shashankhr/GitHub/umatic/casource/SurCellRoutines.c
 stdio.h
 -
 stdlib.h
@@ -20,13 +20,13 @@ stdlib.h
 string.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 SurCell.h
-/Users/shashankhr/github/umatic/casource/SurCell.h
+/Users/shashankhr/GitHub/umatic/casource/SurCell.h
 
-/Users/shashankhr/github/umatic/casource/SurCellRoutines.h
+/Users/shashankhr/GitHub/umatic/casource/SurCellRoutines.h
 stdio.h
 -
 stdlib.h
@@ -34,13 +34,13 @@ stdlib.h
 string.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 SurCell.h
-/Users/shashankhr/github/umatic/casource/SurCell.h
+/Users/shashankhr/GitHub/umatic/casource/SurCell.h
 
-/Users/shashankhr/github/umatic/casource/alloc_bb.c
+/Users/shashankhr/GitHub/umatic/casource/alloc_bb.c
 stdio.h
 -
 stdlib.h
@@ -48,41 +48,41 @@ stdlib.h
 math.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 fem.h
-/Users/shashankhr/github/umatic/casource/fem.h
+/Users/shashankhr/GitHub/umatic/casource/fem.h
 read_ctrl.h
-/Users/shashankhr/github/umatic/casource/read_ctrl.h
+/Users/shashankhr/GitHub/umatic/casource/read_ctrl.h
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 nuc_lookup.h
-/Users/shashankhr/github/umatic/casource/nuc_lookup.h
+/Users/shashankhr/GitHub/umatic/casource/nuc_lookup.h
 
-/Users/shashankhr/github/umatic/casource/alloc_multicomp.c
+/Users/shashankhr/GitHub/umatic/casource/alloc_multicomp.c
 stdio.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 readmat.h
-/Users/shashankhr/github/umatic/casource/readmat.h
+/Users/shashankhr/GitHub/umatic/casource/readmat.h
 
-/Users/shashankhr/github/umatic/casource/alloc_sb.c
+/Users/shashankhr/GitHub/umatic/casource/alloc_sb.c
 stdio.h
 -
 stdlib.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 read_sb.h
-/Users/shashankhr/github/umatic/casource/read_sb.h
+/Users/shashankhr/GitHub/umatic/casource/read_sb.h
 SurCellRoutines.h
-/Users/shashankhr/github/umatic/casource/SurCellRoutines.h
+/Users/shashankhr/GitHub/umatic/casource/SurCellRoutines.h
 
-/Users/shashankhr/github/umatic/casource/bigblock.c
+/Users/shashankhr/GitHub/umatic/casource/bigblock.c
 stdio.h
 -
 stdlib.h
@@ -94,75 +94,75 @@ time.h
 string.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 fem.h
-/Users/shashankhr/github/umatic/casource/fem.h
+/Users/shashankhr/GitHub/umatic/casource/fem.h
 read_ctrl.h
-/Users/shashankhr/github/umatic/casource/read_ctrl.h
+/Users/shashankhr/GitHub/umatic/casource/read_ctrl.h
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 nuc_lookup.h
-/Users/shashankhr/github/umatic/casource/nuc_lookup.h
+/Users/shashankhr/GitHub/umatic/casource/nuc_lookup.h
 gaussdev.h
-/Users/shashankhr/github/umatic/casource/gaussdev.h
+/Users/shashankhr/GitHub/umatic/casource/gaussdev.h
 
-/Users/shashankhr/github/umatic/casource/bigblock.h
+/Users/shashankhr/GitHub/umatic/casource/bigblock.h
 
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 time.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 pore.h
-/Users/shashankhr/github/umatic/casource/pore.h
+/Users/shashankhr/GitHub/umatic/casource/pore.h
 matprops.h
-/Users/shashankhr/github/umatic/casource/matprops.h
+/Users/shashankhr/GitHub/umatic/casource/matprops.h
 nucprops.h
-/Users/shashankhr/github/umatic/casource/nucprops.h
+/Users/shashankhr/GitHub/umatic/casource/nucprops.h
 read_ctrl.h
-/Users/shashankhr/github/umatic/casource/read_ctrl.h
+/Users/shashankhr/GitHub/umatic/casource/read_ctrl.h
 temprops.h
-/Users/shashankhr/github/umatic/casource/temprops.h
+/Users/shashankhr/GitHub/umatic/casource/temprops.h
 solprops.h
-/Users/shashankhr/github/umatic/casource/solprops.h
+/Users/shashankhr/GitHub/umatic/casource/solprops.h
 multi_diff_props.h
-/Users/shashankhr/github/umatic/casource/multi_diff_props.h
+/Users/shashankhr/GitHub/umatic/casource/multi_diff_props.h
 fem.h
-/Users/shashankhr/github/umatic/casource/fem.h
+/Users/shashankhr/GitHub/umatic/casource/fem.h
 fidap.h
-/Users/shashankhr/github/umatic/casource/fidap.h
+/Users/shashankhr/GitHub/umatic/casource/fidap.h
 grain.h
-/Users/shashankhr/github/umatic/casource/grain.h
+/Users/shashankhr/GitHub/umatic/casource/grain.h
 cube.h
-/Users/shashankhr/github/umatic/casource/cube.h
+/Users/shashankhr/GitHub/umatic/casource/cube.h
 tcpl.h
-/Users/shashankhr/github/umatic/casource/tcpl.h
+/Users/shashankhr/GitHub/umatic/casource/tcpl.h
 nbhd.h
-/Users/shashankhr/github/umatic/casource/nbhd.h
+/Users/shashankhr/GitHub/umatic/casource/nbhd.h
 nearnode.h
-/Users/shashankhr/github/umatic/casource/nearnode.h
+/Users/shashankhr/GitHub/umatic/casource/nearnode.h
 pr_struct.h
-/Users/shashankhr/github/umatic/casource/pr_struct.h
+/Users/shashankhr/GitHub/umatic/casource/pr_struct.h
 SurCell.h
-/Users/shashankhr/github/umatic/casource/SurCell.h
+/Users/shashankhr/GitHub/umatic/casource/SurCell.h
 temp_struct.h
-/Users/shashankhr/github/umatic/casource/temp_struct.h
+/Users/shashankhr/GitHub/umatic/casource/temp_struct.h
 subblock.h
-/Users/shashankhr/github/umatic/casource/subblock.h
+/Users/shashankhr/GitHub/umatic/casource/subblock.h
 bigblock.h
-/Users/shashankhr/github/umatic/casource/bigblock.h
+/Users/shashankhr/GitHub/umatic/casource/bigblock.h
 
-/Users/shashankhr/github/umatic/casource/ca_histo.c
+/Users/shashankhr/GitHub/umatic/casource/ca_histo.c
 stdio.h
 -
 math.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 umat_histo.h
-/Users/shashankhr/github/umatic/casource/umat_histo.h
+/Users/shashankhr/GitHub/umatic/casource/umat_histo.h
 
-/Users/shashankhr/github/umatic/casource/ca_solid.c
+/Users/shashankhr/GitHub/umatic/casource/ca_solid.c
 stdio.h
 -
 stdlib.h
@@ -176,29 +176,29 @@ time.h
 signal.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 read_ctrl.h
-/Users/shashankhr/github/umatic/casource/read_ctrl.h
+/Users/shashankhr/GitHub/umatic/casource/read_ctrl.h
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 readfiles.h
-/Users/shashankhr/github/umatic/casource/readfiles.h
+/Users/shashankhr/GitHub/umatic/casource/readfiles.h
 writeblocks.h
-/Users/shashankhr/github/umatic/casource/writeblocks.h
+/Users/shashankhr/GitHub/umatic/casource/writeblocks.h
 interp.h
-/Users/shashankhr/github/umatic/casource/interp.h
+/Users/shashankhr/GitHub/umatic/casource/interp.h
 find_max.h
-/Users/shashankhr/github/umatic/casource/find_max.h
+/Users/shashankhr/GitHub/umatic/casource/find_max.h
 read_list/read_fg_list.h
-/Users/shashankhr/github/umatic/casource/read_list/read_fg_list.h
+/Users/shashankhr/GitHub/umatic/casource/read_list/read_fg_list.h
 read_list/readwrite_fg.h
-/Users/shashankhr/github/umatic/casource/read_list/readwrite_fg.h
+/Users/shashankhr/GitHub/umatic/casource/read_list/readwrite_fg.h
 temp_calc.h
-/Users/shashankhr/github/umatic/casource/temp_calc.h
+/Users/shashankhr/GitHub/umatic/casource/temp_calc.h
 common.h
-/Users/shashankhr/github/umatic/casource/common.h
+/Users/shashankhr/GitHub/umatic/casource/common.h
 
-/Users/shashankhr/github/umatic/casource/calc_sb.c
+/Users/shashankhr/GitHub/umatic/casource/calc_sb.c
 stdio.h
 -
 stdlib.h
@@ -206,29 +206,29 @@ stdlib.h
 string.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 umat_matrix.h
-/Users/shashankhr/github/umatic/casource/umat_matrix.h
+/Users/shashankhr/GitHub/umatic/casource/umat_matrix.h
 writeblocks.h
-/Users/shashankhr/github/umatic/casource/writeblocks.h
+/Users/shashankhr/GitHub/umatic/casource/writeblocks.h
 read_sb.h
-/Users/shashankhr/github/umatic/casource/read_sb.h
+/Users/shashankhr/GitHub/umatic/casource/read_sb.h
 find_max.h
-/Users/shashankhr/github/umatic/casource/find_max.h
+/Users/shashankhr/GitHub/umatic/casource/find_max.h
 interp.h
-/Users/shashankhr/github/umatic/casource/interp.h
+/Users/shashankhr/GitHub/umatic/casource/interp.h
 sb_head.h
-/Users/shashankhr/github/umatic/casource/sb_head.h
+/Users/shashankhr/GitHub/umatic/casource/sb_head.h
 sb_diffuse.h
-/Users/shashankhr/github/umatic/casource/sb_diffuse.h
+/Users/shashankhr/GitHub/umatic/casource/sb_diffuse.h
 sb_decentred_step.h
-/Users/shashankhr/github/umatic/casource/sb_decentred_step.h
+/Users/shashankhr/GitHub/umatic/casource/sb_decentred_step.h
 curvature.h
-/Users/shashankhr/github/umatic/casource/curvature.h
+/Users/shashankhr/GitHub/umatic/casource/curvature.h
 
-/Users/shashankhr/github/umatic/casource/calc_solprops_poly.c
+/Users/shashankhr/GitHub/umatic/casource/calc_solprops_poly.c
 stdio.h
 -
 string.h
@@ -236,41 +236,41 @@ string.h
 math.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 read_ctrl.h
-/Users/shashankhr/github/umatic/casource/read_ctrl.h
+/Users/shashankhr/GitHub/umatic/casource/read_ctrl.h
 readmat.h
-/Users/shashankhr/github/umatic/casource/readmat.h
+/Users/shashankhr/GitHub/umatic/casource/readmat.h
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 solprops_reader.h
-/Users/shashankhr/github/umatic/casource/solprops_reader.h
+/Users/shashankhr/GitHub/umatic/casource/solprops_reader.h
 solprops_writer.h
-/Users/shashankhr/github/umatic/casource/solprops_writer.h
+/Users/shashankhr/GitHub/umatic/casource/solprops_writer.h
 
-/Users/shashankhr/github/umatic/casource/castats.c
+/Users/shashankhr/GitHub/umatic/casource/castats.c
 stdio.h
 -
 math.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 
-/Users/shashankhr/github/umatic/casource/castats.h
+/Users/shashankhr/GitHub/umatic/casource/castats.h
 
-/Users/shashankhr/github/umatic/casource/checkblock.c
+/Users/shashankhr/GitHub/umatic/casource/checkblock.c
 stdlib.h
 -
 stdio.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 pore.h
-/Users/shashankhr/github/umatic/casource/pore.h
+/Users/shashankhr/GitHub/umatic/casource/pore.h
 
-/Users/shashankhr/github/umatic/casource/checkgas.c
+/Users/shashankhr/GitHub/umatic/casource/checkgas.c
 stdio.h
 -
 stdlib.h
@@ -280,25 +280,25 @@ math.h
 signal.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 pore.h
-/Users/shashankhr/github/umatic/casource/pore.h
+/Users/shashankhr/GitHub/umatic/casource/pore.h
 pore_routines.h
-/Users/shashankhr/github/umatic/casource/pore_routines.h
+/Users/shashankhr/GitHub/umatic/casource/pore_routines.h
 props.h
-/Users/shashankhr/github/umatic/casource/props.h
+/Users/shashankhr/GitHub/umatic/casource/props.h
 rand_step.h
-/Users/shashankhr/github/umatic/casource/rand_step.h
+/Users/shashankhr/GitHub/umatic/casource/rand_step.h
 gaussdev.h
-/Users/shashankhr/github/umatic/casource/gaussdev.h
+/Users/shashankhr/GitHub/umatic/casource/gaussdev.h
 umat_histo.h
-/Users/shashankhr/github/umatic/casource/umat_histo.h
+/Users/shashankhr/GitHub/umatic/casource/umat_histo.h
 find_max.h
-/Users/shashankhr/github/umatic/casource/find_max.h
+/Users/shashankhr/GitHub/umatic/casource/find_max.h
 
-/Users/shashankhr/github/umatic/casource/checks.c
+/Users/shashankhr/GitHub/umatic/casource/checks.c
 stdio.h
 -
 stdlib.h
@@ -306,29 +306,29 @@ stdlib.h
 math.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 
-/Users/shashankhr/github/umatic/casource/checks.h
+/Users/shashankhr/GitHub/umatic/casource/checks.h
 
-/Users/shashankhr/github/umatic/casource/close_sb.c
+/Users/shashankhr/GitHub/umatic/casource/close_sb.c
 stdio.h
 -
 stdlib.h
 -
 safeopen.h
-/Users/shashankhr/github/umatic/casource/safeopen.h
+/Users/shashankhr/GitHub/umatic/casource/safeopen.h
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 read_sb.h
-/Users/shashankhr/github/umatic/casource/read_sb.h
+/Users/shashankhr/GitHub/umatic/casource/read_sb.h
 
-/Users/shashankhr/github/umatic/casource/colour.h
+/Users/shashankhr/GitHub/umatic/casource/colour.h
 
-/Users/shashankhr/github/umatic/casource/common.h
+/Users/shashankhr/GitHub/umatic/casource/common.h
 stdio.h
 -
 string.h
@@ -338,11 +338,11 @@ stddef.h
 stdlib.h
 -
 
-/Users/shashankhr/github/umatic/casource/constants.h
+/Users/shashankhr/GitHub/umatic/casource/constants.h
 
-/Users/shashankhr/github/umatic/casource/cube.h
+/Users/shashankhr/GitHub/umatic/casource/cube.h
 
-/Users/shashankhr/github/umatic/casource/curvature.c
+/Users/shashankhr/GitHub/umatic/casource/curvature.c
 stdio.h
 -
 stdlib.h
@@ -352,17 +352,17 @@ math.h
 string.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 umat_matrix.h
-/Users/shashankhr/github/umatic/casource/umat_matrix.h
+/Users/shashankhr/GitHub/umatic/casource/umat_matrix.h
 props.h
-/Users/shashankhr/github/umatic/casource/props.h
+/Users/shashankhr/GitHub/umatic/casource/props.h
 
-/Users/shashankhr/github/umatic/casource/curvature.h
+/Users/shashankhr/GitHub/umatic/casource/curvature.h
 
-/Users/shashankhr/github/umatic/casource/curvature_3D.c
+/Users/shashankhr/GitHub/umatic/casource/curvature_3D.c
 stdio.h
 -
 stdlib.h
@@ -372,27 +372,27 @@ math.h
 string.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 umat_matrix.h
-/Users/shashankhr/github/umatic/casource/umat_matrix.h
+/Users/shashankhr/GitHub/umatic/casource/umat_matrix.h
 props.h
-/Users/shashankhr/github/umatic/casource/props.h
+/Users/shashankhr/GitHub/umatic/casource/props.h
 
-/Users/shashankhr/github/umatic/casource/fcopymat.c
+/Users/shashankhr/GitHub/umatic/casource/fcopymat.c
 stdio.h
 -
 string.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 
-/Users/shashankhr/github/umatic/casource/fem.h
+/Users/shashankhr/GitHub/umatic/casource/fem.h
 
-/Users/shashankhr/github/umatic/casource/fg_read.c
+/Users/shashankhr/GitHub/umatic/casource/fg_read.c
 stdio.h
 -
 stdlib.h
@@ -402,45 +402,45 @@ string.h
 signal.h
 -
 safeopen.h
-/Users/shashankhr/github/umatic/casource/safeopen.h
+/Users/shashankhr/GitHub/umatic/casource/safeopen.h
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 constants.h
-/Users/shashankhr/github/umatic/casource/constants.h
+/Users/shashankhr/GitHub/umatic/casource/constants.h
 fidap.h
-/Users/shashankhr/github/umatic/casource/fidap.h
+/Users/shashankhr/GitHub/umatic/casource/fidap.h
 read_list/read_fg_list.h
-/Users/shashankhr/github/umatic/casource/read_list/read_fg_list.h
+/Users/shashankhr/GitHub/umatic/casource/read_list/read_fg_list.h
 read_list/readwrite_fg.h
-/Users/shashankhr/github/umatic/casource/read_list/readwrite_fg.h
+/Users/shashankhr/GitHub/umatic/casource/read_list/readwrite_fg.h
 read_list/freecsv.h
-/Users/shashankhr/github/umatic/casource/read_list/freecsv.h
+/Users/shashankhr/GitHub/umatic/casource/read_list/freecsv.h
 
-/Users/shashankhr/github/umatic/casource/fidap.h
+/Users/shashankhr/GitHub/umatic/casource/fidap.h
 
-/Users/shashankhr/github/umatic/casource/fidap_interp_calc.c
+/Users/shashankhr/GitHub/umatic/casource/fidap_interp_calc.c
 stdio.h
 -
 math.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 fidap.h
-/Users/shashankhr/github/umatic/casource/fidap.h
+/Users/shashankhr/GitHub/umatic/casource/fidap.h
 
-/Users/shashankhr/github/umatic/casource/find_max.c
+/Users/shashankhr/GitHub/umatic/casource/find_max.c
 stdio.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 props.h
-/Users/shashankhr/github/umatic/casource/props.h
+/Users/shashankhr/GitHub/umatic/casource/props.h
 
-/Users/shashankhr/github/umatic/casource/find_max.h
+/Users/shashankhr/GitHub/umatic/casource/find_max.h
 
-/Users/shashankhr/github/umatic/casource/find_nmols.c
+/Users/shashankhr/GitHub/umatic/casource/find_nmols.c
 stdio.h
 -
 stdlib.h
@@ -450,83 +450,83 @@ math.h
 signal.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 pore.h
-/Users/shashankhr/github/umatic/casource/pore.h
+/Users/shashankhr/GitHub/umatic/casource/pore.h
 props.h
-/Users/shashankhr/github/umatic/casource/props.h
+/Users/shashankhr/GitHub/umatic/casource/props.h
 rand_step.h
-/Users/shashankhr/github/umatic/casource/rand_step.h
+/Users/shashankhr/GitHub/umatic/casource/rand_step.h
 gaussdev.h
-/Users/shashankhr/github/umatic/casource/gaussdev.h
+/Users/shashankhr/GitHub/umatic/casource/gaussdev.h
 umat_histo.h
-/Users/shashankhr/github/umatic/casource/umat_histo.h
+/Users/shashankhr/GitHub/umatic/casource/umat_histo.h
 
-/Users/shashankhr/github/umatic/casource/findroot.c
+/Users/shashankhr/GitHub/umatic/casource/findroot.c
 stdio.h
 -
 math.h
 -
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 
-/Users/shashankhr/github/umatic/casource/freeblock.c
+/Users/shashankhr/GitHub/umatic/casource/freeblock.c
 stdlib.h
 -
 stdio.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 pore.h
-/Users/shashankhr/github/umatic/casource/pore.h
+/Users/shashankhr/GitHub/umatic/casource/pore.h
 SurCellRoutines.h
-/Users/shashankhr/github/umatic/casource/SurCellRoutines.h
+/Users/shashankhr/GitHub/umatic/casource/SurCellRoutines.h
 
-/Users/shashankhr/github/umatic/casource/gaussdev.c
+/Users/shashankhr/GitHub/umatic/casource/gaussdev.c
 math.h
 -
 stdio.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 
-/Users/shashankhr/github/umatic/casource/gaussdev.h
+/Users/shashankhr/GitHub/umatic/casource/gaussdev.h
 
-/Users/shashankhr/github/umatic/casource/gd.h
+/Users/shashankhr/GitHub/umatic/casource/gd.h
 stdio.h
 -
 gd_io.h
-/Users/shashankhr/github/umatic/casource/gd_io.h
+/Users/shashankhr/GitHub/umatic/casource/gd_io.h
 
-/Users/shashankhr/github/umatic/casource/gd_io.h
+/Users/shashankhr/GitHub/umatic/casource/gd_io.h
 stdio.h
 -
 
-/Users/shashankhr/github/umatic/casource/getxyz.c
+/Users/shashankhr/GitHub/umatic/casource/getxyz.c
 stdio.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 math.h
 -
 
-/Users/shashankhr/github/umatic/casource/grain.h
+/Users/shashankhr/GitHub/umatic/casource/grain.h
 
-/Users/shashankhr/github/umatic/casource/grain_functions.c
+/Users/shashankhr/GitHub/umatic/casource/grain_functions.c
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 constants.h
-/Users/shashankhr/github/umatic/casource/constants.h
+/Users/shashankhr/GitHub/umatic/casource/constants.h
 grain.h
-/Users/shashankhr/github/umatic/casource/grain.h
+/Users/shashankhr/GitHub/umatic/casource/grain.h
 
-/Users/shashankhr/github/umatic/casource/handlers.c
+/Users/shashankhr/GitHub/umatic/casource/handlers.c
 stdlib.h
 -
 stdio.h
@@ -546,23 +546,23 @@ signal.h
 setjmp.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 constants.h
-/Users/shashankhr/github/umatic/casource/constants.h
+/Users/shashankhr/GitHub/umatic/casource/constants.h
 fenv.h
 -
 
-/Users/shashankhr/github/umatic/casource/icopymat.c
+/Users/shashankhr/GitHub/umatic/casource/icopymat.c
 stdio.h
 -
 string.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 
-/Users/shashankhr/github/umatic/casource/init_nuc_mould.c
+/Users/shashankhr/GitHub/umatic/casource/init_nuc_mould.c
 stdio.h
 -
 stdlib.h
@@ -572,41 +572,41 @@ math.h
 string.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 umat_matrix.h
-/Users/shashankhr/github/umatic/casource/umat_matrix.h
+/Users/shashankhr/GitHub/umatic/casource/umat_matrix.h
 gaussdev.h
-/Users/shashankhr/github/umatic/casource/gaussdev.h
+/Users/shashankhr/GitHub/umatic/casource/gaussdev.h
 
-/Users/shashankhr/github/umatic/casource/init_sb_neigh.c
+/Users/shashankhr/GitHub/umatic/casource/init_sb_neigh.c
 stdio.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 
-/Users/shashankhr/github/umatic/casource/initcube.c
+/Users/shashankhr/GitHub/umatic/casource/initcube.c
 stdio.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 
-/Users/shashankhr/github/umatic/casource/initface.c
+/Users/shashankhr/GitHub/umatic/casource/initface.c
 stdio.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 cube.h
-/Users/shashankhr/github/umatic/casource/cube.h
+/Users/shashankhr/GitHub/umatic/casource/cube.h
 
-/Users/shashankhr/github/umatic/casource/interp.h
+/Users/shashankhr/GitHub/umatic/casource/interp.h
 
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 stdio.h
 -
 sys/types.h
@@ -620,17 +620,17 @@ dmalloc.h
 stdlib.h
 -
 constants.h
-/Users/shashankhr/github/umatic/casource/constants.h
+/Users/shashankhr/GitHub/umatic/casource/constants.h
 safeopen.h
-/Users/shashankhr/github/umatic/casource/safeopen.h
+/Users/shashankhr/GitHub/umatic/casource/safeopen.h
 dmalloc.h
 -
 
-/Users/shashankhr/github/umatic/casource/matprops.h
+/Users/shashankhr/GitHub/umatic/casource/matprops.h
 solprops.h
-/Users/shashankhr/github/umatic/casource/solprops.h
+/Users/shashankhr/GitHub/umatic/casource/solprops.h
 
-/Users/shashankhr/github/umatic/casource/mould_sources.c
+/Users/shashankhr/GitHub/umatic/casource/mould_sources.c
 stdio.h
 -
 math.h
@@ -638,39 +638,39 @@ math.h
 string.h
 -
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 
-/Users/shashankhr/github/umatic/casource/mould_sources.h
+/Users/shashankhr/GitHub/umatic/casource/mould_sources.h
 
-/Users/shashankhr/github/umatic/casource/multi_diff_props.h
+/Users/shashankhr/GitHub/umatic/casource/multi_diff_props.h
 
-/Users/shashankhr/github/umatic/casource/nbhd.h
+/Users/shashankhr/GitHub/umatic/casource/nbhd.h
 
-/Users/shashankhr/github/umatic/casource/nbhd_def.c
+/Users/shashankhr/GitHub/umatic/casource/nbhd_def.c
 stdio.h
 -
 stdlib.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 
-/Users/shashankhr/github/umatic/casource/nearnode.h
+/Users/shashankhr/GitHub/umatic/casource/nearnode.h
 
-/Users/shashankhr/github/umatic/casource/nuc_functions.c
+/Users/shashankhr/GitHub/umatic/casource/nuc_functions.c
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 stdio.h
 -
 math.h
 -
 
-/Users/shashankhr/github/umatic/casource/nuc_functions.h
+/Users/shashankhr/GitHub/umatic/casource/nuc_functions.h
 
-/Users/shashankhr/github/umatic/casource/nuc_lookup.c
+/Users/shashankhr/GitHub/umatic/casource/nuc_lookup.c
 stdio.h
 -
 stdlib.h
@@ -678,21 +678,21 @@ stdlib.h
 math.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 nucprops.h
-/Users/shashankhr/github/umatic/casource/nucprops.h
+/Users/shashankhr/GitHub/umatic/casource/nucprops.h
 nuc_lookup.h
-/Users/shashankhr/github/umatic/casource/nuc_lookup.h
+/Users/shashankhr/GitHub/umatic/casource/nuc_lookup.h
 
-/Users/shashankhr/github/umatic/casource/nuc_lookup.h
+/Users/shashankhr/GitHub/umatic/casource/nuc_lookup.h
 nuc_functions.h
-/Users/shashankhr/github/umatic/casource/nuc_functions.h
+/Users/shashankhr/GitHub/umatic/casource/nuc_functions.h
 
-/Users/shashankhr/github/umatic/casource/nucfuncs.h
+/Users/shashankhr/GitHub/umatic/casource/nucfuncs.h
 
-/Users/shashankhr/github/umatic/casource/nucprops.h
+/Users/shashankhr/GitHub/umatic/casource/nucprops.h
 
-/Users/shashankhr/github/umatic/casource/olderror.c
+/Users/shashankhr/GitHub/umatic/casource/olderror.c
 stdio.h
 -
 string.h
@@ -700,9 +700,9 @@ string.h
 math.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 
-/Users/shashankhr/github/umatic/casource/open_sb.c
+/Users/shashankhr/GitHub/umatic/casource/open_sb.c
 stdio.h
 -
 stdlib.h
@@ -710,21 +710,21 @@ stdlib.h
 string.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 read_sb.h
-/Users/shashankhr/github/umatic/casource/read_sb.h
+/Users/shashankhr/GitHub/umatic/casource/read_sb.h
 interp.h
-/Users/shashankhr/github/umatic/casource/interp.h
+/Users/shashankhr/GitHub/umatic/casource/interp.h
 SurCellRoutines.h
-/Users/shashankhr/github/umatic/casource/SurCellRoutines.h
+/Users/shashankhr/GitHub/umatic/casource/SurCellRoutines.h
 
-/Users/shashankhr/github/umatic/casource/oriented.inc
+/Users/shashankhr/GitHub/umatic/casource/oriented.inc
 
-/Users/shashankhr/github/umatic/casource/output.h
+/Users/shashankhr/GitHub/umatic/casource/output.h
 
-/Users/shashankhr/github/umatic/casource/output_ex.c
+/Users/shashankhr/GitHub/umatic/casource/output_ex.c
 stdio.h
 -
 stdlib.h
@@ -736,25 +736,25 @@ time.h
 string.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 find_max.h
-/Users/shashankhr/github/umatic/casource/find_max.h
+/Users/shashankhr/GitHub/umatic/casource/find_max.h
 props.h
-/Users/shashankhr/github/umatic/casource/props.h
+/Users/shashankhr/GitHub/umatic/casource/props.h
 interp.h
-/Users/shashankhr/github/umatic/casource/interp.h
+/Users/shashankhr/GitHub/umatic/casource/interp.h
 castats.h
-/Users/shashankhr/github/umatic/casource/castats.h
+/Users/shashankhr/GitHub/umatic/casource/castats.h
 checks.h
-/Users/shashankhr/github/umatic/casource/checks.h
+/Users/shashankhr/GitHub/umatic/casource/checks.h
 pore.h
-/Users/shashankhr/github/umatic/casource/pore.h
+/Users/shashankhr/GitHub/umatic/casource/pore.h
 write_values.h
-/Users/shashankhr/github/umatic/casource/write_values.h
+/Users/shashankhr/GitHub/umatic/casource/write_values.h
 
-/Users/shashankhr/github/umatic/casource/output_img.c
+/Users/shashankhr/GitHub/umatic/casource/output_img.c
 stdio.h
 -
 stdlib.h
@@ -762,39 +762,39 @@ stdlib.h
 math.h
 -
 gd.h
-/Users/shashankhr/github/umatic/casource/gd.h
+/Users/shashankhr/GitHub/umatic/casource/gd.h
 string.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 matprops.h
-/Users/shashankhr/github/umatic/casource/matprops.h
+/Users/shashankhr/GitHub/umatic/casource/matprops.h
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 colour.h
-/Users/shashankhr/github/umatic/casource/colour.h
+/Users/shashankhr/GitHub/umatic/casource/colour.h
 interp.h
-/Users/shashankhr/github/umatic/casource/interp.h
+/Users/shashankhr/GitHub/umatic/casource/interp.h
 props.h
-/Users/shashankhr/github/umatic/casource/props.h
+/Users/shashankhr/GitHub/umatic/casource/props.h
 pore_routines.h
-/Users/shashankhr/github/umatic/casource/pore_routines.h
+/Users/shashankhr/GitHub/umatic/casource/pore_routines.h
 
-/Users/shashankhr/github/umatic/casource/p_growth.c
+/Users/shashankhr/GitHub/umatic/casource/p_growth.c
 math.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 
-/Users/shashankhr/github/umatic/casource/pnuc_function.c
+/Users/shashankhr/GitHub/umatic/casource/pnuc_function.c
 math.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 
-/Users/shashankhr/github/umatic/casource/pore.h
+/Users/shashankhr/GitHub/umatic/casource/pore.h
 
-/Users/shashankhr/github/umatic/casource/pore_multi.c
+/Users/shashankhr/GitHub/umatic/casource/pore_multi.c
 stdio.h
 -
 stdlib.h
@@ -804,23 +804,23 @@ math.h
 signal.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 pore.h
-/Users/shashankhr/github/umatic/casource/pore.h
+/Users/shashankhr/GitHub/umatic/casource/pore.h
 pore_routines.h
-/Users/shashankhr/github/umatic/casource/pore_routines.h
+/Users/shashankhr/GitHub/umatic/casource/pore_routines.h
 props.h
-/Users/shashankhr/github/umatic/casource/props.h
+/Users/shashankhr/GitHub/umatic/casource/props.h
 rand_step.h
-/Users/shashankhr/github/umatic/casource/rand_step.h
+/Users/shashankhr/GitHub/umatic/casource/rand_step.h
 gaussdev.h
-/Users/shashankhr/github/umatic/casource/gaussdev.h
+/Users/shashankhr/GitHub/umatic/casource/gaussdev.h
 umat_histo.h
-/Users/shashankhr/github/umatic/casource/umat_histo.h
+/Users/shashankhr/GitHub/umatic/casource/umat_histo.h
 
-/Users/shashankhr/github/umatic/casource/pore_routines.c
+/Users/shashankhr/GitHub/umatic/casource/pore_routines.c
 stdio.h
 -
 stdlib.h
@@ -828,17 +828,17 @@ stdlib.h
 math.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 pore.h
-/Users/shashankhr/github/umatic/casource/pore.h
+/Users/shashankhr/GitHub/umatic/casource/pore.h
 pore_routines.h
-/Users/shashankhr/github/umatic/casource/pore_routines.h
+/Users/shashankhr/GitHub/umatic/casource/pore_routines.h
 
-/Users/shashankhr/github/umatic/casource/pore_routines.h
+/Users/shashankhr/GitHub/umatic/casource/pore_routines.h
 
-/Users/shashankhr/github/umatic/casource/pore_setup_multi.c
+/Users/shashankhr/GitHub/umatic/casource/pore_setup_multi.c
 stdio.h
 -
 stdlib.h
@@ -848,27 +848,27 @@ math.h
 signal.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 pore.h
-/Users/shashankhr/github/umatic/casource/pore.h
+/Users/shashankhr/GitHub/umatic/casource/pore.h
 props.h
-/Users/shashankhr/github/umatic/casource/props.h
+/Users/shashankhr/GitHub/umatic/casource/props.h
 rand_step.h
-/Users/shashankhr/github/umatic/casource/rand_step.h
+/Users/shashankhr/GitHub/umatic/casource/rand_step.h
 rand_square.h
-/Users/shashankhr/github/umatic/casource/rand_square.h
+/Users/shashankhr/GitHub/umatic/casource/rand_square.h
 gaussdev.h
-/Users/shashankhr/github/umatic/casource/gaussdev.h
+/Users/shashankhr/GitHub/umatic/casource/gaussdev.h
 umat_histo.h
-/Users/shashankhr/github/umatic/casource/umat_histo.h
+/Users/shashankhr/GitHub/umatic/casource/umat_histo.h
 constants.h
-/Users/shashankhr/github/umatic/casource/constants.h
+/Users/shashankhr/GitHub/umatic/casource/constants.h
 pore_routines.h
-/Users/shashankhr/github/umatic/casource/pore_routines.h
+/Users/shashankhr/GitHub/umatic/casource/pore_routines.h
 
-/Users/shashankhr/github/umatic/casource/pr_lookup.c
+/Users/shashankhr/GitHub/umatic/casource/pr_lookup.c
 stdio.h
 -
 stdlib.h
@@ -876,19 +876,19 @@ stdlib.h
 math.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 fem.h
-/Users/shashankhr/github/umatic/casource/fem.h
+/Users/shashankhr/GitHub/umatic/casource/fem.h
 read_ctrl.h
-/Users/shashankhr/github/umatic/casource/read_ctrl.h
+/Users/shashankhr/GitHub/umatic/casource/read_ctrl.h
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 nuc_lookup.h
-/Users/shashankhr/github/umatic/casource/nuc_lookup.h
+/Users/shashankhr/GitHub/umatic/casource/nuc_lookup.h
 
-/Users/shashankhr/github/umatic/casource/pr_struct.h
+/Users/shashankhr/GitHub/umatic/casource/pr_struct.h
 
-/Users/shashankhr/github/umatic/casource/props.c
+/Users/shashankhr/GitHub/umatic/casource/props.c
 stdio.h
 -
 stdlib.h
@@ -896,43 +896,43 @@ stdlib.h
 math.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 
-/Users/shashankhr/github/umatic/casource/props.h
+/Users/shashankhr/GitHub/umatic/casource/props.h
 
-/Users/shashankhr/github/umatic/casource/rand_square.c
+/Users/shashankhr/GitHub/umatic/casource/rand_square.c
 stdio.h
 -
 math.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 
-/Users/shashankhr/github/umatic/casource/rand_square.h
+/Users/shashankhr/GitHub/umatic/casource/rand_square.h
 
-/Users/shashankhr/github/umatic/casource/rand_step.c
+/Users/shashankhr/GitHub/umatic/casource/rand_step.c
 stdio.h
 -
 math.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 
-/Users/shashankhr/github/umatic/casource/rand_step.h
+/Users/shashankhr/GitHub/umatic/casource/rand_step.h
 
-/Users/shashankhr/github/umatic/casource/rcs_id.c
+/Users/shashankhr/GitHub/umatic/casource/rcs_id.c
 stdio.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 rcs_id.h
-/Users/shashankhr/github/umatic/casource/rcs_id.h
+/Users/shashankhr/GitHub/umatic/casource/rcs_id.h
 
-/Users/shashankhr/github/umatic/casource/rcs_id.h
+/Users/shashankhr/GitHub/umatic/casource/rcs_id.h
 
-/Users/shashankhr/github/umatic/casource/read_blocks.c
+/Users/shashankhr/GitHub/umatic/casource/read_blocks.c
 stdio.h
 -
 stdlib.h
@@ -946,27 +946,27 @@ zlib.h
 errno.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 constants.h
-/Users/shashankhr/github/umatic/casource/constants.h
+/Users/shashankhr/GitHub/umatic/casource/constants.h
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 read_ctrl.h
-/Users/shashankhr/github/umatic/casource/read_ctrl.h
+/Users/shashankhr/GitHub/umatic/casource/read_ctrl.h
 grain.h
-/Users/shashankhr/github/umatic/casource/grain.h
+/Users/shashankhr/GitHub/umatic/casource/grain.h
 safeopen.h
-/Users/shashankhr/github/umatic/casource/safeopen.h
+/Users/shashankhr/GitHub/umatic/casource/safeopen.h
 pore.h
-/Users/shashankhr/github/umatic/casource/pore.h
+/Users/shashankhr/GitHub/umatic/casource/pore.h
 pore_routines.h
-/Users/shashankhr/github/umatic/casource/pore_routines.h
+/Users/shashankhr/GitHub/umatic/casource/pore_routines.h
 SurCellRoutines.h
-/Users/shashankhr/github/umatic/casource/SurCellRoutines.h
+/Users/shashankhr/GitHub/umatic/casource/SurCellRoutines.h
 sb_tableofcontents.h
-/Users/shashankhr/github/umatic/casource/sb_tableofcontents.h
+/Users/shashankhr/GitHub/umatic/casource/sb_tableofcontents.h
 
-/Users/shashankhr/github/umatic/casource/read_ca_procast.c
+/Users/shashankhr/GitHub/umatic/casource/read_ca_procast.c
 stdio.h
 -
 string.h
@@ -974,9 +974,9 @@ string.h
 math.h
 -
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 
-/Users/shashankhr/github/umatic/casource/read_cap_ca.c
+/Users/shashankhr/GitHub/umatic/casource/read_cap_ca.c
 stdio.h
 -
 stdlib.h
@@ -986,15 +986,15 @@ math.h
 time.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 fem.h
-/Users/shashankhr/github/umatic/casource/fem.h
+/Users/shashankhr/GitHub/umatic/casource/fem.h
 read_ctrl.h
-/Users/shashankhr/github/umatic/casource/read_ctrl.h
+/Users/shashankhr/GitHub/umatic/casource/read_ctrl.h
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 
-/Users/shashankhr/github/umatic/casource/read_ctrl.c
+/Users/shashankhr/GitHub/umatic/casource/read_ctrl.c
 stdio.h
 -
 string.h
@@ -1010,37 +1010,37 @@ unistd.h
 fcntl.h
 -
 getcflags.h
-/Users/shashankhr/github/umatic/casource/getcflags.h
+/Users/shashankhr/GitHub/umatic/casource/getcflags.h
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 
-/Users/shashankhr/github/umatic/casource/read_ctrl.h
+/Users/shashankhr/GitHub/umatic/casource/read_ctrl.h
 output.h
-/Users/shashankhr/github/umatic/casource/output.h
+/Users/shashankhr/GitHub/umatic/casource/output.h
 
-/Users/shashankhr/github/umatic/casource/read_list/csv.h
+/Users/shashankhr/GitHub/umatic/casource/read_list/csv.h
 ../machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 ../constants.h
-/Users/shashankhr/github/umatic/casource/constants.h
+/Users/shashankhr/GitHub/umatic/casource/constants.h
 
-/Users/shashankhr/github/umatic/casource/read_list/freecsv.h
+/Users/shashankhr/GitHub/umatic/casource/read_list/freecsv.h
 
-/Users/shashankhr/github/umatic/casource/read_list/read_fg_list.h
+/Users/shashankhr/GitHub/umatic/casource/read_list/read_fg_list.h
 machine.h
-/Users/shashankhr/github/umatic/casource/read_list/machine.h
+/Users/shashankhr/GitHub/umatic/casource/read_list/machine.h
 constants.h
-/Users/shashankhr/github/umatic/casource/read_list/constants.h
+/Users/shashankhr/GitHub/umatic/casource/read_list/constants.h
 csv.h
-/Users/shashankhr/github/umatic/casource/read_list/csv.h
+/Users/shashankhr/GitHub/umatic/casource/read_list/csv.h
 
-/Users/shashankhr/github/umatic/casource/read_list/readwrite_fg.h
+/Users/shashankhr/GitHub/umatic/casource/read_list/readwrite_fg.h
 read_fg_list.h
-/Users/shashankhr/github/umatic/casource/read_list/read_fg_list.h
+/Users/shashankhr/GitHub/umatic/casource/read_list/read_fg_list.h
 
-/Users/shashankhr/github/umatic/casource/read_sb.c
+/Users/shashankhr/GitHub/umatic/casource/read_sb.c
 stdio.h
 -
 stdlib.h
@@ -1050,15 +1050,15 @@ string.h
 math.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 
-/Users/shashankhr/github/umatic/casource/read_sb.h
+/Users/shashankhr/GitHub/umatic/casource/read_sb.h
 
-/Users/shashankhr/github/umatic/casource/readfiles.h
+/Users/shashankhr/GitHub/umatic/casource/readfiles.h
 
-/Users/shashankhr/github/umatic/casource/readgeoplus.c
+/Users/shashankhr/GitHub/umatic/casource/readgeoplus.c
 stdio.h
 -
 string.h
@@ -1066,15 +1066,15 @@ string.h
 math.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 readgeoplus.h
-/Users/shashankhr/github/umatic/casource/readgeoplus.h
+/Users/shashankhr/GitHub/umatic/casource/readgeoplus.h
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 
-/Users/shashankhr/github/umatic/casource/readgeoplus.h
+/Users/shashankhr/GitHub/umatic/casource/readgeoplus.h
 
-/Users/shashankhr/github/umatic/casource/readmat.c
+/Users/shashankhr/GitHub/umatic/casource/readmat.c
 stdio.h
 -
 string.h
@@ -1082,27 +1082,27 @@ string.h
 math.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 read_ctrl.h
-/Users/shashankhr/github/umatic/casource/read_ctrl.h
+/Users/shashankhr/GitHub/umatic/casource/read_ctrl.h
 readmat.h
-/Users/shashankhr/github/umatic/casource/readmat.h
+/Users/shashankhr/GitHub/umatic/casource/readmat.h
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 gaussdev.h
-/Users/shashankhr/github/umatic/casource/gaussdev.h
+/Users/shashankhr/GitHub/umatic/casource/gaussdev.h
 rand_step.h
-/Users/shashankhr/github/umatic/casource/rand_step.h
+/Users/shashankhr/GitHub/umatic/casource/rand_step.h
 rand_square.h
-/Users/shashankhr/github/umatic/casource/rand_square.h
+/Users/shashankhr/GitHub/umatic/casource/rand_square.h
 solprops_reader.h
-/Users/shashankhr/github/umatic/casource/solprops_reader.h
+/Users/shashankhr/GitHub/umatic/casource/solprops_reader.h
 solprops_writer.h
-/Users/shashankhr/github/umatic/casource/solprops_writer.h
+/Users/shashankhr/GitHub/umatic/casource/solprops_writer.h
 
-/Users/shashankhr/github/umatic/casource/readmat.h
+/Users/shashankhr/GitHub/umatic/casource/readmat.h
 
-/Users/shashankhr/github/umatic/casource/readphase.c
+/Users/shashankhr/GitHub/umatic/casource/readphase.c
 stdio.h
 -
 string.h
@@ -1110,29 +1110,29 @@ string.h
 math.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 read_ctrl.h
-/Users/shashankhr/github/umatic/casource/read_ctrl.h
+/Users/shashankhr/GitHub/umatic/casource/read_ctrl.h
 readmat.h
-/Users/shashankhr/github/umatic/casource/readmat.h
+/Users/shashankhr/GitHub/umatic/casource/readmat.h
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 multi_diff_props.h
-/Users/shashankhr/github/umatic/casource/multi_diff_props.h
+/Users/shashankhr/GitHub/umatic/casource/multi_diff_props.h
 
-/Users/shashankhr/github/umatic/casource/recr_extra.c
+/Users/shashankhr/GitHub/umatic/casource/recr_extra.c
 math.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 
-/Users/shashankhr/github/umatic/casource/replacerand.c
+/Users/shashankhr/GitHub/umatic/casource/replacerand.c
 stdio.h
 -
 stdlib.h
 -
 
-/Users/shashankhr/github/umatic/casource/safeopen.c
+/Users/shashankhr/GitHub/umatic/casource/safeopen.c
 stdio.h
 -
 stdlib.h
@@ -1148,9 +1148,9 @@ sys/stat.h
 unistd.h
 -
 
-/Users/shashankhr/github/umatic/casource/safeopen.h
+/Users/shashankhr/GitHub/umatic/casource/safeopen.h
 
-/Users/shashankhr/github/umatic/casource/sb_boundary.c
+/Users/shashankhr/GitHub/umatic/casource/sb_boundary.c
 stdio.h
 -
 stdlib.h
@@ -1160,15 +1160,15 @@ math.h
 string.h
 -
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 sb_diffuse.h
-/Users/shashankhr/github/umatic/casource/sb_diffuse.h
+/Users/shashankhr/GitHub/umatic/casource/sb_diffuse.h
 umat_matrix.h
-/Users/shashankhr/github/umatic/casource/umat_matrix.h
+/Users/shashankhr/GitHub/umatic/casource/umat_matrix.h
 
-/Users/shashankhr/github/umatic/casource/sb_ca_step.c
+/Users/shashankhr/GitHub/umatic/casource/sb_ca_step.c
 stdio.h
 -
 stdlib.h
@@ -1176,21 +1176,21 @@ stdlib.h
 math.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 umat_matrix.h
-/Users/shashankhr/github/umatic/casource/umat_matrix.h
+/Users/shashankhr/GitHub/umatic/casource/umat_matrix.h
 props.h
-/Users/shashankhr/github/umatic/casource/props.h
+/Users/shashankhr/GitHub/umatic/casource/props.h
 nucfuncs.h
-/Users/shashankhr/github/umatic/casource/nucfuncs.h
+/Users/shashankhr/GitHub/umatic/casource/nucfuncs.h
 oriented.inc
-/Users/shashankhr/github/umatic/casource/oriented.inc
+/Users/shashankhr/GitHub/umatic/casource/oriented.inc
 oriented.inc
-/Users/shashankhr/github/umatic/casource/oriented.inc
+/Users/shashankhr/GitHub/umatic/casource/oriented.inc
 
-/Users/shashankhr/github/umatic/casource/sb_decentred_step.c
+/Users/shashankhr/GitHub/umatic/casource/sb_decentred_step.c
 stdio.h
 -
 stdlib.h
@@ -1200,19 +1200,19 @@ math.h
 string.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 umat_matrix.h
-/Users/shashankhr/github/umatic/casource/umat_matrix.h
+/Users/shashankhr/GitHub/umatic/casource/umat_matrix.h
 props.h
-/Users/shashankhr/github/umatic/casource/props.h
+/Users/shashankhr/GitHub/umatic/casource/props.h
 nucfuncs.h
-/Users/shashankhr/github/umatic/casource/nucfuncs.h
+/Users/shashankhr/GitHub/umatic/casource/nucfuncs.h
 
-/Users/shashankhr/github/umatic/casource/sb_decentred_step.h
+/Users/shashankhr/GitHub/umatic/casource/sb_decentred_step.h
 
-/Users/shashankhr/github/umatic/casource/sb_decentred_step_poly.c
+/Users/shashankhr/GitHub/umatic/casource/sb_decentred_step_poly.c
 stdio.h
 -
 stdlib.h
@@ -1222,19 +1222,19 @@ math.h
 string.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 umat_matrix.h
-/Users/shashankhr/github/umatic/casource/umat_matrix.h
+/Users/shashankhr/GitHub/umatic/casource/umat_matrix.h
 props.h
-/Users/shashankhr/github/umatic/casource/props.h
+/Users/shashankhr/GitHub/umatic/casource/props.h
 nucfuncs.h
-/Users/shashankhr/github/umatic/casource/nucfuncs.h
+/Users/shashankhr/GitHub/umatic/casource/nucfuncs.h
 
-/Users/shashankhr/github/umatic/casource/sb_diffuse.h
+/Users/shashankhr/GitHub/umatic/casource/sb_diffuse.h
 
-/Users/shashankhr/github/umatic/casource/sb_diffuse_alloy.c
+/Users/shashankhr/GitHub/umatic/casource/sb_diffuse_alloy.c
 stdio.h
 -
 math.h
@@ -1242,17 +1242,17 @@ math.h
 string.h
 -
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 umat_matrix.h
-/Users/shashankhr/github/umatic/casource/umat_matrix.h
+/Users/shashankhr/GitHub/umatic/casource/umat_matrix.h
 sb_diffuse.h
-/Users/shashankhr/github/umatic/casource/sb_diffuse.h
+/Users/shashankhr/GitHub/umatic/casource/sb_diffuse.h
 mould_sources.h
-/Users/shashankhr/github/umatic/casource/mould_sources.h
+/Users/shashankhr/GitHub/umatic/casource/mould_sources.h
 
-/Users/shashankhr/github/umatic/casource/sb_diffuse_alloy_decentred.c
+/Users/shashankhr/GitHub/umatic/casource/sb_diffuse_alloy_decentred.c
 stdio.h
 -
 math.h
@@ -1260,17 +1260,17 @@ math.h
 string.h
 -
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 umat_matrix.h
-/Users/shashankhr/github/umatic/casource/umat_matrix.h
+/Users/shashankhr/GitHub/umatic/casource/umat_matrix.h
 sb_diffuse.h
-/Users/shashankhr/github/umatic/casource/sb_diffuse.h
+/Users/shashankhr/GitHub/umatic/casource/sb_diffuse.h
 mould_sources.h
-/Users/shashankhr/github/umatic/casource/mould_sources.h
+/Users/shashankhr/GitHub/umatic/casource/mould_sources.h
 
-/Users/shashankhr/github/umatic/casource/sb_diffuse_alloy_decentred_poly.c
+/Users/shashankhr/GitHub/umatic/casource/sb_diffuse_alloy_decentred_poly.c
 stdio.h
 -
 math.h
@@ -1278,15 +1278,15 @@ math.h
 string.h
 -
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 umat_matrix.h
-/Users/shashankhr/github/umatic/casource/umat_matrix.h
+/Users/shashankhr/GitHub/umatic/casource/umat_matrix.h
 sb_diffuse.h
-/Users/shashankhr/github/umatic/casource/sb_diffuse.h
+/Users/shashankhr/GitHub/umatic/casource/sb_diffuse.h
 
-/Users/shashankhr/github/umatic/casource/sb_diffuse_gas.c
+/Users/shashankhr/GitHub/umatic/casource/sb_diffuse_gas.c
 stdio.h
 -
 math.h
@@ -1294,19 +1294,19 @@ math.h
 string.h
 -
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 umat_matrix.h
-/Users/shashankhr/github/umatic/casource/umat_matrix.h
+/Users/shashankhr/GitHub/umatic/casource/umat_matrix.h
 sb_diffuse.h
-/Users/shashankhr/github/umatic/casource/sb_diffuse.h
+/Users/shashankhr/GitHub/umatic/casource/sb_diffuse.h
 props.h
-/Users/shashankhr/github/umatic/casource/props.h
+/Users/shashankhr/GitHub/umatic/casource/props.h
 mould_sources.h
-/Users/shashankhr/github/umatic/casource/mould_sources.h
+/Users/shashankhr/GitHub/umatic/casource/mould_sources.h
 
-/Users/shashankhr/github/umatic/casource/sb_diffuse_gas_poly.c
+/Users/shashankhr/GitHub/umatic/casource/sb_diffuse_gas_poly.c
 stdio.h
 -
 math.h
@@ -1314,37 +1314,37 @@ math.h
 string.h
 -
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 umat_matrix.h
-/Users/shashankhr/github/umatic/casource/umat_matrix.h
+/Users/shashankhr/GitHub/umatic/casource/umat_matrix.h
 sb_diffuse.h
-/Users/shashankhr/github/umatic/casource/sb_diffuse.h
+/Users/shashankhr/GitHub/umatic/casource/sb_diffuse.h
 props.h
-/Users/shashankhr/github/umatic/casource/props.h
+/Users/shashankhr/GitHub/umatic/casource/props.h
 mould_sources.h
-/Users/shashankhr/github/umatic/casource/mould_sources.h
+/Users/shashankhr/GitHub/umatic/casource/mould_sources.h
 
-/Users/shashankhr/github/umatic/casource/sb_get_surface_cells.c
+/Users/shashankhr/GitHub/umatic/casource/sb_get_surface_cells.c
 stdio.h
 -
 stdlib.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 umat_matrix.h
-/Users/shashankhr/github/umatic/casource/umat_matrix.h
+/Users/shashankhr/GitHub/umatic/casource/umat_matrix.h
 SurCell.h
-/Users/shashankhr/github/umatic/casource/SurCell.h
+/Users/shashankhr/GitHub/umatic/casource/SurCell.h
 SurCellRoutines.h
-/Users/shashankhr/github/umatic/casource/SurCellRoutines.h
+/Users/shashankhr/GitHub/umatic/casource/SurCellRoutines.h
 
-/Users/shashankhr/github/umatic/casource/sb_head.h
+/Users/shashankhr/GitHub/umatic/casource/sb_head.h
 
-/Users/shashankhr/github/umatic/casource/sb_line_int.c
+/Users/shashankhr/GitHub/umatic/casource/sb_line_int.c
 stdio.h
 -
 stdlib.h
@@ -1352,11 +1352,11 @@ stdlib.h
 math.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 
-/Users/shashankhr/github/umatic/casource/sb_nuc.c
+/Users/shashankhr/GitHub/umatic/casource/sb_nuc.c
 stdio.h
 -
 stdlib.h
@@ -1364,29 +1364,29 @@ stdlib.h
 math.h
 -
 common.h
-/Users/shashankhr/github/umatic/casource/common.h
+/Users/shashankhr/GitHub/umatic/casource/common.h
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 umat_histo.h
-/Users/shashankhr/github/umatic/casource/umat_histo.h
+/Users/shashankhr/GitHub/umatic/casource/umat_histo.h
 
-/Users/shashankhr/github/umatic/casource/sb_tableofcontents.h
+/Users/shashankhr/GitHub/umatic/casource/sb_tableofcontents.h
 
-/Users/shashankhr/github/umatic/casource/sb_temp_calc.c
+/Users/shashankhr/GitHub/umatic/casource/sb_temp_calc.c
 stdio.h
 -
 signal.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 interp.h
-/Users/shashankhr/github/umatic/casource/interp.h
+/Users/shashankhr/GitHub/umatic/casource/interp.h
 
-/Users/shashankhr/github/umatic/casource/setup_mould_src_function.c
+/Users/shashankhr/GitHub/umatic/casource/setup_mould_src_function.c
 stdio.h
 -
 stdlib.h
@@ -1394,15 +1394,15 @@ stdlib.h
 string.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 read_ctrl.h
-/Users/shashankhr/github/umatic/casource/read_ctrl.h
+/Users/shashankhr/GitHub/umatic/casource/read_ctrl.h
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 mould_sources.h
-/Users/shashankhr/github/umatic/casource/mould_sources.h
+/Users/shashankhr/GitHub/umatic/casource/mould_sources.h
 
-/Users/shashankhr/github/umatic/casource/setup_temp_func.c
+/Users/shashankhr/GitHub/umatic/casource/setup_temp_func.c
 stdio.h
 -
 stdlib.h
@@ -1410,17 +1410,17 @@ stdlib.h
 string.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 read_ctrl.h
-/Users/shashankhr/github/umatic/casource/read_ctrl.h
+/Users/shashankhr/GitHub/umatic/casource/read_ctrl.h
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 temp_calc.h
-/Users/shashankhr/github/umatic/casource/temp_calc.h
+/Users/shashankhr/GitHub/umatic/casource/temp_calc.h
 
-/Users/shashankhr/github/umatic/casource/solprops.h
+/Users/shashankhr/GitHub/umatic/casource/solprops.h
 
-/Users/shashankhr/github/umatic/casource/solprops_reader.c
+/Users/shashankhr/GitHub/umatic/casource/solprops_reader.c
 stdio.h
 -
 stdlib.h
@@ -1430,13 +1430,13 @@ time.h
 string.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 solprops.h
-/Users/shashankhr/github/umatic/casource/solprops.h
+/Users/shashankhr/GitHub/umatic/casource/solprops.h
 
-/Users/shashankhr/github/umatic/casource/solprops_reader.h
+/Users/shashankhr/GitHub/umatic/casource/solprops_reader.h
 
-/Users/shashankhr/github/umatic/casource/solprops_writer.c
+/Users/shashankhr/GitHub/umatic/casource/solprops_writer.c
 stdio.h
 -
 stdlib.h
@@ -1446,13 +1446,13 @@ time.h
 string.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 solprops.h
-/Users/shashankhr/github/umatic/casource/solprops.h
+/Users/shashankhr/GitHub/umatic/casource/solprops.h
 
-/Users/shashankhr/github/umatic/casource/solprops_writer.h
+/Users/shashankhr/GitHub/umatic/casource/solprops_writer.h
 
-/Users/shashankhr/github/umatic/casource/step_output.c
+/Users/shashankhr/GitHub/umatic/casource/step_output.c
 stdlib.h
 -
 stdio.h
@@ -1466,67 +1466,67 @@ sys/times.h
 unistd.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 writeblocks.h
-/Users/shashankhr/github/umatic/casource/writeblocks.h
+/Users/shashankhr/GitHub/umatic/casource/writeblocks.h
 interp.h
-/Users/shashankhr/github/umatic/casource/interp.h
+/Users/shashankhr/GitHub/umatic/casource/interp.h
 
-/Users/shashankhr/github/umatic/casource/subblock.c
+/Users/shashankhr/GitHub/umatic/casource/subblock.c
 stdio.h
 -
 stdlib.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 umat_matrix.h
-/Users/shashankhr/github/umatic/casource/umat_matrix.h
+/Users/shashankhr/GitHub/umatic/casource/umat_matrix.h
 writeblocks.h
-/Users/shashankhr/github/umatic/casource/writeblocks.h
+/Users/shashankhr/GitHub/umatic/casource/writeblocks.h
 read_sb.h
-/Users/shashankhr/github/umatic/casource/read_sb.h
+/Users/shashankhr/GitHub/umatic/casource/read_sb.h
 find_max.h
-/Users/shashankhr/github/umatic/casource/find_max.h
+/Users/shashankhr/GitHub/umatic/casource/find_max.h
 nearnode.h
-/Users/shashankhr/github/umatic/casource/nearnode.h
+/Users/shashankhr/GitHub/umatic/casource/nearnode.h
 interp.h
-/Users/shashankhr/github/umatic/casource/interp.h
+/Users/shashankhr/GitHub/umatic/casource/interp.h
 
-/Users/shashankhr/github/umatic/casource/subblock.h
+/Users/shashankhr/GitHub/umatic/casource/subblock.h
 
-/Users/shashankhr/github/umatic/casource/tcpl.h
+/Users/shashankhr/GitHub/umatic/casource/tcpl.h
 
-/Users/shashankhr/github/umatic/casource/temp_calc.h
+/Users/shashankhr/GitHub/umatic/casource/temp_calc.h
 
-/Users/shashankhr/github/umatic/casource/temp_calc_melt.c
+/Users/shashankhr/GitHub/umatic/casource/temp_calc_melt.c
 stdio.h
 -
 signal.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 
-/Users/shashankhr/github/umatic/casource/temp_struct.h
+/Users/shashankhr/GitHub/umatic/casource/temp_struct.h
 
-/Users/shashankhr/github/umatic/casource/temprops.h
+/Users/shashankhr/GitHub/umatic/casource/temprops.h
 
-/Users/shashankhr/github/umatic/casource/thermo_trace_calc.c
+/Users/shashankhr/GitHub/umatic/casource/thermo_trace_calc.c
 stdio.h
 -
 math.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 tcpl.h
-/Users/shashankhr/github/umatic/casource/tcpl.h
+/Users/shashankhr/GitHub/umatic/casource/tcpl.h
 
-/Users/shashankhr/github/umatic/casource/thermo_trace_init.c
+/Users/shashankhr/GitHub/umatic/casource/thermo_trace_init.c
 stdio.h
 -
 math.h
@@ -1534,57 +1534,57 @@ math.h
 stdlib.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 tcpl.h
-/Users/shashankhr/github/umatic/casource/tcpl.h
+/Users/shashankhr/GitHub/umatic/casource/tcpl.h
 
-/Users/shashankhr/github/umatic/casource/trans_interp_calc.c
+/Users/shashankhr/GitHub/umatic/casource/trans_interp_calc.c
 stdio.h
 -
 math.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 fidap.h
-/Users/shashankhr/github/umatic/casource/fidap.h
+/Users/shashankhr/GitHub/umatic/casource/fidap.h
 nearnode.h
-/Users/shashankhr/github/umatic/casource/nearnode.h
+/Users/shashankhr/GitHub/umatic/casource/nearnode.h
 
-/Users/shashankhr/github/umatic/casource/umat_histo.h
+/Users/shashankhr/GitHub/umatic/casource/umat_histo.h
 
-/Users/shashankhr/github/umatic/casource/umat_matrix.h
+/Users/shashankhr/GitHub/umatic/casource/umat_matrix.h
 
-/Users/shashankhr/github/umatic/casource/wfact_r_calc.c
+/Users/shashankhr/GitHub/umatic/casource/wfact_r_calc.c
 stdio.h
 -
 math.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 fidap.h
-/Users/shashankhr/github/umatic/casource/fidap.h
+/Users/shashankhr/GitHub/umatic/casource/fidap.h
 nearnode.h
-/Users/shashankhr/github/umatic/casource/nearnode.h
+/Users/shashankhr/GitHub/umatic/casource/nearnode.h
 
-/Users/shashankhr/github/umatic/casource/wfact_z_calc.c
+/Users/shashankhr/GitHub/umatic/casource/wfact_z_calc.c
 stdio.h
 -
 math.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 fidap.h
-/Users/shashankhr/github/umatic/casource/fidap.h
+/Users/shashankhr/GitHub/umatic/casource/fidap.h
 nearnode.h
-/Users/shashankhr/github/umatic/casource/nearnode.h
+/Users/shashankhr/GitHub/umatic/casource/nearnode.h
 
-/Users/shashankhr/github/umatic/casource/window_move.c
+/Users/shashankhr/GitHub/umatic/casource/window_move.c
 stdio.h
 -
 stdlib.h
@@ -1594,13 +1594,13 @@ math.h
 string.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 umat_matrix.h
-/Users/shashankhr/github/umatic/casource/umat_matrix.h
+/Users/shashankhr/GitHub/umatic/casource/umat_matrix.h
 
-/Users/shashankhr/github/umatic/casource/write_POREprop_values.c
+/Users/shashankhr/GitHub/umatic/casource/write_POREprop_values.c
 stdio.h
 -
 stdlib.h
@@ -1608,13 +1608,13 @@ stdlib.h
 time.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 pore.h
-/Users/shashankhr/github/umatic/casource/pore.h
+/Users/shashankhr/GitHub/umatic/casource/pore.h
 
-/Users/shashankhr/github/umatic/casource/write_bb_values.c
+/Users/shashankhr/GitHub/umatic/casource/write_bb_values.c
 stdio.h
 -
 stdlib.h
@@ -1622,13 +1622,13 @@ stdlib.h
 time.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 write_values.h
-/Users/shashankhr/github/umatic/casource/write_values.h
+/Users/shashankhr/GitHub/umatic/casource/write_values.h
 
-/Users/shashankhr/github/umatic/casource/write_block_values.c
+/Users/shashankhr/GitHub/umatic/casource/write_block_values.c
 stdio.h
 -
 stdlib.h
@@ -1636,13 +1636,13 @@ stdlib.h
 time.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 
-/Users/shashankhr/github/umatic/casource/write_block_values.h
+/Users/shashankhr/GitHub/umatic/casource/write_block_values.h
 
-/Users/shashankhr/github/umatic/casource/write_blocks.c
+/Users/shashankhr/GitHub/umatic/casource/write_blocks.c
 stdio.h
 -
 stdlib.h
@@ -1662,23 +1662,23 @@ unistd.h
 zlib.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 constants.h
-/Users/shashankhr/github/umatic/casource/constants.h
+/Users/shashankhr/GitHub/umatic/casource/constants.h
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 read_ctrl.h
-/Users/shashankhr/github/umatic/casource/read_ctrl.h
+/Users/shashankhr/GitHub/umatic/casource/read_ctrl.h
 grain.h
-/Users/shashankhr/github/umatic/casource/grain.h
+/Users/shashankhr/GitHub/umatic/casource/grain.h
 pore.h
-/Users/shashankhr/github/umatic/casource/pore.h
+/Users/shashankhr/GitHub/umatic/casource/pore.h
 safeopen.h
-/Users/shashankhr/github/umatic/casource/safeopen.h
+/Users/shashankhr/GitHub/umatic/casource/safeopen.h
 sb_tableofcontents.h
-/Users/shashankhr/github/umatic/casource/sb_tableofcontents.h
+/Users/shashankhr/GitHub/umatic/casource/sb_tableofcontents.h
 
-/Users/shashankhr/github/umatic/casource/write_ctrl_values.c
+/Users/shashankhr/GitHub/umatic/casource/write_ctrl_values.c
 stdio.h
 -
 stdlib.h
@@ -1686,11 +1686,11 @@ stdlib.h
 time.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 
-/Users/shashankhr/github/umatic/casource/write_grain_histo.c
+/Users/shashankhr/GitHub/umatic/casource/write_grain_histo.c
 stdio.h
 -
 stdlib.h
@@ -1700,27 +1700,27 @@ math.h
 string.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 umat_histo.h
-/Users/shashankhr/github/umatic/casource/umat_histo.h
+/Users/shashankhr/GitHub/umatic/casource/umat_histo.h
 castats.h
-/Users/shashankhr/github/umatic/casource/castats.h
+/Users/shashankhr/GitHub/umatic/casource/castats.h
 
-/Users/shashankhr/github/umatic/casource/write_header_ctrl.c
+/Users/shashankhr/GitHub/umatic/casource/write_header_ctrl.c
 stdio.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 read_ctrl_adsr.h
-/Users/shashankhr/github/umatic/casource/read_ctrl_adsr.h
+/Users/shashankhr/GitHub/umatic/casource/read_ctrl_adsr.h
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 read_ctrl.h
-/Users/shashankhr/github/umatic/casource/read_ctrl.h
+/Users/shashankhr/GitHub/umatic/casource/read_ctrl.h
 
-/Users/shashankhr/github/umatic/casource/write_matprop_values.c
+/Users/shashankhr/GitHub/umatic/casource/write_matprop_values.c
 stdio.h
 -
 stdlib.h
@@ -1728,11 +1728,11 @@ stdlib.h
 time.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 
-/Users/shashankhr/github/umatic/casource/write_nprop_values.c
+/Users/shashankhr/GitHub/umatic/casource/write_nprop_values.c
 stdio.h
 -
 stdlib.h
@@ -1740,11 +1740,11 @@ stdlib.h
 time.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 
-/Users/shashankhr/github/umatic/casource/write_pprop_values.c
+/Users/shashankhr/GitHub/umatic/casource/write_pprop_values.c
 stdio.h
 -
 stdlib.h
@@ -1752,17 +1752,17 @@ stdlib.h
 time.h
 -
 machine.h
-/Users/shashankhr/github/umatic/casource/machine.h
+/Users/shashankhr/GitHub/umatic/casource/machine.h
 blocks.h
-/Users/shashankhr/github/umatic/casource/blocks.h
+/Users/shashankhr/GitHub/umatic/casource/blocks.h
 pore.h
-/Users/shashankhr/github/umatic/casource/pore.h
+/Users/shashankhr/GitHub/umatic/casource/pore.h
 
-/Users/shashankhr/github/umatic/casource/write_values.h
+/Users/shashankhr/GitHub/umatic/casource/write_values.h
 write_block_values.h
-/Users/shashankhr/github/umatic/casource/write_block_values.h
+/Users/shashankhr/GitHub/umatic/casource/write_block_values.h
 
-/Users/shashankhr/github/umatic/casource/writeblocks.h
+/Users/shashankhr/GitHub/umatic/casource/writeblocks.h
 
 getcflags.h
 

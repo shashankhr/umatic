@@ -43,10 +43,10 @@ RM = /usr/local/Cellar/cmake/3.4.3/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/shashankhr/github/umatic/casource
+CMAKE_SOURCE_DIR = /Users/shashankhr/GitHub/umatic/casource
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/shashankhr/github/umatic/build
+CMAKE_BINARY_DIR = /Users/shashankhr/GitHub/umatic/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/umatic.dir/depend.make
@@ -58,17 +58,17 @@ include CMakeFiles/umatic.dir/progress.make
 include CMakeFiles/umatic.dir/flags.make
 
 CMakeFiles/umatic.dir/alloc_bb.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/alloc_bb.o: /Users/shashankhr/github/umatic/casource/alloc_bb.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/umatic.dir/alloc_bb.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/alloc_bb.o   -c /Users/shashankhr/github/umatic/casource/alloc_bb.c
+CMakeFiles/umatic.dir/alloc_bb.o: /Users/shashankhr/GitHub/umatic/casource/alloc_bb.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/umatic.dir/alloc_bb.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/alloc_bb.o   -c /Users/shashankhr/GitHub/umatic/casource/alloc_bb.c
 
 CMakeFiles/umatic.dir/alloc_bb.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/alloc_bb.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/alloc_bb.c > CMakeFiles/umatic.dir/alloc_bb.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/alloc_bb.c > CMakeFiles/umatic.dir/alloc_bb.i
 
 CMakeFiles/umatic.dir/alloc_bb.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/alloc_bb.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/alloc_bb.c -o CMakeFiles/umatic.dir/alloc_bb.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/alloc_bb.c -o CMakeFiles/umatic.dir/alloc_bb.s
 
 CMakeFiles/umatic.dir/alloc_bb.o.requires:
 
@@ -82,17 +82,17 @@ CMakeFiles/umatic.dir/alloc_bb.o.provides.build: CMakeFiles/umatic.dir/alloc_bb.
 
 
 CMakeFiles/umatic.dir/alloc_multicomp.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/alloc_multicomp.o: /Users/shashankhr/github/umatic/casource/alloc_multicomp.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/umatic.dir/alloc_multicomp.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/alloc_multicomp.o   -c /Users/shashankhr/github/umatic/casource/alloc_multicomp.c
+CMakeFiles/umatic.dir/alloc_multicomp.o: /Users/shashankhr/GitHub/umatic/casource/alloc_multicomp.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/umatic.dir/alloc_multicomp.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/alloc_multicomp.o   -c /Users/shashankhr/GitHub/umatic/casource/alloc_multicomp.c
 
 CMakeFiles/umatic.dir/alloc_multicomp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/alloc_multicomp.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/alloc_multicomp.c > CMakeFiles/umatic.dir/alloc_multicomp.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/alloc_multicomp.c > CMakeFiles/umatic.dir/alloc_multicomp.i
 
 CMakeFiles/umatic.dir/alloc_multicomp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/alloc_multicomp.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/alloc_multicomp.c -o CMakeFiles/umatic.dir/alloc_multicomp.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/alloc_multicomp.c -o CMakeFiles/umatic.dir/alloc_multicomp.s
 
 CMakeFiles/umatic.dir/alloc_multicomp.o.requires:
 
@@ -106,17 +106,17 @@ CMakeFiles/umatic.dir/alloc_multicomp.o.provides.build: CMakeFiles/umatic.dir/al
 
 
 CMakeFiles/umatic.dir/alloc_sb.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/alloc_sb.o: /Users/shashankhr/github/umatic/casource/alloc_sb.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/umatic.dir/alloc_sb.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/alloc_sb.o   -c /Users/shashankhr/github/umatic/casource/alloc_sb.c
+CMakeFiles/umatic.dir/alloc_sb.o: /Users/shashankhr/GitHub/umatic/casource/alloc_sb.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/umatic.dir/alloc_sb.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/alloc_sb.o   -c /Users/shashankhr/GitHub/umatic/casource/alloc_sb.c
 
 CMakeFiles/umatic.dir/alloc_sb.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/alloc_sb.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/alloc_sb.c > CMakeFiles/umatic.dir/alloc_sb.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/alloc_sb.c > CMakeFiles/umatic.dir/alloc_sb.i
 
 CMakeFiles/umatic.dir/alloc_sb.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/alloc_sb.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/alloc_sb.c -o CMakeFiles/umatic.dir/alloc_sb.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/alloc_sb.c -o CMakeFiles/umatic.dir/alloc_sb.s
 
 CMakeFiles/umatic.dir/alloc_sb.o.requires:
 
@@ -130,17 +130,17 @@ CMakeFiles/umatic.dir/alloc_sb.o.provides.build: CMakeFiles/umatic.dir/alloc_sb.
 
 
 CMakeFiles/umatic.dir/bigblock.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/bigblock.o: /Users/shashankhr/github/umatic/casource/bigblock.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/umatic.dir/bigblock.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/bigblock.o   -c /Users/shashankhr/github/umatic/casource/bigblock.c
+CMakeFiles/umatic.dir/bigblock.o: /Users/shashankhr/GitHub/umatic/casource/bigblock.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/umatic.dir/bigblock.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/bigblock.o   -c /Users/shashankhr/GitHub/umatic/casource/bigblock.c
 
 CMakeFiles/umatic.dir/bigblock.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/bigblock.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/bigblock.c > CMakeFiles/umatic.dir/bigblock.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/bigblock.c > CMakeFiles/umatic.dir/bigblock.i
 
 CMakeFiles/umatic.dir/bigblock.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/bigblock.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/bigblock.c -o CMakeFiles/umatic.dir/bigblock.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/bigblock.c -o CMakeFiles/umatic.dir/bigblock.s
 
 CMakeFiles/umatic.dir/bigblock.o.requires:
 
@@ -154,17 +154,17 @@ CMakeFiles/umatic.dir/bigblock.o.provides.build: CMakeFiles/umatic.dir/bigblock.
 
 
 CMakeFiles/umatic.dir/ca_histo.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/ca_histo.o: /Users/shashankhr/github/umatic/casource/ca_histo.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/umatic.dir/ca_histo.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/ca_histo.o   -c /Users/shashankhr/github/umatic/casource/ca_histo.c
+CMakeFiles/umatic.dir/ca_histo.o: /Users/shashankhr/GitHub/umatic/casource/ca_histo.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/umatic.dir/ca_histo.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/ca_histo.o   -c /Users/shashankhr/GitHub/umatic/casource/ca_histo.c
 
 CMakeFiles/umatic.dir/ca_histo.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/ca_histo.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/ca_histo.c > CMakeFiles/umatic.dir/ca_histo.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/ca_histo.c > CMakeFiles/umatic.dir/ca_histo.i
 
 CMakeFiles/umatic.dir/ca_histo.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/ca_histo.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/ca_histo.c -o CMakeFiles/umatic.dir/ca_histo.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/ca_histo.c -o CMakeFiles/umatic.dir/ca_histo.s
 
 CMakeFiles/umatic.dir/ca_histo.o.requires:
 
@@ -178,17 +178,17 @@ CMakeFiles/umatic.dir/ca_histo.o.provides.build: CMakeFiles/umatic.dir/ca_histo.
 
 
 CMakeFiles/umatic.dir/calc_sb.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/calc_sb.o: /Users/shashankhr/github/umatic/casource/calc_sb.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/umatic.dir/calc_sb.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/calc_sb.o   -c /Users/shashankhr/github/umatic/casource/calc_sb.c
+CMakeFiles/umatic.dir/calc_sb.o: /Users/shashankhr/GitHub/umatic/casource/calc_sb.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/umatic.dir/calc_sb.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/calc_sb.o   -c /Users/shashankhr/GitHub/umatic/casource/calc_sb.c
 
 CMakeFiles/umatic.dir/calc_sb.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/calc_sb.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/calc_sb.c > CMakeFiles/umatic.dir/calc_sb.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/calc_sb.c > CMakeFiles/umatic.dir/calc_sb.i
 
 CMakeFiles/umatic.dir/calc_sb.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/calc_sb.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/calc_sb.c -o CMakeFiles/umatic.dir/calc_sb.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/calc_sb.c -o CMakeFiles/umatic.dir/calc_sb.s
 
 CMakeFiles/umatic.dir/calc_sb.o.requires:
 
@@ -202,17 +202,17 @@ CMakeFiles/umatic.dir/calc_sb.o.provides.build: CMakeFiles/umatic.dir/calc_sb.o
 
 
 CMakeFiles/umatic.dir/ca_solid.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/ca_solid.o: /Users/shashankhr/github/umatic/casource/ca_solid.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/umatic.dir/ca_solid.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/ca_solid.o   -c /Users/shashankhr/github/umatic/casource/ca_solid.c
+CMakeFiles/umatic.dir/ca_solid.o: /Users/shashankhr/GitHub/umatic/casource/ca_solid.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/umatic.dir/ca_solid.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/ca_solid.o   -c /Users/shashankhr/GitHub/umatic/casource/ca_solid.c
 
 CMakeFiles/umatic.dir/ca_solid.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/ca_solid.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/ca_solid.c > CMakeFiles/umatic.dir/ca_solid.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/ca_solid.c > CMakeFiles/umatic.dir/ca_solid.i
 
 CMakeFiles/umatic.dir/ca_solid.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/ca_solid.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/ca_solid.c -o CMakeFiles/umatic.dir/ca_solid.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/ca_solid.c -o CMakeFiles/umatic.dir/ca_solid.s
 
 CMakeFiles/umatic.dir/ca_solid.o.requires:
 
@@ -226,17 +226,17 @@ CMakeFiles/umatic.dir/ca_solid.o.provides.build: CMakeFiles/umatic.dir/ca_solid.
 
 
 CMakeFiles/umatic.dir/castats.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/castats.o: /Users/shashankhr/github/umatic/casource/castats.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/umatic.dir/castats.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/castats.o   -c /Users/shashankhr/github/umatic/casource/castats.c
+CMakeFiles/umatic.dir/castats.o: /Users/shashankhr/GitHub/umatic/casource/castats.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/umatic.dir/castats.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/castats.o   -c /Users/shashankhr/GitHub/umatic/casource/castats.c
 
 CMakeFiles/umatic.dir/castats.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/castats.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/castats.c > CMakeFiles/umatic.dir/castats.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/castats.c > CMakeFiles/umatic.dir/castats.i
 
 CMakeFiles/umatic.dir/castats.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/castats.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/castats.c -o CMakeFiles/umatic.dir/castats.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/castats.c -o CMakeFiles/umatic.dir/castats.s
 
 CMakeFiles/umatic.dir/castats.o.requires:
 
@@ -250,17 +250,17 @@ CMakeFiles/umatic.dir/castats.o.provides.build: CMakeFiles/umatic.dir/castats.o
 
 
 CMakeFiles/umatic.dir/curvature.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/curvature.o: /Users/shashankhr/github/umatic/casource/curvature.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/umatic.dir/curvature.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/curvature.o   -c /Users/shashankhr/github/umatic/casource/curvature.c
+CMakeFiles/umatic.dir/curvature.o: /Users/shashankhr/GitHub/umatic/casource/curvature.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/umatic.dir/curvature.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/curvature.o   -c /Users/shashankhr/GitHub/umatic/casource/curvature.c
 
 CMakeFiles/umatic.dir/curvature.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/curvature.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/curvature.c > CMakeFiles/umatic.dir/curvature.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/curvature.c > CMakeFiles/umatic.dir/curvature.i
 
 CMakeFiles/umatic.dir/curvature.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/curvature.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/curvature.c -o CMakeFiles/umatic.dir/curvature.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/curvature.c -o CMakeFiles/umatic.dir/curvature.s
 
 CMakeFiles/umatic.dir/curvature.o.requires:
 
@@ -274,17 +274,17 @@ CMakeFiles/umatic.dir/curvature.o.provides.build: CMakeFiles/umatic.dir/curvatur
 
 
 CMakeFiles/umatic.dir/curvature_3D.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/curvature_3D.o: /Users/shashankhr/github/umatic/casource/curvature_3D.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/umatic.dir/curvature_3D.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/curvature_3D.o   -c /Users/shashankhr/github/umatic/casource/curvature_3D.c
+CMakeFiles/umatic.dir/curvature_3D.o: /Users/shashankhr/GitHub/umatic/casource/curvature_3D.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/umatic.dir/curvature_3D.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/curvature_3D.o   -c /Users/shashankhr/GitHub/umatic/casource/curvature_3D.c
 
 CMakeFiles/umatic.dir/curvature_3D.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/curvature_3D.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/curvature_3D.c > CMakeFiles/umatic.dir/curvature_3D.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/curvature_3D.c > CMakeFiles/umatic.dir/curvature_3D.i
 
 CMakeFiles/umatic.dir/curvature_3D.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/curvature_3D.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/curvature_3D.c -o CMakeFiles/umatic.dir/curvature_3D.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/curvature_3D.c -o CMakeFiles/umatic.dir/curvature_3D.s
 
 CMakeFiles/umatic.dir/curvature_3D.o.requires:
 
@@ -298,17 +298,17 @@ CMakeFiles/umatic.dir/curvature_3D.o.provides.build: CMakeFiles/umatic.dir/curva
 
 
 CMakeFiles/umatic.dir/checkblock.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/checkblock.o: /Users/shashankhr/github/umatic/casource/checkblock.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/umatic.dir/checkblock.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/checkblock.o   -c /Users/shashankhr/github/umatic/casource/checkblock.c
+CMakeFiles/umatic.dir/checkblock.o: /Users/shashankhr/GitHub/umatic/casource/checkblock.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/umatic.dir/checkblock.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/checkblock.o   -c /Users/shashankhr/GitHub/umatic/casource/checkblock.c
 
 CMakeFiles/umatic.dir/checkblock.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/checkblock.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/checkblock.c > CMakeFiles/umatic.dir/checkblock.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/checkblock.c > CMakeFiles/umatic.dir/checkblock.i
 
 CMakeFiles/umatic.dir/checkblock.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/checkblock.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/checkblock.c -o CMakeFiles/umatic.dir/checkblock.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/checkblock.c -o CMakeFiles/umatic.dir/checkblock.s
 
 CMakeFiles/umatic.dir/checkblock.o.requires:
 
@@ -322,17 +322,17 @@ CMakeFiles/umatic.dir/checkblock.o.provides.build: CMakeFiles/umatic.dir/checkbl
 
 
 CMakeFiles/umatic.dir/checkgas.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/checkgas.o: /Users/shashankhr/github/umatic/casource/checkgas.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/umatic.dir/checkgas.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/checkgas.o   -c /Users/shashankhr/github/umatic/casource/checkgas.c
+CMakeFiles/umatic.dir/checkgas.o: /Users/shashankhr/GitHub/umatic/casource/checkgas.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/umatic.dir/checkgas.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/checkgas.o   -c /Users/shashankhr/GitHub/umatic/casource/checkgas.c
 
 CMakeFiles/umatic.dir/checkgas.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/checkgas.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/checkgas.c > CMakeFiles/umatic.dir/checkgas.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/checkgas.c > CMakeFiles/umatic.dir/checkgas.i
 
 CMakeFiles/umatic.dir/checkgas.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/checkgas.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/checkgas.c -o CMakeFiles/umatic.dir/checkgas.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/checkgas.c -o CMakeFiles/umatic.dir/checkgas.s
 
 CMakeFiles/umatic.dir/checkgas.o.requires:
 
@@ -346,17 +346,17 @@ CMakeFiles/umatic.dir/checkgas.o.provides.build: CMakeFiles/umatic.dir/checkgas.
 
 
 CMakeFiles/umatic.dir/checks.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/checks.o: /Users/shashankhr/github/umatic/casource/checks.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/umatic.dir/checks.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/checks.o   -c /Users/shashankhr/github/umatic/casource/checks.c
+CMakeFiles/umatic.dir/checks.o: /Users/shashankhr/GitHub/umatic/casource/checks.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/umatic.dir/checks.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/checks.o   -c /Users/shashankhr/GitHub/umatic/casource/checks.c
 
 CMakeFiles/umatic.dir/checks.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/checks.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/checks.c > CMakeFiles/umatic.dir/checks.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/checks.c > CMakeFiles/umatic.dir/checks.i
 
 CMakeFiles/umatic.dir/checks.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/checks.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/checks.c -o CMakeFiles/umatic.dir/checks.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/checks.c -o CMakeFiles/umatic.dir/checks.s
 
 CMakeFiles/umatic.dir/checks.o.requires:
 
@@ -370,17 +370,17 @@ CMakeFiles/umatic.dir/checks.o.provides.build: CMakeFiles/umatic.dir/checks.o
 
 
 CMakeFiles/umatic.dir/close_sb.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/close_sb.o: /Users/shashankhr/github/umatic/casource/close_sb.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/umatic.dir/close_sb.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/close_sb.o   -c /Users/shashankhr/github/umatic/casource/close_sb.c
+CMakeFiles/umatic.dir/close_sb.o: /Users/shashankhr/GitHub/umatic/casource/close_sb.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/umatic.dir/close_sb.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/close_sb.o   -c /Users/shashankhr/GitHub/umatic/casource/close_sb.c
 
 CMakeFiles/umatic.dir/close_sb.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/close_sb.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/close_sb.c > CMakeFiles/umatic.dir/close_sb.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/close_sb.c > CMakeFiles/umatic.dir/close_sb.i
 
 CMakeFiles/umatic.dir/close_sb.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/close_sb.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/close_sb.c -o CMakeFiles/umatic.dir/close_sb.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/close_sb.c -o CMakeFiles/umatic.dir/close_sb.s
 
 CMakeFiles/umatic.dir/close_sb.o.requires:
 
@@ -394,17 +394,17 @@ CMakeFiles/umatic.dir/close_sb.o.provides.build: CMakeFiles/umatic.dir/close_sb.
 
 
 CMakeFiles/umatic.dir/fcopymat.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/fcopymat.o: /Users/shashankhr/github/umatic/casource/fcopymat.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/umatic.dir/fcopymat.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/fcopymat.o   -c /Users/shashankhr/github/umatic/casource/fcopymat.c
+CMakeFiles/umatic.dir/fcopymat.o: /Users/shashankhr/GitHub/umatic/casource/fcopymat.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/umatic.dir/fcopymat.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/fcopymat.o   -c /Users/shashankhr/GitHub/umatic/casource/fcopymat.c
 
 CMakeFiles/umatic.dir/fcopymat.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/fcopymat.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/fcopymat.c > CMakeFiles/umatic.dir/fcopymat.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/fcopymat.c > CMakeFiles/umatic.dir/fcopymat.i
 
 CMakeFiles/umatic.dir/fcopymat.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/fcopymat.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/fcopymat.c -o CMakeFiles/umatic.dir/fcopymat.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/fcopymat.c -o CMakeFiles/umatic.dir/fcopymat.s
 
 CMakeFiles/umatic.dir/fcopymat.o.requires:
 
@@ -418,17 +418,17 @@ CMakeFiles/umatic.dir/fcopymat.o.provides.build: CMakeFiles/umatic.dir/fcopymat.
 
 
 CMakeFiles/umatic.dir/fg_read.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/fg_read.o: /Users/shashankhr/github/umatic/casource/fg_read.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object CMakeFiles/umatic.dir/fg_read.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/fg_read.o   -c /Users/shashankhr/github/umatic/casource/fg_read.c
+CMakeFiles/umatic.dir/fg_read.o: /Users/shashankhr/GitHub/umatic/casource/fg_read.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object CMakeFiles/umatic.dir/fg_read.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/fg_read.o   -c /Users/shashankhr/GitHub/umatic/casource/fg_read.c
 
 CMakeFiles/umatic.dir/fg_read.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/fg_read.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/fg_read.c > CMakeFiles/umatic.dir/fg_read.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/fg_read.c > CMakeFiles/umatic.dir/fg_read.i
 
 CMakeFiles/umatic.dir/fg_read.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/fg_read.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/fg_read.c -o CMakeFiles/umatic.dir/fg_read.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/fg_read.c -o CMakeFiles/umatic.dir/fg_read.s
 
 CMakeFiles/umatic.dir/fg_read.o.requires:
 
@@ -442,17 +442,17 @@ CMakeFiles/umatic.dir/fg_read.o.provides.build: CMakeFiles/umatic.dir/fg_read.o
 
 
 CMakeFiles/umatic.dir/fidap_interp_calc.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/fidap_interp_calc.o: /Users/shashankhr/github/umatic/casource/fidap_interp_calc.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object CMakeFiles/umatic.dir/fidap_interp_calc.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/fidap_interp_calc.o   -c /Users/shashankhr/github/umatic/casource/fidap_interp_calc.c
+CMakeFiles/umatic.dir/fidap_interp_calc.o: /Users/shashankhr/GitHub/umatic/casource/fidap_interp_calc.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object CMakeFiles/umatic.dir/fidap_interp_calc.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/fidap_interp_calc.o   -c /Users/shashankhr/GitHub/umatic/casource/fidap_interp_calc.c
 
 CMakeFiles/umatic.dir/fidap_interp_calc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/fidap_interp_calc.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/fidap_interp_calc.c > CMakeFiles/umatic.dir/fidap_interp_calc.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/fidap_interp_calc.c > CMakeFiles/umatic.dir/fidap_interp_calc.i
 
 CMakeFiles/umatic.dir/fidap_interp_calc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/fidap_interp_calc.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/fidap_interp_calc.c -o CMakeFiles/umatic.dir/fidap_interp_calc.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/fidap_interp_calc.c -o CMakeFiles/umatic.dir/fidap_interp_calc.s
 
 CMakeFiles/umatic.dir/fidap_interp_calc.o.requires:
 
@@ -466,17 +466,17 @@ CMakeFiles/umatic.dir/fidap_interp_calc.o.provides.build: CMakeFiles/umatic.dir/
 
 
 CMakeFiles/umatic.dir/find_max.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/find_max.o: /Users/shashankhr/github/umatic/casource/find_max.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building C object CMakeFiles/umatic.dir/find_max.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/find_max.o   -c /Users/shashankhr/github/umatic/casource/find_max.c
+CMakeFiles/umatic.dir/find_max.o: /Users/shashankhr/GitHub/umatic/casource/find_max.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building C object CMakeFiles/umatic.dir/find_max.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/find_max.o   -c /Users/shashankhr/GitHub/umatic/casource/find_max.c
 
 CMakeFiles/umatic.dir/find_max.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/find_max.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/find_max.c > CMakeFiles/umatic.dir/find_max.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/find_max.c > CMakeFiles/umatic.dir/find_max.i
 
 CMakeFiles/umatic.dir/find_max.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/find_max.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/find_max.c -o CMakeFiles/umatic.dir/find_max.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/find_max.c -o CMakeFiles/umatic.dir/find_max.s
 
 CMakeFiles/umatic.dir/find_max.o.requires:
 
@@ -490,17 +490,17 @@ CMakeFiles/umatic.dir/find_max.o.provides.build: CMakeFiles/umatic.dir/find_max.
 
 
 CMakeFiles/umatic.dir/find_nmols.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/find_nmols.o: /Users/shashankhr/github/umatic/casource/find_nmols.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building C object CMakeFiles/umatic.dir/find_nmols.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/find_nmols.o   -c /Users/shashankhr/github/umatic/casource/find_nmols.c
+CMakeFiles/umatic.dir/find_nmols.o: /Users/shashankhr/GitHub/umatic/casource/find_nmols.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building C object CMakeFiles/umatic.dir/find_nmols.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/find_nmols.o   -c /Users/shashankhr/GitHub/umatic/casource/find_nmols.c
 
 CMakeFiles/umatic.dir/find_nmols.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/find_nmols.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/find_nmols.c > CMakeFiles/umatic.dir/find_nmols.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/find_nmols.c > CMakeFiles/umatic.dir/find_nmols.i
 
 CMakeFiles/umatic.dir/find_nmols.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/find_nmols.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/find_nmols.c -o CMakeFiles/umatic.dir/find_nmols.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/find_nmols.c -o CMakeFiles/umatic.dir/find_nmols.s
 
 CMakeFiles/umatic.dir/find_nmols.o.requires:
 
@@ -514,17 +514,17 @@ CMakeFiles/umatic.dir/find_nmols.o.provides.build: CMakeFiles/umatic.dir/find_nm
 
 
 CMakeFiles/umatic.dir/findroot.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/findroot.o: /Users/shashankhr/github/umatic/casource/findroot.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building C object CMakeFiles/umatic.dir/findroot.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/findroot.o   -c /Users/shashankhr/github/umatic/casource/findroot.c
+CMakeFiles/umatic.dir/findroot.o: /Users/shashankhr/GitHub/umatic/casource/findroot.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building C object CMakeFiles/umatic.dir/findroot.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/findroot.o   -c /Users/shashankhr/GitHub/umatic/casource/findroot.c
 
 CMakeFiles/umatic.dir/findroot.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/findroot.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/findroot.c > CMakeFiles/umatic.dir/findroot.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/findroot.c > CMakeFiles/umatic.dir/findroot.i
 
 CMakeFiles/umatic.dir/findroot.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/findroot.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/findroot.c -o CMakeFiles/umatic.dir/findroot.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/findroot.c -o CMakeFiles/umatic.dir/findroot.s
 
 CMakeFiles/umatic.dir/findroot.o.requires:
 
@@ -538,17 +538,17 @@ CMakeFiles/umatic.dir/findroot.o.provides.build: CMakeFiles/umatic.dir/findroot.
 
 
 CMakeFiles/umatic.dir/freeblock.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/freeblock.o: /Users/shashankhr/github/umatic/casource/freeblock.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building C object CMakeFiles/umatic.dir/freeblock.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/freeblock.o   -c /Users/shashankhr/github/umatic/casource/freeblock.c
+CMakeFiles/umatic.dir/freeblock.o: /Users/shashankhr/GitHub/umatic/casource/freeblock.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building C object CMakeFiles/umatic.dir/freeblock.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/freeblock.o   -c /Users/shashankhr/GitHub/umatic/casource/freeblock.c
 
 CMakeFiles/umatic.dir/freeblock.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/freeblock.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/freeblock.c > CMakeFiles/umatic.dir/freeblock.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/freeblock.c > CMakeFiles/umatic.dir/freeblock.i
 
 CMakeFiles/umatic.dir/freeblock.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/freeblock.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/freeblock.c -o CMakeFiles/umatic.dir/freeblock.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/freeblock.c -o CMakeFiles/umatic.dir/freeblock.s
 
 CMakeFiles/umatic.dir/freeblock.o.requires:
 
@@ -562,17 +562,17 @@ CMakeFiles/umatic.dir/freeblock.o.provides.build: CMakeFiles/umatic.dir/freebloc
 
 
 CMakeFiles/umatic.dir/gaussdev.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/gaussdev.o: /Users/shashankhr/github/umatic/casource/gaussdev.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building C object CMakeFiles/umatic.dir/gaussdev.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/gaussdev.o   -c /Users/shashankhr/github/umatic/casource/gaussdev.c
+CMakeFiles/umatic.dir/gaussdev.o: /Users/shashankhr/GitHub/umatic/casource/gaussdev.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building C object CMakeFiles/umatic.dir/gaussdev.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/gaussdev.o   -c /Users/shashankhr/GitHub/umatic/casource/gaussdev.c
 
 CMakeFiles/umatic.dir/gaussdev.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/gaussdev.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/gaussdev.c > CMakeFiles/umatic.dir/gaussdev.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/gaussdev.c > CMakeFiles/umatic.dir/gaussdev.i
 
 CMakeFiles/umatic.dir/gaussdev.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/gaussdev.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/gaussdev.c -o CMakeFiles/umatic.dir/gaussdev.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/gaussdev.c -o CMakeFiles/umatic.dir/gaussdev.s
 
 CMakeFiles/umatic.dir/gaussdev.o.requires:
 
@@ -586,17 +586,17 @@ CMakeFiles/umatic.dir/gaussdev.o.provides.build: CMakeFiles/umatic.dir/gaussdev.
 
 
 CMakeFiles/umatic.dir/getxyz.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/getxyz.o: /Users/shashankhr/github/umatic/casource/getxyz.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building C object CMakeFiles/umatic.dir/getxyz.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/getxyz.o   -c /Users/shashankhr/github/umatic/casource/getxyz.c
+CMakeFiles/umatic.dir/getxyz.o: /Users/shashankhr/GitHub/umatic/casource/getxyz.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building C object CMakeFiles/umatic.dir/getxyz.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/getxyz.o   -c /Users/shashankhr/GitHub/umatic/casource/getxyz.c
 
 CMakeFiles/umatic.dir/getxyz.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/getxyz.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/getxyz.c > CMakeFiles/umatic.dir/getxyz.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/getxyz.c > CMakeFiles/umatic.dir/getxyz.i
 
 CMakeFiles/umatic.dir/getxyz.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/getxyz.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/getxyz.c -o CMakeFiles/umatic.dir/getxyz.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/getxyz.c -o CMakeFiles/umatic.dir/getxyz.s
 
 CMakeFiles/umatic.dir/getxyz.o.requires:
 
@@ -610,17 +610,17 @@ CMakeFiles/umatic.dir/getxyz.o.provides.build: CMakeFiles/umatic.dir/getxyz.o
 
 
 CMakeFiles/umatic.dir/grain_functions.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/grain_functions.o: /Users/shashankhr/github/umatic/casource/grain_functions.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building C object CMakeFiles/umatic.dir/grain_functions.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/grain_functions.o   -c /Users/shashankhr/github/umatic/casource/grain_functions.c
+CMakeFiles/umatic.dir/grain_functions.o: /Users/shashankhr/GitHub/umatic/casource/grain_functions.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building C object CMakeFiles/umatic.dir/grain_functions.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/grain_functions.o   -c /Users/shashankhr/GitHub/umatic/casource/grain_functions.c
 
 CMakeFiles/umatic.dir/grain_functions.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/grain_functions.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/grain_functions.c > CMakeFiles/umatic.dir/grain_functions.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/grain_functions.c > CMakeFiles/umatic.dir/grain_functions.i
 
 CMakeFiles/umatic.dir/grain_functions.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/grain_functions.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/grain_functions.c -o CMakeFiles/umatic.dir/grain_functions.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/grain_functions.c -o CMakeFiles/umatic.dir/grain_functions.s
 
 CMakeFiles/umatic.dir/grain_functions.o.requires:
 
@@ -634,17 +634,17 @@ CMakeFiles/umatic.dir/grain_functions.o.provides.build: CMakeFiles/umatic.dir/gr
 
 
 CMakeFiles/umatic.dir/handlers.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/handlers.o: /Users/shashankhr/github/umatic/casource/handlers.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building C object CMakeFiles/umatic.dir/handlers.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/handlers.o   -c /Users/shashankhr/github/umatic/casource/handlers.c
+CMakeFiles/umatic.dir/handlers.o: /Users/shashankhr/GitHub/umatic/casource/handlers.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building C object CMakeFiles/umatic.dir/handlers.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/handlers.o   -c /Users/shashankhr/GitHub/umatic/casource/handlers.c
 
 CMakeFiles/umatic.dir/handlers.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/handlers.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/handlers.c > CMakeFiles/umatic.dir/handlers.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/handlers.c > CMakeFiles/umatic.dir/handlers.i
 
 CMakeFiles/umatic.dir/handlers.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/handlers.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/handlers.c -o CMakeFiles/umatic.dir/handlers.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/handlers.c -o CMakeFiles/umatic.dir/handlers.s
 
 CMakeFiles/umatic.dir/handlers.o.requires:
 
@@ -658,17 +658,17 @@ CMakeFiles/umatic.dir/handlers.o.provides.build: CMakeFiles/umatic.dir/handlers.
 
 
 CMakeFiles/umatic.dir/icopymat.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/icopymat.o: /Users/shashankhr/github/umatic/casource/icopymat.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building C object CMakeFiles/umatic.dir/icopymat.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/icopymat.o   -c /Users/shashankhr/github/umatic/casource/icopymat.c
+CMakeFiles/umatic.dir/icopymat.o: /Users/shashankhr/GitHub/umatic/casource/icopymat.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building C object CMakeFiles/umatic.dir/icopymat.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/icopymat.o   -c /Users/shashankhr/GitHub/umatic/casource/icopymat.c
 
 CMakeFiles/umatic.dir/icopymat.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/icopymat.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/icopymat.c > CMakeFiles/umatic.dir/icopymat.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/icopymat.c > CMakeFiles/umatic.dir/icopymat.i
 
 CMakeFiles/umatic.dir/icopymat.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/icopymat.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/icopymat.c -o CMakeFiles/umatic.dir/icopymat.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/icopymat.c -o CMakeFiles/umatic.dir/icopymat.s
 
 CMakeFiles/umatic.dir/icopymat.o.requires:
 
@@ -682,17 +682,17 @@ CMakeFiles/umatic.dir/icopymat.o.provides.build: CMakeFiles/umatic.dir/icopymat.
 
 
 CMakeFiles/umatic.dir/initcube.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/initcube.o: /Users/shashankhr/github/umatic/casource/initcube.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building C object CMakeFiles/umatic.dir/initcube.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/initcube.o   -c /Users/shashankhr/github/umatic/casource/initcube.c
+CMakeFiles/umatic.dir/initcube.o: /Users/shashankhr/GitHub/umatic/casource/initcube.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building C object CMakeFiles/umatic.dir/initcube.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/initcube.o   -c /Users/shashankhr/GitHub/umatic/casource/initcube.c
 
 CMakeFiles/umatic.dir/initcube.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/initcube.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/initcube.c > CMakeFiles/umatic.dir/initcube.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/initcube.c > CMakeFiles/umatic.dir/initcube.i
 
 CMakeFiles/umatic.dir/initcube.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/initcube.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/initcube.c -o CMakeFiles/umatic.dir/initcube.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/initcube.c -o CMakeFiles/umatic.dir/initcube.s
 
 CMakeFiles/umatic.dir/initcube.o.requires:
 
@@ -706,17 +706,17 @@ CMakeFiles/umatic.dir/initcube.o.provides.build: CMakeFiles/umatic.dir/initcube.
 
 
 CMakeFiles/umatic.dir/initface.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/initface.o: /Users/shashankhr/github/umatic/casource/initface.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building C object CMakeFiles/umatic.dir/initface.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/initface.o   -c /Users/shashankhr/github/umatic/casource/initface.c
+CMakeFiles/umatic.dir/initface.o: /Users/shashankhr/GitHub/umatic/casource/initface.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building C object CMakeFiles/umatic.dir/initface.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/initface.o   -c /Users/shashankhr/GitHub/umatic/casource/initface.c
 
 CMakeFiles/umatic.dir/initface.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/initface.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/initface.c > CMakeFiles/umatic.dir/initface.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/initface.c > CMakeFiles/umatic.dir/initface.i
 
 CMakeFiles/umatic.dir/initface.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/initface.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/initface.c -o CMakeFiles/umatic.dir/initface.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/initface.c -o CMakeFiles/umatic.dir/initface.s
 
 CMakeFiles/umatic.dir/initface.o.requires:
 
@@ -730,17 +730,17 @@ CMakeFiles/umatic.dir/initface.o.provides.build: CMakeFiles/umatic.dir/initface.
 
 
 CMakeFiles/umatic.dir/init_sb_neigh.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/init_sb_neigh.o: /Users/shashankhr/github/umatic/casource/init_sb_neigh.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building C object CMakeFiles/umatic.dir/init_sb_neigh.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/init_sb_neigh.o   -c /Users/shashankhr/github/umatic/casource/init_sb_neigh.c
+CMakeFiles/umatic.dir/init_sb_neigh.o: /Users/shashankhr/GitHub/umatic/casource/init_sb_neigh.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building C object CMakeFiles/umatic.dir/init_sb_neigh.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/init_sb_neigh.o   -c /Users/shashankhr/GitHub/umatic/casource/init_sb_neigh.c
 
 CMakeFiles/umatic.dir/init_sb_neigh.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/init_sb_neigh.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/init_sb_neigh.c > CMakeFiles/umatic.dir/init_sb_neigh.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/init_sb_neigh.c > CMakeFiles/umatic.dir/init_sb_neigh.i
 
 CMakeFiles/umatic.dir/init_sb_neigh.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/init_sb_neigh.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/init_sb_neigh.c -o CMakeFiles/umatic.dir/init_sb_neigh.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/init_sb_neigh.c -o CMakeFiles/umatic.dir/init_sb_neigh.s
 
 CMakeFiles/umatic.dir/init_sb_neigh.o.requires:
 
@@ -754,17 +754,17 @@ CMakeFiles/umatic.dir/init_sb_neigh.o.provides.build: CMakeFiles/umatic.dir/init
 
 
 CMakeFiles/umatic.dir/init_nuc_mould.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/init_nuc_mould.o: /Users/shashankhr/github/umatic/casource/init_nuc_mould.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building C object CMakeFiles/umatic.dir/init_nuc_mould.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/init_nuc_mould.o   -c /Users/shashankhr/github/umatic/casource/init_nuc_mould.c
+CMakeFiles/umatic.dir/init_nuc_mould.o: /Users/shashankhr/GitHub/umatic/casource/init_nuc_mould.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building C object CMakeFiles/umatic.dir/init_nuc_mould.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/init_nuc_mould.o   -c /Users/shashankhr/GitHub/umatic/casource/init_nuc_mould.c
 
 CMakeFiles/umatic.dir/init_nuc_mould.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/init_nuc_mould.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/init_nuc_mould.c > CMakeFiles/umatic.dir/init_nuc_mould.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/init_nuc_mould.c > CMakeFiles/umatic.dir/init_nuc_mould.i
 
 CMakeFiles/umatic.dir/init_nuc_mould.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/init_nuc_mould.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/init_nuc_mould.c -o CMakeFiles/umatic.dir/init_nuc_mould.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/init_nuc_mould.c -o CMakeFiles/umatic.dir/init_nuc_mould.s
 
 CMakeFiles/umatic.dir/init_nuc_mould.o.requires:
 
@@ -778,17 +778,17 @@ CMakeFiles/umatic.dir/init_nuc_mould.o.provides.build: CMakeFiles/umatic.dir/ini
 
 
 CMakeFiles/umatic.dir/mould_sources.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/mould_sources.o: /Users/shashankhr/github/umatic/casource/mould_sources.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building C object CMakeFiles/umatic.dir/mould_sources.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/mould_sources.o   -c /Users/shashankhr/github/umatic/casource/mould_sources.c
+CMakeFiles/umatic.dir/mould_sources.o: /Users/shashankhr/GitHub/umatic/casource/mould_sources.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building C object CMakeFiles/umatic.dir/mould_sources.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/mould_sources.o   -c /Users/shashankhr/GitHub/umatic/casource/mould_sources.c
 
 CMakeFiles/umatic.dir/mould_sources.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/mould_sources.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/mould_sources.c > CMakeFiles/umatic.dir/mould_sources.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/mould_sources.c > CMakeFiles/umatic.dir/mould_sources.i
 
 CMakeFiles/umatic.dir/mould_sources.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/mould_sources.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/mould_sources.c -o CMakeFiles/umatic.dir/mould_sources.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/mould_sources.c -o CMakeFiles/umatic.dir/mould_sources.s
 
 CMakeFiles/umatic.dir/mould_sources.o.requires:
 
@@ -802,17 +802,17 @@ CMakeFiles/umatic.dir/mould_sources.o.provides.build: CMakeFiles/umatic.dir/moul
 
 
 CMakeFiles/umatic.dir/nbhd_def.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/nbhd_def.o: /Users/shashankhr/github/umatic/casource/nbhd_def.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building C object CMakeFiles/umatic.dir/nbhd_def.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/nbhd_def.o   -c /Users/shashankhr/github/umatic/casource/nbhd_def.c
+CMakeFiles/umatic.dir/nbhd_def.o: /Users/shashankhr/GitHub/umatic/casource/nbhd_def.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building C object CMakeFiles/umatic.dir/nbhd_def.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/nbhd_def.o   -c /Users/shashankhr/GitHub/umatic/casource/nbhd_def.c
 
 CMakeFiles/umatic.dir/nbhd_def.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/nbhd_def.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/nbhd_def.c > CMakeFiles/umatic.dir/nbhd_def.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/nbhd_def.c > CMakeFiles/umatic.dir/nbhd_def.i
 
 CMakeFiles/umatic.dir/nbhd_def.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/nbhd_def.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/nbhd_def.c -o CMakeFiles/umatic.dir/nbhd_def.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/nbhd_def.c -o CMakeFiles/umatic.dir/nbhd_def.s
 
 CMakeFiles/umatic.dir/nbhd_def.o.requires:
 
@@ -826,17 +826,17 @@ CMakeFiles/umatic.dir/nbhd_def.o.provides.build: CMakeFiles/umatic.dir/nbhd_def.
 
 
 CMakeFiles/umatic.dir/nuc_functions.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/nuc_functions.o: /Users/shashankhr/github/umatic/casource/nuc_functions.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building C object CMakeFiles/umatic.dir/nuc_functions.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/nuc_functions.o   -c /Users/shashankhr/github/umatic/casource/nuc_functions.c
+CMakeFiles/umatic.dir/nuc_functions.o: /Users/shashankhr/GitHub/umatic/casource/nuc_functions.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building C object CMakeFiles/umatic.dir/nuc_functions.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/nuc_functions.o   -c /Users/shashankhr/GitHub/umatic/casource/nuc_functions.c
 
 CMakeFiles/umatic.dir/nuc_functions.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/nuc_functions.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/nuc_functions.c > CMakeFiles/umatic.dir/nuc_functions.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/nuc_functions.c > CMakeFiles/umatic.dir/nuc_functions.i
 
 CMakeFiles/umatic.dir/nuc_functions.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/nuc_functions.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/nuc_functions.c -o CMakeFiles/umatic.dir/nuc_functions.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/nuc_functions.c -o CMakeFiles/umatic.dir/nuc_functions.s
 
 CMakeFiles/umatic.dir/nuc_functions.o.requires:
 
@@ -850,17 +850,17 @@ CMakeFiles/umatic.dir/nuc_functions.o.provides.build: CMakeFiles/umatic.dir/nuc_
 
 
 CMakeFiles/umatic.dir/nuc_lookup.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/nuc_lookup.o: /Users/shashankhr/github/umatic/casource/nuc_lookup.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building C object CMakeFiles/umatic.dir/nuc_lookup.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/nuc_lookup.o   -c /Users/shashankhr/github/umatic/casource/nuc_lookup.c
+CMakeFiles/umatic.dir/nuc_lookup.o: /Users/shashankhr/GitHub/umatic/casource/nuc_lookup.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building C object CMakeFiles/umatic.dir/nuc_lookup.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/nuc_lookup.o   -c /Users/shashankhr/GitHub/umatic/casource/nuc_lookup.c
 
 CMakeFiles/umatic.dir/nuc_lookup.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/nuc_lookup.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/nuc_lookup.c > CMakeFiles/umatic.dir/nuc_lookup.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/nuc_lookup.c > CMakeFiles/umatic.dir/nuc_lookup.i
 
 CMakeFiles/umatic.dir/nuc_lookup.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/nuc_lookup.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/nuc_lookup.c -o CMakeFiles/umatic.dir/nuc_lookup.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/nuc_lookup.c -o CMakeFiles/umatic.dir/nuc_lookup.s
 
 CMakeFiles/umatic.dir/nuc_lookup.o.requires:
 
@@ -874,17 +874,17 @@ CMakeFiles/umatic.dir/nuc_lookup.o.provides.build: CMakeFiles/umatic.dir/nuc_loo
 
 
 CMakeFiles/umatic.dir/open_sb.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/open_sb.o: /Users/shashankhr/github/umatic/casource/open_sb.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building C object CMakeFiles/umatic.dir/open_sb.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/open_sb.o   -c /Users/shashankhr/github/umatic/casource/open_sb.c
+CMakeFiles/umatic.dir/open_sb.o: /Users/shashankhr/GitHub/umatic/casource/open_sb.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building C object CMakeFiles/umatic.dir/open_sb.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/open_sb.o   -c /Users/shashankhr/GitHub/umatic/casource/open_sb.c
 
 CMakeFiles/umatic.dir/open_sb.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/open_sb.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/open_sb.c > CMakeFiles/umatic.dir/open_sb.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/open_sb.c > CMakeFiles/umatic.dir/open_sb.i
 
 CMakeFiles/umatic.dir/open_sb.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/open_sb.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/open_sb.c -o CMakeFiles/umatic.dir/open_sb.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/open_sb.c -o CMakeFiles/umatic.dir/open_sb.s
 
 CMakeFiles/umatic.dir/open_sb.o.requires:
 
@@ -898,17 +898,17 @@ CMakeFiles/umatic.dir/open_sb.o.provides.build: CMakeFiles/umatic.dir/open_sb.o
 
 
 CMakeFiles/umatic.dir/output_ex.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/output_ex.o: /Users/shashankhr/github/umatic/casource/output_ex.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building C object CMakeFiles/umatic.dir/output_ex.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/output_ex.o   -c /Users/shashankhr/github/umatic/casource/output_ex.c
+CMakeFiles/umatic.dir/output_ex.o: /Users/shashankhr/GitHub/umatic/casource/output_ex.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building C object CMakeFiles/umatic.dir/output_ex.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/output_ex.o   -c /Users/shashankhr/GitHub/umatic/casource/output_ex.c
 
 CMakeFiles/umatic.dir/output_ex.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/output_ex.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/output_ex.c > CMakeFiles/umatic.dir/output_ex.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/output_ex.c > CMakeFiles/umatic.dir/output_ex.i
 
 CMakeFiles/umatic.dir/output_ex.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/output_ex.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/output_ex.c -o CMakeFiles/umatic.dir/output_ex.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/output_ex.c -o CMakeFiles/umatic.dir/output_ex.s
 
 CMakeFiles/umatic.dir/output_ex.o.requires:
 
@@ -922,17 +922,17 @@ CMakeFiles/umatic.dir/output_ex.o.provides.build: CMakeFiles/umatic.dir/output_e
 
 
 CMakeFiles/umatic.dir/output_img.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/output_img.o: /Users/shashankhr/github/umatic/casource/output_img.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building C object CMakeFiles/umatic.dir/output_img.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/output_img.o   -c /Users/shashankhr/github/umatic/casource/output_img.c
+CMakeFiles/umatic.dir/output_img.o: /Users/shashankhr/GitHub/umatic/casource/output_img.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building C object CMakeFiles/umatic.dir/output_img.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/output_img.o   -c /Users/shashankhr/GitHub/umatic/casource/output_img.c
 
 CMakeFiles/umatic.dir/output_img.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/output_img.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/output_img.c > CMakeFiles/umatic.dir/output_img.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/output_img.c > CMakeFiles/umatic.dir/output_img.i
 
 CMakeFiles/umatic.dir/output_img.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/output_img.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/output_img.c -o CMakeFiles/umatic.dir/output_img.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/output_img.c -o CMakeFiles/umatic.dir/output_img.s
 
 CMakeFiles/umatic.dir/output_img.o.requires:
 
@@ -946,17 +946,17 @@ CMakeFiles/umatic.dir/output_img.o.provides.build: CMakeFiles/umatic.dir/output_
 
 
 CMakeFiles/umatic.dir/p_growth.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/p_growth.o: /Users/shashankhr/github/umatic/casource/p_growth.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building C object CMakeFiles/umatic.dir/p_growth.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/p_growth.o   -c /Users/shashankhr/github/umatic/casource/p_growth.c
+CMakeFiles/umatic.dir/p_growth.o: /Users/shashankhr/GitHub/umatic/casource/p_growth.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building C object CMakeFiles/umatic.dir/p_growth.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/p_growth.o   -c /Users/shashankhr/GitHub/umatic/casource/p_growth.c
 
 CMakeFiles/umatic.dir/p_growth.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/p_growth.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/p_growth.c > CMakeFiles/umatic.dir/p_growth.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/p_growth.c > CMakeFiles/umatic.dir/p_growth.i
 
 CMakeFiles/umatic.dir/p_growth.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/p_growth.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/p_growth.c -o CMakeFiles/umatic.dir/p_growth.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/p_growth.c -o CMakeFiles/umatic.dir/p_growth.s
 
 CMakeFiles/umatic.dir/p_growth.o.requires:
 
@@ -970,17 +970,17 @@ CMakeFiles/umatic.dir/p_growth.o.provides.build: CMakeFiles/umatic.dir/p_growth.
 
 
 CMakeFiles/umatic.dir/pnuc_function.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/pnuc_function.o: /Users/shashankhr/github/umatic/casource/pnuc_function.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building C object CMakeFiles/umatic.dir/pnuc_function.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/pnuc_function.o   -c /Users/shashankhr/github/umatic/casource/pnuc_function.c
+CMakeFiles/umatic.dir/pnuc_function.o: /Users/shashankhr/GitHub/umatic/casource/pnuc_function.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building C object CMakeFiles/umatic.dir/pnuc_function.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/pnuc_function.o   -c /Users/shashankhr/GitHub/umatic/casource/pnuc_function.c
 
 CMakeFiles/umatic.dir/pnuc_function.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/pnuc_function.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/pnuc_function.c > CMakeFiles/umatic.dir/pnuc_function.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/pnuc_function.c > CMakeFiles/umatic.dir/pnuc_function.i
 
 CMakeFiles/umatic.dir/pnuc_function.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/pnuc_function.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/pnuc_function.c -o CMakeFiles/umatic.dir/pnuc_function.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/pnuc_function.c -o CMakeFiles/umatic.dir/pnuc_function.s
 
 CMakeFiles/umatic.dir/pnuc_function.o.requires:
 
@@ -994,17 +994,17 @@ CMakeFiles/umatic.dir/pnuc_function.o.provides.build: CMakeFiles/umatic.dir/pnuc
 
 
 CMakeFiles/umatic.dir/pore_multi.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/pore_multi.o: /Users/shashankhr/github/umatic/casource/pore_multi.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building C object CMakeFiles/umatic.dir/pore_multi.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/pore_multi.o   -c /Users/shashankhr/github/umatic/casource/pore_multi.c
+CMakeFiles/umatic.dir/pore_multi.o: /Users/shashankhr/GitHub/umatic/casource/pore_multi.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building C object CMakeFiles/umatic.dir/pore_multi.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/pore_multi.o   -c /Users/shashankhr/GitHub/umatic/casource/pore_multi.c
 
 CMakeFiles/umatic.dir/pore_multi.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/pore_multi.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/pore_multi.c > CMakeFiles/umatic.dir/pore_multi.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/pore_multi.c > CMakeFiles/umatic.dir/pore_multi.i
 
 CMakeFiles/umatic.dir/pore_multi.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/pore_multi.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/pore_multi.c -o CMakeFiles/umatic.dir/pore_multi.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/pore_multi.c -o CMakeFiles/umatic.dir/pore_multi.s
 
 CMakeFiles/umatic.dir/pore_multi.o.requires:
 
@@ -1018,17 +1018,17 @@ CMakeFiles/umatic.dir/pore_multi.o.provides.build: CMakeFiles/umatic.dir/pore_mu
 
 
 CMakeFiles/umatic.dir/pore_routines.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/pore_routines.o: /Users/shashankhr/github/umatic/casource/pore_routines.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building C object CMakeFiles/umatic.dir/pore_routines.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/pore_routines.o   -c /Users/shashankhr/github/umatic/casource/pore_routines.c
+CMakeFiles/umatic.dir/pore_routines.o: /Users/shashankhr/GitHub/umatic/casource/pore_routines.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building C object CMakeFiles/umatic.dir/pore_routines.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/pore_routines.o   -c /Users/shashankhr/GitHub/umatic/casource/pore_routines.c
 
 CMakeFiles/umatic.dir/pore_routines.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/pore_routines.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/pore_routines.c > CMakeFiles/umatic.dir/pore_routines.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/pore_routines.c > CMakeFiles/umatic.dir/pore_routines.i
 
 CMakeFiles/umatic.dir/pore_routines.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/pore_routines.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/pore_routines.c -o CMakeFiles/umatic.dir/pore_routines.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/pore_routines.c -o CMakeFiles/umatic.dir/pore_routines.s
 
 CMakeFiles/umatic.dir/pore_routines.o.requires:
 
@@ -1042,17 +1042,17 @@ CMakeFiles/umatic.dir/pore_routines.o.provides.build: CMakeFiles/umatic.dir/pore
 
 
 CMakeFiles/umatic.dir/pore_setup_multi.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/pore_setup_multi.o: /Users/shashankhr/github/umatic/casource/pore_setup_multi.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building C object CMakeFiles/umatic.dir/pore_setup_multi.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/pore_setup_multi.o   -c /Users/shashankhr/github/umatic/casource/pore_setup_multi.c
+CMakeFiles/umatic.dir/pore_setup_multi.o: /Users/shashankhr/GitHub/umatic/casource/pore_setup_multi.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building C object CMakeFiles/umatic.dir/pore_setup_multi.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/pore_setup_multi.o   -c /Users/shashankhr/GitHub/umatic/casource/pore_setup_multi.c
 
 CMakeFiles/umatic.dir/pore_setup_multi.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/pore_setup_multi.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/pore_setup_multi.c > CMakeFiles/umatic.dir/pore_setup_multi.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/pore_setup_multi.c > CMakeFiles/umatic.dir/pore_setup_multi.i
 
 CMakeFiles/umatic.dir/pore_setup_multi.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/pore_setup_multi.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/pore_setup_multi.c -o CMakeFiles/umatic.dir/pore_setup_multi.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/pore_setup_multi.c -o CMakeFiles/umatic.dir/pore_setup_multi.s
 
 CMakeFiles/umatic.dir/pore_setup_multi.o.requires:
 
@@ -1066,17 +1066,17 @@ CMakeFiles/umatic.dir/pore_setup_multi.o.provides.build: CMakeFiles/umatic.dir/p
 
 
 CMakeFiles/umatic.dir/pr_lookup.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/pr_lookup.o: /Users/shashankhr/github/umatic/casource/pr_lookup.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building C object CMakeFiles/umatic.dir/pr_lookup.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/pr_lookup.o   -c /Users/shashankhr/github/umatic/casource/pr_lookup.c
+CMakeFiles/umatic.dir/pr_lookup.o: /Users/shashankhr/GitHub/umatic/casource/pr_lookup.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building C object CMakeFiles/umatic.dir/pr_lookup.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/pr_lookup.o   -c /Users/shashankhr/GitHub/umatic/casource/pr_lookup.c
 
 CMakeFiles/umatic.dir/pr_lookup.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/pr_lookup.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/pr_lookup.c > CMakeFiles/umatic.dir/pr_lookup.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/pr_lookup.c > CMakeFiles/umatic.dir/pr_lookup.i
 
 CMakeFiles/umatic.dir/pr_lookup.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/pr_lookup.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/pr_lookup.c -o CMakeFiles/umatic.dir/pr_lookup.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/pr_lookup.c -o CMakeFiles/umatic.dir/pr_lookup.s
 
 CMakeFiles/umatic.dir/pr_lookup.o.requires:
 
@@ -1090,17 +1090,17 @@ CMakeFiles/umatic.dir/pr_lookup.o.provides.build: CMakeFiles/umatic.dir/pr_looku
 
 
 CMakeFiles/umatic.dir/props.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/props.o: /Users/shashankhr/github/umatic/casource/props.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building C object CMakeFiles/umatic.dir/props.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/props.o   -c /Users/shashankhr/github/umatic/casource/props.c
+CMakeFiles/umatic.dir/props.o: /Users/shashankhr/GitHub/umatic/casource/props.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building C object CMakeFiles/umatic.dir/props.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/props.o   -c /Users/shashankhr/GitHub/umatic/casource/props.c
 
 CMakeFiles/umatic.dir/props.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/props.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/props.c > CMakeFiles/umatic.dir/props.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/props.c > CMakeFiles/umatic.dir/props.i
 
 CMakeFiles/umatic.dir/props.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/props.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/props.c -o CMakeFiles/umatic.dir/props.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/props.c -o CMakeFiles/umatic.dir/props.s
 
 CMakeFiles/umatic.dir/props.o.requires:
 
@@ -1114,17 +1114,17 @@ CMakeFiles/umatic.dir/props.o.provides.build: CMakeFiles/umatic.dir/props.o
 
 
 CMakeFiles/umatic.dir/rand_square.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/rand_square.o: /Users/shashankhr/github/umatic/casource/rand_square.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building C object CMakeFiles/umatic.dir/rand_square.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/rand_square.o   -c /Users/shashankhr/github/umatic/casource/rand_square.c
+CMakeFiles/umatic.dir/rand_square.o: /Users/shashankhr/GitHub/umatic/casource/rand_square.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building C object CMakeFiles/umatic.dir/rand_square.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/rand_square.o   -c /Users/shashankhr/GitHub/umatic/casource/rand_square.c
 
 CMakeFiles/umatic.dir/rand_square.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/rand_square.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/rand_square.c > CMakeFiles/umatic.dir/rand_square.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/rand_square.c > CMakeFiles/umatic.dir/rand_square.i
 
 CMakeFiles/umatic.dir/rand_square.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/rand_square.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/rand_square.c -o CMakeFiles/umatic.dir/rand_square.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/rand_square.c -o CMakeFiles/umatic.dir/rand_square.s
 
 CMakeFiles/umatic.dir/rand_square.o.requires:
 
@@ -1138,17 +1138,17 @@ CMakeFiles/umatic.dir/rand_square.o.provides.build: CMakeFiles/umatic.dir/rand_s
 
 
 CMakeFiles/umatic.dir/rand_step.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/rand_step.o: /Users/shashankhr/github/umatic/casource/rand_step.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building C object CMakeFiles/umatic.dir/rand_step.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/rand_step.o   -c /Users/shashankhr/github/umatic/casource/rand_step.c
+CMakeFiles/umatic.dir/rand_step.o: /Users/shashankhr/GitHub/umatic/casource/rand_step.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building C object CMakeFiles/umatic.dir/rand_step.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/rand_step.o   -c /Users/shashankhr/GitHub/umatic/casource/rand_step.c
 
 CMakeFiles/umatic.dir/rand_step.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/rand_step.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/rand_step.c > CMakeFiles/umatic.dir/rand_step.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/rand_step.c > CMakeFiles/umatic.dir/rand_step.i
 
 CMakeFiles/umatic.dir/rand_step.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/rand_step.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/rand_step.c -o CMakeFiles/umatic.dir/rand_step.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/rand_step.c -o CMakeFiles/umatic.dir/rand_step.s
 
 CMakeFiles/umatic.dir/rand_step.o.requires:
 
@@ -1162,17 +1162,17 @@ CMakeFiles/umatic.dir/rand_step.o.provides.build: CMakeFiles/umatic.dir/rand_ste
 
 
 CMakeFiles/umatic.dir/rcs_id.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/rcs_id.o: /Users/shashankhr/github/umatic/casource/rcs_id.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building C object CMakeFiles/umatic.dir/rcs_id.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/rcs_id.o   -c /Users/shashankhr/github/umatic/casource/rcs_id.c
+CMakeFiles/umatic.dir/rcs_id.o: /Users/shashankhr/GitHub/umatic/casource/rcs_id.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building C object CMakeFiles/umatic.dir/rcs_id.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/rcs_id.o   -c /Users/shashankhr/GitHub/umatic/casource/rcs_id.c
 
 CMakeFiles/umatic.dir/rcs_id.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/rcs_id.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/rcs_id.c > CMakeFiles/umatic.dir/rcs_id.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/rcs_id.c > CMakeFiles/umatic.dir/rcs_id.i
 
 CMakeFiles/umatic.dir/rcs_id.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/rcs_id.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/rcs_id.c -o CMakeFiles/umatic.dir/rcs_id.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/rcs_id.c -o CMakeFiles/umatic.dir/rcs_id.s
 
 CMakeFiles/umatic.dir/rcs_id.o.requires:
 
@@ -1186,17 +1186,17 @@ CMakeFiles/umatic.dir/rcs_id.o.provides.build: CMakeFiles/umatic.dir/rcs_id.o
 
 
 CMakeFiles/umatic.dir/read_blocks.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/read_blocks.o: /Users/shashankhr/github/umatic/casource/read_blocks.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Building C object CMakeFiles/umatic.dir/read_blocks.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/read_blocks.o   -c /Users/shashankhr/github/umatic/casource/read_blocks.c
+CMakeFiles/umatic.dir/read_blocks.o: /Users/shashankhr/GitHub/umatic/casource/read_blocks.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Building C object CMakeFiles/umatic.dir/read_blocks.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/read_blocks.o   -c /Users/shashankhr/GitHub/umatic/casource/read_blocks.c
 
 CMakeFiles/umatic.dir/read_blocks.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/read_blocks.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/read_blocks.c > CMakeFiles/umatic.dir/read_blocks.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/read_blocks.c > CMakeFiles/umatic.dir/read_blocks.i
 
 CMakeFiles/umatic.dir/read_blocks.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/read_blocks.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/read_blocks.c -o CMakeFiles/umatic.dir/read_blocks.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/read_blocks.c -o CMakeFiles/umatic.dir/read_blocks.s
 
 CMakeFiles/umatic.dir/read_blocks.o.requires:
 
@@ -1210,17 +1210,17 @@ CMakeFiles/umatic.dir/read_blocks.o.provides.build: CMakeFiles/umatic.dir/read_b
 
 
 CMakeFiles/umatic.dir/read_cap_ca.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/read_cap_ca.o: /Users/shashankhr/github/umatic/casource/read_cap_ca.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_49) "Building C object CMakeFiles/umatic.dir/read_cap_ca.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/read_cap_ca.o   -c /Users/shashankhr/github/umatic/casource/read_cap_ca.c
+CMakeFiles/umatic.dir/read_cap_ca.o: /Users/shashankhr/GitHub/umatic/casource/read_cap_ca.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_49) "Building C object CMakeFiles/umatic.dir/read_cap_ca.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/read_cap_ca.o   -c /Users/shashankhr/GitHub/umatic/casource/read_cap_ca.c
 
 CMakeFiles/umatic.dir/read_cap_ca.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/read_cap_ca.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/read_cap_ca.c > CMakeFiles/umatic.dir/read_cap_ca.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/read_cap_ca.c > CMakeFiles/umatic.dir/read_cap_ca.i
 
 CMakeFiles/umatic.dir/read_cap_ca.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/read_cap_ca.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/read_cap_ca.c -o CMakeFiles/umatic.dir/read_cap_ca.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/read_cap_ca.c -o CMakeFiles/umatic.dir/read_cap_ca.s
 
 CMakeFiles/umatic.dir/read_cap_ca.o.requires:
 
@@ -1234,17 +1234,17 @@ CMakeFiles/umatic.dir/read_cap_ca.o.provides.build: CMakeFiles/umatic.dir/read_c
 
 
 CMakeFiles/umatic.dir/read_ca_procast.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/read_ca_procast.o: /Users/shashankhr/github/umatic/casource/read_ca_procast.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_50) "Building C object CMakeFiles/umatic.dir/read_ca_procast.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/read_ca_procast.o   -c /Users/shashankhr/github/umatic/casource/read_ca_procast.c
+CMakeFiles/umatic.dir/read_ca_procast.o: /Users/shashankhr/GitHub/umatic/casource/read_ca_procast.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_50) "Building C object CMakeFiles/umatic.dir/read_ca_procast.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/read_ca_procast.o   -c /Users/shashankhr/GitHub/umatic/casource/read_ca_procast.c
 
 CMakeFiles/umatic.dir/read_ca_procast.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/read_ca_procast.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/read_ca_procast.c > CMakeFiles/umatic.dir/read_ca_procast.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/read_ca_procast.c > CMakeFiles/umatic.dir/read_ca_procast.i
 
 CMakeFiles/umatic.dir/read_ca_procast.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/read_ca_procast.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/read_ca_procast.c -o CMakeFiles/umatic.dir/read_ca_procast.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/read_ca_procast.c -o CMakeFiles/umatic.dir/read_ca_procast.s
 
 CMakeFiles/umatic.dir/read_ca_procast.o.requires:
 
@@ -1258,17 +1258,17 @@ CMakeFiles/umatic.dir/read_ca_procast.o.provides.build: CMakeFiles/umatic.dir/re
 
 
 CMakeFiles/umatic.dir/read_ctrl.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/read_ctrl.o: /Users/shashankhr/github/umatic/casource/read_ctrl.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Building C object CMakeFiles/umatic.dir/read_ctrl.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/read_ctrl.o   -c /Users/shashankhr/github/umatic/casource/read_ctrl.c
+CMakeFiles/umatic.dir/read_ctrl.o: /Users/shashankhr/GitHub/umatic/casource/read_ctrl.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Building C object CMakeFiles/umatic.dir/read_ctrl.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/read_ctrl.o   -c /Users/shashankhr/GitHub/umatic/casource/read_ctrl.c
 
 CMakeFiles/umatic.dir/read_ctrl.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/read_ctrl.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/read_ctrl.c > CMakeFiles/umatic.dir/read_ctrl.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/read_ctrl.c > CMakeFiles/umatic.dir/read_ctrl.i
 
 CMakeFiles/umatic.dir/read_ctrl.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/read_ctrl.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/read_ctrl.c -o CMakeFiles/umatic.dir/read_ctrl.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/read_ctrl.c -o CMakeFiles/umatic.dir/read_ctrl.s
 
 CMakeFiles/umatic.dir/read_ctrl.o.requires:
 
@@ -1282,17 +1282,17 @@ CMakeFiles/umatic.dir/read_ctrl.o.provides.build: CMakeFiles/umatic.dir/read_ctr
 
 
 CMakeFiles/umatic.dir/readgeoplus.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/readgeoplus.o: /Users/shashankhr/github/umatic/casource/readgeoplus.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_52) "Building C object CMakeFiles/umatic.dir/readgeoplus.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/readgeoplus.o   -c /Users/shashankhr/github/umatic/casource/readgeoplus.c
+CMakeFiles/umatic.dir/readgeoplus.o: /Users/shashankhr/GitHub/umatic/casource/readgeoplus.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_52) "Building C object CMakeFiles/umatic.dir/readgeoplus.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/readgeoplus.o   -c /Users/shashankhr/GitHub/umatic/casource/readgeoplus.c
 
 CMakeFiles/umatic.dir/readgeoplus.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/readgeoplus.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/readgeoplus.c > CMakeFiles/umatic.dir/readgeoplus.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/readgeoplus.c > CMakeFiles/umatic.dir/readgeoplus.i
 
 CMakeFiles/umatic.dir/readgeoplus.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/readgeoplus.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/readgeoplus.c -o CMakeFiles/umatic.dir/readgeoplus.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/readgeoplus.c -o CMakeFiles/umatic.dir/readgeoplus.s
 
 CMakeFiles/umatic.dir/readgeoplus.o.requires:
 
@@ -1306,17 +1306,17 @@ CMakeFiles/umatic.dir/readgeoplus.o.provides.build: CMakeFiles/umatic.dir/readge
 
 
 CMakeFiles/umatic.dir/readmat.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/readmat.o: /Users/shashankhr/github/umatic/casource/readmat.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_53) "Building C object CMakeFiles/umatic.dir/readmat.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/readmat.o   -c /Users/shashankhr/github/umatic/casource/readmat.c
+CMakeFiles/umatic.dir/readmat.o: /Users/shashankhr/GitHub/umatic/casource/readmat.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_53) "Building C object CMakeFiles/umatic.dir/readmat.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/readmat.o   -c /Users/shashankhr/GitHub/umatic/casource/readmat.c
 
 CMakeFiles/umatic.dir/readmat.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/readmat.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/readmat.c > CMakeFiles/umatic.dir/readmat.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/readmat.c > CMakeFiles/umatic.dir/readmat.i
 
 CMakeFiles/umatic.dir/readmat.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/readmat.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/readmat.c -o CMakeFiles/umatic.dir/readmat.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/readmat.c -o CMakeFiles/umatic.dir/readmat.s
 
 CMakeFiles/umatic.dir/readmat.o.requires:
 
@@ -1330,17 +1330,17 @@ CMakeFiles/umatic.dir/readmat.o.provides.build: CMakeFiles/umatic.dir/readmat.o
 
 
 CMakeFiles/umatic.dir/readphase.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/readphase.o: /Users/shashankhr/github/umatic/casource/readphase.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_54) "Building C object CMakeFiles/umatic.dir/readphase.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/readphase.o   -c /Users/shashankhr/github/umatic/casource/readphase.c
+CMakeFiles/umatic.dir/readphase.o: /Users/shashankhr/GitHub/umatic/casource/readphase.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_54) "Building C object CMakeFiles/umatic.dir/readphase.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/readphase.o   -c /Users/shashankhr/GitHub/umatic/casource/readphase.c
 
 CMakeFiles/umatic.dir/readphase.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/readphase.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/readphase.c > CMakeFiles/umatic.dir/readphase.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/readphase.c > CMakeFiles/umatic.dir/readphase.i
 
 CMakeFiles/umatic.dir/readphase.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/readphase.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/readphase.c -o CMakeFiles/umatic.dir/readphase.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/readphase.c -o CMakeFiles/umatic.dir/readphase.s
 
 CMakeFiles/umatic.dir/readphase.o.requires:
 
@@ -1354,17 +1354,17 @@ CMakeFiles/umatic.dir/readphase.o.provides.build: CMakeFiles/umatic.dir/readphas
 
 
 CMakeFiles/umatic.dir/read_sb.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/read_sb.o: /Users/shashankhr/github/umatic/casource/read_sb.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_55) "Building C object CMakeFiles/umatic.dir/read_sb.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/read_sb.o   -c /Users/shashankhr/github/umatic/casource/read_sb.c
+CMakeFiles/umatic.dir/read_sb.o: /Users/shashankhr/GitHub/umatic/casource/read_sb.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_55) "Building C object CMakeFiles/umatic.dir/read_sb.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/read_sb.o   -c /Users/shashankhr/GitHub/umatic/casource/read_sb.c
 
 CMakeFiles/umatic.dir/read_sb.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/read_sb.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/read_sb.c > CMakeFiles/umatic.dir/read_sb.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/read_sb.c > CMakeFiles/umatic.dir/read_sb.i
 
 CMakeFiles/umatic.dir/read_sb.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/read_sb.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/read_sb.c -o CMakeFiles/umatic.dir/read_sb.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/read_sb.c -o CMakeFiles/umatic.dir/read_sb.s
 
 CMakeFiles/umatic.dir/read_sb.o.requires:
 
@@ -1378,17 +1378,17 @@ CMakeFiles/umatic.dir/read_sb.o.provides.build: CMakeFiles/umatic.dir/read_sb.o
 
 
 CMakeFiles/umatic.dir/recr_extra.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/recr_extra.o: /Users/shashankhr/github/umatic/casource/recr_extra.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_56) "Building C object CMakeFiles/umatic.dir/recr_extra.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/recr_extra.o   -c /Users/shashankhr/github/umatic/casource/recr_extra.c
+CMakeFiles/umatic.dir/recr_extra.o: /Users/shashankhr/GitHub/umatic/casource/recr_extra.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_56) "Building C object CMakeFiles/umatic.dir/recr_extra.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/recr_extra.o   -c /Users/shashankhr/GitHub/umatic/casource/recr_extra.c
 
 CMakeFiles/umatic.dir/recr_extra.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/recr_extra.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/recr_extra.c > CMakeFiles/umatic.dir/recr_extra.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/recr_extra.c > CMakeFiles/umatic.dir/recr_extra.i
 
 CMakeFiles/umatic.dir/recr_extra.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/recr_extra.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/recr_extra.c -o CMakeFiles/umatic.dir/recr_extra.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/recr_extra.c -o CMakeFiles/umatic.dir/recr_extra.s
 
 CMakeFiles/umatic.dir/recr_extra.o.requires:
 
@@ -1402,17 +1402,17 @@ CMakeFiles/umatic.dir/recr_extra.o.provides.build: CMakeFiles/umatic.dir/recr_ex
 
 
 CMakeFiles/umatic.dir/safeopen.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/safeopen.o: /Users/shashankhr/github/umatic/casource/safeopen.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_57) "Building C object CMakeFiles/umatic.dir/safeopen.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/safeopen.o   -c /Users/shashankhr/github/umatic/casource/safeopen.c
+CMakeFiles/umatic.dir/safeopen.o: /Users/shashankhr/GitHub/umatic/casource/safeopen.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_57) "Building C object CMakeFiles/umatic.dir/safeopen.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/safeopen.o   -c /Users/shashankhr/GitHub/umatic/casource/safeopen.c
 
 CMakeFiles/umatic.dir/safeopen.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/safeopen.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/safeopen.c > CMakeFiles/umatic.dir/safeopen.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/safeopen.c > CMakeFiles/umatic.dir/safeopen.i
 
 CMakeFiles/umatic.dir/safeopen.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/safeopen.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/safeopen.c -o CMakeFiles/umatic.dir/safeopen.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/safeopen.c -o CMakeFiles/umatic.dir/safeopen.s
 
 CMakeFiles/umatic.dir/safeopen.o.requires:
 
@@ -1426,17 +1426,17 @@ CMakeFiles/umatic.dir/safeopen.o.provides.build: CMakeFiles/umatic.dir/safeopen.
 
 
 CMakeFiles/umatic.dir/sb_boundary.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/sb_boundary.o: /Users/shashankhr/github/umatic/casource/sb_boundary.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_58) "Building C object CMakeFiles/umatic.dir/sb_boundary.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/sb_boundary.o   -c /Users/shashankhr/github/umatic/casource/sb_boundary.c
+CMakeFiles/umatic.dir/sb_boundary.o: /Users/shashankhr/GitHub/umatic/casource/sb_boundary.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_58) "Building C object CMakeFiles/umatic.dir/sb_boundary.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/sb_boundary.o   -c /Users/shashankhr/GitHub/umatic/casource/sb_boundary.c
 
 CMakeFiles/umatic.dir/sb_boundary.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/sb_boundary.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/sb_boundary.c > CMakeFiles/umatic.dir/sb_boundary.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/sb_boundary.c > CMakeFiles/umatic.dir/sb_boundary.i
 
 CMakeFiles/umatic.dir/sb_boundary.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/sb_boundary.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/sb_boundary.c -o CMakeFiles/umatic.dir/sb_boundary.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/sb_boundary.c -o CMakeFiles/umatic.dir/sb_boundary.s
 
 CMakeFiles/umatic.dir/sb_boundary.o.requires:
 
@@ -1450,17 +1450,17 @@ CMakeFiles/umatic.dir/sb_boundary.o.provides.build: CMakeFiles/umatic.dir/sb_bou
 
 
 CMakeFiles/umatic.dir/sb_ca_step.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/sb_ca_step.o: /Users/shashankhr/github/umatic/casource/sb_ca_step.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_59) "Building C object CMakeFiles/umatic.dir/sb_ca_step.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/sb_ca_step.o   -c /Users/shashankhr/github/umatic/casource/sb_ca_step.c
+CMakeFiles/umatic.dir/sb_ca_step.o: /Users/shashankhr/GitHub/umatic/casource/sb_ca_step.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_59) "Building C object CMakeFiles/umatic.dir/sb_ca_step.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/sb_ca_step.o   -c /Users/shashankhr/GitHub/umatic/casource/sb_ca_step.c
 
 CMakeFiles/umatic.dir/sb_ca_step.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/sb_ca_step.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/sb_ca_step.c > CMakeFiles/umatic.dir/sb_ca_step.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/sb_ca_step.c > CMakeFiles/umatic.dir/sb_ca_step.i
 
 CMakeFiles/umatic.dir/sb_ca_step.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/sb_ca_step.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/sb_ca_step.c -o CMakeFiles/umatic.dir/sb_ca_step.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/sb_ca_step.c -o CMakeFiles/umatic.dir/sb_ca_step.s
 
 CMakeFiles/umatic.dir/sb_ca_step.o.requires:
 
@@ -1474,17 +1474,17 @@ CMakeFiles/umatic.dir/sb_ca_step.o.provides.build: CMakeFiles/umatic.dir/sb_ca_s
 
 
 CMakeFiles/umatic.dir/sb_diffuse_alloy.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/sb_diffuse_alloy.o: /Users/shashankhr/github/umatic/casource/sb_diffuse_alloy.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_60) "Building C object CMakeFiles/umatic.dir/sb_diffuse_alloy.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/sb_diffuse_alloy.o   -c /Users/shashankhr/github/umatic/casource/sb_diffuse_alloy.c
+CMakeFiles/umatic.dir/sb_diffuse_alloy.o: /Users/shashankhr/GitHub/umatic/casource/sb_diffuse_alloy.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_60) "Building C object CMakeFiles/umatic.dir/sb_diffuse_alloy.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/sb_diffuse_alloy.o   -c /Users/shashankhr/GitHub/umatic/casource/sb_diffuse_alloy.c
 
 CMakeFiles/umatic.dir/sb_diffuse_alloy.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/sb_diffuse_alloy.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/sb_diffuse_alloy.c > CMakeFiles/umatic.dir/sb_diffuse_alloy.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/sb_diffuse_alloy.c > CMakeFiles/umatic.dir/sb_diffuse_alloy.i
 
 CMakeFiles/umatic.dir/sb_diffuse_alloy.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/sb_diffuse_alloy.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/sb_diffuse_alloy.c -o CMakeFiles/umatic.dir/sb_diffuse_alloy.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/sb_diffuse_alloy.c -o CMakeFiles/umatic.dir/sb_diffuse_alloy.s
 
 CMakeFiles/umatic.dir/sb_diffuse_alloy.o.requires:
 
@@ -1498,17 +1498,17 @@ CMakeFiles/umatic.dir/sb_diffuse_alloy.o.provides.build: CMakeFiles/umatic.dir/s
 
 
 CMakeFiles/umatic.dir/sb_diffuse_gas.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/sb_diffuse_gas.o: /Users/shashankhr/github/umatic/casource/sb_diffuse_gas.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_61) "Building C object CMakeFiles/umatic.dir/sb_diffuse_gas.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/sb_diffuse_gas.o   -c /Users/shashankhr/github/umatic/casource/sb_diffuse_gas.c
+CMakeFiles/umatic.dir/sb_diffuse_gas.o: /Users/shashankhr/GitHub/umatic/casource/sb_diffuse_gas.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_61) "Building C object CMakeFiles/umatic.dir/sb_diffuse_gas.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/sb_diffuse_gas.o   -c /Users/shashankhr/GitHub/umatic/casource/sb_diffuse_gas.c
 
 CMakeFiles/umatic.dir/sb_diffuse_gas.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/sb_diffuse_gas.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/sb_diffuse_gas.c > CMakeFiles/umatic.dir/sb_diffuse_gas.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/sb_diffuse_gas.c > CMakeFiles/umatic.dir/sb_diffuse_gas.i
 
 CMakeFiles/umatic.dir/sb_diffuse_gas.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/sb_diffuse_gas.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/sb_diffuse_gas.c -o CMakeFiles/umatic.dir/sb_diffuse_gas.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/sb_diffuse_gas.c -o CMakeFiles/umatic.dir/sb_diffuse_gas.s
 
 CMakeFiles/umatic.dir/sb_diffuse_gas.o.requires:
 
@@ -1522,17 +1522,17 @@ CMakeFiles/umatic.dir/sb_diffuse_gas.o.provides.build: CMakeFiles/umatic.dir/sb_
 
 
 CMakeFiles/umatic.dir/sb_diffuse_gas_poly.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/sb_diffuse_gas_poly.o: /Users/shashankhr/github/umatic/casource/sb_diffuse_gas_poly.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_62) "Building C object CMakeFiles/umatic.dir/sb_diffuse_gas_poly.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/sb_diffuse_gas_poly.o   -c /Users/shashankhr/github/umatic/casource/sb_diffuse_gas_poly.c
+CMakeFiles/umatic.dir/sb_diffuse_gas_poly.o: /Users/shashankhr/GitHub/umatic/casource/sb_diffuse_gas_poly.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_62) "Building C object CMakeFiles/umatic.dir/sb_diffuse_gas_poly.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/sb_diffuse_gas_poly.o   -c /Users/shashankhr/GitHub/umatic/casource/sb_diffuse_gas_poly.c
 
 CMakeFiles/umatic.dir/sb_diffuse_gas_poly.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/sb_diffuse_gas_poly.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/sb_diffuse_gas_poly.c > CMakeFiles/umatic.dir/sb_diffuse_gas_poly.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/sb_diffuse_gas_poly.c > CMakeFiles/umatic.dir/sb_diffuse_gas_poly.i
 
 CMakeFiles/umatic.dir/sb_diffuse_gas_poly.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/sb_diffuse_gas_poly.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/sb_diffuse_gas_poly.c -o CMakeFiles/umatic.dir/sb_diffuse_gas_poly.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/sb_diffuse_gas_poly.c -o CMakeFiles/umatic.dir/sb_diffuse_gas_poly.s
 
 CMakeFiles/umatic.dir/sb_diffuse_gas_poly.o.requires:
 
@@ -1546,17 +1546,17 @@ CMakeFiles/umatic.dir/sb_diffuse_gas_poly.o.provides.build: CMakeFiles/umatic.di
 
 
 CMakeFiles/umatic.dir/sb_get_surface_cells.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/sb_get_surface_cells.o: /Users/shashankhr/github/umatic/casource/sb_get_surface_cells.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_63) "Building C object CMakeFiles/umatic.dir/sb_get_surface_cells.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/sb_get_surface_cells.o   -c /Users/shashankhr/github/umatic/casource/sb_get_surface_cells.c
+CMakeFiles/umatic.dir/sb_get_surface_cells.o: /Users/shashankhr/GitHub/umatic/casource/sb_get_surface_cells.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_63) "Building C object CMakeFiles/umatic.dir/sb_get_surface_cells.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/sb_get_surface_cells.o   -c /Users/shashankhr/GitHub/umatic/casource/sb_get_surface_cells.c
 
 CMakeFiles/umatic.dir/sb_get_surface_cells.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/sb_get_surface_cells.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/sb_get_surface_cells.c > CMakeFiles/umatic.dir/sb_get_surface_cells.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/sb_get_surface_cells.c > CMakeFiles/umatic.dir/sb_get_surface_cells.i
 
 CMakeFiles/umatic.dir/sb_get_surface_cells.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/sb_get_surface_cells.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/sb_get_surface_cells.c -o CMakeFiles/umatic.dir/sb_get_surface_cells.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/sb_get_surface_cells.c -o CMakeFiles/umatic.dir/sb_get_surface_cells.s
 
 CMakeFiles/umatic.dir/sb_get_surface_cells.o.requires:
 
@@ -1570,17 +1570,17 @@ CMakeFiles/umatic.dir/sb_get_surface_cells.o.provides.build: CMakeFiles/umatic.d
 
 
 CMakeFiles/umatic.dir/sb_line_int.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/sb_line_int.o: /Users/shashankhr/github/umatic/casource/sb_line_int.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_64) "Building C object CMakeFiles/umatic.dir/sb_line_int.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/sb_line_int.o   -c /Users/shashankhr/github/umatic/casource/sb_line_int.c
+CMakeFiles/umatic.dir/sb_line_int.o: /Users/shashankhr/GitHub/umatic/casource/sb_line_int.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_64) "Building C object CMakeFiles/umatic.dir/sb_line_int.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/sb_line_int.o   -c /Users/shashankhr/GitHub/umatic/casource/sb_line_int.c
 
 CMakeFiles/umatic.dir/sb_line_int.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/sb_line_int.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/sb_line_int.c > CMakeFiles/umatic.dir/sb_line_int.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/sb_line_int.c > CMakeFiles/umatic.dir/sb_line_int.i
 
 CMakeFiles/umatic.dir/sb_line_int.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/sb_line_int.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/sb_line_int.c -o CMakeFiles/umatic.dir/sb_line_int.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/sb_line_int.c -o CMakeFiles/umatic.dir/sb_line_int.s
 
 CMakeFiles/umatic.dir/sb_line_int.o.requires:
 
@@ -1594,17 +1594,17 @@ CMakeFiles/umatic.dir/sb_line_int.o.provides.build: CMakeFiles/umatic.dir/sb_lin
 
 
 CMakeFiles/umatic.dir/sb_nuc.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/sb_nuc.o: /Users/shashankhr/github/umatic/casource/sb_nuc.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_65) "Building C object CMakeFiles/umatic.dir/sb_nuc.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/sb_nuc.o   -c /Users/shashankhr/github/umatic/casource/sb_nuc.c
+CMakeFiles/umatic.dir/sb_nuc.o: /Users/shashankhr/GitHub/umatic/casource/sb_nuc.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_65) "Building C object CMakeFiles/umatic.dir/sb_nuc.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/sb_nuc.o   -c /Users/shashankhr/GitHub/umatic/casource/sb_nuc.c
 
 CMakeFiles/umatic.dir/sb_nuc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/sb_nuc.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/sb_nuc.c > CMakeFiles/umatic.dir/sb_nuc.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/sb_nuc.c > CMakeFiles/umatic.dir/sb_nuc.i
 
 CMakeFiles/umatic.dir/sb_nuc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/sb_nuc.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/sb_nuc.c -o CMakeFiles/umatic.dir/sb_nuc.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/sb_nuc.c -o CMakeFiles/umatic.dir/sb_nuc.s
 
 CMakeFiles/umatic.dir/sb_nuc.o.requires:
 
@@ -1618,17 +1618,17 @@ CMakeFiles/umatic.dir/sb_nuc.o.provides.build: CMakeFiles/umatic.dir/sb_nuc.o
 
 
 CMakeFiles/umatic.dir/sb_temp_calc.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/sb_temp_calc.o: /Users/shashankhr/github/umatic/casource/sb_temp_calc.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_66) "Building C object CMakeFiles/umatic.dir/sb_temp_calc.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/sb_temp_calc.o   -c /Users/shashankhr/github/umatic/casource/sb_temp_calc.c
+CMakeFiles/umatic.dir/sb_temp_calc.o: /Users/shashankhr/GitHub/umatic/casource/sb_temp_calc.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_66) "Building C object CMakeFiles/umatic.dir/sb_temp_calc.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/sb_temp_calc.o   -c /Users/shashankhr/GitHub/umatic/casource/sb_temp_calc.c
 
 CMakeFiles/umatic.dir/sb_temp_calc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/sb_temp_calc.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/sb_temp_calc.c > CMakeFiles/umatic.dir/sb_temp_calc.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/sb_temp_calc.c > CMakeFiles/umatic.dir/sb_temp_calc.i
 
 CMakeFiles/umatic.dir/sb_temp_calc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/sb_temp_calc.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/sb_temp_calc.c -o CMakeFiles/umatic.dir/sb_temp_calc.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/sb_temp_calc.c -o CMakeFiles/umatic.dir/sb_temp_calc.s
 
 CMakeFiles/umatic.dir/sb_temp_calc.o.requires:
 
@@ -1642,17 +1642,17 @@ CMakeFiles/umatic.dir/sb_temp_calc.o.provides.build: CMakeFiles/umatic.dir/sb_te
 
 
 CMakeFiles/umatic.dir/setup_mould_src_function.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/setup_mould_src_function.o: /Users/shashankhr/github/umatic/casource/setup_mould_src_function.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_67) "Building C object CMakeFiles/umatic.dir/setup_mould_src_function.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/setup_mould_src_function.o   -c /Users/shashankhr/github/umatic/casource/setup_mould_src_function.c
+CMakeFiles/umatic.dir/setup_mould_src_function.o: /Users/shashankhr/GitHub/umatic/casource/setup_mould_src_function.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_67) "Building C object CMakeFiles/umatic.dir/setup_mould_src_function.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/setup_mould_src_function.o   -c /Users/shashankhr/GitHub/umatic/casource/setup_mould_src_function.c
 
 CMakeFiles/umatic.dir/setup_mould_src_function.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/setup_mould_src_function.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/setup_mould_src_function.c > CMakeFiles/umatic.dir/setup_mould_src_function.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/setup_mould_src_function.c > CMakeFiles/umatic.dir/setup_mould_src_function.i
 
 CMakeFiles/umatic.dir/setup_mould_src_function.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/setup_mould_src_function.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/setup_mould_src_function.c -o CMakeFiles/umatic.dir/setup_mould_src_function.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/setup_mould_src_function.c -o CMakeFiles/umatic.dir/setup_mould_src_function.s
 
 CMakeFiles/umatic.dir/setup_mould_src_function.o.requires:
 
@@ -1666,17 +1666,17 @@ CMakeFiles/umatic.dir/setup_mould_src_function.o.provides.build: CMakeFiles/umat
 
 
 CMakeFiles/umatic.dir/setup_temp_func.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/setup_temp_func.o: /Users/shashankhr/github/umatic/casource/setup_temp_func.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_68) "Building C object CMakeFiles/umatic.dir/setup_temp_func.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/setup_temp_func.o   -c /Users/shashankhr/github/umatic/casource/setup_temp_func.c
+CMakeFiles/umatic.dir/setup_temp_func.o: /Users/shashankhr/GitHub/umatic/casource/setup_temp_func.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_68) "Building C object CMakeFiles/umatic.dir/setup_temp_func.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/setup_temp_func.o   -c /Users/shashankhr/GitHub/umatic/casource/setup_temp_func.c
 
 CMakeFiles/umatic.dir/setup_temp_func.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/setup_temp_func.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/setup_temp_func.c > CMakeFiles/umatic.dir/setup_temp_func.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/setup_temp_func.c > CMakeFiles/umatic.dir/setup_temp_func.i
 
 CMakeFiles/umatic.dir/setup_temp_func.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/setup_temp_func.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/setup_temp_func.c -o CMakeFiles/umatic.dir/setup_temp_func.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/setup_temp_func.c -o CMakeFiles/umatic.dir/setup_temp_func.s
 
 CMakeFiles/umatic.dir/setup_temp_func.o.requires:
 
@@ -1690,17 +1690,17 @@ CMakeFiles/umatic.dir/setup_temp_func.o.provides.build: CMakeFiles/umatic.dir/se
 
 
 CMakeFiles/umatic.dir/solprops_reader.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/solprops_reader.o: /Users/shashankhr/github/umatic/casource/solprops_reader.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_69) "Building C object CMakeFiles/umatic.dir/solprops_reader.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/solprops_reader.o   -c /Users/shashankhr/github/umatic/casource/solprops_reader.c
+CMakeFiles/umatic.dir/solprops_reader.o: /Users/shashankhr/GitHub/umatic/casource/solprops_reader.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_69) "Building C object CMakeFiles/umatic.dir/solprops_reader.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/solprops_reader.o   -c /Users/shashankhr/GitHub/umatic/casource/solprops_reader.c
 
 CMakeFiles/umatic.dir/solprops_reader.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/solprops_reader.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/solprops_reader.c > CMakeFiles/umatic.dir/solprops_reader.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/solprops_reader.c > CMakeFiles/umatic.dir/solprops_reader.i
 
 CMakeFiles/umatic.dir/solprops_reader.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/solprops_reader.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/solprops_reader.c -o CMakeFiles/umatic.dir/solprops_reader.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/solprops_reader.c -o CMakeFiles/umatic.dir/solprops_reader.s
 
 CMakeFiles/umatic.dir/solprops_reader.o.requires:
 
@@ -1714,17 +1714,17 @@ CMakeFiles/umatic.dir/solprops_reader.o.provides.build: CMakeFiles/umatic.dir/so
 
 
 CMakeFiles/umatic.dir/solprops_writer.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/solprops_writer.o: /Users/shashankhr/github/umatic/casource/solprops_writer.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_70) "Building C object CMakeFiles/umatic.dir/solprops_writer.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/solprops_writer.o   -c /Users/shashankhr/github/umatic/casource/solprops_writer.c
+CMakeFiles/umatic.dir/solprops_writer.o: /Users/shashankhr/GitHub/umatic/casource/solprops_writer.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_70) "Building C object CMakeFiles/umatic.dir/solprops_writer.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/solprops_writer.o   -c /Users/shashankhr/GitHub/umatic/casource/solprops_writer.c
 
 CMakeFiles/umatic.dir/solprops_writer.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/solprops_writer.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/solprops_writer.c > CMakeFiles/umatic.dir/solprops_writer.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/solprops_writer.c > CMakeFiles/umatic.dir/solprops_writer.i
 
 CMakeFiles/umatic.dir/solprops_writer.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/solprops_writer.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/solprops_writer.c -o CMakeFiles/umatic.dir/solprops_writer.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/solprops_writer.c -o CMakeFiles/umatic.dir/solprops_writer.s
 
 CMakeFiles/umatic.dir/solprops_writer.o.requires:
 
@@ -1738,17 +1738,17 @@ CMakeFiles/umatic.dir/solprops_writer.o.provides.build: CMakeFiles/umatic.dir/so
 
 
 CMakeFiles/umatic.dir/step_output.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/step_output.o: /Users/shashankhr/github/umatic/casource/step_output.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_71) "Building C object CMakeFiles/umatic.dir/step_output.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/step_output.o   -c /Users/shashankhr/github/umatic/casource/step_output.c
+CMakeFiles/umatic.dir/step_output.o: /Users/shashankhr/GitHub/umatic/casource/step_output.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_71) "Building C object CMakeFiles/umatic.dir/step_output.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/step_output.o   -c /Users/shashankhr/GitHub/umatic/casource/step_output.c
 
 CMakeFiles/umatic.dir/step_output.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/step_output.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/step_output.c > CMakeFiles/umatic.dir/step_output.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/step_output.c > CMakeFiles/umatic.dir/step_output.i
 
 CMakeFiles/umatic.dir/step_output.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/step_output.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/step_output.c -o CMakeFiles/umatic.dir/step_output.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/step_output.c -o CMakeFiles/umatic.dir/step_output.s
 
 CMakeFiles/umatic.dir/step_output.o.requires:
 
@@ -1762,17 +1762,17 @@ CMakeFiles/umatic.dir/step_output.o.provides.build: CMakeFiles/umatic.dir/step_o
 
 
 CMakeFiles/umatic.dir/subblock.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/subblock.o: /Users/shashankhr/github/umatic/casource/subblock.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_72) "Building C object CMakeFiles/umatic.dir/subblock.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/subblock.o   -c /Users/shashankhr/github/umatic/casource/subblock.c
+CMakeFiles/umatic.dir/subblock.o: /Users/shashankhr/GitHub/umatic/casource/subblock.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_72) "Building C object CMakeFiles/umatic.dir/subblock.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/subblock.o   -c /Users/shashankhr/GitHub/umatic/casource/subblock.c
 
 CMakeFiles/umatic.dir/subblock.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/subblock.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/subblock.c > CMakeFiles/umatic.dir/subblock.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/subblock.c > CMakeFiles/umatic.dir/subblock.i
 
 CMakeFiles/umatic.dir/subblock.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/subblock.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/subblock.c -o CMakeFiles/umatic.dir/subblock.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/subblock.c -o CMakeFiles/umatic.dir/subblock.s
 
 CMakeFiles/umatic.dir/subblock.o.requires:
 
@@ -1786,17 +1786,17 @@ CMakeFiles/umatic.dir/subblock.o.provides.build: CMakeFiles/umatic.dir/subblock.
 
 
 CMakeFiles/umatic.dir/SurCellRoutines.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/SurCellRoutines.o: /Users/shashankhr/github/umatic/casource/SurCellRoutines.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_73) "Building C object CMakeFiles/umatic.dir/SurCellRoutines.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/SurCellRoutines.o   -c /Users/shashankhr/github/umatic/casource/SurCellRoutines.c
+CMakeFiles/umatic.dir/SurCellRoutines.o: /Users/shashankhr/GitHub/umatic/casource/SurCellRoutines.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_73) "Building C object CMakeFiles/umatic.dir/SurCellRoutines.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/SurCellRoutines.o   -c /Users/shashankhr/GitHub/umatic/casource/SurCellRoutines.c
 
 CMakeFiles/umatic.dir/SurCellRoutines.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/SurCellRoutines.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/SurCellRoutines.c > CMakeFiles/umatic.dir/SurCellRoutines.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/SurCellRoutines.c > CMakeFiles/umatic.dir/SurCellRoutines.i
 
 CMakeFiles/umatic.dir/SurCellRoutines.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/SurCellRoutines.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/SurCellRoutines.c -o CMakeFiles/umatic.dir/SurCellRoutines.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/SurCellRoutines.c -o CMakeFiles/umatic.dir/SurCellRoutines.s
 
 CMakeFiles/umatic.dir/SurCellRoutines.o.requires:
 
@@ -1810,17 +1810,17 @@ CMakeFiles/umatic.dir/SurCellRoutines.o.provides.build: CMakeFiles/umatic.dir/Su
 
 
 CMakeFiles/umatic.dir/thermo_trace_calc.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/thermo_trace_calc.o: /Users/shashankhr/github/umatic/casource/thermo_trace_calc.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_74) "Building C object CMakeFiles/umatic.dir/thermo_trace_calc.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/thermo_trace_calc.o   -c /Users/shashankhr/github/umatic/casource/thermo_trace_calc.c
+CMakeFiles/umatic.dir/thermo_trace_calc.o: /Users/shashankhr/GitHub/umatic/casource/thermo_trace_calc.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_74) "Building C object CMakeFiles/umatic.dir/thermo_trace_calc.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/thermo_trace_calc.o   -c /Users/shashankhr/GitHub/umatic/casource/thermo_trace_calc.c
 
 CMakeFiles/umatic.dir/thermo_trace_calc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/thermo_trace_calc.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/thermo_trace_calc.c > CMakeFiles/umatic.dir/thermo_trace_calc.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/thermo_trace_calc.c > CMakeFiles/umatic.dir/thermo_trace_calc.i
 
 CMakeFiles/umatic.dir/thermo_trace_calc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/thermo_trace_calc.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/thermo_trace_calc.c -o CMakeFiles/umatic.dir/thermo_trace_calc.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/thermo_trace_calc.c -o CMakeFiles/umatic.dir/thermo_trace_calc.s
 
 CMakeFiles/umatic.dir/thermo_trace_calc.o.requires:
 
@@ -1834,17 +1834,17 @@ CMakeFiles/umatic.dir/thermo_trace_calc.o.provides.build: CMakeFiles/umatic.dir/
 
 
 CMakeFiles/umatic.dir/temp_calc_melt.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/temp_calc_melt.o: /Users/shashankhr/github/umatic/casource/temp_calc_melt.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_75) "Building C object CMakeFiles/umatic.dir/temp_calc_melt.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/temp_calc_melt.o   -c /Users/shashankhr/github/umatic/casource/temp_calc_melt.c
+CMakeFiles/umatic.dir/temp_calc_melt.o: /Users/shashankhr/GitHub/umatic/casource/temp_calc_melt.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_75) "Building C object CMakeFiles/umatic.dir/temp_calc_melt.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/temp_calc_melt.o   -c /Users/shashankhr/GitHub/umatic/casource/temp_calc_melt.c
 
 CMakeFiles/umatic.dir/temp_calc_melt.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/temp_calc_melt.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/temp_calc_melt.c > CMakeFiles/umatic.dir/temp_calc_melt.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/temp_calc_melt.c > CMakeFiles/umatic.dir/temp_calc_melt.i
 
 CMakeFiles/umatic.dir/temp_calc_melt.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/temp_calc_melt.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/temp_calc_melt.c -o CMakeFiles/umatic.dir/temp_calc_melt.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/temp_calc_melt.c -o CMakeFiles/umatic.dir/temp_calc_melt.s
 
 CMakeFiles/umatic.dir/temp_calc_melt.o.requires:
 
@@ -1858,17 +1858,17 @@ CMakeFiles/umatic.dir/temp_calc_melt.o.provides.build: CMakeFiles/umatic.dir/tem
 
 
 CMakeFiles/umatic.dir/thermo_trace_init.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/thermo_trace_init.o: /Users/shashankhr/github/umatic/casource/thermo_trace_init.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_76) "Building C object CMakeFiles/umatic.dir/thermo_trace_init.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/thermo_trace_init.o   -c /Users/shashankhr/github/umatic/casource/thermo_trace_init.c
+CMakeFiles/umatic.dir/thermo_trace_init.o: /Users/shashankhr/GitHub/umatic/casource/thermo_trace_init.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_76) "Building C object CMakeFiles/umatic.dir/thermo_trace_init.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/thermo_trace_init.o   -c /Users/shashankhr/GitHub/umatic/casource/thermo_trace_init.c
 
 CMakeFiles/umatic.dir/thermo_trace_init.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/thermo_trace_init.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/thermo_trace_init.c > CMakeFiles/umatic.dir/thermo_trace_init.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/thermo_trace_init.c > CMakeFiles/umatic.dir/thermo_trace_init.i
 
 CMakeFiles/umatic.dir/thermo_trace_init.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/thermo_trace_init.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/thermo_trace_init.c -o CMakeFiles/umatic.dir/thermo_trace_init.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/thermo_trace_init.c -o CMakeFiles/umatic.dir/thermo_trace_init.s
 
 CMakeFiles/umatic.dir/thermo_trace_init.o.requires:
 
@@ -1882,17 +1882,17 @@ CMakeFiles/umatic.dir/thermo_trace_init.o.provides.build: CMakeFiles/umatic.dir/
 
 
 CMakeFiles/umatic.dir/trans_interp_calc.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/trans_interp_calc.o: /Users/shashankhr/github/umatic/casource/trans_interp_calc.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_77) "Building C object CMakeFiles/umatic.dir/trans_interp_calc.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/trans_interp_calc.o   -c /Users/shashankhr/github/umatic/casource/trans_interp_calc.c
+CMakeFiles/umatic.dir/trans_interp_calc.o: /Users/shashankhr/GitHub/umatic/casource/trans_interp_calc.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_77) "Building C object CMakeFiles/umatic.dir/trans_interp_calc.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/trans_interp_calc.o   -c /Users/shashankhr/GitHub/umatic/casource/trans_interp_calc.c
 
 CMakeFiles/umatic.dir/trans_interp_calc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/trans_interp_calc.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/trans_interp_calc.c > CMakeFiles/umatic.dir/trans_interp_calc.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/trans_interp_calc.c > CMakeFiles/umatic.dir/trans_interp_calc.i
 
 CMakeFiles/umatic.dir/trans_interp_calc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/trans_interp_calc.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/trans_interp_calc.c -o CMakeFiles/umatic.dir/trans_interp_calc.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/trans_interp_calc.c -o CMakeFiles/umatic.dir/trans_interp_calc.s
 
 CMakeFiles/umatic.dir/trans_interp_calc.o.requires:
 
@@ -1906,17 +1906,17 @@ CMakeFiles/umatic.dir/trans_interp_calc.o.provides.build: CMakeFiles/umatic.dir/
 
 
 CMakeFiles/umatic.dir/wfact_r_calc.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/wfact_r_calc.o: /Users/shashankhr/github/umatic/casource/wfact_r_calc.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_78) "Building C object CMakeFiles/umatic.dir/wfact_r_calc.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/wfact_r_calc.o   -c /Users/shashankhr/github/umatic/casource/wfact_r_calc.c
+CMakeFiles/umatic.dir/wfact_r_calc.o: /Users/shashankhr/GitHub/umatic/casource/wfact_r_calc.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_78) "Building C object CMakeFiles/umatic.dir/wfact_r_calc.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/wfact_r_calc.o   -c /Users/shashankhr/GitHub/umatic/casource/wfact_r_calc.c
 
 CMakeFiles/umatic.dir/wfact_r_calc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/wfact_r_calc.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/wfact_r_calc.c > CMakeFiles/umatic.dir/wfact_r_calc.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/wfact_r_calc.c > CMakeFiles/umatic.dir/wfact_r_calc.i
 
 CMakeFiles/umatic.dir/wfact_r_calc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/wfact_r_calc.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/wfact_r_calc.c -o CMakeFiles/umatic.dir/wfact_r_calc.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/wfact_r_calc.c -o CMakeFiles/umatic.dir/wfact_r_calc.s
 
 CMakeFiles/umatic.dir/wfact_r_calc.o.requires:
 
@@ -1930,17 +1930,17 @@ CMakeFiles/umatic.dir/wfact_r_calc.o.provides.build: CMakeFiles/umatic.dir/wfact
 
 
 CMakeFiles/umatic.dir/wfact_z_calc.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/wfact_z_calc.o: /Users/shashankhr/github/umatic/casource/wfact_z_calc.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_79) "Building C object CMakeFiles/umatic.dir/wfact_z_calc.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/wfact_z_calc.o   -c /Users/shashankhr/github/umatic/casource/wfact_z_calc.c
+CMakeFiles/umatic.dir/wfact_z_calc.o: /Users/shashankhr/GitHub/umatic/casource/wfact_z_calc.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_79) "Building C object CMakeFiles/umatic.dir/wfact_z_calc.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/wfact_z_calc.o   -c /Users/shashankhr/GitHub/umatic/casource/wfact_z_calc.c
 
 CMakeFiles/umatic.dir/wfact_z_calc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/wfact_z_calc.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/wfact_z_calc.c > CMakeFiles/umatic.dir/wfact_z_calc.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/wfact_z_calc.c > CMakeFiles/umatic.dir/wfact_z_calc.i
 
 CMakeFiles/umatic.dir/wfact_z_calc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/wfact_z_calc.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/wfact_z_calc.c -o CMakeFiles/umatic.dir/wfact_z_calc.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/wfact_z_calc.c -o CMakeFiles/umatic.dir/wfact_z_calc.s
 
 CMakeFiles/umatic.dir/wfact_z_calc.o.requires:
 
@@ -1954,17 +1954,17 @@ CMakeFiles/umatic.dir/wfact_z_calc.o.provides.build: CMakeFiles/umatic.dir/wfact
 
 
 CMakeFiles/umatic.dir/write_bb_values.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/write_bb_values.o: /Users/shashankhr/github/umatic/casource/write_bb_values.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_80) "Building C object CMakeFiles/umatic.dir/write_bb_values.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/write_bb_values.o   -c /Users/shashankhr/github/umatic/casource/write_bb_values.c
+CMakeFiles/umatic.dir/write_bb_values.o: /Users/shashankhr/GitHub/umatic/casource/write_bb_values.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_80) "Building C object CMakeFiles/umatic.dir/write_bb_values.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/write_bb_values.o   -c /Users/shashankhr/GitHub/umatic/casource/write_bb_values.c
 
 CMakeFiles/umatic.dir/write_bb_values.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/write_bb_values.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/write_bb_values.c > CMakeFiles/umatic.dir/write_bb_values.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/write_bb_values.c > CMakeFiles/umatic.dir/write_bb_values.i
 
 CMakeFiles/umatic.dir/write_bb_values.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/write_bb_values.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/write_bb_values.c -o CMakeFiles/umatic.dir/write_bb_values.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/write_bb_values.c -o CMakeFiles/umatic.dir/write_bb_values.s
 
 CMakeFiles/umatic.dir/write_bb_values.o.requires:
 
@@ -1978,17 +1978,17 @@ CMakeFiles/umatic.dir/write_bb_values.o.provides.build: CMakeFiles/umatic.dir/wr
 
 
 CMakeFiles/umatic.dir/write_blocks.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/write_blocks.o: /Users/shashankhr/github/umatic/casource/write_blocks.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_81) "Building C object CMakeFiles/umatic.dir/write_blocks.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/write_blocks.o   -c /Users/shashankhr/github/umatic/casource/write_blocks.c
+CMakeFiles/umatic.dir/write_blocks.o: /Users/shashankhr/GitHub/umatic/casource/write_blocks.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_81) "Building C object CMakeFiles/umatic.dir/write_blocks.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/write_blocks.o   -c /Users/shashankhr/GitHub/umatic/casource/write_blocks.c
 
 CMakeFiles/umatic.dir/write_blocks.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/write_blocks.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/write_blocks.c > CMakeFiles/umatic.dir/write_blocks.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/write_blocks.c > CMakeFiles/umatic.dir/write_blocks.i
 
 CMakeFiles/umatic.dir/write_blocks.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/write_blocks.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/write_blocks.c -o CMakeFiles/umatic.dir/write_blocks.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/write_blocks.c -o CMakeFiles/umatic.dir/write_blocks.s
 
 CMakeFiles/umatic.dir/write_blocks.o.requires:
 
@@ -2002,17 +2002,17 @@ CMakeFiles/umatic.dir/write_blocks.o.provides.build: CMakeFiles/umatic.dir/write
 
 
 CMakeFiles/umatic.dir/write_block_values.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/write_block_values.o: /Users/shashankhr/github/umatic/casource/write_block_values.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_82) "Building C object CMakeFiles/umatic.dir/write_block_values.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/write_block_values.o   -c /Users/shashankhr/github/umatic/casource/write_block_values.c
+CMakeFiles/umatic.dir/write_block_values.o: /Users/shashankhr/GitHub/umatic/casource/write_block_values.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_82) "Building C object CMakeFiles/umatic.dir/write_block_values.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/write_block_values.o   -c /Users/shashankhr/GitHub/umatic/casource/write_block_values.c
 
 CMakeFiles/umatic.dir/write_block_values.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/write_block_values.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/write_block_values.c > CMakeFiles/umatic.dir/write_block_values.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/write_block_values.c > CMakeFiles/umatic.dir/write_block_values.i
 
 CMakeFiles/umatic.dir/write_block_values.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/write_block_values.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/write_block_values.c -o CMakeFiles/umatic.dir/write_block_values.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/write_block_values.c -o CMakeFiles/umatic.dir/write_block_values.s
 
 CMakeFiles/umatic.dir/write_block_values.o.requires:
 
@@ -2026,17 +2026,17 @@ CMakeFiles/umatic.dir/write_block_values.o.provides.build: CMakeFiles/umatic.dir
 
 
 CMakeFiles/umatic.dir/write_ctrl_values.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/write_ctrl_values.o: /Users/shashankhr/github/umatic/casource/write_ctrl_values.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_83) "Building C object CMakeFiles/umatic.dir/write_ctrl_values.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/write_ctrl_values.o   -c /Users/shashankhr/github/umatic/casource/write_ctrl_values.c
+CMakeFiles/umatic.dir/write_ctrl_values.o: /Users/shashankhr/GitHub/umatic/casource/write_ctrl_values.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_83) "Building C object CMakeFiles/umatic.dir/write_ctrl_values.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/write_ctrl_values.o   -c /Users/shashankhr/GitHub/umatic/casource/write_ctrl_values.c
 
 CMakeFiles/umatic.dir/write_ctrl_values.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/write_ctrl_values.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/write_ctrl_values.c > CMakeFiles/umatic.dir/write_ctrl_values.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/write_ctrl_values.c > CMakeFiles/umatic.dir/write_ctrl_values.i
 
 CMakeFiles/umatic.dir/write_ctrl_values.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/write_ctrl_values.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/write_ctrl_values.c -o CMakeFiles/umatic.dir/write_ctrl_values.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/write_ctrl_values.c -o CMakeFiles/umatic.dir/write_ctrl_values.s
 
 CMakeFiles/umatic.dir/write_ctrl_values.o.requires:
 
@@ -2050,17 +2050,17 @@ CMakeFiles/umatic.dir/write_ctrl_values.o.provides.build: CMakeFiles/umatic.dir/
 
 
 CMakeFiles/umatic.dir/write_grain_histo.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/write_grain_histo.o: /Users/shashankhr/github/umatic/casource/write_grain_histo.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_84) "Building C object CMakeFiles/umatic.dir/write_grain_histo.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/write_grain_histo.o   -c /Users/shashankhr/github/umatic/casource/write_grain_histo.c
+CMakeFiles/umatic.dir/write_grain_histo.o: /Users/shashankhr/GitHub/umatic/casource/write_grain_histo.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_84) "Building C object CMakeFiles/umatic.dir/write_grain_histo.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/write_grain_histo.o   -c /Users/shashankhr/GitHub/umatic/casource/write_grain_histo.c
 
 CMakeFiles/umatic.dir/write_grain_histo.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/write_grain_histo.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/write_grain_histo.c > CMakeFiles/umatic.dir/write_grain_histo.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/write_grain_histo.c > CMakeFiles/umatic.dir/write_grain_histo.i
 
 CMakeFiles/umatic.dir/write_grain_histo.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/write_grain_histo.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/write_grain_histo.c -o CMakeFiles/umatic.dir/write_grain_histo.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/write_grain_histo.c -o CMakeFiles/umatic.dir/write_grain_histo.s
 
 CMakeFiles/umatic.dir/write_grain_histo.o.requires:
 
@@ -2074,17 +2074,17 @@ CMakeFiles/umatic.dir/write_grain_histo.o.provides.build: CMakeFiles/umatic.dir/
 
 
 CMakeFiles/umatic.dir/write_header_ctrl.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/write_header_ctrl.o: /Users/shashankhr/github/umatic/casource/write_header_ctrl.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_85) "Building C object CMakeFiles/umatic.dir/write_header_ctrl.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/write_header_ctrl.o   -c /Users/shashankhr/github/umatic/casource/write_header_ctrl.c
+CMakeFiles/umatic.dir/write_header_ctrl.o: /Users/shashankhr/GitHub/umatic/casource/write_header_ctrl.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_85) "Building C object CMakeFiles/umatic.dir/write_header_ctrl.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/write_header_ctrl.o   -c /Users/shashankhr/GitHub/umatic/casource/write_header_ctrl.c
 
 CMakeFiles/umatic.dir/write_header_ctrl.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/write_header_ctrl.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/write_header_ctrl.c > CMakeFiles/umatic.dir/write_header_ctrl.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/write_header_ctrl.c > CMakeFiles/umatic.dir/write_header_ctrl.i
 
 CMakeFiles/umatic.dir/write_header_ctrl.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/write_header_ctrl.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/write_header_ctrl.c -o CMakeFiles/umatic.dir/write_header_ctrl.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/write_header_ctrl.c -o CMakeFiles/umatic.dir/write_header_ctrl.s
 
 CMakeFiles/umatic.dir/write_header_ctrl.o.requires:
 
@@ -2098,17 +2098,17 @@ CMakeFiles/umatic.dir/write_header_ctrl.o.provides.build: CMakeFiles/umatic.dir/
 
 
 CMakeFiles/umatic.dir/write_matprop_values.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/write_matprop_values.o: /Users/shashankhr/github/umatic/casource/write_matprop_values.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_86) "Building C object CMakeFiles/umatic.dir/write_matprop_values.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/write_matprop_values.o   -c /Users/shashankhr/github/umatic/casource/write_matprop_values.c
+CMakeFiles/umatic.dir/write_matprop_values.o: /Users/shashankhr/GitHub/umatic/casource/write_matprop_values.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_86) "Building C object CMakeFiles/umatic.dir/write_matprop_values.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/write_matprop_values.o   -c /Users/shashankhr/GitHub/umatic/casource/write_matprop_values.c
 
 CMakeFiles/umatic.dir/write_matprop_values.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/write_matprop_values.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/write_matprop_values.c > CMakeFiles/umatic.dir/write_matprop_values.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/write_matprop_values.c > CMakeFiles/umatic.dir/write_matprop_values.i
 
 CMakeFiles/umatic.dir/write_matprop_values.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/write_matprop_values.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/write_matprop_values.c -o CMakeFiles/umatic.dir/write_matprop_values.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/write_matprop_values.c -o CMakeFiles/umatic.dir/write_matprop_values.s
 
 CMakeFiles/umatic.dir/write_matprop_values.o.requires:
 
@@ -2122,17 +2122,17 @@ CMakeFiles/umatic.dir/write_matprop_values.o.provides.build: CMakeFiles/umatic.d
 
 
 CMakeFiles/umatic.dir/write_nprop_values.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/write_nprop_values.o: /Users/shashankhr/github/umatic/casource/write_nprop_values.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_87) "Building C object CMakeFiles/umatic.dir/write_nprop_values.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/write_nprop_values.o   -c /Users/shashankhr/github/umatic/casource/write_nprop_values.c
+CMakeFiles/umatic.dir/write_nprop_values.o: /Users/shashankhr/GitHub/umatic/casource/write_nprop_values.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_87) "Building C object CMakeFiles/umatic.dir/write_nprop_values.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/write_nprop_values.o   -c /Users/shashankhr/GitHub/umatic/casource/write_nprop_values.c
 
 CMakeFiles/umatic.dir/write_nprop_values.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/write_nprop_values.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/write_nprop_values.c > CMakeFiles/umatic.dir/write_nprop_values.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/write_nprop_values.c > CMakeFiles/umatic.dir/write_nprop_values.i
 
 CMakeFiles/umatic.dir/write_nprop_values.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/write_nprop_values.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/write_nprop_values.c -o CMakeFiles/umatic.dir/write_nprop_values.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/write_nprop_values.c -o CMakeFiles/umatic.dir/write_nprop_values.s
 
 CMakeFiles/umatic.dir/write_nprop_values.o.requires:
 
@@ -2146,17 +2146,17 @@ CMakeFiles/umatic.dir/write_nprop_values.o.provides.build: CMakeFiles/umatic.dir
 
 
 CMakeFiles/umatic.dir/write_POREprop_values.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/write_POREprop_values.o: /Users/shashankhr/github/umatic/casource/write_POREprop_values.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_88) "Building C object CMakeFiles/umatic.dir/write_POREprop_values.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/write_POREprop_values.o   -c /Users/shashankhr/github/umatic/casource/write_POREprop_values.c
+CMakeFiles/umatic.dir/write_POREprop_values.o: /Users/shashankhr/GitHub/umatic/casource/write_POREprop_values.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_88) "Building C object CMakeFiles/umatic.dir/write_POREprop_values.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/write_POREprop_values.o   -c /Users/shashankhr/GitHub/umatic/casource/write_POREprop_values.c
 
 CMakeFiles/umatic.dir/write_POREprop_values.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/write_POREprop_values.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/write_POREprop_values.c > CMakeFiles/umatic.dir/write_POREprop_values.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/write_POREprop_values.c > CMakeFiles/umatic.dir/write_POREprop_values.i
 
 CMakeFiles/umatic.dir/write_POREprop_values.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/write_POREprop_values.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/write_POREprop_values.c -o CMakeFiles/umatic.dir/write_POREprop_values.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/write_POREprop_values.c -o CMakeFiles/umatic.dir/write_POREprop_values.s
 
 CMakeFiles/umatic.dir/write_POREprop_values.o.requires:
 
@@ -2170,17 +2170,17 @@ CMakeFiles/umatic.dir/write_POREprop_values.o.provides.build: CMakeFiles/umatic.
 
 
 CMakeFiles/umatic.dir/write_pprop_values.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/write_pprop_values.o: /Users/shashankhr/github/umatic/casource/write_pprop_values.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_89) "Building C object CMakeFiles/umatic.dir/write_pprop_values.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/write_pprop_values.o   -c /Users/shashankhr/github/umatic/casource/write_pprop_values.c
+CMakeFiles/umatic.dir/write_pprop_values.o: /Users/shashankhr/GitHub/umatic/casource/write_pprop_values.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_89) "Building C object CMakeFiles/umatic.dir/write_pprop_values.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/write_pprop_values.o   -c /Users/shashankhr/GitHub/umatic/casource/write_pprop_values.c
 
 CMakeFiles/umatic.dir/write_pprop_values.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/write_pprop_values.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/write_pprop_values.c > CMakeFiles/umatic.dir/write_pprop_values.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/write_pprop_values.c > CMakeFiles/umatic.dir/write_pprop_values.i
 
 CMakeFiles/umatic.dir/write_pprop_values.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/write_pprop_values.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/write_pprop_values.c -o CMakeFiles/umatic.dir/write_pprop_values.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/write_pprop_values.c -o CMakeFiles/umatic.dir/write_pprop_values.s
 
 CMakeFiles/umatic.dir/write_pprop_values.o.requires:
 
@@ -2194,17 +2194,17 @@ CMakeFiles/umatic.dir/write_pprop_values.o.provides.build: CMakeFiles/umatic.dir
 
 
 CMakeFiles/umatic.dir/calc_solprops_poly.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/calc_solprops_poly.o: /Users/shashankhr/github/umatic/casource/calc_solprops_poly.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_90) "Building C object CMakeFiles/umatic.dir/calc_solprops_poly.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/calc_solprops_poly.o   -c /Users/shashankhr/github/umatic/casource/calc_solprops_poly.c
+CMakeFiles/umatic.dir/calc_solprops_poly.o: /Users/shashankhr/GitHub/umatic/casource/calc_solprops_poly.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_90) "Building C object CMakeFiles/umatic.dir/calc_solprops_poly.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/calc_solprops_poly.o   -c /Users/shashankhr/GitHub/umatic/casource/calc_solprops_poly.c
 
 CMakeFiles/umatic.dir/calc_solprops_poly.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/calc_solprops_poly.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/calc_solprops_poly.c > CMakeFiles/umatic.dir/calc_solprops_poly.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/calc_solprops_poly.c > CMakeFiles/umatic.dir/calc_solprops_poly.i
 
 CMakeFiles/umatic.dir/calc_solprops_poly.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/calc_solprops_poly.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/calc_solprops_poly.c -o CMakeFiles/umatic.dir/calc_solprops_poly.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/calc_solprops_poly.c -o CMakeFiles/umatic.dir/calc_solprops_poly.s
 
 CMakeFiles/umatic.dir/calc_solprops_poly.o.requires:
 
@@ -2218,17 +2218,17 @@ CMakeFiles/umatic.dir/calc_solprops_poly.o.provides.build: CMakeFiles/umatic.dir
 
 
 CMakeFiles/umatic.dir/sb_decentred_step.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/sb_decentred_step.o: /Users/shashankhr/github/umatic/casource/sb_decentred_step.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_91) "Building C object CMakeFiles/umatic.dir/sb_decentred_step.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/sb_decentred_step.o   -c /Users/shashankhr/github/umatic/casource/sb_decentred_step.c
+CMakeFiles/umatic.dir/sb_decentred_step.o: /Users/shashankhr/GitHub/umatic/casource/sb_decentred_step.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_91) "Building C object CMakeFiles/umatic.dir/sb_decentred_step.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/sb_decentred_step.o   -c /Users/shashankhr/GitHub/umatic/casource/sb_decentred_step.c
 
 CMakeFiles/umatic.dir/sb_decentred_step.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/sb_decentred_step.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/sb_decentred_step.c > CMakeFiles/umatic.dir/sb_decentred_step.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/sb_decentred_step.c > CMakeFiles/umatic.dir/sb_decentred_step.i
 
 CMakeFiles/umatic.dir/sb_decentred_step.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/sb_decentred_step.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/sb_decentred_step.c -o CMakeFiles/umatic.dir/sb_decentred_step.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/sb_decentred_step.c -o CMakeFiles/umatic.dir/sb_decentred_step.s
 
 CMakeFiles/umatic.dir/sb_decentred_step.o.requires:
 
@@ -2242,17 +2242,17 @@ CMakeFiles/umatic.dir/sb_decentred_step.o.provides.build: CMakeFiles/umatic.dir/
 
 
 CMakeFiles/umatic.dir/sb_diffuse_alloy_decentred.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/sb_diffuse_alloy_decentred.o: /Users/shashankhr/github/umatic/casource/sb_diffuse_alloy_decentred.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_92) "Building C object CMakeFiles/umatic.dir/sb_diffuse_alloy_decentred.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/sb_diffuse_alloy_decentred.o   -c /Users/shashankhr/github/umatic/casource/sb_diffuse_alloy_decentred.c
+CMakeFiles/umatic.dir/sb_diffuse_alloy_decentred.o: /Users/shashankhr/GitHub/umatic/casource/sb_diffuse_alloy_decentred.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_92) "Building C object CMakeFiles/umatic.dir/sb_diffuse_alloy_decentred.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/sb_diffuse_alloy_decentred.o   -c /Users/shashankhr/GitHub/umatic/casource/sb_diffuse_alloy_decentred.c
 
 CMakeFiles/umatic.dir/sb_diffuse_alloy_decentred.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/sb_diffuse_alloy_decentred.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/sb_diffuse_alloy_decentred.c > CMakeFiles/umatic.dir/sb_diffuse_alloy_decentred.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/sb_diffuse_alloy_decentred.c > CMakeFiles/umatic.dir/sb_diffuse_alloy_decentred.i
 
 CMakeFiles/umatic.dir/sb_diffuse_alloy_decentred.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/sb_diffuse_alloy_decentred.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/sb_diffuse_alloy_decentred.c -o CMakeFiles/umatic.dir/sb_diffuse_alloy_decentred.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/sb_diffuse_alloy_decentred.c -o CMakeFiles/umatic.dir/sb_diffuse_alloy_decentred.s
 
 CMakeFiles/umatic.dir/sb_diffuse_alloy_decentred.o.requires:
 
@@ -2266,17 +2266,17 @@ CMakeFiles/umatic.dir/sb_diffuse_alloy_decentred.o.provides.build: CMakeFiles/um
 
 
 CMakeFiles/umatic.dir/window_move.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/window_move.o: /Users/shashankhr/github/umatic/casource/window_move.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_93) "Building C object CMakeFiles/umatic.dir/window_move.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/window_move.o   -c /Users/shashankhr/github/umatic/casource/window_move.c
+CMakeFiles/umatic.dir/window_move.o: /Users/shashankhr/GitHub/umatic/casource/window_move.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_93) "Building C object CMakeFiles/umatic.dir/window_move.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/window_move.o   -c /Users/shashankhr/GitHub/umatic/casource/window_move.c
 
 CMakeFiles/umatic.dir/window_move.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/window_move.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/window_move.c > CMakeFiles/umatic.dir/window_move.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/window_move.c > CMakeFiles/umatic.dir/window_move.i
 
 CMakeFiles/umatic.dir/window_move.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/window_move.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/window_move.c -o CMakeFiles/umatic.dir/window_move.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/window_move.c -o CMakeFiles/umatic.dir/window_move.s
 
 CMakeFiles/umatic.dir/window_move.o.requires:
 
@@ -2290,17 +2290,17 @@ CMakeFiles/umatic.dir/window_move.o.provides.build: CMakeFiles/umatic.dir/window
 
 
 CMakeFiles/umatic.dir/sb_decentred_step_poly.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/sb_decentred_step_poly.o: /Users/shashankhr/github/umatic/casource/sb_decentred_step_poly.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_94) "Building C object CMakeFiles/umatic.dir/sb_decentred_step_poly.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/sb_decentred_step_poly.o   -c /Users/shashankhr/github/umatic/casource/sb_decentred_step_poly.c
+CMakeFiles/umatic.dir/sb_decentred_step_poly.o: /Users/shashankhr/GitHub/umatic/casource/sb_decentred_step_poly.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_94) "Building C object CMakeFiles/umatic.dir/sb_decentred_step_poly.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/sb_decentred_step_poly.o   -c /Users/shashankhr/GitHub/umatic/casource/sb_decentred_step_poly.c
 
 CMakeFiles/umatic.dir/sb_decentred_step_poly.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/sb_decentred_step_poly.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/sb_decentred_step_poly.c > CMakeFiles/umatic.dir/sb_decentred_step_poly.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/sb_decentred_step_poly.c > CMakeFiles/umatic.dir/sb_decentred_step_poly.i
 
 CMakeFiles/umatic.dir/sb_decentred_step_poly.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/sb_decentred_step_poly.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/sb_decentred_step_poly.c -o CMakeFiles/umatic.dir/sb_decentred_step_poly.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/sb_decentred_step_poly.c -o CMakeFiles/umatic.dir/sb_decentred_step_poly.s
 
 CMakeFiles/umatic.dir/sb_decentred_step_poly.o.requires:
 
@@ -2314,17 +2314,17 @@ CMakeFiles/umatic.dir/sb_decentred_step_poly.o.provides.build: CMakeFiles/umatic
 
 
 CMakeFiles/umatic.dir/sb_diffuse_alloy_decentred_poly.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/sb_diffuse_alloy_decentred_poly.o: /Users/shashankhr/github/umatic/casource/sb_diffuse_alloy_decentred_poly.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_95) "Building C object CMakeFiles/umatic.dir/sb_diffuse_alloy_decentred_poly.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/sb_diffuse_alloy_decentred_poly.o   -c /Users/shashankhr/github/umatic/casource/sb_diffuse_alloy_decentred_poly.c
+CMakeFiles/umatic.dir/sb_diffuse_alloy_decentred_poly.o: /Users/shashankhr/GitHub/umatic/casource/sb_diffuse_alloy_decentred_poly.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_95) "Building C object CMakeFiles/umatic.dir/sb_diffuse_alloy_decentred_poly.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/sb_diffuse_alloy_decentred_poly.o   -c /Users/shashankhr/GitHub/umatic/casource/sb_diffuse_alloy_decentred_poly.c
 
 CMakeFiles/umatic.dir/sb_diffuse_alloy_decentred_poly.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/sb_diffuse_alloy_decentred_poly.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/sb_diffuse_alloy_decentred_poly.c > CMakeFiles/umatic.dir/sb_diffuse_alloy_decentred_poly.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/sb_diffuse_alloy_decentred_poly.c > CMakeFiles/umatic.dir/sb_diffuse_alloy_decentred_poly.i
 
 CMakeFiles/umatic.dir/sb_diffuse_alloy_decentred_poly.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/sb_diffuse_alloy_decentred_poly.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/sb_diffuse_alloy_decentred_poly.c -o CMakeFiles/umatic.dir/sb_diffuse_alloy_decentred_poly.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/sb_diffuse_alloy_decentred_poly.c -o CMakeFiles/umatic.dir/sb_diffuse_alloy_decentred_poly.s
 
 CMakeFiles/umatic.dir/sb_diffuse_alloy_decentred_poly.o.requires:
 
@@ -2338,17 +2338,17 @@ CMakeFiles/umatic.dir/sb_diffuse_alloy_decentred_poly.o.provides.build: CMakeFil
 
 
 CMakeFiles/umatic.dir/replacerand.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/replacerand.o: /Users/shashankhr/github/umatic/casource/replacerand.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_96) "Building C object CMakeFiles/umatic.dir/replacerand.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/replacerand.o   -c /Users/shashankhr/github/umatic/casource/replacerand.c
+CMakeFiles/umatic.dir/replacerand.o: /Users/shashankhr/GitHub/umatic/casource/replacerand.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_96) "Building C object CMakeFiles/umatic.dir/replacerand.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/replacerand.o   -c /Users/shashankhr/GitHub/umatic/casource/replacerand.c
 
 CMakeFiles/umatic.dir/replacerand.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/replacerand.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/replacerand.c > CMakeFiles/umatic.dir/replacerand.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/replacerand.c > CMakeFiles/umatic.dir/replacerand.i
 
 CMakeFiles/umatic.dir/replacerand.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/replacerand.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/replacerand.c -o CMakeFiles/umatic.dir/replacerand.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/replacerand.c -o CMakeFiles/umatic.dir/replacerand.s
 
 CMakeFiles/umatic.dir/replacerand.o.requires:
 
@@ -2362,17 +2362,17 @@ CMakeFiles/umatic.dir/replacerand.o.provides.build: CMakeFiles/umatic.dir/replac
 
 
 CMakeFiles/umatic.dir/olderror.o: CMakeFiles/umatic.dir/flags.make
-CMakeFiles/umatic.dir/olderror.o: /Users/shashankhr/github/umatic/casource/olderror.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_97) "Building C object CMakeFiles/umatic.dir/olderror.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/olderror.o   -c /Users/shashankhr/github/umatic/casource/olderror.c
+CMakeFiles/umatic.dir/olderror.o: /Users/shashankhr/GitHub/umatic/casource/olderror.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_97) "Building C object CMakeFiles/umatic.dir/olderror.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/umatic.dir/olderror.o   -c /Users/shashankhr/GitHub/umatic/casource/olderror.c
 
 CMakeFiles/umatic.dir/olderror.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/umatic.dir/olderror.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/github/umatic/casource/olderror.c > CMakeFiles/umatic.dir/olderror.i
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/shashankhr/GitHub/umatic/casource/olderror.c > CMakeFiles/umatic.dir/olderror.i
 
 CMakeFiles/umatic.dir/olderror.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/umatic.dir/olderror.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/github/umatic/casource/olderror.c -o CMakeFiles/umatic.dir/olderror.s
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/shashankhr/GitHub/umatic/casource/olderror.c -o CMakeFiles/umatic.dir/olderror.s
 
 CMakeFiles/umatic.dir/olderror.o.requires:
 
@@ -2587,7 +2587,7 @@ libumatic.a: CMakeFiles/umatic.dir/replacerand.o
 libumatic.a: CMakeFiles/umatic.dir/olderror.o
 libumatic.a: CMakeFiles/umatic.dir/build.make
 libumatic.a: CMakeFiles/umatic.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/shashankhr/github/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_98) "Linking C static library libumatic.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/shashankhr/GitHub/umatic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_98) "Linking C static library libumatic.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/umatic.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/umatic.dir/link.txt --verbose=$(VERBOSE)
 
@@ -2701,6 +2701,6 @@ CMakeFiles/umatic.dir/clean:
 .PHONY : CMakeFiles/umatic.dir/clean
 
 CMakeFiles/umatic.dir/depend:
-	cd /Users/shashankhr/github/umatic/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/shashankhr/github/umatic/casource /Users/shashankhr/github/umatic/casource /Users/shashankhr/github/umatic/build /Users/shashankhr/github/umatic/build /Users/shashankhr/github/umatic/build/CMakeFiles/umatic.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Users/shashankhr/GitHub/umatic/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/shashankhr/GitHub/umatic/casource /Users/shashankhr/GitHub/umatic/casource /Users/shashankhr/GitHub/umatic/build /Users/shashankhr/GitHub/umatic/build /Users/shashankhr/GitHub/umatic/build/CMakeFiles/umatic.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/umatic.dir/depend
 
